@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Autoregule" xml:space="preserve">
+    <value>Autorégulé</value>
+  </data>
+  <data name="Branchement" xml:space="preserve">
+    <value>Branchement</value>
+  </data>
+  <data name="CapaciteCondensateur" xml:space="preserve">
+    <value>Capacité du condensateur</value>
+  </data>
+  <data name="CleCaracteristiquePile" xml:space="preserve">
+    <value>Caractéristique de la pile</value>
+  </data>
+  <data name="CleCategoriePp" xml:space="preserve">
+    <value>Catégorie PP</value>
+  </data>
+  <data name="CleCommune" xml:space="preserve">
+    <value>Commune</value>
+  </data>
+  <data name="CleCommuneArrivee" xml:space="preserve">
+    <value>Commune d'arrivée</value>
+  </data>
+  <data name="CleCommuneDepart" xml:space="preserve">
+    <value>Commune de départ</value>
+  </data>
+  <data name="CleDeversoir" xml:space="preserve">
+    <value>Déversoir</value>
+  </data>
+  <data name="CleDiametre" xml:space="preserve">
+    <value>Diamètre</value>
+  </data>
+  <data name="CleEnsElectrique" xml:space="preserve">
+    <value>Ensemble électrique</value>
+  </data>
+  <data name="CleEquipement" xml:space="preserve">
+    <value>Equipement</value>
+  </data>
+  <data name="CleEquipementOrigine" xml:space="preserve">
+    <value>Clé d'origine Equipement</value>
+  </data>
+  <data name="CleLiaison" xml:space="preserve">
+    <value>Liaison</value>
+  </data>
+  <data name="CleNiveauSensibilite" xml:space="preserve">
+    <value>Niveau Sensibilité</value>
+  </data>
+  <data name="CleNomTiersAss" xml:space="preserve">
+    <value>Nom du tiers associé</value>
+  </data>
+  <data name="ClePortion" xml:space="preserve">
+    <value>Portion d'integrité</value>
+  </data>
+  <data name="ClePp" xml:space="preserve">
+    <value>PP de rattachement (principale)</value>
+  </data>
+  <data name="ClePp2" xml:space="preserve">
+    <value>PP de rattachement (secondaire)</value>
+  </data>
+  <data name="ClePpOrigine" xml:space="preserve">
+    <value>Clé d'origine PP</value>
+  </data>
+  <data name="CleRedresseur" xml:space="preserve">
+    <value>Redresseur</value>
+  </data>
+  <data name="CleRevetement" xml:space="preserve">
+    <value>Revêtement</value>
+  </data>
+  <data name="CleSecteur" xml:space="preserve">
+    <value>Secteur</value>
+  </data>
+  <data name="CleTypeAnode" xml:space="preserve">
+    <value>Type d'anode</value>
+  </data>
+  <data name="CleTypeDeversoir" xml:space="preserve">
+    <value>Type de déversoir</value>
+  </data>
+  <data name="CleTypeDrainage" xml:space="preserve">
+    <value>Type de drainage</value>
+  </data>
+  <data name="CleTypeEq" xml:space="preserve">
+    <value>Type Equipement</value>
+  </data>
+  <data name="CleTypeLiaison" xml:space="preserve">
+    <value>Type de liaison</value>
+  </data>
+  <data name="CleTypePriseDeTerre" xml:space="preserve">
+    <value>Type prise de terre</value>
+  </data>
+  <data name="CleTypeRi" xml:space="preserve">
+    <value>Type de raccord isolant</value>
+  </data>
+  <data name="CleUtilisateur" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="CodeGmao" xml:space="preserve">
+    <value>Code GMAO</value>
+  </data>
+  <data name="CodePosteGaz" xml:space="preserve">
+    <value>Code poste</value>
+  </data>
+  <data name="Commentaire" xml:space="preserve">
+    <value>Commentaire</value>
+  </data>
+  <data name="CommentairePositionnement" xml:space="preserve">
+    <value>Commentaire de positionnement</value>
+  </data>
+  <data name="Composition" xml:space="preserve">
+    <value>Composition</value>
+  </data>
+  <data name="CoordDebDeversoirLat" xml:space="preserve">
+    <value>Coordonnées WSG84 début du deversoir latitude</value>
+  </data>
+  <data name="CoordDebDeversoirLong" xml:space="preserve">
+    <value>Coordonnées WSG84 début du deversoir longitude</value>
+  </data>
+  <data name="CoordDebPriseTerreLat" xml:space="preserve">
+    <value>Coordonnées WSG84 début prise de terre latitude</value>
+  </data>
+  <data name="CoordDebPriseTerreLong" xml:space="preserve">
+    <value>Coordonnées WSG84 début prise de terre longitude</value>
+  </data>
+  <data name="CoordFinDeversoirLat" xml:space="preserve">
+    <value>Coordonnées WSG84 fin du deversoir latitude</value>
+  </data>
+  <data name="CoordFinDeversoirLong" xml:space="preserve">
+    <value>Coordonnées WSG84 fin du deversoir longitude</value>
+  </data>
+  <data name="CoordFinPriseTerreLat" xml:space="preserve">
+    <value>Coordonnées WSG84 fin prise de terre latitude</value>
+  </data>
+  <data name="CoordFinPriseTerreLong" xml:space="preserve">
+    <value>Coordonnées WSG84 fin prise de terre longitude</value>
+  </data>
+  <data name="CoordonneeGpsFiabilisee" xml:space="preserve">
+    <value>Coordonnées WGS84 fiabilisées</value>
+  </data>
+  <data name="CourantsAlternatifsInduits" xml:space="preserve">
+    <value>Courants alternatifs induits</value>
+  </data>
+  <data name="CourantsVagabonds" xml:space="preserve">
+    <value>Courants vagabonds continus</value>
+  </data>
+  <data name="DateControle" xml:space="preserve">
+    <value>Date de contrôle</value>
+  </data>
+  <data name="DateMajCommentaire" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DateMajEquipement" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DateMajPp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DateMiseEnService" xml:space="preserve">
+    <value>Date de mise en service</value>
+  </data>
+  <data name="DateMiseEnServiceRedresseur" xml:space="preserve">
+    <value>Date de mise en service du redresseur</value>
+  </data>
+  <data name="DateMiseEnServiceTelemesure" xml:space="preserve">
+    <value>Date de mise en service télémesure</value>
+  </data>
+  <data name="DatePose" xml:space="preserve">
+    <value>Date de pose</value>
+  </data>
+  <data name="DatePoseDeversoir" xml:space="preserve">
+    <value>Date de pose du déversoir</value>
+  </data>
+  <data name="DatePosePriseDeTerre" xml:space="preserve">
+    <value>Date pose prise de terre</value>
+  </data>
+  <data name="DatePrevisionRenouvellementPile" xml:space="preserve">
+    <value>Date prévisonnelle de renouvellement de la pile</value>
+  </data>
+  <data name="DateRenouvellementDeversoir" xml:space="preserve">
+    <value>Date prévisionnelle de renouvellement du déversoir</value>
+  </data>
+  <data name="ElectrodeEnterreeAmovible" xml:space="preserve">
+    <value>Electrode enterrée amovible</value>
+  </data>
+  <data name="EnumConfigElectNormale" xml:space="preserve">
+    <value>Configuration électrique normale</value>
+  </data>
+  <data name="EnumDureeEnrg" xml:space="preserve">
+    <value>Durée d'enregistrement</value>
+  </data>
+  <data name="EnumEtatElect" xml:space="preserve">
+    <value>Etat électrique</value>
+  </data>
+  <data name="EnumPeriodicite" xml:space="preserve">
+    <value>Periodicité</value>
+  </data>
+  <data name="EnumPolarisation" xml:space="preserve">
+    <value>Polarisation</value>
+  </data>
+  <data name="EnumStructureCplx" xml:space="preserve">
+    <value>Structure complexe</value>
+  </data>
+  <data name="EnumSurfaceTme" xml:space="preserve">
+    <value>Surface TME</value>
+  </data>
+  <data name="EnumSurfaceTms" xml:space="preserve">
+    <value>Surface TMS</value>
+  </data>
+  <data name="Idtroncon" xml:space="preserve">
+    <value>Numéro de tronçon</value>
+  </data>
+  <data name="IntensiteMaximaleSupportee" xml:space="preserve">
+    <value>Intensité maximale supportée</value>
+  </data>
+  <data name="IntensiteReglage" xml:space="preserve">
+    <value>Intensité de réglage</value>
+  </data>
+  <data name="LiaisonInterEe" xml:space="preserve">
+    <value>Liaison inter EE</value>
+  </data>
+  <data name="LiaisonTechnique" xml:space="preserve">
+    <value>Liaison technique</value>
+  </data>
+  <data name="Libelle" xml:space="preserve">
+    <value>Libellé</value>
+  </data>
+  <data name="LibelleEquipementTiers" xml:space="preserve">
+    <value>Libellé équipement tiers</value>
+  </data>
+  <data name="LibellePointCommun" xml:space="preserve">
+    <value>Libellé de point commun</value>
+  </data>
+  <data name="Longueur" xml:space="preserve">
+    <value>Longueur</value>
+  </data>
+  <data name="LongueurDeversoir" xml:space="preserve">
+    <value>Longueur ou profondeur du déversoir</value>
+  </data>
+  <data name="LongueurReseau" xml:space="preserve">
+    <value>Longueur de réseau</value>
+  </data>
+  <data name="MasseAuMetreLineaire" xml:space="preserve">
+    <value>Masse au mètre linéaire</value>
+  </data>
+  <data name="MesNiveauProtection" xml:space="preserve">
+    <value>Niveau de protection</value>
+  </data>
+  <data name="NombrePiles" xml:space="preserve">
+    <value>Nombre de pile</value>
+  </data>
+  <data name="NomTiersAssocie" xml:space="preserve">
+    <value>Nom du tiers associé</value>
+  </data>
+  <data name="PileAssociee" xml:space="preserve">
+    <value>Pile Associée</value>
+  </data>
+  <data name="PiSecteurs" xml:space="preserve">
+    <value>Secteurs</value>
+  </data>
+  <data name="Pk" xml:space="preserve">
+    <value>PK</value>
+  </data>
+  <data name="PortionIntegrite" xml:space="preserve">
+    <value>Portion integrité</value>
+  </data>
+  <data name="PositionGpsLat" xml:space="preserve">
+    <value>Coordonnées WGS84 latitude</value>
+  </data>
+  <data name="PositionGpsLong" xml:space="preserve">
+    <value>Coordonnées WGS84 longitude</value>
+  </data>
+  <data name="PositionnementPostal" xml:space="preserve">
+    <value>Position par adresse postal</value>
+  </data>
+  <data name="Pp" xml:space="preserve">
+    <value>PP</value>
+  </data>
+  <data name="Pp1" xml:space="preserve">
+    <value>PP</value>
+  </data>
+  <data name="PpJumelee" xml:space="preserve">
+    <value>PP Jumelée(s)</value>
+  </data>
+  <data name="PpPoste" xml:space="preserve">
+    <value>PP Poste</value>
+  </data>
+  <data name="PresenceDUneTelemesure" xml:space="preserve">
+    <value>Présence d'une télémesure</value>
+  </data>
+  <data name="PresenceEclateur" xml:space="preserve">
+    <value>Présence d'un éclateur</value>
+  </data>
+  <data name="PresencePcSurOuvrageTiers" xml:space="preserve">
+    <value>Présence d'une PC sur l'ouvrage tiers</value>
+  </data>
+  <data name="PresenceReenclencheur" xml:space="preserve">
+    <value>Présence réenclencheur automatique</value>
+  </data>
+  <data name="PresenceTelemesure" xml:space="preserve">
+    <value>Présence télémesure</value>
+  </data>
+  <data name="ProtectionTiersParUnite" xml:space="preserve">
+    <value>Protection équipement tiers par l'unité</value>
+  </data>
+  <data name="ResistanceInitPriseDeTerre" xml:space="preserve">
+    <value>Résistance initiale prise de terre</value>
+  </data>
+  <data name="Supprime" xml:space="preserve">
+    <value>Supprimé</value>
+  </data>
+  <data name="TemoinEnterreAmovible" xml:space="preserve">
+    <value>Temoin enterré amovible</value>
+  </data>
+  <data name="TemoinMetalliqueDeSurface" xml:space="preserve">
+    <value>Temoin de surface</value>
+  </data>
+  <data name="TensionReglage" xml:space="preserve">
+    <value>Tension de réglage</value>
+  </data>
+  <data name="TypeFluide" xml:space="preserve">
+    <value>Type de fluide transporté</value>
+  </data>
+  <data name="TypePoste" xml:space="preserve">
+    <value>Type de poste</value>
+  </data>
+  <data name="Visite" xml:space="preserve">
+    <value>Visite</value>
+  </data>
+  <data name="Visites" xml:space="preserve">
+    <value>Visites</value>
+  </data>
+  <data name="EqDrainageLiaisonsext" xml:space="preserve">
+    <value>Drainages associés</value>
+  </data>
+  <data name="EqSoutirageLiaisonsext" xml:space="preserve">
+    <value>Soutirage associés</value>
+  </data>
+  <data name="PpJumelee1" xml:space="preserve">
+    <value>PP Jumelée(s)</value>
+  </data>
+  <data name="Verrouille" xml:space="preserve">
+    <value>Verrouillé</value>
+  </data>
+  <data name="BypassCategoriePp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BkpCompositionEqs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BkpCompositionPortions" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CapaciteCondensateurNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChildChanges" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CoordonneeGpsFiabiliseeOnLoaded" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DateControleNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DateMiseEnServiceRedresseurNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EnumPeriodiciteNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GeoEnsElec" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IntensiteMaximaleSupporteeNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IntensiteReglageNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LibelleNavigateToPp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LibelleNavigateToPpText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LibellePrefix" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LibellePrincipale" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LibellePrincipaleRemove" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LibelleSufix" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListPartsOfLibelle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LongueurDeversoirNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LongueurNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NaviagtionPortionSecUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NaviagtionPP2Url" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NavigationLiaisonInterEe" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PkNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PointKiloDecouper" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PortionCibleItem" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SelectedPortion" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TensionReglageNullable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VisitePeriodeDebut" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VisitePeriodeFin" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CleNiveauSensibiliteExtended" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BypassPkLimitation" xml:space="preserve">
+    <value />
+  </data>
+</root>

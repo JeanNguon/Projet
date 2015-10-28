@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html lang="en" data-framework="typescript">
+	<head>
+		<meta charset="utf-8">
+		<title>Typescript & AngularJS • TodoMVC</title>
+		<link rel="stylesheet" href="css/styles.css">
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        	<script src="node_modules/angular/angular.js"></script>
+        <script src="http://include.jaydata.org/datajs-1.0.3.js"></script>
+        <script src="http://include.jaydata.org/jaydata.js"></script>
+        <script src="http://include.jaydata.org/jaydatamodules/angular.js"></script>
+		<style>[ng-cloak] { display: none; }</style>
+	</head>
+	<body>
+
+        <div data-ng-app="app" ng-controller="ProductEditorController">
+            <ul>
+                <li ng-repeat="category in categories">
+                    <a href="#" ng-click="$parent.selectedCategory=category">{{category.Category_Name}}</a>
+                </li>
+            </ul>
+            <ul>
+                <button ng-if="selectedCategory" ng-click="newProduct()">add new</button>
+                <li ng-repeat="product in categoryProducts">
+                    <a href="#" ng-click="$parent.selectedProduct = product">{{product.Product_Name}}</a>
+                </li>
+            </ul>
+            <form ng-if="selectedProduct">
+                <fieldset>
+                    <legend>{{selectedProduct.Product_Name}}</legend>
+                    <label>
+                        <span>ID:</span>
+                        <span>{{selectedProduct.Product_ID}}</span>
+                    </label>
+                    <label>
+                        <span>Product name</span>
+                        <input ng-model="selectedProduct.Product_Name" />
+                    </label>
+                    <label>
+                        <span>English name</span>
+                        <input ng-model="selectedProduct.English_Name" />
+                    </label>
+                    <label>
+                        <span>Unit Price</span>
+                        <input ng-model="selectedProduct.Unit_Price" />
+                    </label>
+                    <label>
+                        <span>Quantity Per Unit</span>
+                        <input ng-model="selectedProduct.Quantity_Per_Unit" />
+                    </label>
+                    <label>
+                        <span>Units in stock</span>
+                        <input type="number" ng-model="selectedProduct.Units_In_Stock" />
+                    </label>
+                    <label>
+                        <span>Discontinued</span>
+                        <input type="checkbox" ng-model="selectedProduct.Discontinued" />
+                    </label>
+                    <button ng-click="save()">Save</button>
+                    <button ng-click="remove()">Remove</button>
+                </fieldset>
+            </form>
+        </div>		
+	
+		<script src="js/Application.js"></script>
+	</body>
+</html>

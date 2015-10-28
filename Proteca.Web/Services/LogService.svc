@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Proteca.Web.Services.LogService" CodeBehind="LogService.svc.cs" %>

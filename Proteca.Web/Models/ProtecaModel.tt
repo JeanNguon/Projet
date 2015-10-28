@@ -1,0 +1,402 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".g.edmx" encoding="UTF8" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#
+    var edmx = XDocument.Parse(File.ReadAllText(this.Host.ResolvePath("ProtecaModel.edmx"), System.Text.Encoding.UTF8), System.Xml.Linq.LoadOptions.None);
+    var edmxns = edmx.Root.Name.Namespace;
+	
+    var csdl = edmx.Root.Element(edmxns + "Runtime").Element(edmxns + "ConceptualModels");
+    var csdlSchema = csdl.Elements().First();
+    var csdlns = csdlSchema.Name.Namespace;
+	var mappings = edmx.Root.Element(edmxns + "Runtime").Element(edmxns + "Mappings");
+	var mapping = mappings.Elements().First();
+	var mappingns = mapping.Name.Namespace;
+	var entityContainerMapping = mapping.Element(mappingns + "EntityContainerMapping");
+	var Designer = edmx.Root.Element(edmxns + "Designer");
+    var modelns = csdlSchema.Attribute("Namespace").Value;
+    var InheritiedObjects = new List<InheritedObject>();
+	
+	// Set Code Generation to Default Model
+	var DesignerOptions = Designer.Element(edmxns + "Options").Element(edmxns + "DesignerInfoPropertySet");
+	var CodeGenerationStrategy = DesignerOptions.Elements().Single(e=>e.Attribute("Name").Value.StartsWith("CodeGenerationStrategy"));
+	CodeGenerationStrategy.Attribute("Value").Value = "Par défaut";
+
+	
+	// RENAME ENTITIES
+	var EntityContainer = csdlSchema.Elements().First();
+
+	EntityContainer.Attribute("Name").Value = "ProtecaEntities";
+	entityContainerMapping.Attribute("CdmEntityContainer").Value = "ProtecaEntities";
+
+	// Mapping EntitySet
+	foreach (var entitySet in EntityContainer.Elements(csdlns + "EntitySet")) {
+		entitySet.Attribute("Name").Value = RenameEntity(entitySet.Attribute("Name").Value);
+		entitySet.Attribute("EntityType").Value = RenameEntity(entitySet.Attribute("EntityType").Value);
+	}
+
+	// Mapping AssociationSet
+	foreach (var associationSet in EntityContainer.Elements(csdlns + "AssociationSet")) {
+		associationSet.Attribute("Name").Value = RenameEntity(associationSet.Attribute("Name").Value);
+		associationSet.Attribute("Association").Value = RenameEntity(associationSet.Attribute("Association").Value);
+
+		foreach (var end in associationSet.Elements()) {
+			end.Attribute("Role").Value = RenameEntity(end.Attribute("Role").Value);
+			end.Attribute("EntitySet").Value = RenameEntity(end.Attribute("EntitySet").Value);
+		}
+	}
+
+	// Mapping EntityType
+	foreach (var entityType in csdlSchema.Elements(csdlns + "EntityType")) {
+		entityType.Attribute("Name").Value = RenameEntity(entityType.Attribute("Name").Value);
+
+		foreach (var key in entityType.Element(csdlns + "Key").Elements()) {
+			key.Attribute("Name").Value = RenameEntity(key.Attribute("Name").Value);
+		}
+
+		foreach (var property in entityType.Elements(csdlns + "Property")) {
+			property.Attribute("Name").Value = RenameEntity(property.Attribute("Name").Value);
+		}
+		
+		foreach (var navigationProperty in entityType.Elements(csdlns + "NavigationProperty")) {
+			navigationProperty.Attribute("Name").Value = RenameEntity(navigationProperty.Attribute("Name").Value);
+			navigationProperty.Attribute("Relationship").Value = RenameEntity(navigationProperty.Attribute("Relationship").Value);
+			navigationProperty.Attribute("FromRole").Value = RenameEntity(navigationProperty.Attribute("FromRole").Value);
+			navigationProperty.Attribute("ToRole").Value = RenameEntity(navigationProperty.Attribute("ToRole").Value);
+
+			if(navigationProperty.Attribute("Name").Value == "Pp" && entityType.Attribute("Name").Value.StartsWith("Eq") && entityType.Attribute("Name").Value != "EqEquipement")
+			{
+				navigationProperty.Attribute("Name").Value = "Pp2";
+			}
+		}
+	}
+
+	// Mapping Association
+	foreach (var association in csdlSchema.Elements(csdlns + "Association")) {
+		association.Attribute("Name").Value = RenameEntity(association.Attribute("Name").Value);
+
+		foreach (var child in association.Elements()) {
+            if (child.HasAttributes)
+            {
+                child.Attribute("Role").Value = RenameEntity(child.Attribute("Role").Value);
+                child.Attribute("Type").Value = RenameEntity(child.Attribute("Type").Value);
+            }
+
+            if (child.HasElements)
+            {
+                foreach (var constraint in child.Elements())
+                {
+					if(constraint.Attribute("Role") != null)
+					{
+						constraint.Attribute("Role").Value = RenameEntity(constraint.Attribute("Role").Value);
+
+						foreach (var propertyRef in constraint.Elements(csdlns + "PropertyRef")) {
+							propertyRef.Attribute("Name").Value = RenameEntity(propertyRef.Attribute("Name").Value);
+						}
+					}
+		        }
+            }
+		}
+	}
+
+	// RENAME MAPPING
+	// Mapping EntitySet
+	foreach (var entitySetMapping in entityContainerMapping.Elements(mappingns + "EntitySetMapping")) {
+		entitySetMapping.Attribute("Name").Value = RenameEntity(entitySetMapping.Attribute("Name").Value);
+
+		foreach (var entityTypeMapping in entitySetMapping.Elements(mappingns + "EntityTypeMapping")) {
+			entityTypeMapping.Attribute("TypeName").Value = RenameEntity(entityTypeMapping.Attribute("TypeName").Value);
+
+			foreach (var mappingFragment in entityTypeMapping.Elements(mappingns + "MappingFragment")) {
+				foreach (var scalarProperty in mappingFragment.Elements(mappingns + "ScalarProperty")) {
+					scalarProperty.Attribute("Name").Value = RenameEntity(scalarProperty.Attribute("Name").Value);
+				}
+			}	
+		}		
+	}
+	
+	// Mapping AssociationSet
+	foreach (var associationSetMapping in entityContainerMapping.Elements(mappingns + "AssociationSetMapping")) {
+		associationSetMapping.Attribute("Name").Value = RenameEntity(associationSetMapping.Attribute("Name").Value);
+		associationSetMapping.Attribute("TypeName").Value = RenameEntity(associationSetMapping.Attribute("TypeName").Value);
+
+		foreach (var endProperty in associationSetMapping.Elements(mappingns + "EndProperty")) {
+			endProperty.Attribute("Name").Value = RenameEntity(endProperty.Attribute("Name").Value);
+
+			foreach (var scalarProperty in endProperty.Elements(mappingns + "ScalarProperty")) {
+				scalarProperty.Attribute("Name").Value = RenameEntity(scalarProperty.Attribute("Name").Value);
+			}
+		}		
+	}	
+
+	// RENAME DESIGNER 
+	var DesignerDiagram = Designer.Element(edmxns + "Diagrams").Element(edmxns + "Diagram");
+
+	// Designer EntityShape
+	foreach (var entityTypeShape in DesignerDiagram.Elements(csdlns + "EntityTypeShape")) {
+		entityTypeShape.Attribute("Name").Value = RenameEntity(entityTypeShape.Attribute("Name").Value);
+	}	
+
+	// Designer Association
+	foreach (var associationConnector in DesignerDiagram.Elements(csdlns + "AssociationConnector")) {
+		associationConnector.Attribute("Association").Value = RenameEntity(associationConnector.Attribute("Association").Value);
+	}
+
+	WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+	
+	// SET INHERITANCE AUTOMATICALLY
+
+    // GET LIST OF INHERITS
+    foreach (var a in csdlSchema.Elements(csdlns + "Association").Where(ca => (ca.Attribute("Name").Value.StartsWith("FkEq") && ca.Attribute("Name").Value.EndsWith("EqEquip")) || (ca.Attribute("Name").Value.StartsWith("FkHisto") && ca.Attribute("Name").Value.EndsWith("HistoEq")) || (ca.Attribute("Name").Value.StartsWith("FkAnAnaly") && ca.Attribute("Name").Value.EndsWith("AnAnaly")) )) {
+        InheritedObject io = new InheritedObject() { ForeignKey = a.Attribute("Name").Value };
+
+        try {
+            io.QualifiedParent = a.Elements(csdlns + "End").Single(cae => cae.Attribute("Multiplicity").Value == "1").Attribute("Type").Value;
+            io.QualifiedChild = a.Elements(csdlns + "End").Single(cae => cae.Attribute("Multiplicity").Value == "0..1").Attribute("Type").Value;
+            InheritiedObjects.Add(io);
+
+        } catch {
+            Warning("Foreign key '" + io.ForeignKey + "' doesn't contain parent and child roles with the correct multiplicity.");
+        }   
+    }
+
+    // SET ABSTRACT OBJECTS
+    foreach (var ao in InheritiedObjects.Distinct()) {
+        WriteLine("<!-- ABSTRACT: {0} -->", ao.Parent);
+        csdlSchema.Elements(csdlns + "EntityType")
+            .Single(et => et.Attribute("Name").Value == ao.Parent)
+            .SetAttributeValue("Abstract", "true");
+    }    
+
+    // SET INHERITANCE
+    foreach (var io in InheritiedObjects) {
+
+        XElement EntityType = csdlSchema.Elements(csdlns + "EntityType").Single(cet => cet.Attribute("Name").Value == io.Child);
+        WriteLine("<!-- INHERITED OBJECT: {0} -->", io.Child);
+
+        // REMOVE THE ASSOCIATION SET
+        csdlSchema.Element(csdlns + "EntityContainer")
+            .Elements(csdlns + "AssociationSet")
+            .Single(cas => cas.Attribute("Association").Value == modelns + "." + io.ForeignKey)
+            .Remove();
+        WriteLine("<!--     ASSOCIATION SET {0} REMOVED -->", modelns + "." + io.ForeignKey);
+
+        // REMOVE THE ASSOCIATION
+        csdlSchema.Elements(csdlns + "Association")
+            .Single(ca => ca.Attribute("Name").Value == io.ForeignKey)
+            .Remove();
+        WriteLine("<!--     ASSOCIATION {0} REMOVED -->", io.ForeignKey);
+
+        // GET THE CHILD ENTITY SET NAME
+        io.ChildSet = csdlSchema.Element(csdlns + "EntityContainer")
+            .Elements(csdlns + "EntitySet")
+            .Single(es => es.Attribute("EntityType").Value == io.QualifiedChild)
+            .Attribute("Name").Value;
+
+        // GET THE PARENT ENTITY SET NAME
+        io.ParentSet = csdlSchema.Element(csdlns + "EntityContainer")
+            .Elements(csdlns + "EntitySet")
+            .Single(es => es.Attribute("EntityType").Value == io.QualifiedParent)
+            .Attribute("Name").Value;
+
+        // UPDATE ALL ASSOCIATION SETS THAT REFERENCE THE CHILD ENTITY SET
+        foreach(var a in csdlSchema.Element(csdlns + "EntityContainer").Elements(csdlns + "AssociationSet")) {
+            foreach (var e in a.Elements(csdlns + "End")) {
+                if (e.Attribute("EntitySet").Value == io.ChildSet) e.SetAttributeValue("EntitySet", io.ParentSet);
+            }
+        }           
+
+        // REMOVE THE ENTITY SET
+        csdlSchema.Element(csdlns + "EntityContainer")
+            .Elements(csdlns + "EntitySet")
+            .Single(es => es.Attribute("EntityType").Value == io.QualifiedChild)
+            .Remove();
+        WriteLine("<!--     ENTITY SET {0} REMOVED -->", io.QualifiedChild);
+
+        // SET BASE TYPE
+        EntityType.SetAttributeValue("BaseType", io.QualifiedParent);
+        WriteLine("<!--     BASE TYPE SET TO {0} -->", io.QualifiedParent);
+
+        // REMOVE KEY
+        EntityType.Element(csdlns + "Key").Remove();
+        WriteLine("<!--     KEY REMOVED -->");
+
+        // REMOVE ID PROPERTY
+        EntityType.Elements(csdlns + "Property")
+            .Where(etp => etp.Attribute("Name").Value == "CleEquipement" || etp.Attribute("Name").Value == "CleHistoEquipement" || etp.Attribute("Name").Value == "CleAnalyse")
+            .Remove();
+        WriteLine("<!--     ID PROPERTY REMOVED -->");
+		
+        // REMOVE NAVIGATION PROPERTIES THAT REFERENCE THE OLD ASSOCIATION
+        List<XElement> NavList = new List<XElement>();
+        foreach (var np in csdlSchema.Descendants(csdlns + "NavigationProperty")) {
+            if (np.Attribute("Relationship").Value == modelns + "." + io.ForeignKey) {
+                WriteLine("<!--     REMOVING NAVIGATION PROPERTY {0} FROM {1} -->", np.Attribute("Name").Value, np.Parent.Attribute("Name").Value);
+                NavList.Add(np);
+
+            }
+        }
+        NavList.ForEach(n => n.Remove());
+		
+        // REMOVE NAVIGATION PROPERTIES FROM THE PARENT THAT POINTS TO A FOREIGN KEY OF THE CHILD
+        foreach (var np in EntityType.Elements(csdlns + "NavigationProperty")) {
+			var tmp1 = csdlSchema.Elements(csdlns + "EntityType")
+                .Single(cet => cet.Attribute("Name").Value == io.Parent)
+                .Elements(csdlns + "NavigationProperty")
+                .FirstOrDefault(pet => pet.Attribute("Name").Value == np.Attribute("Name").Value && pet.Attribute("FromRole").Value != io.Parent);
+				if(tmp1 != null)
+			{
+			WriteLine("<!--     REMOVING NAVIGATION PROPERTY {0} FROM {1}, From {2} -->", np.Attribute("Name").Value, io.Parent, tmp1.Attribute("FromRole").Value);
+            csdlSchema.Elements(csdlns + "EntityType")
+                .Single(cet => cet.Attribute("Name").Value == io.Parent)
+                .Elements(csdlns + "NavigationProperty")
+                .Where(pet => pet.Attribute("Name").Value == np.Attribute("Name").Value && pet.Attribute("FromRole").Value != io.Parent)
+                .Remove();
+
+				}
+			var tmp = csdlSchema.Elements(csdlns + "EntityType")
+                .Single(cet => cet.Attribute("Name").Value == io.Parent)
+                .Elements(csdlns + "NavigationProperty")
+                .FirstOrDefault(pet => pet.Attribute("Name").Value == np.Attribute("Name").Value && pet.Attribute("FromRole").Value == io.Parent);
+            if(tmp != null)
+			{
+				WriteLine("<!--     RENAME NAVIGATION PROPERTY {0} FROM {1} -->", tmp.Attribute("Name").Value, io.Parent + io.Parent);
+				tmp.Attribute("Name").Value = io.Parent + io.Parent;
+			}
+        }
+
+		// UPDATE MAPPING
+		// Mapping EntitySet
+		var parentEntitySetMapping = entityContainerMapping.Elements(mappingns + "EntitySetMapping").Single(cet => cet.Attribute("Name").Value == io.Parent);
+		var childEntitySetMapping = entityContainerMapping.Elements(mappingns + "EntitySetMapping").Single(cet => cet.Attribute("Name").Value == io.Child);
+
+		// Update Parent EntityTypeMapping
+		if(parentEntitySetMapping.Elements(mappingns + "EntityTypeMapping").Any(cet => cet.Attribute("TypeName").Value == io.QualifiedParent))
+		{
+			parentEntitySetMapping.Elements(mappingns + "EntityTypeMapping").Single(cet => cet.Attribute("TypeName").Value == io.QualifiedParent).Attribute("TypeName").Value = "IsTypeOf("+io.QualifiedParent+")";
+		}
+		
+		// Update Child EntityTypeMapping
+		var childEntityTypeMapping = childEntitySetMapping.Elements(mappingns + "EntityTypeMapping").First();
+
+		childEntityTypeMapping.Attribute("TypeName").Value = "IsTypeOf("+io.QualifiedChild+")";
+
+		// Add Child EntityTypeMapping to Parent EntitySetMapping
+		parentEntitySetMapping.Add(childEntityTypeMapping);
+
+		// Remove Child EntitySetMapping
+		childEntitySetMapping.Remove();
+
+        WriteLine("<!-- -->");
+    }
+	
+    Write(edmx.ToString());
+
+	//edmx.Save(this.Host.ResolvePath("ProtecaModel.edmx"));
+
+#>
+<#+
+
+static string RenameEntity(string EntityName)
+{
+    string returnName = "";
+    var str = EntityName;
+    if (str.Contains("."))
+    {
+        returnName += str.Substring(0, str.IndexOf('.') + 1);
+        str = str.Substring(str.IndexOf('.') + 1);
+    }
+
+    string[] splitNames = str.Split(new List<char>() { '_' }.ToArray(), StringSplitOptions.RemoveEmptyEntries);        
+
+    foreach (var item in splitNames)
+    {
+        /*if (item.ToUpper() == "REF" || item.ToUpper() == "USR" || item.ToUpper() == "MES" || item.ToUpper() == "INS" || item.ToUpper() == "GEO")
+        {
+            continue;
+        }*/
+
+        returnName += item.Substring(0, 1).ToUpper();
+
+        if (item.Length > 1)
+        {
+            returnName += item.Substring(1).ToLower();
+        }
+    }
+
+    return returnName;
+}
+
+static string RenameParameter(string ParameterName)
+{
+    string returnName = "";
+    var str = ParameterName;
+    if (str.Contains("."))
+    {
+        returnName += str.Substring(0, str.IndexOf('.') + 1);
+        str = str.Substring(str.IndexOf('.') + 1);
+    }
+
+    string[] splitNames = str.Split(new List<char>() { '_' }.ToArray(), StringSplitOptions.RemoveEmptyEntries);
+
+    if (str.StartsWith("_"))
+    {
+        returnName += "_";
+    }       
+
+    foreach (var item in splitNames)
+    {
+		/*if (item.ToUpper() == "REF" || item.ToUpper() == "USR" || item.ToUpper() == "MES" || item.ToUpper() == "INS" || item.ToUpper() == "GEO")
+        {
+            continue;
+        }*/
+        if (returnName == String.Empty || returnName.EndsWith(".") || returnName.EndsWith("_"))
+        {
+            returnName += item.Substring(0, 1).ToLower();
+        }
+        else
+        {
+            returnName += item.Substring(0, 1).ToUpper();
+        }
+        if (item.Length > 1)
+        {
+            returnName += item.Substring(1).ToLower();
+        }
+    }
+
+    return returnName;
+}
+
+    public class InheritedObject : IEquatable<InheritedObject> {
+        public string ForeignKey { get; set; }
+        public string QualifiedParent { get; set; }
+        public string QualifiedChild { get; set; }          
+        public string Parent { get { return RemoveNamespace(QualifiedParent); } }
+        public string Child { get { return RemoveNamespace(QualifiedChild); } }
+        public string ParentSet { get; set; }
+        public string ChildSet { get; set; }
+
+        private string RemoveNamespace(string expr) {
+            if (expr.LastIndexOf(".") > -1) 
+                return expr.Substring(expr.LastIndexOf(".") + 1);
+            else
+                return expr;
+        }
+
+        public bool Equals(InheritedObject other) {
+            if (Object.ReferenceEquals(other, null)) return false;
+            if (Object.ReferenceEquals(this, other)) return true;
+            return QualifiedParent.Equals(other.QualifiedParent);
+        }
+
+        public override int GetHashCode() {
+            return QualifiedParent.GetHashCode();
+        }
+    }
+#>

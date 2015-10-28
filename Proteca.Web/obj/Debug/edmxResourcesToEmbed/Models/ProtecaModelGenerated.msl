@@ -1,0 +1,1164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProtecaModelStoreContainer" CdmEntityContainer="ProtecaEntities">
+    <EntitySetMapping Name="RefParametre">
+      <EntityTypeMapping TypeName="ProtecaModel.RefParametre">
+        <MappingFragment StoreEntitySet="REF_PARAMETRE">
+          <ScalarProperty Name="LibUnite" ColumnName="LIB_UNITE" />
+          <ScalarProperty Name="TypeDeDonnee" ColumnName="TYPE_DE_DONNEE" />
+          <ScalarProperty Name="CodeGroupe" ColumnName="CODE_GROUPE" />
+          <ScalarProperty Name="NumeroOrdre" ColumnName="NUMERO_ORDRE" />
+          <ScalarProperty Name="Valeur" ColumnName="VALEUR" />
+          <ScalarProperty Name="LibelleLong" ColumnName="LIBELLE_LONG" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleParametre" ColumnName="CLE_PARAMETRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeoEnsembleElectrique">
+      <EntityTypeMapping TypeName="ProtecaModel.GeoEnsembleElectrique">
+        <MappingFragment StoreEntitySet="GEO_Ensemble_Electrique">
+          <ScalarProperty Name="EnumStructureCplx" ColumnName="ENUM_STRUCTURE_CPLX" />
+          <ScalarProperty Name="CleSecteur" ColumnName="CLE_SECTEUR" />
+          <ScalarProperty Name="CleRegion" ColumnName="CLE_REGION" />
+          <ScalarProperty Name="CleAgence" ColumnName="CLE_AGENCE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+          <ScalarProperty Name="Id" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortionDates">
+      <EntityTypeMapping TypeName="ProtecaModel.PortionDates">
+        <MappingFragment StoreEntitySet="Portion_Dates">
+          <ScalarProperty Name="DateCf" ColumnName="DATE_CF" />
+          <ScalarProperty Name="DateEcd" ColumnName="DATE_ECD" />
+          <ScalarProperty Name="DateEg" ColumnName="DATE_EG" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+          <ScalarProperty Name="Id" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PpEquipement">
+      <EntityTypeMapping TypeName="ProtecaModel.PpEquipement">
+        <MappingFragment StoreEntitySet="PP_EQUIPEMENT">
+          <ScalarProperty Name="LibellePp" ColumnName="LIBELLE_PP" />
+          <ScalarProperty Name="CodeEquipement" ColumnName="CODE_EQUIPEMENT" />
+          <ScalarProperty Name="LibelleType" ColumnName="LIBELLE_TYPE" />
+          <ScalarProperty Name="CleTypeEq" ColumnName="CLE_TYPE_EQ" />
+          <ScalarProperty Name="LibelleEquipement" ColumnName="LIBELLE_EQUIPEMENT" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="Id" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TourneePpEq">
+      <EntityTypeMapping TypeName="ProtecaModel.TourneePpEq">
+        <MappingFragment StoreEntitySet="Tournee_PP_EQ">
+          <ScalarProperty Name="NumeroOrdre" ColumnName="numero_ordre" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="cle_ens_electrique" />
+          <ScalarProperty Name="ClePortion" ColumnName="cle_portion" />
+          <ScalarProperty Name="CleRegion" ColumnName="cle_region" />
+          <ScalarProperty Name="CleAgence" ColumnName="cle_agence" />
+          <ScalarProperty Name="LibelleSecteur" ColumnName="libelle_secteur" />
+          <ScalarProperty Name="CleSecteur" ColumnName="cle_secteur" />
+          <ScalarProperty Name="CleEquipement" ColumnName="cle_equipement" />
+          <ScalarProperty Name="ClePp" ColumnName="cle_pp" />
+          <ScalarProperty Name="Libelle" ColumnName="libelle" />
+          <ScalarProperty Name="EnumTypeEval" ColumnName="enum_type_eval" />
+          <ScalarProperty Name="LibelleTournee" ColumnName="libelle_Tournee" />
+          <ScalarProperty Name="CleTournee" ColumnName="cle_tournee" />
+          <ScalarProperty Name="Id" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlerteDetail">
+      <EntityTypeMapping TypeName="ProtecaModel.AlerteDetail">
+        <MappingFragment StoreEntitySet="Alerte_Detail">
+          <ScalarProperty Name="CodeEquipement" ColumnName="CODE_EQUIPEMENT" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="Type" ColumnName="TYPE" />
+          <ScalarProperty Name="LibelleType" ColumnName="LIBELLE_TYPE" />
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="Date" ColumnName="DATE" />
+          <ScalarProperty Name="CleAlerte" ColumnName="CLE_ALERTE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="Pk" ColumnName="PK" />
+          <ScalarProperty Name="LibellePortion" ColumnName="LIBELLE_PORTION" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+          <ScalarProperty Name="CleSecteur" ColumnName="CLE_SECTEUR" />
+          <ScalarProperty Name="CleAgence" ColumnName="CLE_AGENCE" />
+          <ScalarProperty Name="CleRegion" ColumnName="CLE_REGION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeoEnsElecPortion">
+      <EntityTypeMapping TypeName="ProtecaModel.GeoEnsElecPortion">
+        <MappingFragment StoreEntitySet="GEO_ENS_ELEC_PORTION">
+          <ScalarProperty Name="PortionSupprime" ColumnName="PORTION_SUPPRIME" />
+          <ScalarProperty Name="Code" ColumnName="CODE" />
+          <ScalarProperty Name="NbPp" ColumnName="NB_PP" />
+          <ScalarProperty Name="CleSecteur" ColumnName="CLE_SECTEUR" />
+          <ScalarProperty Name="CleRegion" ColumnName="CLE_REGION" />
+          <ScalarProperty Name="CleAgence" ColumnName="CLE_AGENCE" />
+          <ScalarProperty Name="EnumStructureCplx" ColumnName="ENUM_STRUCTURE_CPLX" />
+          <ScalarProperty Name="LibelleEe" ColumnName="LIBELLE_EE" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+          <ScalarProperty Name="LongueurPortion" ColumnName="LONGUEUR_PORTION" />
+          <ScalarProperty Name="LibellePortion" ColumnName="LIBELLE_PORTION" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="Id" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeoEnsElecPortionEqPp">
+      <EntityTypeMapping TypeName="ProtecaModel.GeoEnsElecPortionEqPp">
+        <MappingFragment StoreEntitySet="GEO_ENS_ELEC_PORTION_EQ_PP">
+          <ScalarProperty Name="CodeEquipement" ColumnName="CODE_EQUIPEMENT" />
+          <ScalarProperty Name="LibelleEquipement" ColumnName="LIBELLE_EQUIPEMENT" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+          <ScalarProperty Name="LibellePp" ColumnName="LIBELLE_PP" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="CleSecteur" ColumnName="CLE_SECTEUR" />
+          <ScalarProperty Name="CleRegion" ColumnName="CLE_REGION" />
+          <ScalarProperty Name="CleAgence" ColumnName="CLE_AGENCE" />
+          <ScalarProperty Name="Code" ColumnName="CODE" />
+          <ScalarProperty Name="EnumStructureCplx" ColumnName="ENUM_STRUCTURE_CPLX" />
+          <ScalarProperty Name="LibelleEe" ColumnName="LIBELLE_EE" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+          <ScalarProperty Name="LibellePortion" ColumnName="LIBELLE_PORTION" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="Id" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnAction">
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.AnAction)">
+        <MappingFragment StoreEntitySet="AN_ACTION">
+          <ScalarProperty Name="TypeEval" ColumnName="TYPE_EVAL" />
+          <ScalarProperty Name="CleAction" ColumnName="CLE_ACTION" />
+          <ScalarProperty Name="CleUtilisateurModification" ColumnName="CLE_UTILISATEUR_MODIFICATION" />
+          <ScalarProperty Name="EnumStatut" ColumnName="ENUM_STATUT" />
+          <ScalarProperty Name="CleUtilisateurCreation" ColumnName="CLE_UTILISATEUR_CREATION" />
+          <ScalarProperty Name="CleParametreAction" ColumnName="CLE_PARAMETRE_ACTION" />
+          <ScalarProperty Name="CleAnalyse" ColumnName="CLE_ANALYSE" />
+          <ScalarProperty Name="ConstatAnomalie" ColumnName="CONSTAT_ANOMALIE" />
+          <ScalarProperty Name="DateCreation" ColumnName="DATE_CREATION" />
+          <ScalarProperty Name="DateModification" ColumnName="DATE_MODIFICATION" />
+          <ScalarProperty Name="EntiteTraitement" ColumnName="ENTITE_TRAITEMENT" />
+          <ScalarProperty Name="Description" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="Quantite" ColumnName="QUANTITE" />
+          <ScalarProperty Name="DateRealisationTravaux" ColumnName="DATE_REALISATION_TRAVAUX" />
+          <ScalarProperty Name="CommentaireStatut" ColumnName="COMMENTAIRE_STATUT" />
+          <ScalarProperty Name="ProgrammeBudgetaire" ColumnName="PROGRAMME_BUDGETAIRE" />
+          <ScalarProperty Name="TempsTravailGlobalReel" ColumnName="TEMPS_TRAVAIL_GLOBAL_REEL" />
+          <ScalarProperty Name="CoutGlobalReel" ColumnName="COUT_GLOBAL_REEL" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="NumActionPc" ColumnName="NUM_ACTION_PC" />
+          <ScalarProperty Name="DateDebut" ColumnName="DATE_DEBUT" />
+          <ScalarProperty Name="DateCloture" ColumnName="DATE_CLOTURE" />
+          <ScalarProperty Name="CleUtilisateurAgent" ColumnName="CLE_UTILISATEUR_AGENT" />
+          <ScalarProperty Name="CleUtilisateurResponsable" ColumnName="CLE_UTILISATEUR_RESPONSABLE" />
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnAnalyse">
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.AnAnalyse)">
+        <MappingFragment StoreEntitySet="AN_ANALYSE">
+          <ScalarProperty Name="DateEdition" ColumnName="DATE_EDITION" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="DateAnalyse" ColumnName="DATE_ANALYSE" />
+          <ScalarProperty Name="EnumEtatPc" ColumnName="ENUM_ETAT_PC" />
+          <ScalarProperty Name="CleUtilisateur" ColumnName="CLE_UTILISATEUR" />
+          <ScalarProperty Name="CleAnalyse" ColumnName="CLE_ANALYSE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.AnAnalyseEe)">
+        <MappingFragment StoreEntitySet="AN_ANALYSE_EE">
+          <ScalarProperty Name="RefRapportAction" ColumnName="REF_RAPPORT_ACTION" />
+          <ScalarProperty Name="DateFinPeriode" ColumnName="DATE_FIN_PERIODE" />
+          <ScalarProperty Name="DateDebutPeriode" ColumnName="DATE_DEBUT_PERIODE" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+          <ScalarProperty Name="CleAnalyse" ColumnName="CLE_ANALYSE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.AnAnalyseSerieMesure)">
+        <MappingFragment StoreEntitySet="AN_ANALYSE_SERIE_MESURE">
+          <ScalarProperty Name="CleVisite" ColumnName="CLE_VISITE" />
+          <ScalarProperty Name="CleAnalyse" ColumnName="CLE_ANALYSE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriePp">
+      <EntityTypeMapping TypeName="ProtecaModel.CategoriePp">
+        <MappingFragment StoreEntitySet="CATEGORIE_PP">
+          <ScalarProperty Name="NumeroOrdre" ColumnName="NUMERO_ORDRE" />
+          <ScalarProperty Name="NonLieAUnEquipement" ColumnName="NON_LIE_A_UN_EQUIPEMENT" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleNiveauSensibilite" ColumnName="CLE_NIVEAU_SENSIBILITE" />
+          <ScalarProperty Name="CleTypeEq" ColumnName="CLE_TYPE_EQ" />
+          <ScalarProperty Name="CleCategoriePp" ColumnName="CLE_CATEGORIE_PP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Compositions">
+      <EntityTypeMapping TypeName="ProtecaModel.Composition">
+        <MappingFragment StoreEntitySet="COMPOSITION">
+          <ScalarProperty Name="CleEqTmp" ColumnName="CLE_EQ_TMP" />
+          <ScalarProperty Name="NumeroOrdre" ColumnName="NUMERO_ORDRE" />
+          <ScalarProperty Name="EnumTypeEval" ColumnName="ENUM_TYPE_EVAL" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="CleTournee" ColumnName="CLE_TOURNEE" />
+          <ScalarProperty Name="CleComposition" ColumnName="CLE_COMPOSITION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnsembleElectrique">
+      <EntityTypeMapping TypeName="ProtecaModel.EnsembleElectrique">
+        <MappingFragment StoreEntitySet="ENSEMBLE_ELECTRIQUE">
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="DateMajCommentaire" ColumnName="DATE_MAJ_COMMENTAIRE" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="LongueurReseau" ColumnName="LONGUEUR_RESEAU" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="Code" ColumnName="CODE" />
+          <ScalarProperty Name="EnumStructureCplx" ColumnName="ENUM_STRUCTURE_CPLX" />
+          <ScalarProperty Name="EnumPeriodicite" ColumnName="ENUM_PERIODICITE" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EqDrainageLiaisonsext">
+      <EntityTypeMapping TypeName="ProtecaModel.EqDrainageLiaisonsext">
+        <MappingFragment StoreEntitySet="EQ_DRAINAGE_LIAISONSEXT">
+          <ScalarProperty Name="CleDrainage" ColumnName="CLE_DRAINAGE" />
+          <ScalarProperty Name="CleLiaisonExt" ColumnName="CLE_LIAISON_EXT" />
+          <ScalarProperty Name="CleDrainageLext" ColumnName="CLE_DRAINAGE_LEXT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EqEquipement">
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqEquipement)">
+        <MappingFragment StoreEntitySet="EQ_EQUIPEMENT">
+          <ScalarProperty Name="DateMajEquipement" ColumnName="DATE_MAJ_EQUIPEMENT" />
+          <ScalarProperty Name="DateMajCommentaire" ColumnName="DATE_MAJ_COMMENTAIRE" />
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="DateMiseEnService" ColumnName="DATE_MISE_EN_SERVICE" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleUtilisateur" ColumnName="CLE_UTILISATEUR" />
+          <ScalarProperty Name="CleTypeEq" ColumnName="CLE_TYPE_EQ" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="CleEquipementOrigine" ColumnName="CLE_EQUIPEMENT_ORIGINE" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqAnodeGalvanique)">
+        <MappingFragment StoreEntitySet="EQ_ANODE_GALVANIQUE">
+          <ScalarProperty Name="PileAssociee" ColumnName="PILE_ASSOCIEE" />
+          <ScalarProperty Name="CleTypeAnode" ColumnName="CLE_TYPE_ANODE" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqDispoEcoulementCourantsAlternatifs)">
+        <MappingFragment StoreEntitySet="EQ_DISPO_ECOULEMENT_COURANTS_ALTERNATIFS">
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="CoordFinPriseTerreLong" ColumnName="COORD_FIN_PRISE_TERRE_LONG" />
+          <ScalarProperty Name="CoordFinPriseTerreLat" ColumnName="COORD_FIN_PRISE_TERRE_LAT" />
+          <ScalarProperty Name="CoordDebPriseTerreLong" ColumnName="COORD_DEB_PRISE_TERRE_LONG" />
+          <ScalarProperty Name="CoordDebPriseTerreLat" ColumnName="COORD_DEB_PRISE_TERRE_LAT" />
+          <ScalarProperty Name="ResistanceInitPriseDeTerre" ColumnName="RESISTANCE_INIT_PRISE_DE_TERRE" />
+          <ScalarProperty Name="DatePosePriseDeTerre" ColumnName="DATE_POSE_PRISE_DE_TERRE" />
+          <ScalarProperty Name="CapaciteCondensateur" ColumnName="CAPACITE_CONDENSATEUR" />
+          <ScalarProperty Name="CleTypePriseDeTerre" ColumnName="CLE_TYPE_PRISE_DE_TERRE" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqDrainage)">
+        <MappingFragment StoreEntitySet="EQ_DRAINAGE">
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="IntensiteMaximaleSupportee" ColumnName="INTENSITE_MAXIMALE_SUPPORTEE" />
+          <ScalarProperty Name="CleTypeDrainage" ColumnName="CLE_TYPE_DRAINAGE" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqFourreauMetallique)">
+        <MappingFragment StoreEntitySet="EQ_FOURREAU_METALLIQUE">
+          <ScalarProperty Name="Longueur" ColumnName="LONGUEUR" />
+          <ScalarProperty Name="ClePp2" ColumnName="CLE_PP2" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqLiaisonExterne)">
+        <MappingFragment StoreEntitySet="EQ_LIAISON_EXTERNE">
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="LibellePointCommun" ColumnName="LIBELLE_POINT_COMMUN" />
+          <ScalarProperty Name="LibelleEquipementTiers" ColumnName="LIBELLE_EQUIPEMENT_TIERS" />
+          <ScalarProperty Name="LiaisonTechnique" ColumnName="LIAISON_TECHNIQUE" />
+          <ScalarProperty Name="TypeFluide" ColumnName="TYPE_FLUIDE" />
+          <ScalarProperty Name="ProtectionTiersParUnite" ColumnName="PROTECTION_TIERS_PAR_UNITE" />
+          <ScalarProperty Name="PresencePcSurOuvrageTiers" ColumnName="PRESENCE_PC_SUR_OUVRAGE_TIERS" />
+          <ScalarProperty Name="CleNomTiersAss" ColumnName="CLE_NOM_TIERS_ASS" />
+          <ScalarProperty Name="CleTypeLiaison" ColumnName="CLE_TYPE_LIAISON" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqLiaisonInterne)">
+        <MappingFragment StoreEntitySet="EQ_LIAISON_INTERNE">
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="LibellePointCommun" ColumnName="LIBELLE_POINT_COMMUN" />
+          <ScalarProperty Name="LiaisonInterEe" ColumnName="LIAISON_INTER_EE" />
+          <ScalarProperty Name="CleLiaisonInterEe" ColumnName="CLE_LIAISON_INTER_EE" />
+          <ScalarProperty Name="CleTypeLiaison" ColumnName="CLE_TYPE_LIAISON" />
+          <ScalarProperty Name="ClePp2" ColumnName="CLE_PP2" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqPile)">
+        <MappingFragment StoreEntitySet="EQ_PILE">
+          <ScalarProperty Name="NombrePiles" ColumnName="NOMBRE_PILES" />
+          <ScalarProperty Name="DatePrevisionRenouvellementPile" ColumnName="DATE_PREVISION_RENOUVELLEMENT_PILE" />
+          <ScalarProperty Name="DateRenouvellementDeversoir" ColumnName="DATE_RENOUVELLEMENT_DEVERSOIR" />
+          <ScalarProperty Name="CleTypeDeversoir" ColumnName="CLE_TYPE_DEVERSOIR" />
+          <ScalarProperty Name="CleCaracteristiquePile" ColumnName="CLE_CARACTERISTIQUE_PILE" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqPostegaz)">
+        <MappingFragment StoreEntitySet="EQ_POSTEGAZ">
+          <ScalarProperty Name="TypePoste" ColumnName="TYPE_POSTE" />
+          <ScalarProperty Name="CodePosteGaz" ColumnName="CODE_POSTE_GAZ" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqRaccordIsolant)">
+        <MappingFragment StoreEntitySet="EQ_RACCORD_ISOLANT">
+          <ScalarProperty Name="CleTypeLiaison" ColumnName="CLE_TYPE_LIAISON" />
+          <ScalarProperty Name="PresenceEclateur" ColumnName="PRESENCE_ECLATEUR" />
+          <ScalarProperty Name="CleLiaison" ColumnName="CLE_LIAISON" />
+          <ScalarProperty Name="EnumEtatElect" ColumnName="ENUM_ETAT_ELECT" />
+          <ScalarProperty Name="EnumConfigElectNormale" ColumnName="ENUM_CONFIG_ELECT_NORMALE" />
+          <ScalarProperty Name="ClePp2" ColumnName="CLE_PP2" />
+          <ScalarProperty Name="CleTypeRi" ColumnName="CLE_TYPE_RI" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqSoutirage)">
+        <MappingFragment StoreEntitySet="EQ_SOUTIRAGE">
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="CoordFinDeversoirLong" ColumnName="COORD_FIN_DEVERSOIR_LONG" />
+          <ScalarProperty Name="CoordFinDeversoirLat" ColumnName="COORD_FIN_DEVERSOIR_LAT" />
+          <ScalarProperty Name="CoordDebDeversoirLong" ColumnName="COORD_DEB_DEVERSOIR_LONG" />
+          <ScalarProperty Name="CoordDebDeversoirLat" ColumnName="COORD_DEB_DEVERSOIR_LAT" />
+          <ScalarProperty Name="TensionReglage" ColumnName="TENSION_REGLAGE" />
+          <ScalarProperty Name="PresenceReenclencheur" ColumnName="PRESENCE_REENCLENCHEUR" />
+          <ScalarProperty Name="MasseAuMetreLineaire" ColumnName="MASSE_AU_METRE_LINEAIRE" />
+          <ScalarProperty Name="LongueurDeversoir" ColumnName="LONGUEUR_DEVERSOIR" />
+          <ScalarProperty Name="IntensiteReglage" ColumnName="INTENSITE_REGLAGE" />
+          <ScalarProperty Name="DateRenouvellementDeversoir" ColumnName="DATE_RENOUVELLEMENT_DEVERSOIR" />
+          <ScalarProperty Name="DatePoseDeversoir" ColumnName="DATE_POSE_DEVERSOIR" />
+          <ScalarProperty Name="DateMiseEnServiceRedresseur" ColumnName="DATE_MISE_EN_SERVICE_REDRESSEUR" />
+          <ScalarProperty Name="DateControle" ColumnName="DATE_CONTROLE" />
+          <ScalarProperty Name="Autoregule" ColumnName="AUTOREGULE" />
+          <ScalarProperty Name="CleRedresseur" ColumnName="CLE_REDRESSEUR" />
+          <ScalarProperty Name="CleDeversoir" ColumnName="CLE_DEVERSOIR" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.EqTiersCroiseSansLiaison)">
+        <MappingFragment StoreEntitySet="EQ_TIERS_CROISE_SANS_LIAISON">
+          <ScalarProperty Name="TypeFluide" ColumnName="TYPE_FLUIDE" />
+          <ScalarProperty Name="PresencePcSurOuvrageTiers" ColumnName="PRESENCE_PC_SUR_OUVRAGE_TIERS" />
+          <ScalarProperty Name="NomTiersAssocie" ColumnName="NOM_TIERS_ASSOCIE" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EqEquipementTmp">
+      <EntityTypeMapping TypeName="ProtecaModel.EqEquipementTmp">
+        <MappingFragment StoreEntitySet="EQ_EQUIPEMENT_TMP">
+          <ScalarProperty Name="DateValidation" ColumnName="DATE_VALIDATION" />
+          <ScalarProperty Name="EstValide" ColumnName="EST_VALIDE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleTypeEq" ColumnName="CLE_TYPE_EQ" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="CleEqTmp" ColumnName="CLE_EQ_TMP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EqSoutirageLiaisonsext">
+      <EntityTypeMapping TypeName="ProtecaModel.EqSoutirageLiaisonsext">
+        <MappingFragment StoreEntitySet="EQ_SOUTIRAGE_LIAISONSEXT">
+          <ScalarProperty Name="CleSoutirage" ColumnName="CLE_SOUTIRAGE" />
+          <ScalarProperty Name="CleLiaisonExt" ColumnName="CLE_LIAISON_EXT" />
+          <ScalarProperty Name="CleSoutirageLext" ColumnName="CLE_SOUTIRAGE_LEXT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeoAgence">
+      <EntityTypeMapping TypeName="ProtecaModel.GeoAgence">
+        <MappingFragment StoreEntitySet="GEO_AGENCE">
+          <ScalarProperty Name="CodeAgence" ColumnName="CODE_AGENCE" />
+          <ScalarProperty Name="LibelleAbregeAgence" ColumnName="LIBELLE_ABREGE_AGENCE" />
+          <ScalarProperty Name="LibelleAgence" ColumnName="LIBELLE_AGENCE" />
+          <ScalarProperty Name="CleRegion" ColumnName="CLE_REGION" />
+          <ScalarProperty Name="CleAgence" ColumnName="CLE_AGENCE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeoRegion">
+      <EntityTypeMapping TypeName="ProtecaModel.GeoRegion">
+        <MappingFragment StoreEntitySet="GEO_REGION">
+          <ScalarProperty Name="LibelleAbregeRegion" ColumnName="LIBELLE_ABREGE_REGION" />
+          <ScalarProperty Name="CodeRegion" ColumnName="CODE_REGION" />
+          <ScalarProperty Name="LibelleRegion" ColumnName="LIBELLE_REGION" />
+          <ScalarProperty Name="CleRegion" ColumnName="CLE_REGION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeoSecteur">
+      <EntityTypeMapping TypeName="ProtecaModel.GeoSecteur">
+        <MappingFragment StoreEntitySet="GEO_SECTEUR">
+          <ScalarProperty Name="CodeSecteur" ColumnName="CODE_SECTEUR" />
+          <ScalarProperty Name="LibelleAbregeSecteur" ColumnName="LIBELLE_ABREGE_SECTEUR" />
+          <ScalarProperty Name="LibelleSecteur" ColumnName="LIBELLE_SECTEUR" />
+          <ScalarProperty Name="CleAgence" ColumnName="CLE_AGENCE" />
+          <ScalarProperty Name="CleSecteur" ColumnName="CLE_SECTEUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoAdmin">
+      <EntityTypeMapping TypeName="ProtecaModel.HistoAdmin">
+        <MappingFragment StoreEntitySet="HISTO_ADMIN">
+          <ScalarProperty Name="DateModification" ColumnName="DATE_MODIFICATION" />
+          <ScalarProperty Name="TypeCompte" ColumnName="TYPE_COMPTE" />
+          <ScalarProperty Name="PrenomUtilisateur" ColumnName="PRENOM_UTILISATEUR" />
+          <ScalarProperty Name="NomUtilisateur" ColumnName="NOM_UTILISATEUR" />
+          <ScalarProperty Name="IdUtilisateur" ColumnName="ID_UTILISATEUR" />
+          <ScalarProperty Name="PrenomConnecte" ColumnName="PRENOM_CONNECTE" />
+          <ScalarProperty Name="NomConnecte" ColumnName="NOM_CONNECTE" />
+          <ScalarProperty Name="IdConnecte" ColumnName="ID_CONNECTE" />
+          <ScalarProperty Name="EnumTypeModification" ColumnName="ENUM_TYPE_MODIFICATION" />
+          <ScalarProperty Name="CleHistoAdmin" ColumnName="CLE_HISTO_ADMIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoEquipement">
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEquipement)">
+        <MappingFragment StoreEntitySet="HISTO_EQUIPEMENT">
+          <ScalarProperty Name="DateMajEquipement" ColumnName="DATE_MAJ_EQUIPEMENT" />
+          <ScalarProperty Name="DateMajCommentaire" ColumnName="DATE_MAJ_COMMENTAIRE" />
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="DateMiseEnService" ColumnName="DATE_MISE_EN_SERVICE" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="LibellePortion" ColumnName="LIBELLE_PORTION" />
+          <ScalarProperty Name="LibellePp" ColumnName="LIBELLE_PP" />
+          <ScalarProperty Name="CleLogOuvrage" ColumnName="CLE_LOG_OUVRAGE" />
+          <ScalarProperty Name="CleTypeEq" ColumnName="CLE_TYPE_EQ" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqAnodeGalvanique)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_ANODE_GALVANIQUE">
+          <ScalarProperty Name="PileAssociee" ColumnName="PILE_ASSOCIEE" />
+          <ScalarProperty Name="CleTypeAnode" ColumnName="CLE_TYPE_ANODE" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqDispoEcoulementCourantsAlternatifs)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_DISPO_ECOULEMENT_COURANTS_ALTERNATIFS">
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="CoordFinPriseTerreLong" ColumnName="COORD_FIN_PRISE_TERRE_LONG" />
+          <ScalarProperty Name="CoordFinPriseTerreLat" ColumnName="COORD_FIN_PRISE_TERRE_LAT" />
+          <ScalarProperty Name="CoordDebPriseTerreLong" ColumnName="COORD_DEB_PRISE_TERRE_LONG" />
+          <ScalarProperty Name="CoordDebPriseTerreLat" ColumnName="COORD_DEB_PRISE_TERRE_LAT" />
+          <ScalarProperty Name="ResistanceInitPriseDeTerre" ColumnName="RESISTANCE_INIT_PRISE_DE_TERRE" />
+          <ScalarProperty Name="DatePosePriseDeTerre" ColumnName="DATE_POSE_PRISE_DE_TERRE" />
+          <ScalarProperty Name="CapaciteCondensateur" ColumnName="CAPACITE_CONDENSATEUR" />
+          <ScalarProperty Name="CleTypePriseDeTerre" ColumnName="CLE_TYPE_PRISE_DE_TERRE" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqDrainage)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_DRAINAGE">
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="IntensiteMaximaleSupportee" ColumnName="INTENSITE_MAXIMALE_SUPPORTEE" />
+          <ScalarProperty Name="CleTypeDrainage" ColumnName="CLE_TYPE_DRAINAGE" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqFourreauMetallique)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_FOURREAU_METALLIQUE">
+          <ScalarProperty Name="LibellePortionPp2" ColumnName="LIBELLE_PORTION_PP2" />
+          <ScalarProperty Name="LibellePp2" ColumnName="LIBELLE_PP2" />
+          <ScalarProperty Name="Longueur" ColumnName="LONGUEUR" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqLiaisonExterne)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_LIAISON_EXTERNE">
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="LibellePointCommun" ColumnName="LIBELLE_POINT_COMMUN" />
+          <ScalarProperty Name="NomTiers" ColumnName="NOM_TIERS" />
+          <ScalarProperty Name="LibelleEquipementTiers" ColumnName="LIBELLE_EQUIPEMENT_TIERS" />
+          <ScalarProperty Name="LiaisonTechnique" ColumnName="LIAISON_TECHNIQUE" />
+          <ScalarProperty Name="TypeFluide" ColumnName="TYPE_FLUIDE" />
+          <ScalarProperty Name="ProtectionTiersParUnite" ColumnName="PROTECTION_TIERS_PAR_UNITE" />
+          <ScalarProperty Name="PresencePcSurOuvrageTiers" ColumnName="PRESENCE_PC_SUR_OUVRAGE_TIERS" />
+          <ScalarProperty Name="CleTypeLiaison" ColumnName="CLE_TYPE_LIAISON" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqLiaisonInterne)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_LIAISON_INTERNE">
+          <ScalarProperty Name="LibelleDoublonInterEe" ColumnName="LIBELLE_DOUBLON_INTER_EE" />
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="LibellePointCommun" ColumnName="LIBELLE_POINT_COMMUN" />
+          <ScalarProperty Name="LibellePortionPp2" ColumnName="LIBELLE_PORTION_PP2" />
+          <ScalarProperty Name="LibellePp2" ColumnName="LIBELLE_PP2" />
+          <ScalarProperty Name="LiaisonInterEe" ColumnName="LIAISON_INTER_EE" />
+          <ScalarProperty Name="CleTypeLiaison" ColumnName="CLE_TYPE_LIAISON" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqPile)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_PILE">
+          <ScalarProperty Name="NombrePiles" ColumnName="NOMBRE_PILES" />
+          <ScalarProperty Name="DateRenouvellementDeversoir" ColumnName="DATE_RENOUVELLEMENT_DEVERSOIR" />
+          <ScalarProperty Name="DatePrevisionRenouvellementPile" ColumnName="DATE_PREVISION_RENOUVELLEMENT_PILE" />
+          <ScalarProperty Name="CleCaracteristiquePile" ColumnName="CLE_CARACTERISTIQUE_PILE" />
+          <ScalarProperty Name="CleTypeDeversoir" ColumnName="CLE_TYPE_DEVERSOIR" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqPostegaz)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_POSTEGAZ">
+          <ScalarProperty Name="TypePoste" ColumnName="TYPE_POSTE" />
+          <ScalarProperty Name="CodePosteGaz" ColumnName="CODE_POSTE_GAZ" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqRaccordIsolant)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_RACCORD_ISOLANT">
+          <ScalarProperty Name="LibellePortionPp2" ColumnName="LIBELLE_PORTION_PP2" />
+          <ScalarProperty Name="LibellePp2" ColumnName="LIBELLE_PP2" />
+          <ScalarProperty Name="LibelleLiaison" ColumnName="LIBELLE_LIAISON" />
+          <ScalarProperty Name="PresenceEclateur" ColumnName="PRESENCE_ECLATEUR" />
+          <ScalarProperty Name="EnumConfigElectNormale" ColumnName="ENUM_CONFIG_ELECT_NORMALE" />
+          <ScalarProperty Name="CleTypeLiaison" ColumnName="CLE_TYPE_LIAISON" />
+          <ScalarProperty Name="CleTypeRi" ColumnName="CLE_TYPE_RI" />
+          <ScalarProperty Name="EnumEtatElect" ColumnName="ENUM_ETAT_ELECT" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqSoutirage)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_SOUTIRAGE">
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="TypeRedresseur" ColumnName="TYPE_REDRESSEUR" />
+          <ScalarProperty Name="CoordFinDeversoirLong" ColumnName="COORD_FIN_DEVERSOIR_LONG" />
+          <ScalarProperty Name="CoordFinDeversoirLat" ColumnName="COORD_FIN_DEVERSOIR_LAT" />
+          <ScalarProperty Name="CoordDebDeversoirLong" ColumnName="COORD_DEB_DEVERSOIR_LONG" />
+          <ScalarProperty Name="CoordDebDeversoirLat" ColumnName="COORD_DEB_DEVERSOIR_LAT" />
+          <ScalarProperty Name="TensionReglage" ColumnName="TENSION_REGLAGE" />
+          <ScalarProperty Name="PresenceReenclencheur" ColumnName="PRESENCE_REENCLENCHEUR" />
+          <ScalarProperty Name="MasseAuMetreLineaire" ColumnName="MASSE_AU_METRE_LINEAIRE" />
+          <ScalarProperty Name="LongueurDeversoir" ColumnName="LONGUEUR_DEVERSOIR" />
+          <ScalarProperty Name="IntensiteReglage" ColumnName="INTENSITE_REGLAGE" />
+          <ScalarProperty Name="DateRenouvellementDeversoir" ColumnName="DATE_RENOUVELLEMENT_DEVERSOIR" />
+          <ScalarProperty Name="DatePoseDeversoir" ColumnName="DATE_POSE_DEVERSOIR" />
+          <ScalarProperty Name="DateMiseEnServiceRedresseur" ColumnName="DATE_MISE_EN_SERVICE_REDRESSEUR" />
+          <ScalarProperty Name="DateControle" ColumnName="DATE_CONTROLE" />
+          <ScalarProperty Name="Autoregule" ColumnName="AUTOREGULE" />
+          <ScalarProperty Name="TypeDeversoir" ColumnName="TYPE_DEVERSOIR" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.HistoEqTiersCroiseSansLiaison)">
+        <MappingFragment StoreEntitySet="HISTO_EQ_TIERS_CROISE_SANS_LIAISON">
+          <ScalarProperty Name="TypeFluide" ColumnName="TYPE_FLUIDE" />
+          <ScalarProperty Name="PresencePcSurOuvrageTiers" ColumnName="PRESENCE_PC_SUR_OUVRAGE_TIERS" />
+          <ScalarProperty Name="NomTiersAssocie" ColumnName="NOM_TIERS_ASSOCIE" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoPp">
+      <EntityTypeMapping TypeName="ProtecaModel.HistoPp">
+        <MappingFragment StoreEntitySet="HISTO_PP">
+          <ScalarProperty Name="DateMajPp" ColumnName="DATE_MAJ_PP" />
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="PpPoste" ColumnName="PP_POSTE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="PresenceTelemesure" ColumnName="PRESENCE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnService" ColumnName="DATE_MISE_EN_SERVICE" />
+          <ScalarProperty Name="CoordonneeGpsFiabilisee" ColumnName="COORDONNEE_GPS_FIABILISEE" />
+          <ScalarProperty Name="PositionGpsLong" ColumnName="POSITION_GPS_LONG" />
+          <ScalarProperty Name="PositionGpsLat" ColumnName="POSITION_GPS_LAT" />
+          <ScalarProperty Name="TemoinMetalliqueDeSurface" ColumnName="TEMOIN_METALLIQUE_DE_SURFACE" />
+          <ScalarProperty Name="TemoinEnterreAmovible" ColumnName="TEMOIN_ENTERRE_AMOVIBLE" />
+          <ScalarProperty Name="ElectrodeEnterreeAmovible" ColumnName="ELECTRODE_ENTERREE_AMOVIBLE" />
+          <ScalarProperty Name="CourantsAlternatifsInduits" ColumnName="COURANTS_ALTERNATIFS_INDUITS" />
+          <ScalarProperty Name="CourantsVagabonds" ColumnName="COURANTS_VAGABONDS" />
+          <ScalarProperty Name="CommentairePositionnement" ColumnName="COMMENTAIRE_POSITIONNEMENT" />
+          <ScalarProperty Name="PositionnementPostal" ColumnName="POSITIONNEMENT_POSTAL" />
+          <ScalarProperty Name="DateMajCommentaire" ColumnName="DATE_MAJ_COMMENTAIRE" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="Pk" ColumnName="PK" />
+          <ScalarProperty Name="LibellePortion" ColumnName="LIBELLE_PORTION" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="EnumPolarisation" ColumnName="ENUM_POLARISATION" />
+          <ScalarProperty Name="EnumDureeEnrg" ColumnName="ENUM_DUREE_ENRG" />
+          <ScalarProperty Name="EnumSurfaceTms" ColumnName="ENUM_SURFACE_TMS" />
+          <ScalarProperty Name="EnumSurfaceTme" ColumnName="ENUM_SURFACE_TME" />
+          <ScalarProperty Name="CleNiveauSensibilite" ColumnName="CLE_NIVEAU_SENSIBILITE" />
+          <ScalarProperty Name="CleCategoriePp" ColumnName="CLE_CATEGORIE_PP" />
+          <ScalarProperty Name="CleLogOuvrage" ColumnName="CLE_LOG_OUVRAGE" />
+          <ScalarProperty Name="CleCommune" ColumnName="CLE_COMMUNE" />
+          <ScalarProperty Name="CleHistoPp" ColumnName="CLE_HISTO_PP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="ProtecaModel.Image">
+        <MappingFragment StoreEntitySet="IMAGE">
+          <ScalarProperty Name="Image1" ColumnName="IMAGE" />
+          <ScalarProperty Name="EnumTypeImage" ColumnName="ENUM_TYPE_IMAGE" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+          <ScalarProperty Name="CleImage" ColumnName="CLE_IMAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsInstrument">
+      <EntityTypeMapping TypeName="ProtecaModel.InsInstrument">
+        <MappingFragment StoreEntitySet="INS_INSTRUMENT">
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleRegion" ColumnName="CLE_REGION" />
+          <ScalarProperty Name="CleAgence" ColumnName="CLE_AGENCE" />
+          <ScalarProperty Name="CleSecteur" ColumnName="CLE_SECTEUR" />
+          <ScalarProperty Name="CleInstrument" ColumnName="CLE_INSTRUMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstrumentsUtilises">
+      <EntityTypeMapping TypeName="ProtecaModel.InstrumentsUtilises">
+        <MappingFragment StoreEntitySet="INSTRUMENTS_UTILISES">
+          <ScalarProperty Name="CleVisite" ColumnName="CLE_VISITE" />
+          <ScalarProperty Name="CleInstrument" ColumnName="CLE_INSTRUMENT" />
+          <ScalarProperty Name="CleInsUtilises" ColumnName="CLE_INS_UTILISES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogOuvrage">
+      <EntityTypeMapping TypeName="ProtecaModel.LogOuvrage">
+        <MappingFragment StoreEntitySet="LOG_OUVRAGE">
+          <ScalarProperty Name="DateHistorisation" ColumnName="DATE_HISTORISATION" />
+          <ScalarProperty Name="ListeChamps" ColumnName="LISTE_CHAMPS" />
+          <ScalarProperty Name="EnumTypeModification" ColumnName="ENUM_TYPE_MODIFICATION" />
+          <ScalarProperty Name="CleHistoPp" ColumnName="CLE_HISTO_PP" />
+          <ScalarProperty Name="CleHistoEquipement" ColumnName="CLE_HISTO_EQUIPEMENT" />
+          <ScalarProperty Name="CleUtilisateur" ColumnName="CLE_UTILISATEUR" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+          <ScalarProperty Name="CleLogOuvrage" ColumnName="CLE_LOG_OUVRAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesClassementMesure">
+      <EntityTypeMapping TypeName="ProtecaModel.MesClassementMesure">
+        <MappingFragment StoreEntitySet="MES_CLASSEMENT_MESURE">
+          <ScalarProperty Name="Telemesure" ColumnName="TELEMESURE" />
+          <ScalarProperty Name="TemoinDeSurface" ColumnName="TEMOIN_DE_SURFACE" />
+          <ScalarProperty Name="TemoinEnterre" ColumnName="TEMOIN_ENTERRE" />
+          <ScalarProperty Name="ElectrodeEnterreeAmovible" ColumnName="ELECTRODE_ENTERREE_AMOVIBLE" />
+          <ScalarProperty Name="CourantsAlternatifsInduits" ColumnName="COURANTS_ALTERNATIFS_INDUITS" />
+          <ScalarProperty Name="CourantsVagabons" ColumnName="COURANTS_VAGABONS" />
+          <ScalarProperty Name="CleTypeMesure" ColumnName="CLE_TYPE_MESURE" />
+          <ScalarProperty Name="CleClassementMesure" ColumnName="CLE_CLASSEMENT_MESURE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesCoutMesure">
+      <EntityTypeMapping TypeName="ProtecaModel.MesCoutMesure">
+        <MappingFragment StoreEntitySet="MES_COUT_MESURE">
+          <ScalarProperty Name="Cout" ColumnName="COUT" />
+          <ScalarProperty Name="Temps" ColumnName="TEMPS" />
+          <ScalarProperty Name="CleTypeEq" ColumnName="CLE_TYPE_EQ" />
+          <ScalarProperty Name="EnumTypeEval" ColumnName="ENUM_TYPE_EVAL" />
+          <ScalarProperty Name="EnumTempsPolarisation" ColumnName="ENUM_TEMPS_POLARISATION" />
+          <ScalarProperty Name="EnumDureeEnregistrement" ColumnName="ENUM_DUREE_ENREGISTREMENT" />
+          <ScalarProperty Name="CleCoutMesure" ColumnName="CLE_COUT_MESURE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesModeleMesure">
+      <EntityTypeMapping TypeName="ProtecaModel.MesModeleMesure">
+        <MappingFragment StoreEntitySet="MES_MODELE_MESURE">
+          <ScalarProperty Name="MesurePositive" ColumnName="MESURE_POSITIVE" />
+          <ScalarProperty Name="NumeroOrdre" ColumnName="NUMERO_ORDRE" />
+          <ScalarProperty Name="LibGenerique" ColumnName="LIB_GENERIQUE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="EnumTypeGraphique" ColumnName="ENUM_TYPE_GRAPHIQUE" />
+          <ScalarProperty Name="CleTypeEq" ColumnName="CLE_TYPE_EQ" />
+          <ScalarProperty Name="CleUnite" ColumnName="CLE_UNITE" />
+          <ScalarProperty Name="CleModeleMesure" ColumnName="CLE_MODELE_MESURE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesNiveauProtection">
+      <EntityTypeMapping TypeName="ProtecaModel.MesNiveauProtection">
+        <MappingFragment StoreEntitySet="MES_NIVEAU_PROTECTION">
+          <ScalarProperty Name="SeuilMaxi" ColumnName="SEUIL_MAXI" />
+          <ScalarProperty Name="SeuilMini" ColumnName="SEUIL_MINI" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="CleModeleMesure" ColumnName="CLE_MODELE_MESURE" />
+          <ScalarProperty Name="CleNiveauProtection" ColumnName="CLE_NIVEAU_PROTECTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesTypeMesure">
+      <EntityTypeMapping TypeName="ProtecaModel.MesTypeMesure">
+        <MappingFragment StoreEntitySet="MES_TYPE_MESURE">
+          <ScalarProperty Name="NumeroOrdre" ColumnName="NUMERO_ORDRE" />
+          <ScalarProperty Name="MesureComplementaire" ColumnName="MESURE_COMPLEMENTAIRE" />
+          <ScalarProperty Name="MesureEnService" ColumnName="MESURE_EN_SERVICE" />
+          <ScalarProperty Name="LibNivAutre" ColumnName="LIB_NIV_AUTRE" />
+          <ScalarProperty Name="LibTypeMesure" ColumnName="LIB_TYPE_MESURE" />
+          <ScalarProperty Name="CleModeleMesure" ColumnName="CLE_MODELE_MESURE" />
+          <ScalarProperty Name="NiveauType" ColumnName="NIVEAU_TYPE" />
+          <ScalarProperty Name="TypeEvaluation" ColumnName="TYPE_EVALUATION" />
+          <ScalarProperty Name="CleTypeMesure" ColumnName="CLE_TYPE_MESURE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesUnite">
+      <EntityTypeMapping TypeName="ProtecaModel.MesUnite">
+        <MappingFragment StoreEntitySet="MES_UNITE">
+          <ScalarProperty Name="NombreDeDecimales" ColumnName="NOMBRE_DE_DECIMALES" />
+          <ScalarProperty Name="Symbole" ColumnName="SYMBOLE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="TypeDonnee" ColumnName="TYPE_DONNEE" />
+          <ScalarProperty Name="CleUnite" ColumnName="CLE_UNITE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParametreAction">
+      <EntityTypeMapping TypeName="ProtecaModel.ParametreAction">
+        <MappingFragment StoreEntitySet="PARAMETRE_ACTION">
+          <ScalarProperty Name="Codification" ColumnName="CODIFICATION" />
+          <ScalarProperty Name="Cout" ColumnName="COUT" />
+          <ScalarProperty Name="Temps" ColumnName="TEMPS" />
+          <ScalarProperty Name="EnumDelaiRealisation" ColumnName="ENUM_DELAI_REALISATION" />
+          <ScalarProperty Name="EnumPriorite" ColumnName="ENUM_PRIORITE" />
+          <ScalarProperty Name="EnumCategorieAnomalie" ColumnName="ENUM_CATEGORIE_ANOMALIE" />
+          <ScalarProperty Name="EnumTypeAction" ColumnName="ENUM_TYPE_ACTION" />
+          <ScalarProperty Name="CleParametreAction" ColumnName="CLE_PARAMETRE_ACTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PiSecteurs">
+      <EntityTypeMapping TypeName="ProtecaModel.PiSecteurs">
+        <MappingFragment StoreEntitySet="PI_SECTEURS">
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="CleSecteur" ColumnName="CLE_SECTEUR" />
+          <ScalarProperty Name="ClePortionSecteurs" ColumnName="CLE_PORTION_SECTEURS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortionIntegrite">
+      <EntityTypeMapping TypeName="ProtecaModel.PortionIntegrite">
+        <MappingFragment StoreEntitySet="PORTION_INTEGRITE">
+          <ScalarProperty Name="Branchement" ColumnName="BRANCHEMENT" />
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="Idtroncon" ColumnName="IDTRONCON" />
+          <ScalarProperty Name="Longueur" ColumnName="LONGUEUR" />
+          <ScalarProperty Name="DateMajCommentaire" ColumnName="DATE_MAJ_COMMENTAIRE" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="DatePose" ColumnName="DATE_POSE" />
+          <ScalarProperty Name="DateMiseEnService" ColumnName="DATE_MISE_EN_SERVICE" />
+          <ScalarProperty Name="CodeGmao" ColumnName="CODE_GMAO" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="Code" ColumnName="CODE" />
+          <ScalarProperty Name="CleCommuneArrivee" ColumnName="CLE_COMMUNE_ARRIVEE" />
+          <ScalarProperty Name="CleCommuneDepart" ColumnName="CLE_COMMUNE_DEPART" />
+          <ScalarProperty Name="CleDiametre" ColumnName="CLE_DIAMETRE" />
+          <ScalarProperty Name="CleRevetement" ColumnName="CLE_REVETEMENT" />
+          <ScalarProperty Name="CleEnsElectrique" ColumnName="CLE_ENS_ELECTRIQUE" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pps">
+      <EntityTypeMapping TypeName="ProtecaModel.Pp">
+        <MappingFragment StoreEntitySet="PP">
+          <ScalarProperty Name="DateDdeDeverrouillageCoordGps" ColumnName="DATE_DDE_DEVERROUILLAGE_COORD_GPS" />
+          <ScalarProperty Name="DdeDeverrouillageCoordGps" ColumnName="DDE_DEVERROUILLAGE_COORD_GPS" />
+          <ScalarProperty Name="CleUtiDdeDeverrouillage" ColumnName="CLE_UTI_DDE_DEVERROUILLAGE" />
+          <ScalarProperty Name="DateMajPp" ColumnName="DATE_MAJ_PP" />
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="PpPoste" ColumnName="PP_POSTE" />
+          <ScalarProperty Name="DateMiseEnServiceTelemesure" ColumnName="DATE_MISE_EN_SERVICE_TELEMESURE" />
+          <ScalarProperty Name="PresenceDUneTelemesure" ColumnName="PRESENCE_D_UNE_TELEMESURE" />
+          <ScalarProperty Name="DateMiseEnService" ColumnName="DATE_MISE_EN_SERVICE" />
+          <ScalarProperty Name="CoordonneeGpsFiabilisee" ColumnName="COORDONNEE_GPS_FIABILISEE" />
+          <ScalarProperty Name="PositionGpsLong" ColumnName="POSITION_GPS_LONG" />
+          <ScalarProperty Name="PositionGpsLat" ColumnName="POSITION_GPS_LAT" />
+          <ScalarProperty Name="TemoinMetalliqueDeSurface" ColumnName="TEMOIN_METALLIQUE_DE_SURFACE" />
+          <ScalarProperty Name="TemoinEnterreAmovible" ColumnName="TEMOIN_ENTERRE_AMOVIBLE" />
+          <ScalarProperty Name="ElectrodeEnterreeAmovible" ColumnName="ELECTRODE_ENTERREE_AMOVIBLE" />
+          <ScalarProperty Name="CourantsAlternatifsInduits" ColumnName="COURANTS_ALTERNATIFS_INDUITS" />
+          <ScalarProperty Name="CourantsVagabonds" ColumnName="COURANTS_VAGABONDS" />
+          <ScalarProperty Name="CommentairePositionnement" ColumnName="COMMENTAIRE_POSITIONNEMENT" />
+          <ScalarProperty Name="PositionnementPostal" ColumnName="POSITIONNEMENT_POSTAL" />
+          <ScalarProperty Name="DateMajCommentaire" ColumnName="DATE_MAJ_COMMENTAIRE" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="Pk" ColumnName="PK" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="EnumPolarisation" ColumnName="ENUM_POLARISATION" />
+          <ScalarProperty Name="CleSecteur" ColumnName="CLE_SECTEUR" />
+          <ScalarProperty Name="EnumDureeEnrg" ColumnName="ENUM_DUREE_ENRG" />
+          <ScalarProperty Name="EnumSurfaceTms" ColumnName="ENUM_SURFACE_TMS" />
+          <ScalarProperty Name="CleUtilisateur" ColumnName="CLE_UTILISATEUR" />
+          <ScalarProperty Name="EnumSurfaceTme" ColumnName="ENUM_SURFACE_TME" />
+          <ScalarProperty Name="ClePpOrigine" ColumnName="CLE_PP_ORIGINE" />
+          <ScalarProperty Name="CleCategoriePp" ColumnName="CLE_CATEGORIE_PP" />
+          <ScalarProperty Name="CleNiveauSensibilite" ColumnName="CLE_NIVEAU_SENSIBILITE" />
+          <ScalarProperty Name="CleCommune" ColumnName="CLE_COMMUNE" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PpJumelee">
+      <EntityTypeMapping TypeName="ProtecaModel.PpJumelee">
+        <MappingFragment StoreEntitySet="PP_JUMELEE">
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="PpClePp" ColumnName="PP_CLE_PP" />
+          <ScalarProperty Name="ClePpJumelee" ColumnName="CLE_PP_JUMELEE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefCommune">
+      <EntityTypeMapping TypeName="ProtecaModel.RefCommune">
+        <MappingFragment StoreEntitySet="REF_COMMUNE">
+          <ScalarProperty Name="CodeInsee" ColumnName="CODE_INSEE" />
+          <ScalarProperty Name="Idmicado" ColumnName="IDMICADO" />
+          <ScalarProperty Name="CodeCommune" ColumnName="CODE_COMMUNE" />
+          <ScalarProperty Name="CodeDepartement" ColumnName="CODE_DEPARTEMENT" />
+          <ScalarProperty Name="LibelleMajuscule" ColumnName="LIBELLE_MAJUSCULE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleCommune" ColumnName="CLE_COMMUNE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefDiametre">
+      <EntityTypeMapping TypeName="ProtecaModel.RefDiametre">
+        <MappingFragment StoreEntitySet="REF_DIAMETRE">
+          <ScalarProperty Name="Idmicado" ColumnName="IDMICADO" />
+          <ScalarProperty Name="Code" ColumnName="CODE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleDiametre" ColumnName="CLE_DIAMETRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefEnumValeur">
+      <EntityTypeMapping TypeName="ProtecaModel.RefEnumValeur">
+        <MappingFragment StoreEntitySet="REF_ENUM_VALEUR">
+          <ScalarProperty Name="Valeur" ColumnName="VALEUR" />
+          <ScalarProperty Name="CodeGroupe" ColumnName="CODE_GROUPE" />
+          <ScalarProperty Name="NumeroOrdre" ColumnName="NUMERO_ORDRE" />
+          <ScalarProperty Name="LibelleCourt" ColumnName="LIBELLE_COURT" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleEnumValeur" ColumnName="CLE_ENUM_VALEUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefNiveauSensibilitePp">
+      <EntityTypeMapping TypeName="ProtecaModel.RefNiveauSensibilitePp">
+        <MappingFragment StoreEntitySet="REF_NIVEAU_SENSIBILITE_PP">
+          <ScalarProperty Name="TypeSensibilite" ColumnName="TYPE_SENSIBILITE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="EnumTypeEval" ColumnName="ENUM_TYPE_EVAL" />
+          <ScalarProperty Name="CleNiveauSensibilite" ColumnName="CLE_NIVEAU_SENSIBILITE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefRevetement">
+      <EntityTypeMapping TypeName="ProtecaModel.RefRevetement">
+        <MappingFragment StoreEntitySet="REF_REVETEMENT">
+          <ScalarProperty Name="Idmicado" ColumnName="IDMICADO" />
+          <ScalarProperty Name="Code" ColumnName="CODE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleRevetement" ColumnName="CLE_REVETEMENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefSousTypeOuvrage">
+      <EntityTypeMapping TypeName="ProtecaModel.RefSousTypeOuvrage">
+        <MappingFragment StoreEntitySet="REF_SOUS_TYPE_OUVRAGE">
+          <ScalarProperty Name="Valeur" ColumnName="VALEUR" />
+          <ScalarProperty Name="CodeGroupe" ColumnName="CODE_GROUPE" />
+          <ScalarProperty Name="NumeroOrdre" ColumnName="NUMERO_ORDRE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleSousTypeOuvrage" ColumnName="CLE_SOUS_TYPE_OUVRAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefUsrAutorisation">
+      <EntityTypeMapping TypeName="ProtecaModel.RefUsrAutorisation">
+        <MappingFragment StoreEntitySet="REF_USR_AUTORISATION">
+          <ScalarProperty Name="TypePortee" ColumnName="TYPE_PORTEE" />
+          <ScalarProperty Name="CodeAutorisation" ColumnName="CODE_AUTORISATION" />
+          <ScalarProperty Name="LibelleAutorisation" ColumnName="LIBELLE_AUTORISATION" />
+          <ScalarProperty Name="CleGroupe" ColumnName="CLE_GROUPE" />
+          <ScalarProperty Name="CleAutorisation" ColumnName="CLE_AUTORISATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefUsrGroupe">
+      <EntityTypeMapping TypeName="ProtecaModel.RefUsrGroupe">
+        <MappingFragment StoreEntitySet="REF_USR_GROUPE">
+          <ScalarProperty Name="LibelleGroupe" ColumnName="LIBELLE_GROUPE" />
+          <ScalarProperty Name="CleGroupe" ColumnName="CLE_GROUPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefUsrPortee">
+      <EntityTypeMapping TypeName="ProtecaModel.RefUsrPortee">
+        <MappingFragment StoreEntitySet="REF_USR_PORTEE">
+          <ScalarProperty Name="TypePortee" ColumnName="TYPE_PORTEE" />
+          <ScalarProperty Name="LibellePortee" ColumnName="LIBELLE_PORTEE" />
+          <ScalarProperty Name="CodePortee" ColumnName="CODE_PORTEE" />
+          <ScalarProperty Name="ClePortee" ColumnName="CLE_PORTEE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tournees">
+      <EntityTypeMapping TypeName="ProtecaModel.Tournee">
+        <MappingFragment StoreEntitySet="TOURNEE">
+          <ScalarProperty Name="Verrouille" ColumnName="VERROUILLE" />
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="Numero" ColumnName="NUMERO" />
+          <ScalarProperty Name="DateCreation" ColumnName="DATE_CREATION" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="CodeTournee" ColumnName="CODE_TOURNEE" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleUtilisateur" ColumnName="CLE_UTILISATEUR" />
+          <ScalarProperty Name="CleTournee" ColumnName="CLE_TOURNEE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeEquipement">
+      <EntityTypeMapping TypeName="ProtecaModel.TypeEquipement">
+        <MappingFragment StoreEntitySet="TYPE_EQUIPEMENT">
+          <ScalarProperty Name="NumeroOrdre" ColumnName="NUMERO_ORDRE" />
+          <ScalarProperty Name="CodeEquipement" ColumnName="CODE_EQUIPEMENT" />
+          <ScalarProperty Name="Libelle" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CleTypeEq" ColumnName="CLE_TYPE_EQ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsrProfil">
+      <EntityTypeMapping TypeName="ProtecaModel.UsrProfil">
+        <MappingFragment StoreEntitySet="USR_PROFIL">
+          <ScalarProperty Name="ProfilAdmin" ColumnName="PROFIL_ADMIN" />
+          <ScalarProperty Name="Editable" ColumnName="EDITABLE" />
+          <ScalarProperty Name="LibelleProfil" ColumnName="LIBELLE_PROFIL" />
+          <ScalarProperty Name="ClePortee" ColumnName="CLE_PORTEE" />
+          <ScalarProperty Name="CleProfil" ColumnName="CLE_PROFIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsrRole">
+      <EntityTypeMapping TypeName="ProtecaModel.UsrRole">
+        <MappingFragment StoreEntitySet="USR_ROLE">
+          <ScalarProperty Name="ClePortee" ColumnName="CLE_PORTEE" />
+          <ScalarProperty Name="CleProfil" ColumnName="CLE_PROFIL" />
+          <ScalarProperty Name="CleAutorisation" ColumnName="CLE_AUTORISATION" />
+          <ScalarProperty Name="CleRole" ColumnName="CLE_ROLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsrUtilisateur">
+      <EntityTypeMapping TypeName="ProtecaModel.UsrUtilisateur">
+        <MappingFragment StoreEntitySet="USR_UTILISATEUR">
+          <ScalarProperty Name="EstPresta" ColumnName="EST_PRESTA" />
+          <ScalarProperty Name="Externe" ColumnName="EXTERNE" />
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="Societe" ColumnName="SOCIETE" />
+          <ScalarProperty Name="Mail" ColumnName="MAIL" />
+          <ScalarProperty Name="Identifiant" ColumnName="IDENTIFIANT" />
+          <ScalarProperty Name="Prenom" ColumnName="PRENOM" />
+          <ScalarProperty Name="Nom" ColumnName="NOM" />
+          <ScalarProperty Name="CleProfil" ColumnName="CLE_PROFIL" />
+          <ScalarProperty Name="CleAgence" ColumnName="CLE_AGENCE" />
+          <ScalarProperty Name="GestionDesComptes" ColumnName="GESTION_DES_COMPTES" />
+          <ScalarProperty Name="CleSecteur" ColumnName="CLE_SECTEUR" />
+          <ScalarProperty Name="CleUtilisateur" ColumnName="CLE_UTILISATEUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogTournee">
+      <EntityTypeMapping TypeName="ProtecaModel.LogTournee">
+        <MappingFragment StoreEntitySet="LOG_TOURNEE">
+          <ScalarProperty Name="DateHistorisation" ColumnName="DATE_HISTORISATION" />
+          <ScalarProperty Name="ListeChamps" ColumnName="LISTE_CHAMPS" />
+          <ScalarProperty Name="EnumTypeModification" ColumnName="ENUM_TYPE_MODIFICATION" />
+          <ScalarProperty Name="CleUtilisateur" ColumnName="CLE_UTILISATEUR" />
+          <ScalarProperty Name="CleTournee" ColumnName="CLE_TOURNEE" />
+          <ScalarProperty Name="CleLogTournee" ColumnName="CLE_LOG_TOURNEE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alertes">
+      <EntityTypeMapping TypeName="ProtecaModel.Alerte">
+        <MappingFragment StoreEntitySet="ALERTE">
+          <ScalarProperty Name="Supprime" ColumnName="SUPPRIME" />
+          <ScalarProperty Name="Date" ColumnName="DATE" />
+          <ScalarProperty Name="CleAnalyse" ColumnName="CLE_ANALYSE" />
+          <ScalarProperty Name="EnumTypeAlerte" ColumnName="ENUM_TYPE_ALERTE" />
+          <ScalarProperty Name="CleMesure" ColumnName="CLE_MESURE" />
+          <ScalarProperty Name="CleVisite" ColumnName="CLE_VISITE" />
+          <ScalarProperty Name="CleAlerte" ColumnName="CLE_ALERTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesMesure">
+      <EntityTypeMapping TypeName="ProtecaModel.MesMesure">
+        <MappingFragment StoreEntitySet="MES_MESURE">
+          <ScalarProperty Name="Valeur" ColumnName="VALEUR" />
+          <ScalarProperty Name="CleVisite" ColumnName="CLE_VISITE" />
+          <ScalarProperty Name="CleTypeMesure" ColumnName="CLE_TYPE_MESURE" />
+          <ScalarProperty Name="CleMesure" ColumnName="CLE_MESURE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visites">
+      <EntityTypeMapping TypeName="ProtecaModel.Visite">
+        <MappingFragment StoreEntitySet="VISITE">
+          <ScalarProperty Name="EnumConformiteTournee" ColumnName="ENUM_CONFORMITE_TOURNEE" />
+          <ScalarProperty Name="EnumTypeEvalComposition" ColumnName="ENUM_TYPE_EVAL_COMPOSITION" />
+          <ScalarProperty Name="ClePpTmp" ColumnName="CLE_PP_TMP" />
+          <ScalarProperty Name="Telemesure" ColumnName="TELEMESURE" />
+          <ScalarProperty Name="RelevePartiel" ColumnName="RELEVE_PARTIEL" />
+          <ScalarProperty Name="Commentaire" ColumnName="COMMENTAIRE" />
+          <ScalarProperty Name="EstValidee" ColumnName="EST_VALIDEE" />
+          <ScalarProperty Name="DateValidation" ColumnName="DATE_VALIDATION" />
+          <ScalarProperty Name="DateImport" ColumnName="DATE_IMPORT" />
+          <ScalarProperty Name="DateSaisie" ColumnName="DATE_SAISIE" />
+          <ScalarProperty Name="DateVisite" ColumnName="DATE_VISITE" />
+          <ScalarProperty Name="CleEquipement" ColumnName="CLE_EQUIPEMENT" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="EnumTypeEval" ColumnName="ENUM_TYPE_EVAL" />
+          <ScalarProperty Name="CleUtilisateurValidation" ColumnName="CLE_UTILISATEUR_VALIDATION" />
+          <ScalarProperty Name="CleEqTmp" ColumnName="CLE_EQ_TMP" />
+          <ScalarProperty Name="CleUtilisateurMesure" ColumnName="CLE_UTILISATEUR_MESURE" />
+          <ScalarProperty Name="CleUtilisateurImport" ColumnName="CLE_UTILISATEUR_IMPORT" />
+          <ScalarProperty Name="CleUtilisateurCreation" ColumnName="CLE_UTILISATEUR_CREATION" />
+          <ScalarProperty Name="CleVisite" ColumnName="CLE_VISITE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SelectTourneeTableauBord" FunctionName="ProtecaModel.Store.SP_TOURNEE_TABLEAU_BORD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProtecaModel.SelectTourneeTableauBord_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLE_TOURNEE" ColumnName="CLE_TOURNEE" />
+          <ScalarProperty Name="Libelle_EE" ColumnName="Libelle_EE" />
+          <ScalarProperty Name="Libelle_PI" ColumnName="Libelle_PI" />
+          <ScalarProperty Name="LIBELLE_SECTEUR" ColumnName="LIBELLE_SECTEUR" />
+          <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CODE_EQUIPEMENT" ColumnName="CODE_EQUIPEMENT" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="DATE_VISITE" ColumnName="DATE_VISITE" />
+          <ScalarProperty Name="DATE_SAISIE" ColumnName="DATE_SAISIE" />
+          <ScalarProperty Name="DATE_IMPORT" ColumnName="DATE_IMPORT" />
+          <ScalarProperty Name="DATE_VALIDATION" ColumnName="DATE_VALIDATION" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPortionGraphique" FunctionName="ProtecaModel.Store.SP_PORTION_GRAPHIQUE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProtecaModel.SelectPortionGraphique_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLE_PORTION" ColumnName="CLE_PORTION" />
+          <ScalarProperty Name="CLE_GRAPHIQUE" ColumnName="CLE_GRAPHIQUE" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="NIVEAU" ColumnName="NIVEAU" />
+          <ScalarProperty Name="VALEUR" ColumnName="VALEUR" />
+          <ScalarProperty Name="DATE_VISITE" ColumnName="DATE_VISITE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AnAnalyseEeVisite">
+      <EntityTypeMapping TypeName="ProtecaModel.AnAnalyseEeVisite">
+        <MappingFragment StoreEntitySet="AN_ANALYSE_EE_VISITE">
+          <ScalarProperty Name="CleVisite" ColumnName="CLE_VISITE" />
+          <ScalarProperty Name="CleAnalyse" ColumnName="CLE_ANALYSE" />
+          <ScalarProperty Name="CleAnalyseEeVisite" ColumnName="CLE_ANALYSE_EE_VISITE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PpTmp">
+      <EntityTypeMapping TypeName="ProtecaModel.PpTmp">
+        <MappingFragment StoreEntitySet="PP_TMP">
+          <ScalarProperty Name="DateMajPp" ColumnName="DATE_MAJ_PP" />
+          <ScalarProperty Name="EnumSurfaceTms" ColumnName="ENUM_SURFACE_TMS" />
+          <ScalarProperty Name="CleNiveauSensibilite" ColumnName="CLE_NIVEAU_SENSIBILITE" />
+          <ScalarProperty Name="EnumDureeEnrg" ColumnName="ENUM_DUREE_ENRG" />
+          <ScalarProperty Name="EnumSurfaceTme" ColumnName="ENUM_SURFACE_TME" />
+          <ScalarProperty Name="CleUtiDdeDeverrouillage" ColumnName="CLE_UTI_DDE_DEVERROUILLAGE" />
+          <ScalarProperty Name="EnumPolarisation" ColumnName="ENUM_POLARISATION" />
+          <ScalarProperty Name="ClePp" ColumnName="CLE_PP" />
+          <ScalarProperty Name="CleCategoriePp" ColumnName="CLE_CATEGORIE_PP" />
+          <ScalarProperty Name="ClePpTmp" ColumnName="CLE_PP_TMP" />
+          <ScalarProperty Name="PresenceDUneTelemesure" ColumnName="PRESENCE_D_UNE_TELEMESURE" />
+          <ScalarProperty Name="DateDdeDeverrouillageCoordGps" ColumnName="DATE_DDE_DEVERROUILLAGE_COORD_GPS" />
+          <ScalarProperty Name="DdeDeverrouillageCoordGps" ColumnName="DDE_DEVERROUILLAGE_COORD_GPS" />
+          <ScalarProperty Name="CoordonneeGpsFiabilisee" ColumnName="COORDONNEE_GPS_FIABILISEE" />
+          <ScalarProperty Name="PositionGpsLong" ColumnName="POSITION_GPS_LONG" />
+          <ScalarProperty Name="PositionGpsLat" ColumnName="POSITION_GPS_LAT" />
+          <ScalarProperty Name="TemoinMetalliqueDeSurface" ColumnName="TEMOIN_METALLIQUE_DE_SURFACE" />
+          <ScalarProperty Name="TemoinEnterreAmovible" ColumnName="TEMOIN_ENTERRE_AMOVIBLE" />
+          <ScalarProperty Name="ElectrodeEnterreeAmovible" ColumnName="ELECTRODE_ENTERREE_AMOVIBLE" />
+          <ScalarProperty Name="CourantsAlternatifsInduits" ColumnName="COURANTS_ALTERNATIFS_INDUITS" />
+          <ScalarProperty Name="CourantsVagabonds" ColumnName="COURANTS_VAGABONDS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortionIntegriteAnAction">
+      <EntityTypeMapping TypeName="IsTypeOf(ProtecaModel.PortionIntegriteAnAction)">
+        <MappingFragment StoreEntitySet="PORTION_INTEGRITE_AN_ACTION">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CleAction" ColumnName="CLE_ACTION" />
+          <ScalarProperty Name="ClePortion" ColumnName="CLE_PORTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

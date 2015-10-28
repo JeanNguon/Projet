@@ -1,0 +1,40 @@
+﻿<article >
+    <form>
+        <fieldset>
+            <label>Identifiant* :</label>
+            <input ng-model="selectedUsrUtilisateur.Identifiant" />
+            <label>Nom :</label>
+            <input ng-model="selectedUsrUtilisateur.Nom" />
+            <label>Prenom :</label>
+            <input ng-model="selectedUsrUtilisateur.Prenom" />
+            <label>Mail :</label>
+            <input ng-model="selectedUsrUtilisateur.Mail" />
+            <label>Societe :</label>
+            <input ng-model="selectedUsrUtilisateur.Societe" />
+            <label>Gestion des utilisateurs :</label>
+            <input ng-model="selectedUsrUtilisateur.CleAgence" />
+            <label>Utilisateur  prestaire:</label>
+            <input type="checkbox" ng-model="selectedUsrUtilisateur.EstPresta" />
+            <label>Utilisateur supprimé:</label>
+            <input type="checkbox"  ng-model="selectedUsrUtilisateur.Supprime" />
+            <h2>Affectation </h2>
+            <label>Profil :</label>
+            <input ng-model="selectedUsrUtilisateur.CleProfil" />
+            <label>Utilisateur :</label>
+            <input ng-model="selectedUsrUtilisateur.CleUtilisateur" />
+            <label>Agence :</label>
+            <input ng-model="selectedUsrUtilisateur.CleAgence" />
+            <label>Secteur :</label>
+            <input ng-model="selectedUsrUtilisateur.CleSecteur" />
+            <hr />
+            <label>Suivi des modifications des comptes Admin.</label>
+            <input type="hidden" ng-model="showSuiviModifCompteAdmin"/>
+        </fieldset>
+    </form>
+    <div >
+        <button type="button" class="btn btn-default" ng-click="save()">ajouter</button>
+    </div>
+    <hr>
+   
+
+</article>
