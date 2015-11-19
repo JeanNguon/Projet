@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="4542103d-30a1-497c-95eb-461627d5dcc3" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="da52f2b0-b14c-4b84-b87b-e995f8b954f4" name="MainPage">
+      <childLayers>
+        <layer Id="93431a17-e02d-4e6b-916d-8510b191c6b8" name="NavigationContainer">
+          <childLayers>
+            <layer Id="6b22f5a5-ae18-497f-9197-09c54113cceb" name="MainContainer">
+              <childLayers>
+                <layer Id="a1e3b03d-2f27-4710-b998-568eb6cd381b" name="AgenceView">
+                  <references>
+                    <reference Id="07ce42b4-01e3-4a9f-a572-b7c2b7074b5a" name="AgenceView.xaml">
+                      <ArtifactNode Label="AgenceView.xaml" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/AgenceView.xaml)">
+                        <Category Ref="CodeSchema_SourceFile" />
+                      </ArtifactNode>
+                      <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views Type=AgenceView)" Label="AgenceView" Category="CodeSchema_Class">
+                        <LinkCategory Ref="Represents" />
+                      </ExpandedNode>
+                    </reference>
+                    <reference Id="c58b56ba-a238-4a30-a9a2-5a014321c240" name="AgenceView.xaml.cs">
+                      <ArtifactNode Label="AgenceView.xaml.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/AgenceView.xaml.cs)">
+                        <Category Ref="CodeSchema_SourceFile" />
+                      </ArtifactNode>
+                      <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views Type=AgenceView)" Label="AgenceView" Category="CodeSchema_Class">
+                        <LinkCategory Ref="Contains" />
+                        <LinkCategory Ref="Represents" />
+                      </ExpandedNode>
+                    </reference>
+                  </references>
+                </layer>
+              </childLayers>
+              <references>
+                <reference Id="b03778d1-03cc-4b79-a210-76db1fe2c336" name="MainContainer.xaml">
+                  <ArtifactNode Label="MainContainer.xaml" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/UserContols/MainContainer.xaml)">
+                    <Category Ref="CodeSchema_SourceFile" />
+                  </ArtifactNode>
+                  <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views.UserContols Type=MainContainer)" Label="MainContainer" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+                <reference Id="ea0829f5-d17d-4b3a-9f3b-c440c3742c69" name="MainContainer.xaml.cs">
+                  <ArtifactNode Label="MainContainer.xaml.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/UserContols/MainContainer.xaml.cs)">
+                    <Category Ref="CodeSchema_SourceFile" />
+                  </ArtifactNode>
+                  <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views.UserContols Type=MainContainer)" Label="MainContainer" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Contains" />
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+            <layer Id="e072b6d1-3b50-4d93-abf6-d508bea6d661" name="LeftContainer">
+              <childLayers>
+                <layer Id="69d97d49-e9ff-42ef-bd18-6311de1b894d" name="CustomExpander">
+                  <childLayers>
+                    <layer Id="e2baacb6-5988-4a1a-828c-5f8e617cc6b4" name="TreeViewGeo">
+                      <references>
+                        <reference Id="c629fb39-1351-498b-a55d-f7a6c5095fa3" name="TreeViewGeoView.xaml">
+                          <ArtifactNode Label="TreeViewGeoView.xaml" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/TreeViewGeoView.xaml)">
+                            <Category Ref="CodeSchema_SourceFile" />
+                          </ArtifactNode>
+                          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views Type=TreeViewGeoView)" Label="TreeViewGeoView" Category="CodeSchema_Class">
+                            <LinkCategory Ref="Represents" />
+                          </ExpandedNode>
+                        </reference>
+                        <reference Id="e9e30d48-dbce-4cd6-a319-df153aa94928" name="TreeViewGeoView.xaml.cs">
+                          <ArtifactNode Label="TreeViewGeoView.xaml.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/TreeViewGeoView.xaml.cs)">
+                            <Category Ref="CodeSchema_SourceFile" />
+                          </ArtifactNode>
+                          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views Type=TreeViewGeoView)" Label="TreeViewGeoView" Category="CodeSchema_Class">
+                            <LinkCategory Ref="Contains" />
+                            <LinkCategory Ref="Represents" />
+                          </ExpandedNode>
+                        </reference>
+                      </references>
+                    </layer>
+                  </childLayers>
+                  <references>
+                    <reference Id="c15f8afe-e888-4d59-bf28-7e4a14ff659c" name="MainContainer.xaml">
+                      <ArtifactNode Label="MainContainer.xaml" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/UserContols/MainContainer.xaml)">
+                        <Category Ref="CodeSchema_SourceFile" />
+                      </ArtifactNode>
+                      <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views.UserContols Type=MainContainer)" Label="MainContainer" Category="CodeSchema_Class">
+                        <LinkCategory Ref="Represents" />
+                      </ExpandedNode>
+                    </reference>
+                    <reference Id="aff2edf4-c5ac-44e4-9723-25c1db3c24a6" name="MainContainer.xaml.cs">
+                      <ArtifactNode Label="MainContainer.xaml.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/UserContols/MainContainer.xaml.cs)">
+                        <Category Ref="CodeSchema_SourceFile" />
+                      </ArtifactNode>
+                      <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views.UserContols Type=MainContainer)" Label="MainContainer" Category="CodeSchema_Class">
+                        <LinkCategory Ref="Contains" />
+                        <LinkCategory Ref="Represents" />
+                      </ExpandedNode>
+                    </reference>
+                  </references>
+                </layer>
+              </childLayers>
+            </layer>
+          </childLayers>
+          <references>
+            <reference Id="87c99ab9-bbe8-4fdd-9c2a-036cf15c065b" name="NavigationContainer.xaml">
+              <ArtifactNode Label="NavigationContainer.xaml" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/UserContols/NavigationContainer.xaml)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views.UserContols Type=NavigationContainer)" Label="NavigationContainer" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="41b2da6b-7636-4590-8bca-eb2208f17b67" name="NavigationContainer.xaml.cs">
+              <ArtifactNode Label="NavigationContainer.xaml.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Views/UserContols/NavigationContainer.xaml.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Views.UserContols Type=NavigationContainer)" Label="NavigationContainer" Category="CodeSchema_Class">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="c5cfd0a7-5c08-400d-808b-862cc44463ef" name="MenuContainer">
+          <references>
+            <reference Id="868a6755-9636-4e6f-a0c2-74e60a0b88f4" name="MainPage.xaml">
+              <ArtifactNode Label="MainPage.xaml" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/MainPage.xaml)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight Type=MainPage)" Label="MainPage" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="9631b075-4133-4c0c-be0f-27393009808c" name="MainPage.xaml.cs">
+              <ArtifactNode Label="MainPage.xaml.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/MainPage.xaml.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight Type=MainPage)" Label="MainPage" Category="CodeSchema_Class">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+      <references>
+        <reference Id="c889cf2c-d7f2-40bb-a260-6fca17261fcb" name="MainPage.xaml">
+          <ArtifactNode Label="MainPage.xaml" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/MainPage.xaml)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight Type=MainPage)" Label="MainPage" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="78201321-8625-412e-8d95-b278d08807ab" name="MainPage.xaml.cs">
+          <ArtifactNode Label="MainPage.xaml.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/MainPage.xaml.cs)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight Type=MainPage)" Label="MainPage" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

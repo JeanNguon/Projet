@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{364F335C-81D6-4299-8F1C-1ECD0635FA83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proteca.Sharepoint</RootNamespace>
+    <AssemblyName>Proteca.Sharepoint</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>Default</ActiveDeploymentConfiguration>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.BusinessData, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.SecureStoreService, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Microsoft.Office.SecureStoreService.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Publishing, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Microsoft.SharePoint.Publishing.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint">
+      <HintPath>..\Libs\Microsoft.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Security">
+      <HintPath>..\Libs\Microsoft.SharePoint.Security.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientAccessPolicyDeploymentJob.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Features\DeployClientAccessPolicy\DeployClientAccessPolicy.EventReceiver.cs">
+      <DependentUpon>DeployClientAccessPolicy.feature</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Features\ProtecaList\ProtecaList.EventReceiver.cs">
+      <DependentUpon>ProtecaList.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ProtecaLayout\ProtecaLayout.EventReceiver.cs">
+      <DependentUpon>ProtecaLayout.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ProtecaMasterPage\ProtecaMasterPage.EventReceiver.cs">
+      <DependentUpon>ProtecaMasterPage.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\XAP\XAP.EventReceiver.cs">
+      <DependentUpon>XAP.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SilverlightWebPart\SilverlightWebPart.cs" />
+    <Compile Include="SilverlightWebPart\SilverlightWebPartUserControl.ascx.cs">
+      <DependentUpon>SilverlightWebPartUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SilverlightWebPart\SilverlightWebPartUserControl.ascx.designer.cs">
+      <DependentUpon>SilverlightWebPartUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserActivitySummary\UserActivitySummary.cs" />
+    <Compile Include="Utilities\SecurityStoreHelper.cs" />
+    <Compile Include="Utilities\ListHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClientAccessPolicy\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e10030b2-bca8-4014-b888-4f21351142c9}</SharePointProjectItemId>
+    </None>
+    <None Include="ProtecaModuleLib.ContentTypes\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fc727122-24b3-4082-94a0-e03fbe9164de}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\DeployClientAccessPolicy\DeployClientAccessPolicy.feature">
+      <FeatureId>{f11849b8-3717-4747-ac00-4b53f08848a0}</FeatureId>
+    </None>
+    <None Include="Features\UserActivitySummary\UserActivitySummary.feature">
+      <FeatureId>{76a0a947-8d60-46c2-9822-657923e49573}</FeatureId>
+    </None>
+    <None Include="Features\ProtecaContentType\ProtecaContentType.feature">
+      <FeatureId>{a1ff2e8c-bd55-4100-876d-dd41b3c3403d}</FeatureId>
+    </None>
+    <None Include="Features\ProtecaList\ProtecaList.feature">
+      <FeatureId>{e7cd2715-0430-4835-a180-b702b3dc5d69}</FeatureId>
+    </None>
+    <None Include="Features\XAP\XAP.feature">
+      <FeatureId>{d4b07761-6e30-4584-9165-ffe9769ba5a2}</FeatureId>
+    </None>
+    <None Include="Features\ProtecaLayout\ProtecaLayout.feature">
+      <FeatureId>{36621948-b1a5-466f-8e94-4f7ef5f7590c}</FeatureId>
+    </None>
+    <None Include="Features\ProtecaMasterPage\ProtecaMasterPage.feature">
+      <FeatureId>{73c76aed-c61e-48a8-8105-cd254dfed000}</FeatureId>
+    </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1054b559-b468-4ec5-89ce-c1af5edda071}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="LAYOUTS\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fcb2c5ad-e160-42f2-b0e6-fa33e0fb8c82}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{e7f65376-658d-4fce-ab89-9415e894c1ac}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="ProtecaDocuLib.ContentTypes\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{93aa6cd6-e190-4e96-bf11-e7f0f4913992}</SharePointProjectItemId>
+    </None>
+    <None Include="ProtecaHelp.Pages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ee7106e4-1423-4a01-b363-644e82b74536}</SharePointProjectItemId>
+    </None>
+    <None Include="ProtecaLayouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1f544bc6-051b-4a73-ad30-1903cd9297dc}</SharePointProjectItemId>
+    </None>
+    <None Include="ProtecaMasterPage\PROTECA.master" />
+    <None Include="ProtecaMasterPage\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d0be6d83-a1e4-45a5-8479-00f34d2766db}</SharePointProjectItemId>
+    </None>
+    <None Include="ProtecaHelp.ContentTypes\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d84c268c-9767-4e89-ab63-314681244de7}</SharePointProjectItemId>
+    </None>
+    <None Include="SilverlightWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bf95089d-784d-4d8b-80ea-58487ed046ea}</SharePointProjectItemId>
+    </None>
+    <None Include="SilverlightWebPart\SilverlightWebPart.webpart" />
+    <None Include="Styles\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f59acda0-9f86-4484-af3b-b0172b035627}</SharePointProjectItemId>
+    </None>
+    <None Include="UserActivitySummary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d7ffbf49-587b-43e2-9530-bc06dd3e7269}</SharePointProjectItemId>
+    </None>
+    <None Include="UserActivitySummary\UserActivitySummary.webpart">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XAP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f914ac0e-5927-431a-aebe-1505f34b0c88}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientAccessPolicy\clientaccesspolicy.xml" />
+    <Content Include="ClientAccessPolicy\Elements.xml" />
+    <Content Include="ProtecaDocuLib.ContentTypes\Fields.xml" />
+    <Content Include="ProtecaModuleLib.ContentTypes\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Features\DeployClientAccessPolicy\DeployClientAccessPolicy.Template.xml">
+      <DependentUpon>DeployClientAccessPolicy.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\UserActivitySummary\UserActivitySummary.Template.xml">
+      <DependentUpon>UserActivitySummary.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\ProtecaContentType\ProtecaContentType.Template.xml">
+      <DependentUpon>ProtecaContentType.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\ProtecaList\ProtecaList.Template.xml">
+      <DependentUpon>ProtecaList.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\XAP\XAP.Template.xml">
+      <DependentUpon>XAP.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\ProtecaLayout\ProtecaLayout.Template.xml">
+      <DependentUpon>ProtecaLayout.feature</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Features\ProtecaMasterPage\ProtecaMasterPage.Template.xml">
+      <DependentUpon>ProtecaMasterPage.feature</DependentUpon>
+    </Content>
+    <Content Include="Images\bg_ligne.png" />
+    <Content Include="Images\bg_ligne_alt.png" />
+    <Content Include="Images\bg_menu.png" />
+    <Content Include="Images\bg_menu_on.png" />
+    <Content Include="Images\bg_ms.png" />
+    <Content Include="Images\bg_tableau.png" />
+    <Content Include="Images\Elements.xml" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\fond_bandeau.png" />
+    <Content Include="Images\logo_grtgaz.jpg" />
+    <Content Include="Images\logo_proteca.jpg" />
+    <Content Include="Images\aide.gif" />
+    <Content Include="Images\menu-down.gif" />
+    <Content Include="Images\search.png" />
+    <Content Include="Images\search_on.png" />
+    <Content Include="Images\sep_login.png" />
+    <Content Include="Images\sep_menu.png" />
+    <Content Include="LAYOUTS\Proteca\Scripts\HelpBase.js" />
+    <Content Include="LAYOUTS\Proteca\Scripts\Glossary.js" />
+    <Content Include="LAYOUTS\Proteca\Scripts\DiagnosticHelp.js" />
+    <Content Include="LAYOUTS\Proteca\Scripts\jquery.js" />
+    <Content Include="LAYOUTS\Proteca\Scripts\HelpActivator.js" />
+    <Content Include="LAYOUTS\Proteca\Scripts\UrlTool.js" />
+    <Content Include="ProtecaHelp.Pages\Styles\Images\profilelist-header.png" />
+    <Content Include="ProtecaDocuLib.ContentTypes\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ProtecaHelp.ContentTypes\Fields.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ProtecaHelp.Pages\Glossary.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="ProtecaHelp.Pages\DiagnosticHelp.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="ProtecaHelp.Pages\Styles\help.css" />
+    <Content Include="ProtecaHelp.Pages\OnlineHelp.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="ProtecaHelp.Pages\Elements.xml" />
+    <Content Include="ProtecaLayouts\AccueilLayout.aspx" />
+    <Content Include="ProtecaLayouts\RedirectLayout.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="ProtecaLayouts\SearchLayout.aspx" />
+    <Content Include="ProtecaLayouts\XAPLayout.aspx" />
+    <Content Include="ProtecaLayouts\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ProtecaMasterPage\Elements.xml" />
+    <Content Include="ProtecaHelp.ContentTypes\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="LAYOUTS\Proteca\Scripts\OnlineHelp.js" />
+    <Content Include="SilverlightWebPart\Elements.xml" />
+    <Content Include="SilverlightWebPart\SilverlightWebPartUserControl.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Styles\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Styles\proteca.css" />
+    <Content Include="UserActivitySummary\Elements.xml" />
+    <Content Include="XAP\Elements.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="false" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

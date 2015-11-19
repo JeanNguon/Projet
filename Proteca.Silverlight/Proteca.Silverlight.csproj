@@ -1,0 +1,1608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76DDFE90-6C7B-42AB-960E-6B67E93A633F}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proteca.Silverlight</RootNamespace>
+    <AssemblyName>Proteca.Silverlight</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>fr;fr-FR</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Proteca.Silverlight.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Proteca.Silverlight.App</SilverlightAppEntry>
+    <TestPageFileName>Maquette1TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>..\Proteca.Web\Proteca.Web.csproj</LinkedServerProject>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.1.20402.0</ExpressionBlendVersion>
+    <InBrowserSettingsFile>Properties\InBrowserSettings.xml</InBrowserSettingsFile>
+    <RequireInBrowserElevation>false</RequireInBrowserElevation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7E8E1C41E21FED801BE01D3FCA4723441E177430</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Maquette1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Libs\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Silverlight">
+      <HintPath>..\Libs\Microsoft.SharePoint.Client.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Silverlight.Runtime">
+      <HintPath>..\Libs\Microsoft.SharePoint.Client.Silverlight.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Json, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.Data.Toolkit">
+      <HintPath>..\Libs\System.Windows.Controls.Data.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.Toolkit">
+      <HintPath>..\Libs\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Toolkit.Internals">
+      <HintPath>..\Libs\System.Windows.Controls.Toolkit.Internals.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\Libs\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls" />
+    <Reference Include="System.Windows.Controls.Navigation" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.XPath, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\Libs\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart">
+      <HintPath>..\Libs\Telerik.Windows.Controls.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\Libs\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView">
+      <HintPath>..\Libs\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\Libs\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\Libs\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView">
+      <HintPath>..\Libs\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI">
+      <HintPath>..\Libs\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\Libs\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents">
+      <HintPath>..\Libs\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html">
+      <HintPath>..\Libs\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf">
+      <HintPath>..\Libs\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\Libs\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\Libs\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\Libs\Telerik.Windows.Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Proteca.Web\Resources\ValidationErrorResources.Designer.cs">
+      <Link>Resources\ValidationErrorResources.Designer.cs</Link>
+      <DependentUpon>ValidationErrorResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\Proteca.Web\Resources\ResourceHisto.Designer.cs">
+      <Link>Resources\ResourceHisto.Designer.cs</Link>
+      <DependentUpon>ResourceHisto.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\Proteca.Web\Resources\ResourceImg.Designer.cs">
+      <Link>Resources\ResourceImg.Designer.cs</Link>
+      <DependentUpon>ResourceImg.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BusyIndicator.cs" />
+    <Compile Include="Helpers\StringExtension.cs" />
+    <Compile Include="Services\EntityServices\AllUsrUtilisateurService.cs" />
+    <Compile Include="ViewModels\DetailPPViewModel.OnlinePartial.cs" />
+    <Compile Include="Views\AggregateFunctions\VisiteCanEditGetFunction.cs" />
+    <Compile Include="Views\Behaviors\SetUnderlineAction.cs" />
+    <Compile Include="Views\Converters\DebugConverter.cs" />
+    <Compile Include="Views\UserContols\DetailsEQ.xaml.cs">
+      <DependentUpon>DetailsEQ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\ActionTileview.xaml.cs">
+      <DependentUpon>ActionTileview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\Providers\CustomGridViewKeyboardCommandProvider.cs" />
+    <Compile Include="Controls\VisualStates.cs" />
+    <Compile Include="Enums\SearchScope.cs" />
+    <Compile Include="Enums\RestitutionEnum.cs" />
+    <Compile Include="Enums\EnumExtension.cs" />
+    <Compile Include="Enums\IsBusyEnum.cs" />
+    <Compile Include="Enums\NavigationEnums.cs" />
+    <Compile Include="Enums\RefEnum.cs" />
+    <Compile Include="Enums\RefEnumValeurCodeGroupeEnum.cs" />
+    <Compile Include="Enums\RefSousTypeOuvrageGroupEnumService.cs" />
+    <Compile Include="Enums\StringValueAttribute.cs" />
+    <Compile Include="Enums\ViewEnum.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Helpers\CustomLocalizationManager.cs" />
+    <Compile Include="Helpers\DAVHelper.cs" />
+    <Compile Include="Helpers\EntityPropertiesComparer.cs" />
+    <Compile Include="Helpers\CustomLogger.cs" />
+    <Compile Include="Helpers\DataFieldExtensions.cs" />
+    <Compile Include="Helpers\EntityExtension.cs" />
+    <Compile Include="Helpers\EqualityComparer.cs" />
+    <Compile Include="Helpers\ExportAndPrintHelper.cs" />
+    <Compile Include="Helpers\FrameworkElementExtension.cs" />
+    <Compile Include="Helpers\KeyDownBehavior.cs" />
+    <Compile Include="Helpers\NotOperatorValueConverter.cs" />
+    <Compile Include="Helpers\StreamHelper.cs" />
+    <Compile Include="Helpers\TargetNullValueConverter.cs" />
+    <Compile Include="Models\Alerte.cs" />
+    <Compile Include="Models\AlerteDetail.cs" />
+    <Compile Include="Models\AnAction.cs" />
+    <Compile Include="Models\AnAnalyseEe.cs" />
+    <Compile Include="Models\CategoriePp.cs" />
+    <Compile Include="Models\Composition.cs" />
+    <Compile Include="Models\AnAnalyse.cs" />
+    <Compile Include="Models\AnAnalyseSerieMesure.cs" />
+    <Compile Include="Models\EqEquipementTmp.cs" />
+    <Compile Include="Models\PiSecteurs.cs" />
+    <Compile Include="Models\PointGraphique.cs" />
+    <Compile Include="Models\PpTmp.cs" />
+    <Compile Include="Models\Rejet.cs" />
+    <Compile Include="Models\SelectPortionGraphique_Result.cs" />
+    <Compile Include="Models\DetailPP.cs" />
+    <Compile Include="Models\Documentation.cs" />
+    <Compile Include="Models\EqDispoEcoulementCourantsAlternatifs.cs" />
+    <Compile Include="Models\EqTiersCroiseSansLiaison.cs" />
+    <Compile Include="Models\EqLiaisonExterne.cs" />
+    <Compile Include="Models\EqRaccordIsolant.cs" />
+    <Compile Include="Models\EqPile.cs" />
+    <Compile Include="Models\EqPostegaz.cs" />
+    <Compile Include="Models\EqFourreauMetallique.cs" />
+    <Compile Include="Models\EqLiaisonInterne.cs" />
+    <Compile Include="Models\EqDrainage.cs" />
+    <Compile Include="Models\EqAnodeGalvanique.cs" />
+    <Compile Include="Models\EqSoutirage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\GeoEnsembleElectrique.cs" />
+    <Compile Include="Models\Graphique.cs" />
+    <Compile Include="Models\IOuvrage.cs" />
+    <Compile Include="Models\LogOuvrage.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\MesMesure.cs" />
+    <Compile Include="Models\ParametreAction.cs" />
+    <Compile Include="Models\PortionDates.cs" />
+    <Compile Include="Models\RefEnumValeur.cs" />
+    <Compile Include="Models\SelectTourneeTableauBord_Result.cs" />
+    <Compile Include="Models\SiteAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Tournee.cs" />
+    <Compile Include="Models\TourneePpEq.cs" />
+    <Compile Include="Models\TypeRessource.cs" />
+    <Compile Include="Models\MesCoutMesure.cs" />
+    <Compile Include="Models\EqEquipement.cs" />
+    <Compile Include="Models\MesUnite.cs" />
+    <Compile Include="Models\Pp.cs" />
+    <Compile Include="Models\RefCommune.cs" />
+    <Compile Include="Models\EnsembleElectrique.cs" />
+    <Compile Include="Models\PortionIntegrite.cs" />
+    <Compile Include="Models\MesNiveauProtection.cs" />
+    <Compile Include="Models\RefNiveauSensibilitePp.cs" />
+    <Compile Include="Models\RefSousTypeOuvrage.cs" />
+    <Compile Include="Models\RefUsrAutorisation.cs" />
+    <Compile Include="Models\RefUsrPortee.cs" />
+    <Compile Include="Models\TypeDocument.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\MesModeleMesure.cs" />
+    <Compile Include="Models\TypeEquipement.cs" />
+    <Compile Include="Models\MesTypeMesure.cs" />
+    <Compile Include="Models\MesClassementMesure.cs" />
+    <Compile Include="Models\RefParametre.cs" />
+    <Compile Include="Models\UsrProfil.cs" />
+    <Compile Include="Models\InsIntrument.cs" />
+    <Compile Include="Models\UsrRole.cs" />
+    <Compile Include="Models\UsrUtilisateur.cs" />
+    <Compile Include="Models\GeoAgence.cs" />
+    <Compile Include="Helpers\CurrentNavigation.cs" />
+    <Compile Include="Models\Entitee.cs" />
+    <Compile Include="Models\GeoRegion.cs" />
+    <Compile Include="Models\IGeoCommun.cs" />
+    <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\MenuItemsCollection.cs" />
+    <Compile Include="Models\GeoSecteur.cs" />
+    <Compile Include="Models\Visite.cs" />
+    <Compile Include="Models\VisiteImportRapport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\VisiteMesure.cs" />
+    <Compile Include="Resources\ApplicationResources.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resources\EntityProperties.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityProperties.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Rapports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rapports.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Resource.Designer.cs">
+      <DependentUpon>Resource.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Resources\ResourceSearch.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceSearch.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LogServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SearchQueryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Contracts\IConfigurator.cs" />
+    <Compile Include="Services\Contracts\IExportService.cs" />
+    <Compile Include="Services\Contracts\INavigationService.cs" />
+    <Compile Include="Services\Contracts\IPrintingService.cs" />
+    <Compile Include="Services\Contracts\IEntityService.cs" />
+    <Compile Include="Services\Contracts\ISiteActionService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\Contracts\IUserService.cs" />
+    <Compile Include="Services\EntityServices\ActionService.cs" />
+    <Compile Include="Services\EntityServices\AlerteService.cs" />
+    <Compile Include="Services\EntityServices\AnAnalyseEeService.cs" />
+    <Compile Include="Services\EntityServices\AnAnalyseSerieMesureService.cs" />
+    <Compile Include="Services\EntityServices\ImageService.cs" />
+    <Compile Include="Services\EntityServices\EqEquipementTmpService.cs" />
+    <Compile Include="Services\EntityServices\GeoEnsElecPortionEqPpService.cs" />
+    <Compile Include="Services\EntityServices\DetailPPService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\EntityServices\PpTmpService.cs" />
+    <Compile Include="Services\EntityServices\TourneePpEqService.cs" />
+    <Compile Include="Services\EntityServices\LogTourneeService.cs" />
+    <Compile Include="Services\EntityServices\MesMesureService.cs" />
+    <Compile Include="Services\ProtecaADDomainContext.partial.cs" />
+    <Compile Include="Services\EntityServices\DocumentService.cs" />
+    <Compile Include="Services\EntityServices\CategoriePpService.cs" />
+    <Compile Include="Services\EntityServices\EnsembleElectriqueService.cs" />
+    <Compile Include="Services\EntityServices\EqDrainageLiaisonsextService.cs" />
+    <Compile Include="Services\EntityServices\EqEquipementService.cs" />
+    <Compile Include="Services\EntityServices\EqSoutirageLiaisonsextService.cs" />
+    <Compile Include="Services\EntityServices\GeoAgenceService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\EntityServices\GeoEnsElecPortionService.cs" />
+    <Compile Include="Services\EntityServices\GeoEnsembleElectriqueService.cs" />
+    <Compile Include="Services\EntityServices\GeoRegionService.cs" />
+    <Compile Include="Services\EntityServices\GeoSecteurService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\EntityServices\HistoAdminService.cs" />
+    <Compile Include="Services\EntityServices\InsInstrumentService.cs" />
+    <Compile Include="Services\EntityServices\LogOuvrageService.cs" />
+    <Compile Include="Services\EntityServices\MesClassementMesureService.cs" />
+    <Compile Include="Services\EntityServices\MesCoutMesureService.cs" />
+    <Compile Include="Services\EntityServices\MesModeleMesureService.cs" />
+    <Compile Include="Services\EntityServices\MesNiveauProtectionService.cs" />
+    <Compile Include="Services\EntityServices\MesTypeMesureService.cs" />
+    <Compile Include="Services\EntityServices\MesUnitesService.cs" />
+    <Compile Include="Services\EntityServices\ParametreActionService.cs" />
+    <Compile Include="Services\EntityServices\PortionIntegriteService.cs" />
+    <Compile Include="Services\EntityServices\PpEquipementService.cs" />
+    <Compile Include="Services\EntityServices\PpJumeleeService.cs" />
+    <Compile Include="Services\EntityServices\PPService.cs" />
+    <Compile Include="Services\EntityServices\RefCommuneService.cs" />
+    <Compile Include="Services\EntityServices\RefDiametreService.cs" />
+    <Compile Include="Services\EntityServices\RefNiveauSensibilitePpService.cs" />
+    <Compile Include="Services\EntityServices\RefParametreService.cs" />
+    <Compile Include="Services\EntityServices\RefEnumValeurService.cs" />
+    <Compile Include="Services\EntityServices\RefRevetementService.cs" />
+    <Compile Include="Services\EntityServices\RefUsrAutorisationService.cs" />
+    <Compile Include="Services\EntityServices\RefUsrPorteeService.cs" />
+    <Compile Include="Services\EntityServices\TourneeService.cs" />
+    <Compile Include="Services\EntityServices\TypeEquipementService.cs" />
+    <Compile Include="Services\EntityServices\UsrProfilService.cs" />
+    <Compile Include="Services\EntityServices\VisiteService.cs" />
+    <Compile Include="Services\ExportService.cs" />
+    <Compile Include="Services\MainModule.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\PrintingService.cs" />
+    <Compile Include="Services\EntityServices\UsrUtilisateurService.cs" />
+    <Compile Include="Services\EntityServices\RefUsrGroupeService.cs" />
+    <Compile Include="Services\EntityServices\UsrRoleService.cs" />
+    <Compile Include="Services\ProtecaDomainContext.partial.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\EntityServices\RefSousTypeOuvrageService.cs" />
+    <Compile Include="Services\ServicesConfirugator.cs" />
+    <Compile Include="Services\EntityServices\TypeDocumentService.cs" />
+    <Compile Include="Services\SharepointService.cs" />
+    <Compile Include="Services\SiteActionService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\SynchronizationService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModels\ActionViewModel.cs" />
+    <Compile Include="ViewModels\AdminGenerateurViewModel.cs" />
+    <Compile Include="ViewModels\AlerteViewModel.cs" />
+    <Compile Include="ViewModels\AnAnalyseEeViewModel.cs" />
+    <Compile Include="ViewModels\BaseProtecaEntityViewModel.cs" />
+    <Compile Include="ViewModels\CategoriePpViewModel.cs" />
+    <Compile Include="ViewModels\BaseOuvrageViewModel.cs" />
+    <Compile Include="ViewModels\EqEquipementViewModel.cs" />
+    <Compile Include="ViewModels\ExportTourneeViewModel.cs" />
+    <Compile Include="ViewModels\CreateUsrUtilisateurViewModel.cs" />
+    <Compile Include="ViewModels\EditionVisiteViewModel.cs" />
+    <Compile Include="ViewModels\ValidationEquipementViewModel.cs" />
+    <Compile Include="ViewModels\DecoupagePortionViewModel.cs" />
+    <Compile Include="ViewModels\DetailPPViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\DocumentationViewModel.cs" />
+    <Compile Include="ViewModels\FicheActionViewModel.cs" />
+    <Compile Include="ViewModels\DeplacementPpViewModel.cs" />
+    <Compile Include="ViewModels\ImportVisiteViewModel.cs" />
+    <Compile Include="ViewModels\OuvrageViewModel.cs" />
+    <Compile Include="ViewModels\RestitutionBilanViewModel.cs" />
+    <Compile Include="ViewModels\SaisieVisiteViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="ViewModels\TourneeViewModel.cs" />
+    <Compile Include="ViewModels\TypeRessourceViewModel.cs" />
+    <Compile Include="ViewModels\RefSousTypeOuvrageViewModel.cs" />
+    <Compile Include="ViewModels\DecoupageGeoViewModel.cs" />
+    <Compile Include="ViewModels\CustomTopContainerViewModel.cs" />
+    <Compile Include="ViewModels\CustomExpanderViewModel.cs" />
+    <Compile Include="ViewModels\EnsembleElectriqueViewModel.cs" />
+    <Compile Include="ViewModels\EquipementViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_AGViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_DEViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_DRViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_FMViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_LEViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_LIViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_PIViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_POViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_RIViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_SOViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_TCViewModel.cs" />
+    <Compile Include="ViewModels\FilArianneViewModel.cs" />
+    <Compile Include="ViewModels\GeoAgenceViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\GeoRegionViewModel.cs" />
+    <Compile Include="ViewModels\GeoSecteurViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\GroupeAutorisationViewModel.cs" />
+    <Compile Include="ViewModels\InsInstrumentViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\MesClassementMesureViewModel.cs" />
+    <Compile Include="ViewModels\MesModeleMesureViewModel.cs" />
+    <Compile Include="ViewModels\PortionIntegriteViewModel.cs" />
+    <Compile Include="ViewModels\Equipement_PPViewModel.cs" />
+    <Compile Include="ViewModels\RefParametreViewModel.cs" />
+    <Compile Include="ViewModels\RegoupementRegionViewModel.cs" />
+    <Compile Include="ViewModels\Ressources_ActionsViewModel.cs" />
+    <Compile Include="ViewModels\Ressources_MesuresViewModel.cs" />
+    <Compile Include="ViewModels\SampleData\DesignTimeTreeViewGeoViewModel.cs" />
+    <Compile Include="ViewModels\SelectedSecteurViewModel.cs" />
+    <Compile Include="ViewModels\TreeViewGeoViewModel.cs" />
+    <Compile Include="ViewModels\MesUnitesViewModel.cs" />
+    <Compile Include="ViewModels\TypeDocumentViewModel.cs" />
+    <Compile Include="ViewModels\TypeEquipementViewModel.cs" />
+    <Compile Include="ViewModels\UsrProfilViewModel.cs" />
+    <Compile Include="ViewModels\UsrUtilisateurViewModel.cs" />
+    <Compile Include="ViewModels\ValidationVisiteViewModel.cs" />
+    <Compile Include="Views\AccueilView.xaml.cs">
+      <DependentUpon>AccueilView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ActionView.xaml.cs">
+      <DependentUpon>ActionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AggregateFunctions\PpCheckFunction.cs" />
+    <Compile Include="Views\AggregateFunctions\EquipementCheckFunction.cs" />
+    <Compile Include="Views\AdminGenerateurView.xaml.cs">
+      <DependentUpon>AdminGenerateurView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AggregateFunctions\VisiteCheckFunction.cs" />
+    <Compile Include="Views\AggregateFunctions\VisiteFunction.cs" />
+    <Compile Include="Views\AggregateFunctions\PPEquipementCount.cs" />
+    <Compile Include="Views\AggregateFunctions\PPEquipementFunction.cs" />
+    <Compile Include="Views\AlerteView.xaml.cs">
+      <DependentUpon>AlerteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alerte_ExpanderView.xaml.cs">
+      <DependentUpon>Alerte_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AnAnalyseEeView.xaml.cs">
+      <DependentUpon>AnAnalyseEeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AnAnalyseEe_ExpanderView.xaml.cs">
+      <DependentUpon>AnAnalyseEe_ExpanderView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Behaviors\TourneeGridViewBehavior.cs" />
+    <Compile Include="Views\Behaviors\DragDropIndicationDetail.cs" />
+    <Compile Include="Views\Behaviors\TourneeListBoxBehavior.cs" />
+    <Compile Include="Views\CategoriePpView.xaml.cs">
+      <DependentUpon>CategoriePpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Converters\BoolToColorConverter.cs" />
+    <Compile Include="Views\Converters\BoolToTileViewItemPositionConverter.cs" />
+    <Compile Include="Views\Converters\BoolToValueConverter.cs" />
+    <Compile Include="Views\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Views\Converters\BoolToStringConverter.cs" />
+    <Compile Include="Views\Converters\BoolToScrollBarVisibilityConverter.cs" />
+    <Compile Include="Views\Converters\BoolToGridLengthConverter.cs" />
+    <Compile Include="Views\Converters\AnyToVisibilityConverter.cs" />
+    <Compile Include="Views\Converters\BoolToPlotModeConverter.cs" />
+    <Compile Include="Views\Converters\NullOrEmptyToHideConverter.cs" />
+    <Compile Include="Views\Converters\VisiteFunctionToVisibibilityConverter.cs" />
+    <Compile Include="Views\Converters\NullToBoolConverter.cs" />
+    <Compile Include="Views\Converters\TileViewItemStateToInverseBoolConverter.cs" />
+    <Compile Include="Views\Converters\InverseAnyToVisibilityConverter.cs" />
+    <Compile Include="Views\Converters\TileViewItemStateBoolToConverter.cs" />
+    <Compile Include="Views\Converters\TileViewItemStateToThicknessConverter.cs" />
+    <Compile Include="Views\Converters\NullOrEmptyToVisibibilityConverter.cs" />
+    <Compile Include="Views\Converters\DateTimeToStringConverter.cs" />
+    <Compile Include="Views\Converters\EmptyToNullConverter.cs" />
+    <Compile Include="Views\Converters\InverseBoolConverter.cs" />
+    <Compile Include="Views\Converters\ListPorteeToFilterListConverter.cs" />
+    <Compile Include="Views\Converters\NiveauTypeToVisibilityConverter.cs" />
+    <Compile Include="Views\Converters\NullableToVisibibilityConverter.cs" />
+    <Compile Include="Views\Converters\TileViewItemStateToBoolConverter.cs" />
+    <Compile Include="Views\Action_ExpanderView.xaml.cs">
+      <DependentUpon>Action_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Converters\TypeToVisibilityConverter.cs" />
+    <Compile Include="Views\DataTemplateSelectors\BinaryTemplateSelector.cs" />
+    <Compile Include="Views\EditionVisiteView.xaml.cs">
+      <DependentUpon>EditionVisiteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditionVisite_ExpanderView.xaml.cs">
+      <DependentUpon>EditionVisite_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EqEquipementView.xaml.cs">
+      <DependentUpon>EqEquipementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\GraphiqueMesures.xaml.cs">
+      <DependentUpon>GraphiqueMesures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\ListParametre.xaml.cs">
+      <DependentUpon>ListParametre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\NiveauProtection.xaml.cs">
+      <DependentUpon>NiveauProtection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\Rejets.xaml.cs">
+      <DependentUpon>Rejets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\RestitutionButton.xaml.cs">
+      <DependentUpon>RestitutionButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\VisiteEdit_DetailPP.cs" />
+    <Compile Include="Views\UserContols\HistoriqueVisite.xaml.cs">
+      <DependentUpon>HistoriqueVisite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ValidationEquipement_ExpanderView.xaml.cs">
+      <DependentUpon>ValidationEquipement_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ValidationEquipementView.xaml.cs">
+      <DependentUpon>ValidationEquipementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DocumentationView.xaml.cs">
+      <DependentUpon>DocumentationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documentation_ExpanderView.xaml.cs">
+      <DependentUpon>Documentation_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopupAction.cs" />
+    <Compile Include="Views\Search_ExpanderView.xaml.cs">
+      <DependentUpon>Search_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FicheActionView.xaml.cs">
+      <DependentUpon>FicheActionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FicheAction_ExpanderView.xaml.cs">
+      <DependentUpon>FicheAction_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeplacementPp_ExpanderView.xaml.cs">
+      <DependentUpon>DeplacementPp_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeplacementPpView.xaml.cs">
+      <DependentUpon>DeplacementPpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImportVisiteView.xaml.cs">
+      <DependentUpon>ImportVisiteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DecoupagePortion_ExpanderView.xaml.cs">
+      <DependentUpon>DecoupagePortion_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DecoupagePortionView.xaml.cs">
+      <DependentUpon>DecoupagePortionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_AGView.xaml.cs">
+      <DependentUpon>Equipement_AGView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_DEView.xaml.cs">
+      <DependentUpon>Equipement_DEView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_DRView.xaml.cs">
+      <DependentUpon>Equipement_DRView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_FMView.xaml.cs">
+      <DependentUpon>Equipement_FMView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_LEView.xaml.cs">
+      <DependentUpon>Equipement_LEView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_PIView.xaml.cs">
+      <DependentUpon>Equipement_PIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_POView.xaml.cs">
+      <DependentUpon>Equipement_POView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_RIView.xaml.cs">
+      <DependentUpon>Equipement_RIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_SOView.xaml.cs">
+      <DependentUpon>Equipement_SOView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_TCView.xaml.cs">
+      <DependentUpon>Equipement_TCView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PortionIntegrite_ExpanderView.xaml.cs">
+      <DependentUpon>PortionIntegrite_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DecoupageGeoView.xaml.cs">
+      <DependentUpon>DecoupageGeoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EnsembleElectriqueView.xaml.cs">
+      <DependentUpon>EnsembleElectriqueView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EnsembleElectrique_ExpanderView.xaml.cs">
+      <DependentUpon>EnsembleElectrique_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_ExpanderView.xaml.cs">
+      <DependentUpon>Equipement_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MesClassementMesureView.xaml.cs">
+      <DependentUpon>MesClassementMesureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MesClassementMesure_ExpanderView.xaml.cs">
+      <DependentUpon>MesClassementMesure_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MesModeleMesureView.xaml.cs">
+      <DependentUpon>MesModeleMesureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MesModeleMesure_ExpanderView.xaml.cs">
+      <DependentUpon>MesModeleMesure_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MesUnitesView.xaml.cs">
+      <DependentUpon>MesUnitesView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\MesUnites_ExpanderView.xaml.cs">
+      <DependentUpon>MesUnites_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PortionIntegriteView.xaml.cs">
+      <DependentUpon>PortionIntegriteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_PPView.xaml.cs">
+      <DependentUpon>Equipement_PPView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PP_ExpanderView.xaml.cs">
+      <DependentUpon>PP_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RefParametreView.xaml.cs">
+      <DependentUpon>RefParametreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ressources_ActionsView.xaml.cs">
+      <DependentUpon>Ressources_ActionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ressources_MesuresView.xaml.cs">
+      <DependentUpon>Ressources_MesuresView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RestitutionBilanView.xaml.cs">
+      <DependentUpon>RestitutionBilanView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SaisieVisiteView.xaml.cs">
+      <DependentUpon>SaisieVisiteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SaisieVisite_ExpanderView.xaml.cs">
+      <DependentUpon>SaisieVisite_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StyleSelectors\CategoriePPStyleSelector.cs" />
+    <Compile Include="Views\Tools\IMultiValueConverter.cs" />
+    <Compile Include="Views\Tools\MultiBinding.cs" />
+    <Compile Include="Views\Tools\MultiBindingExpression.cs" />
+    <Compile Include="Views\Tools\MultiBindingValidationError.cs" />
+    <Compile Include="Views\TourneeView.xaml.cs">
+      <DependentUpon>TourneeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tournee_ExpanderView.xaml.cs">
+      <DependentUpon>Tournee_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeDocumentView.xaml.cs">
+      <DependentUpon>TypeDocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeDocument_ExpanderView.xaml.cs">
+      <DependentUpon>TypeDocument_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\RichTextOffice.xaml.cs">
+      <DependentUpon>RichTextOffice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\DetailPP.xaml.cs">
+      <DependentUpon>DetailPP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\CustomGrid.cs" />
+    <Compile Include="Views\UserContols\CustomAutoCompleteBox.cs" />
+    <Compile Include="Views\UserContols\CustomGridView.cs" />
+    <Compile Include="Views\UserContols\NumericTextBox.cs" />
+    <Compile Include="Views\UserContols\Documents.xaml.cs">
+      <DependentUpon>Documents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\PP_DetailPP.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\UserContols\TourneeExpander.xaml.cs">
+      <DependentUpon>TourneeExpander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\TypeRessource.xaml.cs">
+      <DependentUpon>TypeRessource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\CustomTopContainer.xaml.cs">
+      <DependentUpon>CustomTopContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\EquipementExpander.xaml.cs">
+      <DependentUpon>EquipementExpander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\Equipement_Tournees.xaml.cs">
+      <DependentUpon>Equipement_Tournees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\ErrorSummary.xaml.cs">
+      <DependentUpon>ErrorSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\Historique.xaml.cs">
+      <DependentUpon>Historique.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\TypeEquipement.xaml.cs">
+      <DependentUpon>TypeEquipement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\ListAutorisation.xaml.cs">
+      <DependentUpon>ListAutorisation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\VisiteMesures.xaml.cs">
+      <DependentUpon>VisiteMesures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\Visite_DetailPP.cs" />
+    <Compile Include="Views\UsrProfilView.xaml.cs">
+      <DependentUpon>UsrProfilView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataTemplateSelectors\ParametreTemplateSelector.cs" />
+    <Compile Include="Views\GeoAgenceView.xaml.cs">
+      <DependentUpon>GeoAgenceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeoRegionView.xaml.cs">
+      <DependentUpon>GeoRegionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeoSecteurView.xaml.cs">
+      <DependentUpon>GeoSecteurView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsIntrument_ExpanderView.xaml.cs">
+      <DependentUpon>InsIntrument_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegoupementRegionView.xaml.cs">
+      <DependentUpon>RegoupementRegionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\ExportAndPrint.xaml.cs">
+      <DependentUpon>ExportAndPrint.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\InsIntrumentView.xaml.cs">
+      <DependentUpon>InsIntrumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\AddButton.xaml.cs">
+      <DependentUpon>AddButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\CustomExpander.xaml.cs">
+      <DependentUpon>CustomExpander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\FilArianne.xaml.cs">
+      <DependentUpon>FilArianne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Navigation.xaml.cs">
+      <DependentUpon>Navigation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\MainContainer.xaml.cs">
+      <DependentUpon>MainContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserContols\NavigationContainer.xaml.cs">
+      <DependentUpon>NavigationContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TreeViewGeoView.xaml.cs">
+      <DependentUpon>TreeViewGeoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\UserContols\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StyleSelectors\MenuStyleSelector.cs" />
+    <Compile Include="Views\StyleSelectors\InstrumentStyleSelector.cs" />
+    <Compile Include="Views\UsrProfil_ExpanderView.xaml.cs">
+      <DependentUpon>UsrProfil_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrUtilisateurView.xaml.cs">
+      <DependentUpon>UsrUtilisateurView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrUtilisateur_ExpanderView.xaml.cs">
+      <DependentUpon>UsrUtilisateur_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ValidationVisiteView.xaml.cs">
+      <DependentUpon>ValidationVisiteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ValidationVisite_ExpanderView.xaml.cs">
+      <DependentUpon>ValidationVisite_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\ChildWindow.xaml.cs">
+      <DependentUpon>ChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipement_LIView.xaml.cs">
+      <DependentUpon>Equipement_LIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CreateUsrUtilisateur.xaml.cs">
+      <DependentUpon>CreateUsrUtilisateur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\ExportTournee.xaml.cs">
+      <DependentUpon>ExportTournee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\RefSousTypeOuvrage.xaml.cs">
+      <DependentUpon>RefSousTypeOuvrage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Selected_Secteur.xaml.cs">
+      <DependentUpon>Selected_Secteur.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Assets\Boutons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Chart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\GridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\GridViewCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\RichTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\TileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BusyIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AccueilView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ActionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdminGenerateurView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AlerteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Alerte_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AnAnalyseEeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AnAnalyseEe_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CategoriePpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Action_ExpanderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EditionVisiteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditionVisite_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EqEquipementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\DetailsEQ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\ActionTileview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\GraphiqueMesures.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserContols\ListParametre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\NiveauProtection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\Rejets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\RestitutionButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserContols\HistoriqueVisite.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ValidationEquipement_ExpanderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ValidationEquipementView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DocumentationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Documentation_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Search_ExpanderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FicheActionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FicheAction_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeplacementPp_ExpanderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DeplacementPpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ImportVisiteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InfoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DecoupagePortion_ExpanderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DecoupagePortionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_AGView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_DEView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_DRView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_FMView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_LEView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_PIView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_POView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_RIView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_SOView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Equipement_TCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PortionIntegrite_ExpanderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DecoupageGeoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EnsembleElectriqueView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EnsembleElectrique_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GeoAgenceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GeoRegionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GeoSecteurView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InsIntrument_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MesClassementMesureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MesClassementMesure_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MesModeleMesureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MesModeleMesure_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MesUnitesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MesUnites_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PortionIntegriteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipement_PPView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PP_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RefParametreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegoupementRegionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Ressources_ActionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Ressources_MesuresView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RestitutionBilanView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SaisieVisiteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SaisieVisite_ExpanderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TourneeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tournee_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TypeDocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TypeDocument_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\RichTextOffice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserContols\DetailPP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserContols\Documents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\TourneeExpander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\TypeRessource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserContols\CustomTopContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserContols\EquipementExpander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\Equipement_Tournees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\ErrorSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\Historique.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\TypeEquipement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserContols\ExportAndPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InsIntrumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\AddButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\CustomExpander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\FilArianne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserContols\ListAutorisation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\MainContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\NavigationContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TreeViewGeoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserContols\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserContols\VisiteMesures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsrProfilView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrProfil_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsrUtilisateurView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrUtilisateur_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ValidationVisiteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ValidationVisite_ExpanderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\ChildWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Equipement_LIView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CreateUsrUtilisateur.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Windows\ExportTournee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\RefSousTypeOuvrage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Windows\Selected_Secteur.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Assets\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Views\ErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UsrUtilisateur.html" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\DataSources\Proteca.Web.Services.ProtecaDomainContext.datasource" />
+    <None Include="Service References\LogServiceReference\LogService.wsdl" />
+    <None Include="Service References\LogServiceReference\LogService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogServiceReference\LogService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogServiceReference\LogService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SearchQueryService\Proteca.Silverlight.SearchQueryService.ArrayOfXElement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchQueryService\Proteca.Silverlight.SearchQueryService.QueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchQueryService\Proteca.Silverlight.SearchQueryService.RecordClickResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchQueryService\Proteca.Silverlight.SearchQueryService.RegistrationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchQueryService\Proteca.Silverlight.SearchQueryService.StatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchQueryService\search.wsdl" />
+    <Resource Include="Images\checknames.png" />
+    <Resource Include="Images\pdf.jpg" />
+    <Resource Include="Images\Bin.png" />
+    <Resource Include="Images\FileWord.png" />
+    <Resource Include="Images\flag_green.png" />
+    <Resource Include="Images\flag_red.png" />
+    <Resource Include="Images\flag_yellow.png" />
+    <Resource Include="Images\fullScreen.png" />
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\reintegrer.png" />
+    <Resource Include="Images\folder.png" />
+    <Resource Include="Images\error.png" />
+    <Resource Include="Images\micado.png" />
+    <Resource Include="Images\windowError.png" />
+    <Resource Include="Images\Archiver.png" />
+    <Resource Include="Images\Restaurer.png" />
+    <Resource Include="Images\info.png" />
+    <Resource Include="Images\Historiser.png" />
+    <Resource Include="Images\add_user.png" />
+    <Resource Include="Images\find_user.png" />
+    <Resource Include="Images\down.png" />
+    <Resource Include="Images\up.png" />
+    <Resource Include="Images\Disable.png" />
+    <Resource Include="Images\déplacer.png" />
+    <Resource Include="Images\to.png" />
+    <Resource Include="Images\bilan.png" />
+    <Resource Include="Images\bilanPerso.png" />
+    <Resource Include="Images\restitution.png" />
+    <Resource Include="Images\warning.png" />
+    <Resource Include="Images\folder_green.png" />
+    <Resource Include="Images\folder_grey.png" />
+    <Resource Include="Images\folder_lightblue.png" />
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+    <Resource Include="Images\graphique.png" />
+    <Resource Include="Images\add_ins.png" />
+    <None Include="Service References\SearchQueryService\search.disco" />
+    <None Include="Service References\SearchQueryService\configuration91.svcinfo" />
+    <None Include="Service References\SearchQueryService\configuration.svcinfo" />
+    <None Include="Service References\SearchQueryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Resource Include="Images\ichtm.png" />
+    <Resource Include="Images\iczip.png" />
+    <Resource Include="Images\broken.png" />
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Supprimer.png" />
+    <Resource Include="Images\Modifier.png" />
+    <Resource Include="Images\Logo_GRTgaz.png" />
+    <Resource Include="Images\Logo_Region.png" />
+    <Resource Include="Images\Logo_Agence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Annuler.png" />
+    <Resource Include="Images\Ajouter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Rechercher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Valider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo_Secteur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Recherche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Geo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FileExcel.png" />
+    <Resource Include="Images\fileprint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\InBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OfflineStorage\OfflineStorage.csproj">
+      <Project>{63CE3F7C-A07C-43BF-95C9-6DCF9DAC992B}</Project>
+      <Name>OfflineStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toolkit\Jounce\Jounce.Silverlight5.csproj">
+      <Project>{51E06FF4-B2BC-4D26-8646-2315BC691430}</Project>
+      <Name>Jounce.Silverlight5</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\LogServiceReference\" />
+    <WCFMetadataStorage Include="Service References\SearchQueryService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Proteca.Web\Resources\ValidationErrorResources.resx">
+      <Link>Resources\ValidationErrorResources.resx</Link>
+      <LogicalName>Proteca.Web.Resources.ValidationErrorResources.resources</LogicalName>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationErrorResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Proteca.Web\Resources\ResourceHisto.resx">
+      <Link>Resources\ResourceHisto.resx</Link>
+      <LogicalName>Proteca.Web.Resources.ResourceHisto.resources</LogicalName>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceHisto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Proteca.Web\Resources\ResourceImg.resx">
+      <Link>Resources\ResourceImg.resx</Link>
+      <LogicalName>Proteca.Web.Resources.ResourceImg.resources</LogicalName>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceImg.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EntityProperties.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntityProperties.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Rapports.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Rapports.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ResourceSearch.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceSearch.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

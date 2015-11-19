@@ -1,0 +1,99 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.MesUnitesView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="MesUnitesView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:EmptyToNullConverter x:Key="EmptyToNullConverter" />
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" HideTopNavigation="False" Grid.Column="0" IsEditMode="{Binding IsEditMode}"
+                      CurrentElementHeader="{Binding SelectedEntity.Libelle, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                      PreviousUri="{Binding PreviousUri}" NextUri="{Binding NextUri}">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot">
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding SaveCommand}" />
+                </i:Interaction.Behaviors>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource FormulaireText}" 
+                        Text="{Binding Path=Resource.Unites_Libelle, Source={StaticResource ApplicationResources}}" />
+                <TextBox x:Name="TbxLibel" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxForm}" 
+                         Text="{Binding SelectedEntity.Libelle, Mode=TwoWay, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" 
+                         IsEnabled="{Binding IsEditMode}" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource FormulaireText}" 
+                        Text="{Binding Path=Resource.Unites_Symbole, Source={StaticResource ApplicationResources}}" />
+                <TextBox x:Name="TbxSymbole" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxForm}"
+                         Text="{Binding SelectedEntity.Symbole, Mode=TwoWay, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" 
+                         IsEnabled="{Binding IsEditMode}"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource FormulaireText}" 
+                        Text="{Binding Path=Resource.Unites_TypeDonnee, Source={StaticResource ApplicationResources}}" />
+                
+                <telerik:RadComboBox SelectAllTextEvent="None" x:Name="RadCbxUnittype" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource RadComboBoxForm}"					                                        
+					    Background="White" IsEnabled="{Binding IsEditMode}" IsEditable="True" IsReadOnly="True"
+					    ItemsSource="{Binding RefEnumValeurList}" DisplayMemberPath="Libelle" SelectedValuePath="CleEnumValeur"
+                        SelectedValue="{Binding SelectedEntity.TypeDonnee, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" 
+                        EmptyText="{Binding Path=Resource.UnitesSelectTypeEmptyText, Source={StaticResource ApplicationResources}}" />
+
+                <TextBlock Grid.Row="3" Grid.Column="0"  Style="{StaticResource FormulaireText}" 
+                        Text="{Binding Path=Resource.Unites_NbDecimal, Source={StaticResource ApplicationResources}}" />
+                <TextBox x:Name="TbxDecimale" Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxForm}" 
+                         Text="{Binding SelectedEntity.NombreDeDecimales, Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource EmptyToNullConverter}}" 
+                         Validation.HasError="{Binding HasFormatValidationError, Mode=TwoWay}" IsEnabled="{Binding EnableNbDecimal}" />
+
+                <!-- Bind IsBusy to IsBusy -->
+                
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid Margin="10,10" HorizontalAlignment="Stretch" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <UC:ErrorSummary />
+                <UC:AddButton x:Name="btnAjouter" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                              ButtonCommand="{Binding AddCommand}" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}"
+                              ButtonText="{Binding Path=Resource.BtnAjouterMesUnites, Source={StaticResource ApplicationResources}}" />
+				<Button x:Name="btnModifier" Style="{StaticResource BtnModifier}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding EditCommand}"
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" />
+                <Button x:Name="btnValider" Style="{StaticResource BtnValider}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding SaveCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+                <Button x:Name="btnAnnuler" Style="{StaticResource BtnAnnuler}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+                <Button x:Name="btnSupprimer" Style="{StaticResource BtnSupprimer}" Grid.Column="2" VerticalAlignment="Bottom" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" Command="{Binding DeleteCommand}"   />
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+

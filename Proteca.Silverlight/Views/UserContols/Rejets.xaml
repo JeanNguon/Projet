@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="Proteca.Silverlight.Views.UserContols.Rejets"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+    xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"  
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <converter:NullOrEmptyToVisibibilityConverter x:Key="NullOrEmptyToVisibilityConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="42" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <UC:ExportAndPrint x:Name="exportAndPrint" Grid.Row="0" Visibility="Visible" 
+                           ColumnsHiddenToExport="{Binding ColumnsHiddenToExport, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                           ExportPDFCommand="{Binding ExportPDFCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                           PrintCommand="{Binding PrintCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                           ExportExcelCommand="{Binding ExportExcelCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                           GridView="{Binding ElementName=RadGridViewRejets}"/>
+
+        <UC:CustomGridView x:Name="RadGridViewRejets" Grid.Row="1"
+                           AreRowDetailsFrozen="True"
+                           RowDetailsVisibilityMode="VisibleWhenSelected"
+                           ItemsSource="{Binding ListRejets, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                           SelectionMode="Single" AutoGenerateColumns="False"
+						   Margin="0" ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto" AlternationCount="2"
+						   CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True"
+                           VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="1,0,1,1" BorderBrush="#7F000000">
+
+            <telerik:RadGridView.ChildTableDefinitions>
+                <telerik:GridViewTableDefinition />
+            </telerik:RadGridView.ChildTableDefinitions>
+
+            <UC:CustomGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding LibellePortion}" Width="*" IsVisible="False"
+                                            Header="{Binding Path=Resource.Rejets_LibellePortion, Source={StaticResource ApplicationResources}}"/>
+
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding CodeEquipement}" Width="Auto"
+                                            Header="{Binding Path=Resource.ImportVisite_Log_TypeEquipement, Source={StaticResource ApplicationResources}}" />
+
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding LibelleOuvrage}" Width="*" IsResizable="True"
+                                            Header="{Binding Path=Resource.ImportVisite_Log_LibelleOuvrage, Source={StaticResource ApplicationResources}}" />
+
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding DateVisite}" DataFormatString="{} {0:dd/MM/yyyy}" Width="Auto"
+                                            Header="{Binding Path=Resource.ImportVisite_Log_DateVisite, Source={StaticResource ApplicationResources}}" />
+
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding TypeEval}" Width="Auto" 
+                                            Header="{Binding Path=Resource.Rejets_TypeEval, Source={StaticResource ApplicationResources}}"/>
+
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding VisiteContent}" Width="*" IsVisible="False"
+                                            Header="{Binding Path=Resource.Rejets_VisiteContent, Source={StaticResource ApplicationResources}}"/>
+
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding PpTmpContent}" Width="*" IsVisible="False"
+                                            Header="{Binding Path=Resource.Rejets_PpTmpContent, Source={StaticResource ApplicationResources}}"/>
+            </UC:CustomGridView.Columns>
+
+            <telerik:RadGridView.HierarchyChildTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding Path=Resource.Rejets_VisiteContent, Source={StaticResource ApplicationResources}}" 
+                                   Grid.Row="0" Style="{StaticResource ContentTextStyleH2}"/>
+                        <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding VisiteContent}" Height="Auto" 
+                                   Grid.Row="1" Style="{StaticResource ContentTextStyle}"/>
+                        <TextBlock Visibility="{Binding PpTmpContent, Converter={StaticResource NullOrEmptyToVisibilityConverter}}" 
+                                   Text="{Binding Path=Resource.Rejets_PpTmpContent, Source={StaticResource ApplicationResources}}"
+                                   Grid.Row="2" Style="{StaticResource ContentTextStyleH2}"/>
+                        <TextBlock HorizontalAlignment="Stretch" Visibility="{Binding PpTmpContent, Converter={StaticResource NullOrEmptyToVisibilityConverter}}" 
+                                   Grid.Row="3" TextWrapping="Wrap" Text="{Binding PpTmpContent}" Height="Auto" Style="{StaticResource ContentTextStyle}"/>
+                    </Grid>
+                </DataTemplate>
+            </telerik:RadGridView.HierarchyChildTemplate>
+        </UC:CustomGridView>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Text="{Binding Path=Resource.Historique_NbElements, Source={StaticResource ApplicationResources}}" Style="{StaticResource ResultCount}" />
+            <TextBlock  Text="{Binding Items.ItemCount, ElementName=RadGridViewRejets}" Style="{StaticResource ResultCount}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

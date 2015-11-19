@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>UsrUtilisateur</title>
+    <script src="http://localhost:65317/Scripts/datajs-1.0.3.js"></script>
+    <script src="http://localhost:65317/Scripts/jquery-1.8.0.min.js"></script>
+    <script src="http://localhost:65317/Scripts/jaydata.js"></script>
+    <script src="http://localhost:65317/Scripts/proteca.js"></script>
+    <script>
+        var proteca = new Proteca.ProtecaEntities({ name: 'oData', oDataServiceHost: "http://localhost:65317/Services/WcfDataServiceProteca.svc" })
+        $(function () {
+            proteca.utilisateur
+                .map(function (usrUtilisateur) { return { Id: usrUtilisateur.USR_UTILISATEUR.CLE_UTILISATEUR, Name: usrUtilisateur.USR_UTILISATEUR.NOM } })
+            .forEach(function (usrUtilisateur) {
+                $('#categories').append(
+                    $('<article>').addClass('usrUtilisateur').data('id', usrUtilisateur.Id).text(usrUtilisateur.Name)
+                    )
+            });
+        })
+    </script>
+</head>
+<body>
+    <section id="utilisateurs"></section>
+    <section id=""></section>
+
+</body>
+</html>

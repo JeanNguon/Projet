@@ -7,21 +7,21 @@ namespace Proteca.Web.Models
     using System.ComponentModel.DataAnnotations;
     using System.Data.Objects.DataClasses;
     using System.Linq;
-    using System.Linq.Expressions;
     using System.ServiceModel.DomainServices.Hosting;
     using System.ServiceModel.DomainServices.Server;
-    using Proteca.Web.Resources;
-    // MetadataTypeAttribute identifie AlerteMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe Alerte.
+
+
+    // The MetadataTypeAttribute identifies AlerteMetadata as the class
+    // that carries additional metadata for the Alerte class.
     [MetadataTypeAttribute(typeof(Alerte.AlerteMetadata))]
     public partial class Alerte
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe Alerte.
+        // This class allows you to attach custom attributes to properties
+        // of the Alerte class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -29,12 +29,11 @@ namespace Proteca.Web.Models
         internal sealed class AlerteMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private AlerteMetadata()
             {
             }
 
-            [Include]
             public AnAnalyseSerieMesure AnAnalyseSerieMesure { get; set; }
 
             public int CleAlerte { get; set; }
@@ -49,29 +48,27 @@ namespace Proteca.Web.Models
 
             public int EnumTypeAlerte { get; set; }
 
-            [Include]
             public MesMesure MesMesure { get; set; }
 
             public RefEnumValeur RefEnumValeur { get; set; }
 
             public bool Supprime { get; set; }
 
-            [Include]
             public Visite Visite { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie AlerteDetailMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe AlerteDetail.
+    // The MetadataTypeAttribute identifies AlerteDetailMetadata as the class
+    // that carries additional metadata for the AlerteDetail class.
     [MetadataTypeAttribute(typeof(AlerteDetail.AlerteDetailMetadata))]
     public partial class AlerteDetail
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe AlerteDetail.
+        // This class allows you to attach custom attributes to properties
+        // of the AlerteDetail class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -79,7 +76,7 @@ namespace Proteca.Web.Models
         internal sealed class AlerteDetailMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private AlerteDetailMetadata()
             {
             }
@@ -116,17 +113,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie AnActionMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe AnAction.
+    // The MetadataTypeAttribute identifies AnActionMetadata as the class
+    // that carries additional metadata for the AnAction class.
     [MetadataTypeAttribute(typeof(AnAction.AnActionMetadata))]
     public partial class AnAction
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe AnAction.
+        // This class allows you to attach custom attributes to properties
+        // of the AnAction class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -134,161 +131,96 @@ namespace Proteca.Web.Models
         internal sealed class AnActionMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private AnActionMetadata()
             {
             }
 
-            [RequiredCustomAction]
-            public Nullable<int> CleRegion { get; set; }
-
-            [RequiredCustomAction]
-            public Nullable<int> CleEnsembleElec { get; set; }
-
-            [Include]
             public AnAnalyse AnAnalyse { get; set; }
 
             public int CleAction { get; set; }
-            //MANTIS-18602 - Clé analyse est maintenant nullable car l'action peut être créée hors analyse
-            public int? CleAnalyse { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("ParametreAction")]
+            public int CleAnalyse { get; set; }
+
             public Nullable<int> CleParametreAction { get; set; }
 
-            [RequiredReference("UsrUtilisateur")]
             public int CleUtilisateurCreation { get; set; }
 
-            [RequiredReference("UsrUtilisateur1")]
             public Nullable<int> CleUtilisateurModification { get; set; }
 
-            [RequiredCustomAction]
             public string Commentaire { get; set; }
 
-            [RequiredCustomAction]
             public string CommentaireStatut { get; set; }
 
-            [RequiredCustomAction]
             public string ConstatAnomalie { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 8, MaxDecimalPartSize = 2, PositiveOrZero = true)]
-            [RequiredCustomAction]
             public Nullable<decimal> CoutGlobalReel { get; set; }
 
             public DateTime DateCreation { get; set; }
 
             public Nullable<DateTime> DateModification { get; set; }
 
-            [CustomValidation(typeof(CustomValidators), "CheckDateRealisationSupDateDebut")]
-            [RequiredCustomAction]
             public Nullable<DateTime> DateRealisationTravaux { get; set; }
 
-            [RequiredCustomAction]
             public string Description { get; set; }
 
-            [RequiredReference("RefEnumValeur1")]
-            [RequiredCustomAction]
             public string EntiteTraitement { get; set; }
 
-            [RequiredReference("RefEnumValeur")]
-            [RequiredCustomAction]
             public int EnumStatut { get; set; }
 
             public string NumActionPc { get; set; }
 
-            [Include]
             public ParametreAction ParametreAction { get; set; }
 
-            [RequiredCustomAction]
             public string ProgrammeBudgetaire { get; set; }
 
-            [RangeCustom(Minimum = "1", Maximum = "9999")]
-            [RequiredCustomAction]
             public Nullable<int> Quantite { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 8, MaxDecimalPartSize = 2, PositiveOrZero = true)]
+            public string ResponsableAction { get; set; }
+
             public Nullable<decimal> TempsTravailGlobalReel { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur1 { get; set; }
-
-            // MANTIS-18602 - Nouveaux champs 
-            [RequiredReference("UsrUtilisateurResp")]
-            [RequiredCustomAction]
-            public int CleUtilisateurResponsable { get; set; }
-
-            [RequiredReference("UsrUtilisateurAgent")]
-            [RequiredCustomAction]
-            public Nullable<int> CleUtilisateurAgent { get; set; }
-
-            [Include]
-            public UsrUtilisateur UsrUtilisateurResp { get; set; }
-
-            [Include]
-            public UsrUtilisateur UsrUtilisateurAgent { get; set; }
-
-            [Include]
-            [RequiredCustomAction]
-            public EntityCollection<PortionIntegriteAnAction> PortionIntegriteAnAction { get; set; }
-
-            [RequiredCustomAction]
-            public Nullable<DateTime> DateDebut { get; set; }
-
-            [CustomValidation(typeof(CustomValidators), "CheckDateClotureSupDateDebut")]
-            [RequiredCustomAction]
-            public Nullable<DateTime> DateCloture { get; set; }
-
-            [RequiredReference("RefEnumValeur2")]
-            [RequiredCustomAction]
-            public Nullable<int> TypeEval { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie AnAnalyseMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe AnAnalyse.
+    // The MetadataTypeAttribute identifies AnAnalyseMetadata as the class
+    // that carries additional metadata for the AnAnalyse class.
     [MetadataTypeAttribute(typeof(AnAnalyse.AnAnalyseMetadata))]
     public partial class AnAnalyse
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe AnAnalyse.
+        // This class allows you to attach custom attributes to properties
+        // of the AnAnalyse class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal class AnAnalyseMetadata
+        internal sealed class AnAnalyseMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
-            protected AnAnalyseMetadata()
+            // Metadata classes are not meant to be instantiated.
+            private AnAnalyseMetadata()
             {
             }
 
-            [Include]
             public EntityCollection<AnAction> AnAction { get; set; }
 
             public int CleAnalyse { get; set; }
 
             public Nullable<int> CleUtilisateur { get; set; }
 
-            [CheckCommentaireAnalyse]
             public string Commentaire { get; set; }
 
             public Nullable<DateTime> DateAnalyse { get; set; }
 
-            public Nullable<DateTime> DateEdition { get; set; }
-
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur")]
             public Nullable<int> EnumEtatPc { get; set; }
 
             public RefEnumValeur RefEnumValeur { get; set; }
@@ -297,31 +229,31 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie AnAnalyseEeMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe AnAnalyseEe.
+    // The MetadataTypeAttribute identifies AnAnalyseEeMetadata as the class
+    // that carries additional metadata for the AnAnalyseEe class.
     [MetadataTypeAttribute(typeof(AnAnalyseEe.AnAnalyseEeMetadata))]
     public partial class AnAnalyseEe
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe AnAnalyseEe.
+        // This class allows you to attach custom attributes to properties
+        // of the AnAnalyseEe class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class AnAnalyseEeMetadata : AnAnalyseMetadata
+        internal sealed class AnAnalyseEeMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private AnAnalyseEeMetadata()
             {
             }
 
-            [Include]
             public EntityCollection<AnAnalyseEeVisite> AnAnalyseEeVisite { get; set; }
+            public int Id { get; set; }
 
             public int CleEnsElectrique { get; set; }
 
@@ -329,24 +261,23 @@ namespace Proteca.Web.Models
 
             public Nullable<DateTime> DateFinPeriode { get; set; }
 
-            [Include]
             public EnsembleElectrique EnsembleElectrique { get; set; }
 
             public string RefRapportAction { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie AnAnalyseEeVisiteMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe AnAnalyseEeVisite.
+    // The MetadataTypeAttribute identifies AnAnalyseEeVisiteMetadata as the class
+    // that carries additional metadata for the AnAnalyseEeVisite class.
     [MetadataTypeAttribute(typeof(AnAnalyseEeVisite.AnAnalyseEeVisiteMetadata))]
     public partial class AnAnalyseEeVisite
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe AnAnalyseEeVisite.
+        // This class allows you to attach custom attributes to properties
+        // of the AnAnalyseEeVisite class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -354,7 +285,7 @@ namespace Proteca.Web.Models
         internal sealed class AnAnalyseEeVisiteMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private AnAnalyseEeVisiteMetadata()
             {
             }
@@ -367,55 +298,52 @@ namespace Proteca.Web.Models
 
             public int CleVisite { get; set; }
 
-            [Include]
             public Visite Visite { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie AnAnalyseSerieMesureMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe AnAnalyseSerieMesure.
+    // The MetadataTypeAttribute identifies AnAnalyseSerieMesureMetadata as the class
+    // that carries additional metadata for the AnAnalyseSerieMesure class.
     [MetadataTypeAttribute(typeof(AnAnalyseSerieMesure.AnAnalyseSerieMesureMetadata))]
     public partial class AnAnalyseSerieMesure
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe AnAnalyseSerieMesure.
+        // This class allows you to attach custom attributes to properties
+        // of the AnAnalyseSerieMesure class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class AnAnalyseSerieMesureMetadata : AnAnalyseMetadata
+        internal sealed class AnAnalyseSerieMesureMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private AnAnalyseSerieMesureMetadata()
             {
             }
 
-            [Include]
             public EntityCollection<Alerte> Alertes { get; set; }
 
             public int CleVisite { get; set; }
 
-            [Include]
             public Visite Visite { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie CategoriePpMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe CategoriePp.
+    // The MetadataTypeAttribute identifies CategoriePpMetadata as the class
+    // that carries additional metadata for the CategoriePp class.
     [MetadataTypeAttribute(typeof(CategoriePp.CategoriePpMetadata))]
     public partial class CategoriePp
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe CategoriePp.
+        // This class allows you to attach custom attributes to properties
+        // of the CategoriePp class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -423,7 +351,7 @@ namespace Proteca.Web.Models
         internal sealed class CategoriePpMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private CategoriePpMetadata()
             {
             }
@@ -434,42 +362,35 @@ namespace Proteca.Web.Models
 
             public Nullable<int> CleTypeEq { get; set; }
 
-            [Include]
             public EntityCollection<HistoPp> HistoPp { get; set; }
 
-            [Unique]
             public string Libelle { get; set; }
 
             public bool NonLieAUnEquipement { get; set; }
 
-            [Unique]
-            [RequiredReference("NumeroOrdreNullable")] // propriété déclarée coté client
             public int NumeroOrdre { get; set; }
 
-            [Include]
             public EntityCollection<Pp> Pps { get; set; }
 
             public EntityCollection<PpTmp> PpTmp { get; set; }
 
-            [Include]
             public RefNiveauSensibilitePp RefNiveauSensibilitePp { get; set; }
 
-            [Include]
             public TypeEquipement TypeEquipement { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie CompositionMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe Composition.
+    // The MetadataTypeAttribute identifies CompositionMetadata as the class
+    // that carries additional metadata for the Composition class.
     [MetadataTypeAttribute(typeof(Composition.CompositionMetadata))]
     public partial class Composition
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe Composition.
+        // This class allows you to attach custom attributes to properties
+        // of the Composition class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -477,7 +398,7 @@ namespace Proteca.Web.Models
         internal sealed class CompositionMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private CompositionMetadata()
             {
             }
@@ -496,45 +417,37 @@ namespace Proteca.Web.Models
 
             public int CleTournee { get; set; }
 
-            [Include]
             public EnsembleElectrique EnsembleElectrique { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur")]
             public int EnumTypeEval { get; set; }
 
-            [Include]
             public EqEquipement EqEquipement { get; set; }
 
             public EqEquipementTmp EqEquipementTmp { get; set; }
 
             public int NumeroOrdre { get; set; }
 
-            [Include]
             public PortionIntegrite PortionIntegrite { get; set; }
 
-            [Include]
             public Pp Pp { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public Tournee Tournee { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EnsembleElectriqueMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EnsembleElectrique.
+    // The MetadataTypeAttribute identifies EnsembleElectriqueMetadata as the class
+    // that carries additional metadata for the EnsembleElectrique class.
     [MetadataTypeAttribute(typeof(EnsembleElectrique.EnsembleElectriqueMetadata))]
     public partial class EnsembleElectrique
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EnsembleElectrique.
+        // This class allows you to attach custom attributes to properties
+        // of the EnsembleElectrique class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -542,142 +455,107 @@ namespace Proteca.Web.Models
         internal sealed class EnsembleElectriqueMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EnsembleElectriqueMetadata()
             {
             }
 
-            [Include]
             public EntityCollection<AnAnalyseEe> AnAnalyseEe { get; set; }
 
             public int CleEnsElectrique { get; set; }
 
-            [Unique]
-            [StringLengthCustom(5)]
             public string Code { get; set; }
 
-            [StringLengthCustom(500)]
             public string Commentaire { get; set; }
 
             public EntityCollection<Composition> Compositions { get; set; }
 
             public Nullable<DateTime> DateMajCommentaire { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("EnumPeriodiciteNullable")] // propriété déclarée coté client
             public int EnumPeriodicite { get; set; }
 
             public Nullable<int> EnumStructureCplx { get; set; }
 
-            [RequiredCustom]
-            [Unique]
-            [StringLengthCustom(50, 3)]
             public string Libelle { get; set; }
 
-            [Include]
             public EntityCollection<LogOuvrage> LogOuvrage { get; set; }
 
             public decimal LongueurReseau { get; set; }
 
-            [Include]
             public EntityCollection<PortionIntegrite> PortionIntegrite { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
             public bool Supprime { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqAnodeGalvaniqueMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqAnodeGalvanique.
+    // The MetadataTypeAttribute identifies EqAnodeGalvaniqueMetadata as the class
+    // that carries additional metadata for the EqAnodeGalvanique class.
     [MetadataTypeAttribute(typeof(EqAnodeGalvanique.EqAnodeGalvaniqueMetadata))]
     public partial class EqAnodeGalvanique
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqAnodeGalvanique.
+        // This class allows you to attach custom attributes to properties
+        // of the EqAnodeGalvanique class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqAnodeGalvaniqueMetadata : EqEquipementMetadata
+        internal sealed class EqAnodeGalvaniqueMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqAnodeGalvaniqueMetadata()
             {
             }
 
-            [RequiredCustom]
             public int CleTypeAnode { get; set; }
 
             public bool PileAssociee { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqDispoEcoulementCourantsAlternatifsMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqDispoEcoulementCourantsAlternatifs.
+    // The MetadataTypeAttribute identifies EqDispoEcoulementCourantsAlternatifsMetadata as the class
+    // that carries additional metadata for the EqDispoEcoulementCourantsAlternatifs class.
     [MetadataTypeAttribute(typeof(EqDispoEcoulementCourantsAlternatifs.EqDispoEcoulementCourantsAlternatifsMetadata))]
     public partial class EqDispoEcoulementCourantsAlternatifs
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqDispoEcoulementCourantsAlternatifs.
+        // This class allows you to attach custom attributes to properties
+        // of the EqDispoEcoulementCourantsAlternatifs class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqDispoEcoulementCourantsAlternatifsMetadata : EqEquipementMetadata
+        internal sealed class EqDispoEcoulementCourantsAlternatifsMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqDispoEcoulementCourantsAlternatifsMetadata()
             {
             }
 
-            [EntierPositif(true)]
-            [RangeCustom(Minimum = "0", Maximum = "999999")]
-            [RequiredReference("CapaciteCondensateurNullable")]
             public int CapaciteCondensateur { get; set; }
 
-            [RequiredCustom]
             public int CleTypePriseDeTerre { get; set; }
 
-            [RegularExpression(@"^\d{1,2}(?:[\,\.]\d{1,9})?$",
-            ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultCoordonneesLatFieldErrorMessage")]
-            [RangeCustom(Minimum = "41.000000000", Maximum = "52.000000000")]
             public Nullable<decimal> CoordDebPriseTerreLat { get; set; }
 
-            [RegularExpression(@"^[+-]{0,1}\d{1,2}(?:[\,\.]\d{1,9})?$",
-            ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultCoordonneesLongFieldErrorMessage")]
-            [RangeCustom(Minimum = "-8.000000000", Maximum = "8.500000000")]
             public Nullable<decimal> CoordDebPriseTerreLong { get; set; }
 
-            [RegularExpression(@"^\d{1,2}(?:[\,\.]\d{1,9})?$",
-            ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultCoordonneesLatFieldErrorMessage")]
-            [RangeCustom(Minimum = "41.000000000", Maximum = "52.000000000")]
             public Nullable<decimal> CoordFinPriseTerreLat { get; set; }
 
-            [RegularExpression(@"^[+-]{0,1}\d{1,2}(?:[\,\.]\d{1,9})?$",
-            ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultCoordonneesLongFieldErrorMessage")]
-            [RangeCustom(Minimum = "-8.000000000", Maximum = "8.500000000")]
             public Nullable<decimal> CoordFinPriseTerreLong { get; set; }
 
             public Nullable<DateTime> DateMiseEnServiceTelemesure { get; set; }
@@ -686,70 +564,60 @@ namespace Proteca.Web.Models
 
             public bool PresenceTelemesure { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
 
-            [RegularExpression(@"^\d{1,4}(?:[\,\.]\d{0,1})?$",
-            ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultResistanceFieldErrorMessage")]
             public Nullable<decimal> ResistanceInitPriseDeTerre { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqDrainageMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqDrainage.
+    // The MetadataTypeAttribute identifies EqDrainageMetadata as the class
+    // that carries additional metadata for the EqDrainage class.
     [MetadataTypeAttribute(typeof(EqDrainage.EqDrainageMetadata))]
     public partial class EqDrainage
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqDrainage.
+        // This class allows you to attach custom attributes to properties
+        // of the EqDrainage class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqDrainageMetadata : EqEquipementMetadata
+        internal sealed class EqDrainageMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqDrainageMetadata()
             {
             }
 
-            [RequiredCustom]
             public int CleTypeDrainage { get; set; }
 
             public Nullable<DateTime> DateMiseEnServiceTelemesure { get; set; }
 
-            [Include]
             public EntityCollection<EqDrainageLiaisonsext> EqDrainageLiaisonsext { get; set; }
 
-            [EntierPositif]
-            [RangeCustom(Minimum = "0", Maximum = "999")]
-            [RequiredReference("IntensiteMaximaleSupporteeNullable")]
             public int IntensiteMaximaleSupportee { get; set; }
 
             public bool PresenceTelemesure { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqDrainageLiaisonsextMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqDrainageLiaisonsext.
+    // The MetadataTypeAttribute identifies EqDrainageLiaisonsextMetadata as the class
+    // that carries additional metadata for the EqDrainageLiaisonsext class.
     [MetadataTypeAttribute(typeof(EqDrainageLiaisonsext.EqDrainageLiaisonsextMetadata))]
     public partial class EqDrainageLiaisonsext
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqDrainageLiaisonsext.
+        // This class allows you to attach custom attributes to properties
+        // of the EqDrainageLiaisonsext class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -757,7 +625,7 @@ namespace Proteca.Web.Models
         internal sealed class EqDrainageLiaisonsextMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqDrainageLiaisonsextMetadata()
             {
             }
@@ -770,31 +638,30 @@ namespace Proteca.Web.Models
 
             public EqDrainage EqDrainage { get; set; }
 
-            [Include]
             public EqLiaisonExterne EqLiaisonExterne { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqEquipementMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqEquipement.
+    // The MetadataTypeAttribute identifies EqEquipementMetadata as the class
+    // that carries additional metadata for the EqEquipement class.
     [MetadataTypeAttribute(typeof(EqEquipement.EqEquipementMetadata))]
-    public partial class EqEquipement : IOuvrage
+    public partial class EqEquipement
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqEquipement.
+        // This class allows you to attach custom attributes to properties
+        // of the EqEquipement class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal class EqEquipementMetadata
+        internal sealed class EqEquipementMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
-            protected EqEquipementMetadata()
+            // Metadata classes are not meant to be instantiated.
+            private EqEquipementMetadata()
             {
             }
 
@@ -802,80 +669,59 @@ namespace Proteca.Web.Models
 
             public Nullable<int> CleEquipementOrigine { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("Pp")]
             public int ClePp { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("TypeEquipement")]
             public int CleTypeEq { get; set; }
 
             public Nullable<int> CleUtilisateur { get; set; }
 
-            [StringLengthCustom(500)]
             public string Commentaire { get; set; }
 
-            [Include]
             public EntityCollection<Composition> Compositions { get; set; }
 
             public Nullable<DateTime> DateMajCommentaire { get; set; }
 
-            [RequiredCustom]
             public DateTime DateMajEquipement { get; set; }
 
             public Nullable<DateTime> DateMiseEnService { get; set; }
 
-            [Include]
             public EqEquipement EqEquipement2 { get; set; }
 
-            [Include]
             public EntityCollection<EqEquipement> EqEquipementEqEquipement { get; set; }
 
-            [Include]
             public EntityCollection<EqRaccordIsolant> EqRaccordIsolant1 { get; set; }
 
-            [Include]
             public EntityCollection<Image> Images { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(50)]
-            [RequiredReference("LibellePrincipale")]
             public string Libelle { get; set; }
 
-            [Include]
             public EntityCollection<LogOuvrage> LogOuvrage { get; set; }
 
-            [Include]
             public EntityCollection<MesNiveauProtection> MesNiveauProtection { get; set; }
 
-            [Include]
-            [DeleteStateValue]
             public Pp Pp { get; set; }
 
             public bool Supprime { get; set; }
 
-            [Include]
             public TypeEquipement TypeEquipement { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur { get; set; }
 
-            [Include]
             public EntityCollection<Visite> Visites { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqEquipementTmpMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqEquipementTmp.
+    // The MetadataTypeAttribute identifies EqEquipementTmpMetadata as the class
+    // that carries additional metadata for the EqEquipementTmp class.
     [MetadataTypeAttribute(typeof(EqEquipementTmp.EqEquipementTmpMetadata))]
     public partial class EqEquipementTmp
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqEquipementTmp.
+        // This class allows you to attach custom attributes to properties
+        // of the EqEquipementTmp class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -883,19 +729,15 @@ namespace Proteca.Web.Models
         internal sealed class EqEquipementTmpMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqEquipementTmpMetadata()
             {
             }
 
             public int CleEqTmp { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("Pp2")]
             public int ClePp { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("TypeEquipement")]
             public int CleTypeEq { get; set; }
 
             public EntityCollection<Composition> Compositions { get; set; }
@@ -904,101 +746,84 @@ namespace Proteca.Web.Models
 
             public bool EstValide { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(50)]
             public string Libelle { get; set; }
 
-
-            [Include]
             public Pp Pp2 { get; set; }
 
-
-            [Include]
             public TypeEquipement TypeEquipement { get; set; }
 
-            [Include]
             public EntityCollection<Visite> Visites { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqFourreauMetalliqueMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqFourreauMetallique.
+    // The MetadataTypeAttribute identifies EqFourreauMetalliqueMetadata as the class
+    // that carries additional metadata for the EqFourreauMetallique class.
     [MetadataTypeAttribute(typeof(EqFourreauMetallique.EqFourreauMetalliqueMetadata))]
     public partial class EqFourreauMetallique
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqFourreauMetallique.
+        // This class allows you to attach custom attributes to properties
+        // of the EqFourreauMetallique class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqFourreauMetalliqueMetadata : EqEquipementMetadata
+        internal sealed class EqFourreauMetalliqueMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqFourreauMetalliqueMetadata()
             {
             }
 
-            [RequiredReference("Pp2")]
             public Nullable<int> ClePp2 { get; set; }
 
-            [EntierPositif(true)]
-            [RangeCustom(Minimum = "0", Maximum = "999")]
             public int Longueur { get; set; }
 
-            [Include]
             public Pp Pp2 { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqLiaisonExterneMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqLiaisonExterne.
+    // The MetadataTypeAttribute identifies EqLiaisonExterneMetadata as the class
+    // that carries additional metadata for the EqLiaisonExterne class.
     [MetadataTypeAttribute(typeof(EqLiaisonExterne.EqLiaisonExterneMetadata))]
     public partial class EqLiaisonExterne
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqLiaisonExterne.
+        // This class allows you to attach custom attributes to properties
+        // of the EqLiaisonExterne class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqLiaisonExterneMetadata : EqEquipementMetadata
+        internal sealed class EqLiaisonExterneMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqLiaisonExterneMetadata()
             {
             }
 
-            [RequiredCustom]
             public int CleNomTiersAss { get; set; }
 
-            [RequiredCustom]
             public int CleTypeLiaison { get; set; }
 
             public Nullable<DateTime> DateMiseEnServiceTelemesure { get; set; }
 
-            [Include]
             public EntityCollection<EqDrainageLiaisonsext> EqDrainageLiaisonsext { get; set; }
 
-            [Include]
             public EntityCollection<EqSoutirageLiaisonsext> EqSoutirageLiaisonsext { get; set; }
 
             public bool LiaisonTechnique { get; set; }
 
-            [StringLengthCustom(50)]
             public string LibelleEquipementTiers { get; set; }
 
-            [StringLengthCustom(30)]
             public string LibellePointCommun { get; set; }
 
             public bool PresencePcSurOuvrageTiers { get; set; }
@@ -1007,99 +832,86 @@ namespace Proteca.Web.Models
 
             public bool ProtectionTiersParUnite { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage1 { get; set; }
 
-            [StringLengthCustom(30)]
-            [RequiredCustom]
             public string TypeFluide { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqLiaisonInterneMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqLiaisonInterne.
+    // The MetadataTypeAttribute identifies EqLiaisonInterneMetadata as the class
+    // that carries additional metadata for the EqLiaisonInterne class.
     [MetadataTypeAttribute(typeof(EqLiaisonInterne.EqLiaisonInterneMetadata))]
     public partial class EqLiaisonInterne
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqLiaisonInterne.
+        // This class allows you to attach custom attributes to properties
+        // of the EqLiaisonInterne class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqLiaisonInterneMetadata : EqEquipementMetadata
+        internal sealed class EqLiaisonInterneMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqLiaisonInterneMetadata()
             {
             }
 
             public Nullable<int> CleLiaisonInterEe { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("Pp2")]
             public int ClePp2 { get; set; }
 
-            [RequiredCustom]
             public int CleTypeLiaison { get; set; }
 
             public Nullable<DateTime> DateMiseEnServiceTelemesure { get; set; }
 
             public EntityCollection<EqLiaisonInterne> EqLiaisonInterne1 { get; set; }
 
-            [Include]
             public EqLiaisonInterne EqLiaisonInterne2 { get; set; }
 
             public bool LiaisonInterEe { get; set; }
 
-            [StringLengthCustom(30)]
             public string LibellePointCommun { get; set; }
 
-            [Include]
             public Pp Pp2 { get; set; }
 
             public bool PresenceTelemesure { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqPileMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqPile.
+    // The MetadataTypeAttribute identifies EqPileMetadata as the class
+    // that carries additional metadata for the EqPile class.
     [MetadataTypeAttribute(typeof(EqPile.EqPileMetadata))]
     public partial class EqPile
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqPile.
+        // This class allows you to attach custom attributes to properties
+        // of the EqPile class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqPileMetadata : EqEquipementMetadata
+        internal sealed class EqPileMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqPileMetadata()
             {
             }
 
-            [RequiredCustom]
             public int CleCaracteristiquePile { get; set; }
 
-            [RequiredCustom]
             public int CleTypeDeversoir { get; set; }
 
             public Nullable<DateTime> DatePrevisionRenouvellementPile { get; set; }
@@ -1108,172 +920,131 @@ namespace Proteca.Web.Models
 
             public Nullable<int> NombrePiles { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqPostegazMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqPostegaz.
+    // The MetadataTypeAttribute identifies EqPostegazMetadata as the class
+    // that carries additional metadata for the EqPostegaz class.
     [MetadataTypeAttribute(typeof(EqPostegaz.EqPostegazMetadata))]
     public partial class EqPostegaz
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqPostegaz.
+        // This class allows you to attach custom attributes to properties
+        // of the EqPostegaz class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqPostegazMetadata : EqEquipementMetadata
+        internal sealed class EqPostegazMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqPostegazMetadata()
             {
             }
 
-            [StringLengthCustom(30)]
             public string CodePosteGaz { get; set; }
 
-            [StringLengthCustom(50)]
-            [RequiredCustom]
             public string TypePoste { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqRaccordIsolantMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqRaccordIsolant.
+    // The MetadataTypeAttribute identifies EqRaccordIsolantMetadata as the class
+    // that carries additional metadata for the EqRaccordIsolant class.
     [MetadataTypeAttribute(typeof(EqRaccordIsolant.EqRaccordIsolantMetadata))]
     public partial class EqRaccordIsolant
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqRaccordIsolant.
+        // This class allows you to attach custom attributes to properties
+        // of the EqRaccordIsolant class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqRaccordIsolantMetadata : EqEquipementMetadata
+        internal sealed class EqRaccordIsolantMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqRaccordIsolantMetadata()
             {
             }
 
             public Nullable<int> CleLiaison { get; set; }
 
-            [RequiredReference("Pp2")]
             public Nullable<int> ClePp2 { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur1")]
             public Nullable<int> CleTypeLiaison { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur1")]
             public int CleTypeRi { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur")]
             public Nullable<int> EnumConfigElectNormale { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur1")]
             public int EnumEtatElect { get; set; }
 
-            [Include]
             public EqEquipement EqEquipement1 { get; set; }
 
-            [Include]
             public Pp Pp2 { get; set; }
 
             public bool PresenceEclateur { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage1 { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqSoutirageMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqSoutirage.
+    // The MetadataTypeAttribute identifies EqSoutirageMetadata as the class
+    // that carries additional metadata for the EqSoutirage class.
     [MetadataTypeAttribute(typeof(EqSoutirage.EqSoutirageMetadata))]
     public partial class EqSoutirage
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqSoutirage.
+        // This class allows you to attach custom attributes to properties
+        // of the EqSoutirage class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqSoutirageMetadata : EqEquipementMetadata
+        internal sealed class EqSoutirageMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqSoutirageMetadata()
             {
             }
 
             public bool Autoregule { get; set; }
 
-            [RequiredCustom]
             public int CleDeversoir { get; set; }
 
-            [RequiredCustom]
             public int CleRedresseur { get; set; }
 
-            [RegularExpression(@"^\d{1,2}(?:[\,\.]\d{1,9})?$",
-            ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultCoordonneesLatFieldErrorMessage")]
-            [RangeCustom(Minimum = "41.000000000", Maximum = "52.000000000")]
             public Nullable<decimal> CoordDebDeversoirLat { get; set; }
 
-            [RegularExpression(@"^[+-]{0,1}\d{1,2}(?:[\,\.]\d{1,9})?$",
-            ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultCoordonneesLongFieldErrorMessage")]
-            [RangeCustom(Minimum = "-8.000000000", Maximum = "8.500000000")]
             public Nullable<decimal> CoordDebDeversoirLong { get; set; }
 
-            [RegularExpression(@"^\d{1,2}(?:[\,\.]\d{1,9})?$",
-            ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultCoordonneesLatFieldErrorMessage")]
-            [RangeCustom(Minimum = "41.000000000", Maximum = "52.000000000")]
             public Nullable<decimal> CoordFinDeversoirLat { get; set; }
 
-            [RegularExpression(@"^[+-]{0,1}\d{1,2}(?:[\,\.]\d{1,9})?$",
-            ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultCoordonneesLongFieldErrorMessage")]
-            [RangeCustom(Minimum = "-8.000000000", Maximum = "8.500000000")]
             public Nullable<decimal> CoordFinDeversoirLong { get; set; }
 
-            [DateTimeRequiredAttribute]
-            [RequiredReference("DateControleNullable")]
             public DateTime DateControle { get; set; }
 
-            [RequiredReference("DateMiseEnServiceRedresseurNullable")]
             public DateTime DateMiseEnServiceRedresseur { get; set; }
 
             public Nullable<DateTime> DateMiseEnServiceTelemesure { get; set; }
@@ -1282,60 +1053,37 @@ namespace Proteca.Web.Models
 
             public Nullable<DateTime> DateRenouvellementDeversoir { get; set; }
 
-            [Include]
             public EntityCollection<EqSoutirageLiaisonsext> EqSoutirageLiaisonsext { get; set; }
 
-            //[RegularExpression(@"^\d{0,2}(?:[\,\.]\d)?$",
-            //ErrorMessageResourceType = typeof(ValidationErrorResources),
-            //ErrorMessageResourceName = "SOIntensiteReglageFormatError")]
-
-            [MaxDecimalValue(MaxIntegerPartSize = 2, MaxDecimalPartSize = 2, PositiveOrZero = true)]
-            [RequiredReference("IntensiteReglageNullable")]
-            [RequiredCustom]
             public decimal IntensiteReglage { get; set; }
 
-            //[RegularExpression(@"^\d{0,3}(?:[\,\.]\d{1,2})?$",
-            //ErrorMessageResourceType = typeof(ValidationErrorResources),
-            //ErrorMessageResourceName = "SOLongueurDeversoirFormatError")]
-            [MaxDecimalValue(MaxIntegerPartSize = 3, MaxDecimalPartSize = 2, Positive = true)]
-            [RequiredReference("LongueurDeversoirNullable")]
-            [RequiredCustom]
             public decimal LongueurDeversoir { get; set; }
 
-            //[RegularExpression(@"^\d{0,2}(?:[\,\.]\d{0,2})?$",
-            //ErrorMessageResourceType = typeof(ValidationErrorResources),
-            //ErrorMessageResourceName = "SOMasseMetreFormatError")]
-            [MaxDecimalValue(MaxIntegerPartSize = 2, MaxDecimalPartSize = 2, Positive = true)]
             public Nullable<decimal> MasseAuMetreLineaire { get; set; }
 
             public bool PresenceReenclencheur { get; set; }
 
             public bool PresenceTelemesure { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage1 { get; set; }
 
-            [EntierPositif]
-            [RangeCustom(Minimum = "0", Maximum = "99")]
-            [RequiredReference("TensionReglageNullable")]
             public int TensionReglage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqSoutirageLiaisonsextMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqSoutirageLiaisonsext.
+    // The MetadataTypeAttribute identifies EqSoutirageLiaisonsextMetadata as the class
+    // that carries additional metadata for the EqSoutirageLiaisonsext class.
     [MetadataTypeAttribute(typeof(EqSoutirageLiaisonsext.EqSoutirageLiaisonsextMetadata))]
     public partial class EqSoutirageLiaisonsext
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqSoutirageLiaisonsext.
+        // This class allows you to attach custom attributes to properties
+        // of the EqSoutirageLiaisonsext class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -1343,7 +1091,7 @@ namespace Proteca.Web.Models
         internal sealed class EqSoutirageLiaisonsextMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqSoutirageLiaisonsextMetadata()
             {
             }
@@ -1354,32 +1102,31 @@ namespace Proteca.Web.Models
 
             public int CleSoutirageLext { get; set; }
 
-            [Include]
             public EqLiaisonExterne EqLiaisonExterne { get; set; }
 
             public EqSoutirage EqSoutirage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie EqTiersCroiseSansLiaisonMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe EqTiersCroiseSansLiaison.
+    // The MetadataTypeAttribute identifies EqTiersCroiseSansLiaisonMetadata as the class
+    // that carries additional metadata for the EqTiersCroiseSansLiaison class.
     [MetadataTypeAttribute(typeof(EqTiersCroiseSansLiaison.EqTiersCroiseSansLiaisonMetadata))]
     public partial class EqTiersCroiseSansLiaison
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe EqTiersCroiseSansLiaison.
+        // This class allows you to attach custom attributes to properties
+        // of the EqTiersCroiseSansLiaison class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class EqTiersCroiseSansLiaisonMetadata : EqEquipementMetadata
+        internal sealed class EqTiersCroiseSansLiaisonMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private EqTiersCroiseSansLiaisonMetadata()
             {
             }
@@ -1392,17 +1139,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie GeoAgenceMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe GeoAgence.
+    // The MetadataTypeAttribute identifies GeoAgenceMetadata as the class
+    // that carries additional metadata for the GeoAgence class.
     [MetadataTypeAttribute(typeof(GeoAgence.GeoAgenceMetadata))]
     public partial class GeoAgence
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe GeoAgence.
+        // This class allows you to attach custom attributes to properties
+        // of the GeoAgence class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -1410,56 +1157,42 @@ namespace Proteca.Web.Models
         internal sealed class GeoAgenceMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private GeoAgenceMetadata()
             {
             }
 
             public int CleAgence { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("GeoRegion")]
             public int CleRegion { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le code agence doit être unique en base de données
-            [StringLengthCustom(3)]
             public string CodeAgence { get; set; }
 
-            [Include]
             public GeoRegion GeoRegion { get; set; }
 
-            [Include]
             public EntityCollection<GeoSecteur> GeoSecteur { get; set; }
 
-            [Include]
             public EntityCollection<InsInstrument> InsInstrument { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le libelle abrege agence doit être unique en base de données
-            [StringLengthCustom(20)]
             public string LibelleAbregeAgence { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le libelle agence doit être unique en base de données
-            [StringLengthCustom(50)]
             public string LibelleAgence { get; set; }
 
             public EntityCollection<UsrUtilisateur> UsrUtilisateur { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie GeoEnsElecPortionMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe GeoEnsElecPortion.
+    // The MetadataTypeAttribute identifies GeoEnsElecPortionMetadata as the class
+    // that carries additional metadata for the GeoEnsElecPortion class.
     [MetadataTypeAttribute(typeof(GeoEnsElecPortion.GeoEnsElecPortionMetadata))]
     public partial class GeoEnsElecPortion
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe GeoEnsElecPortion.
+        // This class allows you to attach custom attributes to properties
+        // of the GeoEnsElecPortion class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -1467,7 +1200,7 @@ namespace Proteca.Web.Models
         internal sealed class GeoEnsElecPortionMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private GeoEnsElecPortionMetadata()
             {
             }
@@ -1500,17 +1233,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie GeoEnsElecPortionEqPpMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe GeoEnsElecPortionEqPp.
+    // The MetadataTypeAttribute identifies GeoEnsElecPortionEqPpMetadata as the class
+    // that carries additional metadata for the GeoEnsElecPortionEqPp class.
     [MetadataTypeAttribute(typeof(GeoEnsElecPortionEqPp.GeoEnsElecPortionEqPpMetadata))]
     public partial class GeoEnsElecPortionEqPp
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe GeoEnsElecPortionEqPp.
+        // This class allows you to attach custom attributes to properties
+        // of the GeoEnsElecPortionEqPp class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -1518,7 +1251,7 @@ namespace Proteca.Web.Models
         internal sealed class GeoEnsElecPortionEqPpMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private GeoEnsElecPortionEqPpMetadata()
             {
             }
@@ -1555,17 +1288,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie GeoEnsembleElectriqueMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe GeoEnsembleElectrique.
+    // The MetadataTypeAttribute identifies GeoEnsembleElectriqueMetadata as the class
+    // that carries additional metadata for the GeoEnsembleElectrique class.
     [MetadataTypeAttribute(typeof(GeoEnsembleElectrique.GeoEnsembleElectriqueMetadata))]
     public partial class GeoEnsembleElectrique
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe GeoEnsembleElectrique.
+        // This class allows you to attach custom attributes to properties
+        // of the GeoEnsembleElectrique class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -1573,7 +1306,7 @@ namespace Proteca.Web.Models
         internal sealed class GeoEnsembleElectriqueMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private GeoEnsembleElectriqueMetadata()
             {
             }
@@ -1594,17 +1327,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie GeoRegionMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe GeoRegion.
+    // The MetadataTypeAttribute identifies GeoRegionMetadata as the class
+    // that carries additional metadata for the GeoRegion class.
     [MetadataTypeAttribute(typeof(GeoRegion.GeoRegionMetadata))]
     public partial class GeoRegion
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe GeoRegion.
+        // This class allows you to attach custom attributes to properties
+        // of the GeoRegion class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -1612,47 +1345,36 @@ namespace Proteca.Web.Models
         internal sealed class GeoRegionMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private GeoRegionMetadata()
             {
             }
 
             public int CleRegion { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le code région doit être unique en base de données
-            [StringLengthCustom(4)]
             public string CodeRegion { get; set; }
 
-            [Include]
             public EntityCollection<GeoAgence> GeoAgence { get; set; }
 
-            [Include]
             public EntityCollection<InsInstrument> InsInstrument { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le libelle abrege région doit être unique en base de données
-            [StringLengthCustom(20)]
             public string LibelleAbregeRegion { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le libelle région doit être unique en base de données
-            [StringLengthCustom(50)]
             public string LibelleRegion { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie GeoSecteurMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe GeoSecteur.
+    // The MetadataTypeAttribute identifies GeoSecteurMetadata as the class
+    // that carries additional metadata for the GeoSecteur class.
     [MetadataTypeAttribute(typeof(GeoSecteur.GeoSecteurMetadata))]
     public partial class GeoSecteur
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe GeoSecteur.
+        // This class allows you to attach custom attributes to properties
+        // of the GeoSecteur class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -1660,58 +1382,44 @@ namespace Proteca.Web.Models
         internal sealed class GeoSecteurMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private GeoSecteurMetadata()
             {
             }
 
-            [RequiredCustom]
-            [RequiredReference("GeoAgence")]
             public int CleAgence { get; set; }
 
             public int CleSecteur { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le code secteur doit être unique en base de données
-            [StringLengthCustom(3)]
             public string CodeSecteur { get; set; }
 
-            [Include]
             public GeoAgence GeoAgence { get; set; }
 
-            [Include]
             public EntityCollection<InsInstrument> InsInstrument { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le libelle abrege secteur doit être unique en base de données
-            [StringLengthCustom(20)]
             public string LibelleAbregeSecteur { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le libelle secteur doit être unique en base de données
-            [StringLengthCustom(50)]
             public string LibelleSecteur { get; set; }
 
             public EntityCollection<PiSecteurs> PiSecteurs { get; set; }
 
             public EntityCollection<Pp> Pps { get; set; }
 
-            [Include]
             public EntityCollection<UsrUtilisateur> UsrUtilisateur { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie HistoAdminMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoAdmin.
+    // The MetadataTypeAttribute identifies HistoAdminMetadata as the class
+    // that carries additional metadata for the HistoAdmin class.
     [MetadataTypeAttribute(typeof(HistoAdmin.HistoAdminMetadata))]
     public partial class HistoAdmin
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoAdmin.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoAdmin class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -1719,65 +1427,54 @@ namespace Proteca.Web.Models
         internal sealed class HistoAdminMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoAdminMetadata()
             {
             }
 
             public int CleHistoAdmin { get; set; }
 
-            [RequiredCustom]
             public DateTime DateModification { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur")]
             public int EnumTypeModification { get; set; }
 
-            [RequiredCustom]
             public string IdConnecte { get; set; }
 
-            [RequiredCustom]
             public string IdUtilisateur { get; set; }
 
-            [RequiredCustom]
             public string NomConnecte { get; set; }
 
-            [RequiredCustom]
             public string NomUtilisateur { get; set; }
 
-            [RequiredCustom]
             public string PrenomConnecte { get; set; }
 
-            [RequiredCustom]
             public string PrenomUtilisateur { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [RequiredCustom]
             public string TypeCompte { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqAnodeGalvaniqueMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqAnodeGalvanique.
+    // The MetadataTypeAttribute identifies HistoEqAnodeGalvaniqueMetadata as the class
+    // that carries additional metadata for the HistoEqAnodeGalvanique class.
     [MetadataTypeAttribute(typeof(HistoEqAnodeGalvanique.HistoEqAnodeGalvaniqueMetadata))]
     public partial class HistoEqAnodeGalvanique
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqAnodeGalvanique.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqAnodeGalvanique class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqAnodeGalvaniqueMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqAnodeGalvaniqueMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqAnodeGalvaniqueMetadata()
             {
             }
@@ -1786,30 +1483,29 @@ namespace Proteca.Web.Models
 
             public bool PileAssociee { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqDispoEcoulementCourantsAlternatifsMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqDispoEcoulementCourantsAlternatifs.
+    // The MetadataTypeAttribute identifies HistoEqDispoEcoulementCourantsAlternatifsMetadata as the class
+    // that carries additional metadata for the HistoEqDispoEcoulementCourantsAlternatifs class.
     [MetadataTypeAttribute(typeof(HistoEqDispoEcoulementCourantsAlternatifs.HistoEqDispoEcoulementCourantsAlternatifsMetadata))]
     public partial class HistoEqDispoEcoulementCourantsAlternatifs
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqDispoEcoulementCourantsAlternatifs.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqDispoEcoulementCourantsAlternatifs class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqDispoEcoulementCourantsAlternatifsMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqDispoEcoulementCourantsAlternatifsMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqDispoEcoulementCourantsAlternatifsMetadata()
             {
             }
@@ -1832,32 +1528,31 @@ namespace Proteca.Web.Models
 
             public bool PresenceTelemesure { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
 
             public Nullable<decimal> ResistanceInitPriseDeTerre { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqDrainageMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqDrainage.
+    // The MetadataTypeAttribute identifies HistoEqDrainageMetadata as the class
+    // that carries additional metadata for the HistoEqDrainage class.
     [MetadataTypeAttribute(typeof(HistoEqDrainage.HistoEqDrainageMetadata))]
     public partial class HistoEqDrainage
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqDrainage.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqDrainage class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqDrainageMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqDrainageMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqDrainageMetadata()
             {
             }
@@ -1870,30 +1565,29 @@ namespace Proteca.Web.Models
 
             public bool PresenceTelemesure { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqFourreauMetalliqueMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqFourreauMetallique.
+    // The MetadataTypeAttribute identifies HistoEqFourreauMetalliqueMetadata as the class
+    // that carries additional metadata for the HistoEqFourreauMetallique class.
     [MetadataTypeAttribute(typeof(HistoEqFourreauMetallique.HistoEqFourreauMetalliqueMetadata))]
     public partial class HistoEqFourreauMetallique
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqFourreauMetallique.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqFourreauMetallique class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqFourreauMetalliqueMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqFourreauMetalliqueMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqFourreauMetalliqueMetadata()
             {
             }
@@ -1906,25 +1600,25 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqLiaisonExterneMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqLiaisonExterne.
+    // The MetadataTypeAttribute identifies HistoEqLiaisonExterneMetadata as the class
+    // that carries additional metadata for the HistoEqLiaisonExterne class.
     [MetadataTypeAttribute(typeof(HistoEqLiaisonExterne.HistoEqLiaisonExterneMetadata))]
     public partial class HistoEqLiaisonExterne
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqLiaisonExterne.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqLiaisonExterne class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqLiaisonExterneMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqLiaisonExterneMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqLiaisonExterneMetadata()
             {
             }
@@ -1947,32 +1641,31 @@ namespace Proteca.Web.Models
 
             public bool ProtectionTiersParUnite { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
 
             public string TypeFluide { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqLiaisonInterneMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqLiaisonInterne.
+    // The MetadataTypeAttribute identifies HistoEqLiaisonInterneMetadata as the class
+    // that carries additional metadata for the HistoEqLiaisonInterne class.
     [MetadataTypeAttribute(typeof(HistoEqLiaisonInterne.HistoEqLiaisonInterneMetadata))]
     public partial class HistoEqLiaisonInterne
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqLiaisonInterne.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqLiaisonInterne class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqLiaisonInterneMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqLiaisonInterneMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqLiaisonInterneMetadata()
             {
             }
@@ -1993,30 +1686,29 @@ namespace Proteca.Web.Models
 
             public bool PresenceTelemesure { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqPileMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqPile.
+    // The MetadataTypeAttribute identifies HistoEqPileMetadata as the class
+    // that carries additional metadata for the HistoEqPile class.
     [MetadataTypeAttribute(typeof(HistoEqPile.HistoEqPileMetadata))]
     public partial class HistoEqPile
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqPile.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqPile class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqPileMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqPileMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqPileMetadata()
             {
             }
@@ -2033,30 +1725,29 @@ namespace Proteca.Web.Models
 
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqPostegazMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqPostegaz.
+    // The MetadataTypeAttribute identifies HistoEqPostegazMetadata as the class
+    // that carries additional metadata for the HistoEqPostegaz class.
     [MetadataTypeAttribute(typeof(HistoEqPostegaz.HistoEqPostegazMetadata))]
     public partial class HistoEqPostegaz
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqPostegaz.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqPostegaz class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqPostegazMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqPostegazMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqPostegazMetadata()
             {
             }
@@ -2067,25 +1758,25 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqRaccordIsolantMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqRaccordIsolant.
+    // The MetadataTypeAttribute identifies HistoEqRaccordIsolantMetadata as the class
+    // that carries additional metadata for the HistoEqRaccordIsolant class.
     [MetadataTypeAttribute(typeof(HistoEqRaccordIsolant.HistoEqRaccordIsolantMetadata))]
     public partial class HistoEqRaccordIsolant
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqRaccordIsolant.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqRaccordIsolant class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqRaccordIsolantMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqRaccordIsolantMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqRaccordIsolantMetadata()
             {
             }
@@ -2110,33 +1801,31 @@ namespace Proteca.Web.Models
 
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage1 { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqSoutirageMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqSoutirage.
+    // The MetadataTypeAttribute identifies HistoEqSoutirageMetadata as the class
+    // that carries additional metadata for the HistoEqSoutirage class.
     [MetadataTypeAttribute(typeof(HistoEqSoutirage.HistoEqSoutirageMetadata))]
     public partial class HistoEqSoutirage
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqSoutirage.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqSoutirage class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqSoutirageMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqSoutirageMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqSoutirageMetadata()
             {
             }
@@ -2171,7 +1860,6 @@ namespace Proteca.Web.Models
 
             public bool PresenceTelemesure { get; set; }
 
-            [Include]
             public RefSousTypeOuvrage RefSousTypeOuvrage { get; set; }
 
             public int TensionReglage { get; set; }
@@ -2182,25 +1870,25 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEqTiersCroiseSansLiaisonMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEqTiersCroiseSansLiaison.
+    // The MetadataTypeAttribute identifies HistoEqTiersCroiseSansLiaisonMetadata as the class
+    // that carries additional metadata for the HistoEqTiersCroiseSansLiaison class.
     [MetadataTypeAttribute(typeof(HistoEqTiersCroiseSansLiaison.HistoEqTiersCroiseSansLiaisonMetadata))]
     public partial class HistoEqTiersCroiseSansLiaison
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEqTiersCroiseSansLiaison.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEqTiersCroiseSansLiaison class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal sealed class HistoEqTiersCroiseSansLiaisonMetadata : HistoEquipementMetadata
+        internal sealed class HistoEqTiersCroiseSansLiaisonMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoEqTiersCroiseSansLiaisonMetadata()
             {
             }
@@ -2213,26 +1901,26 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie HistoEquipementMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoEquipement.
+    // The MetadataTypeAttribute identifies HistoEquipementMetadata as the class
+    // that carries additional metadata for the HistoEquipement class.
     [MetadataTypeAttribute(typeof(HistoEquipement.HistoEquipementMetadata))]
     public partial class HistoEquipement
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoEquipement.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoEquipement class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
         //    public string Xyz { get; set; }
-        internal class HistoEquipementMetadata
+        internal sealed class HistoEquipementMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
-            protected HistoEquipementMetadata()
+            // Metadata classes are not meant to be instantiated.
+            private HistoEquipementMetadata()
             {
             }
 
@@ -2256,11 +1944,9 @@ namespace Proteca.Web.Models
 
             public string LibellePp { get; set; }
 
-            [Include]
             public LogOuvrage LogOuvrage { get; set; }
 
-            ////Non uilisé dans cette appli
-            //public EntityCollection<LogOuvrage> LogOuvrage1 { get; set; }
+            public EntityCollection<LogOuvrage> LogOuvrage1 { get; set; }
 
             public bool Supprime { get; set; }
 
@@ -2268,17 +1954,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie HistoPpMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe HistoPp.
+    // The MetadataTypeAttribute identifies HistoPpMetadata as the class
+    // that carries additional metadata for the HistoPp class.
     [MetadataTypeAttribute(typeof(HistoPp.HistoPpMetadata))]
     public partial class HistoPp
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe HistoPp.
+        // This class allows you to attach custom attributes to properties
+        // of the HistoPp class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2286,12 +1972,11 @@ namespace Proteca.Web.Models
         internal sealed class HistoPpMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private HistoPpMetadata()
             {
             }
 
-            [Include]
             public CategoriePp CategoriePp { get; set; }
 
             public Nullable<int> CleCategoriePp { get; set; }
@@ -2336,11 +2021,9 @@ namespace Proteca.Web.Models
 
             public string LibellePortion { get; set; }
 
-            [Include]
             public LogOuvrage LogOuvrage { get; set; }
 
-            ////Non uilisé dans cette appli
-            //public EntityCollection<LogOuvrage> LogOuvrage1 { get; set; }
+            public EntityCollection<LogOuvrage> LogOuvrage1 { get; set; }
 
             public decimal Pk { get; set; }
 
@@ -2354,22 +2037,16 @@ namespace Proteca.Web.Models
 
             public bool PresenceTelemesure { get; set; }
 
-            [Include]
             public RefCommune RefCommune { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur2 { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur3 { get; set; }
 
-            [Include]
             public RefNiveauSensibilitePp RefNiveauSensibilitePp { get; set; }
 
             public bool Supprime { get; set; }
@@ -2380,17 +2057,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie ImageMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe Image.
+    // The MetadataTypeAttribute identifies ImageMetadata as the class
+    // that carries additional metadata for the Image class.
     [MetadataTypeAttribute(typeof(Image.ImageMetadata))]
     public partial class Image
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe Image.
+        // This class allows you to attach custom attributes to properties
+        // of the Image class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2398,7 +2075,7 @@ namespace Proteca.Web.Models
         internal sealed class ImageMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private ImageMetadata()
             {
             }
@@ -2421,17 +2098,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie InsInstrumentMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe InsInstrument.
+    // The MetadataTypeAttribute identifies InsInstrumentMetadata as the class
+    // that carries additional metadata for the InsInstrument class.
     [MetadataTypeAttribute(typeof(InsInstrument.InsInstrumentMetadata))]
     public partial class InsInstrument
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe InsInstrument.
+        // This class allows you to attach custom attributes to properties
+        // of the InsInstrument class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2439,7 +2116,7 @@ namespace Proteca.Web.Models
         internal sealed class InsInstrumentMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private InsInstrumentMetadata()
             {
             }
@@ -2452,37 +2129,31 @@ namespace Proteca.Web.Models
 
             public Nullable<int> CleSecteur { get; set; }
 
-            [Include]
             public GeoAgence GeoAgence { get; set; }
 
-            [Include]
             public GeoRegion GeoRegion { get; set; }
 
-            [Include]
             public GeoSecteur GeoSecteur { get; set; }
 
             public EntityCollection<InstrumentsUtilises> InstrumentsUtilises { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(50)]
-            //[Unique("CleSecteur", "CleAgence", "CleRegion")]
             public string Libelle { get; set; }
 
             public bool Supprime { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie InstrumentsUtilisesMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe InstrumentsUtilises.
+    // The MetadataTypeAttribute identifies InstrumentsUtilisesMetadata as the class
+    // that carries additional metadata for the InstrumentsUtilises class.
     [MetadataTypeAttribute(typeof(InstrumentsUtilises.InstrumentsUtilisesMetadata))]
     public partial class InstrumentsUtilises
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe InstrumentsUtilises.
+        // This class allows you to attach custom attributes to properties
+        // of the InstrumentsUtilises class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2490,7 +2161,7 @@ namespace Proteca.Web.Models
         internal sealed class InstrumentsUtilisesMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private InstrumentsUtilisesMetadata()
             {
             }
@@ -2499,28 +2170,25 @@ namespace Proteca.Web.Models
 
             public int CleInsUtilises { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("Visite")]
             public int CleVisite { get; set; }
 
-            [Include]
             public InsInstrument InsInstrument { get; set; }
 
             public Visite Visite { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie LogOuvrageMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe LogOuvrage.
+    // The MetadataTypeAttribute identifies LogOuvrageMetadata as the class
+    // that carries additional metadata for the LogOuvrage class.
     [MetadataTypeAttribute(typeof(LogOuvrage.LogOuvrageMetadata))]
     public partial class LogOuvrage
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe LogOuvrage.
+        // This class allows you to attach custom attributes to properties
+        // of the LogOuvrage class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2528,7 +2196,7 @@ namespace Proteca.Web.Models
         internal sealed class LogOuvrageMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private LogOuvrageMetadata()
             {
             }
@@ -2537,11 +2205,9 @@ namespace Proteca.Web.Models
 
             public Nullable<int> CleEquipement { get; set; }
 
-            //// Champs non utilisés car ils surcontraignent la relation 1-1 entre ces tables
+            public Nullable<int> CleHistoEquipement { get; set; }
 
-            //public Nullable<int> CleHistoEquipement { get; set; }
-
-            //public Nullable<int> CleHistoPp { get; set; }
+            public Nullable<int> CleHistoPp { get; set; }
 
             public int CleLogOuvrage { get; set; }
 
@@ -2559,15 +2225,13 @@ namespace Proteca.Web.Models
 
             public EqEquipement EqEquipement { get; set; }
 
-            [Include]
             public EntityCollection<HistoEquipement> HistoEquipement { get; set; }
 
-            //public HistoEquipement HistoEquipement1 { get; set; }
+            public HistoEquipement HistoEquipement1 { get; set; }
 
-            [Include]
             public EntityCollection<HistoPp> HistoPp { get; set; }
 
-            //public HistoPp HistoPp1 { get; set; }
+            public HistoPp HistoPp1 { get; set; }
 
             public string ListeChamps { get; set; }
 
@@ -2575,25 +2239,23 @@ namespace Proteca.Web.Models
 
             public Pp Pp { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie LogTourneeMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe LogTournee.
+    // The MetadataTypeAttribute identifies LogTourneeMetadata as the class
+    // that carries additional metadata for the LogTournee class.
     [MetadataTypeAttribute(typeof(LogTournee.LogTourneeMetadata))]
     public partial class LogTournee
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe LogTournee.
+        // This class allows you to attach custom attributes to properties
+        // of the LogTournee class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2601,7 +2263,7 @@ namespace Proteca.Web.Models
         internal sealed class LogTourneeMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private LogTourneeMetadata()
             {
             }
@@ -2622,22 +2284,21 @@ namespace Proteca.Web.Models
 
             public Tournee Tournee { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie MesClassementMesureMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe MesClassementMesure.
+    // The MetadataTypeAttribute identifies MesClassementMesureMetadata as the class
+    // that carries additional metadata for the MesClassementMesure class.
     [MetadataTypeAttribute(typeof(MesClassementMesure.MesClassementMesureMetadata))]
     public partial class MesClassementMesure
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe MesClassementMesure.
+        // This class allows you to attach custom attributes to properties
+        // of the MesClassementMesure class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2645,15 +2306,13 @@ namespace Proteca.Web.Models
         internal sealed class MesClassementMesureMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private MesClassementMesureMetadata()
             {
             }
 
             public int CleClassementMesure { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("MesTypeMesure")]
             public int CleTypeMesure { get; set; }
 
             public bool CourantsAlternatifsInduits { get; set; }
@@ -2662,7 +2321,6 @@ namespace Proteca.Web.Models
 
             public bool ElectrodeEnterreeAmovible { get; set; }
 
-            [Include]
             public MesTypeMesure MesTypeMesure { get; set; }
 
             public bool Telemesure { get; set; }
@@ -2673,17 +2331,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie MesCoutMesureMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe MesCoutMesure.
+    // The MetadataTypeAttribute identifies MesCoutMesureMetadata as the class
+    // that carries additional metadata for the MesCoutMesure class.
     [MetadataTypeAttribute(typeof(MesCoutMesure.MesCoutMesureMetadata))]
     public partial class MesCoutMesure
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe MesCoutMesure.
+        // This class allows you to attach custom attributes to properties
+        // of the MesCoutMesure class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2691,58 +2349,46 @@ namespace Proteca.Web.Models
         internal sealed class MesCoutMesureMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private MesCoutMesureMetadata()
             {
             }
 
             public int CleCoutMesure { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("TypeEquipement")]
             public int CleTypeEq { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 2, MaxDecimalPartSize = 2)]
             public Nullable<decimal> Cout { get; set; }
 
-            [RequiredReference("RefEnumValeur1")]
             public Nullable<int> EnumDureeEnregistrement { get; set; }
 
-            [RequiredReference("RefEnumValeur2")]
             public Nullable<int> EnumTempsPolarisation { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur")]
             public int EnumTypeEval { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur2 { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 4, MaxDecimalPartSize = 2, PositiveOrZero = true)]
             public Nullable<decimal> Temps { get; set; }
 
-            [Include]
             public TypeEquipement TypeEquipement { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie MesMesureMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe MesMesure.
+    // The MetadataTypeAttribute identifies MesMesureMetadata as the class
+    // that carries additional metadata for the MesMesure class.
     [MetadataTypeAttribute(typeof(MesMesure.MesMesureMetadata))]
     public partial class MesMesure
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe MesMesure.
+        // This class allows you to attach custom attributes to properties
+        // of the MesMesure class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2750,47 +2396,38 @@ namespace Proteca.Web.Models
         internal sealed class MesMesureMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private MesMesureMetadata()
             {
             }
 
-            [Include]
             public EntityCollection<Alerte> Alertes { get; set; }
 
             public int CleMesure { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("MesTypeMesure")]
             public int CleTypeMesure { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("Visite")]
             public int CleVisite { get; set; }
 
-            [Include]
             public MesTypeMesure MesTypeMesure { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 9, MaxDecimalPartSize = 3)]
-            [CheckMesureAttribute]
             public Nullable<decimal> Valeur { get; set; }
 
-            [Include]
             public Visite Visite { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie MesModeleMesureMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe MesModeleMesure.
+    // The MetadataTypeAttribute identifies MesModeleMesureMetadata as the class
+    // that carries additional metadata for the MesModeleMesure class.
     [MetadataTypeAttribute(typeof(MesModeleMesure.MesModeleMesureMetadata))]
     public partial class MesModeleMesure
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe MesModeleMesure.
+        // This class allows you to attach custom attributes to properties
+        // of the MesModeleMesure class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2798,63 +2435,48 @@ namespace Proteca.Web.Models
         internal sealed class MesModeleMesureMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private MesModeleMesureMetadata()
             {
             }
 
             public int CleModeleMesure { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("TypeEquipement")]
             public int CleTypeEq { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("MesUnite")]
             public int CleUnite { get; set; }
 
             public Nullable<int> EnumTypeGraphique { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(80)]
-            [Unique("CleTypeEq")]
             public string Libelle { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(50)]
             public string LibGenerique { get; set; }
 
-            [Include]
             public EntityCollection<MesNiveauProtection> MesNiveauProtection { get; set; }
 
-            [Include]
             public EntityCollection<MesTypeMesure> MesTypeMesure { get; set; }
 
-            [Include]
             public MesUnite MesUnite { get; set; }
 
-            [EntierPositif]
-            [RequiredReference("NumeroOrdreNullable")] // propriété ajouté coté client pour le binding
             public int NumeroOrdre { get; set; }
 
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public TypeEquipement TypeEquipement { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie MesNiveauProtectionMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe MesNiveauProtection.
+    // The MetadataTypeAttribute identifies MesNiveauProtectionMetadata as the class
+    // that carries additional metadata for the MesNiveauProtection class.
     [MetadataTypeAttribute(typeof(MesNiveauProtection.MesNiveauProtectionMetadata))]
     public partial class MesNiveauProtection
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe MesNiveauProtection.
+        // This class allows you to attach custom attributes to properties
+        // of the MesNiveauProtection class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2862,15 +2484,13 @@ namespace Proteca.Web.Models
         internal sealed class MesNiveauProtectionMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private MesNiveauProtectionMetadata()
             {
             }
 
             public Nullable<int> CleEquipement { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("MesModeleMesure")]
             public int CleModeleMesure { get; set; }
 
             public int CleNiveauProtection { get; set; }
@@ -2881,32 +2501,29 @@ namespace Proteca.Web.Models
 
             public EqEquipement EqEquipement { get; set; }
 
-            [Include]
             public MesModeleMesure MesModeleMesure { get; set; }
 
             public PortionIntegrite PortionIntegrite { get; set; }
 
             public Pp Pp { get; set; }
 
-            [CheckSeuilAttribute]
             public Nullable<decimal> SeuilMaxi { get; set; }
 
-            [CheckSeuilAttribute]
             public Nullable<decimal> SeuilMini { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie MesTypeMesureMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe MesTypeMesure.
+    // The MetadataTypeAttribute identifies MesTypeMesureMetadata as the class
+    // that carries additional metadata for the MesTypeMesure class.
     [MetadataTypeAttribute(typeof(MesTypeMesure.MesTypeMesureMetadata))]
     public partial class MesTypeMesure
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe MesTypeMesure.
+        // This class allows you to attach custom attributes to properties
+        // of the MesTypeMesure class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2914,7 +2531,7 @@ namespace Proteca.Web.Models
         internal sealed class MesTypeMesureMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private MesTypeMesureMetadata()
             {
             }
@@ -2923,57 +2540,43 @@ namespace Proteca.Web.Models
 
             public int CleTypeMesure { get; set; }
 
-            [StringLengthCustom(50)]
-            [CustomValidation(typeof(CustomValidators),
-                "CheckLibelleAutre", // le champ est obligatoire si le type de niveau est "Autre"
-                ErrorMessageResourceType = typeof(ValidationErrorResources),
-                ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
             public string LibNivAutre { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(80)]
-            [Unique("CleModeleMesure")]
             public string LibTypeMesure { get; set; }
 
-            [Include]
             public EntityCollection<MesClassementMesure> MesClassementMesure { get; set; }
 
             public EntityCollection<MesMesure> MesMesure { get; set; }
 
-            [Include]
             public MesModeleMesure MesModeleMesure { get; set; }
 
             public bool MesureComplementaire { get; set; }
 
             public bool MesureEnService { get; set; }
 
-            [RequiredCustom]
             public int NiveauType { get; set; }
 
-            [EntierPositif]
-            [RequiredReference("NumeroOrdreNullable")] // propriété ajouté coté client pour le binding
             public int NumeroOrdre { get; set; }
 
             public RefEnumValeur RefEnumValeur { get; set; }
 
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
-            [RequiredCustom]
             public int TypeEvaluation { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie MesUniteMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe MesUnite.
+    // The MetadataTypeAttribute identifies MesUniteMetadata as the class
+    // that carries additional metadata for the MesUnite class.
     [MetadataTypeAttribute(typeof(MesUnite.MesUniteMetadata))]
     public partial class MesUnite
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe MesUnite.
+        // This class allows you to attach custom attributes to properties
+        // of the MesUnite class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -2981,48 +2584,38 @@ namespace Proteca.Web.Models
         internal sealed class MesUniteMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private MesUniteMetadata()
             {
             }
 
             public int CleUnite { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le libelle doit être unique en base de données
-            [StringLengthCustom(50)]
             public string Libelle { get; set; }
 
-            [Include]
             public EntityCollection<MesModeleMesure> MesModeleMesure { get; set; }
 
-            [RangeCustom(Minimum = "0", Maximum = "3")]
-            [CustomValidation(typeof(CustomValidators), "CheckNbDecimalUnit")]
             public Nullable<int> NombreDeDecimales { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(5)]
             public string Symbole { get; set; }
 
-            [RequiredCustom]
             public int TypeDonnee { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie ParametreActionMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe ParametreAction.
+    // The MetadataTypeAttribute identifies ParametreActionMetadata as the class
+    // that carries additional metadata for the ParametreAction class.
     [MetadataTypeAttribute(typeof(ParametreAction.ParametreActionMetadata))]
     public partial class ParametreAction
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe ParametreAction.
+        // This class allows you to attach custom attributes to properties
+        // of the ParametreAction class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3030,63 +2623,50 @@ namespace Proteca.Web.Models
         internal sealed class ParametreActionMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private ParametreActionMetadata()
             {
             }
 
+            public EntityCollection<AnAction> AnAction { get; set; }
+
             public int CleParametreAction { get; set; }
 
-            [StringLengthCustom(30)]
             public string Codification { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 2, MaxDecimalPartSize = 2, PositiveOrZero = true)]
             public Nullable<decimal> Cout { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur")]
             public int EnumCategorieAnomalie { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur1")]
-            public int EnumPriorite { get; set; }
+            public int EnumDegreUrgence { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur2")]
             public int EnumDelaiRealisation { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur3")]
             public int EnumTypeAction { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur2 { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur3 { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 4, MaxDecimalPartSize = 2, PositiveOrZero = true)]
             public Nullable<decimal> Temps { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie PiSecteursMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe PiSecteurs.
+    // The MetadataTypeAttribute identifies PiSecteursMetadata as the class
+    // that carries additional metadata for the PiSecteurs class.
     [MetadataTypeAttribute(typeof(PiSecteurs.PiSecteursMetadata))]
     public partial class PiSecteurs
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe PiSecteurs.
+        // This class allows you to attach custom attributes to properties
+        // of the PiSecteurs class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3094,7 +2674,7 @@ namespace Proteca.Web.Models
         internal sealed class PiSecteursMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private PiSecteursMetadata()
             {
             }
@@ -3105,24 +2685,23 @@ namespace Proteca.Web.Models
 
             public int CleSecteur { get; set; }
 
-            [Include]
             public GeoSecteur GeoSecteur { get; set; }
 
             public PortionIntegrite PortionIntegrite { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie PortionDatesMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe PortionDates.
+    // The MetadataTypeAttribute identifies PortionDatesMetadata as the class
+    // that carries additional metadata for the PortionDates class.
     [MetadataTypeAttribute(typeof(PortionDates.PortionDatesMetadata))]
     public partial class PortionDates
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe PortionDates.
+        // This class allows you to attach custom attributes to properties
+        // of the PortionDates class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3130,7 +2709,7 @@ namespace Proteca.Web.Models
         internal sealed class PortionDatesMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private PortionDatesMetadata()
             {
             }
@@ -3151,17 +2730,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie PortionIntegriteMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe PortionIntegrite.
+    // The MetadataTypeAttribute identifies PortionIntegriteMetadata as the class
+    // that carries additional metadata for the PortionIntegrite class.
     [MetadataTypeAttribute(typeof(PortionIntegrite.PortionIntegriteMetadata))]
     public partial class PortionIntegrite
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe PortionIntegrite.
+        // This class allows you to attach custom attributes to properties
+        // of the PortionIntegrite class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3169,7 +2748,7 @@ namespace Proteca.Web.Models
         internal sealed class PortionIntegriteMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private PortionIntegriteMetadata()
             {
             }
@@ -3180,95 +2759,67 @@ namespace Proteca.Web.Models
 
             public Nullable<int> CleCommuneDepart { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefDiametre")] // Pour le binding dans la vue
             public int CleDiametre { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("GeoEnsElec")] // Pour le binding dans la vue
-            [RequiredReference("EnsembleElectrique")] // Pour le binding dans la vue
             public int CleEnsElectrique { get; set; }
 
             public int ClePortion { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefRevetement")] // Pour le binding dans la vue
             public int CleRevetement { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(16)]
             public string Code { get; set; }
 
-            [StringLengthCustom(16)]
             public string CodeGmao { get; set; }
 
-            [StringLengthCustom(500)]
             public string Commentaire { get; set; }
 
             public EntityCollection<Composition> Compositions { get; set; }
 
             public Nullable<DateTime> DateMajCommentaire { get; set; }
 
-            [RequiredCustom]
             public Nullable<DateTime> DateMiseEnService { get; set; }
 
             public Nullable<DateTime> DatePose { get; set; }
 
-            [Include]
             public EnsembleElectrique EnsembleElectrique { get; set; }
 
             public Nullable<int> Idtroncon { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(80, 3)]
-            [Unique]
             public string Libelle { get; set; }
 
-            [Include]
             public EntityCollection<LogOuvrage> LogOuvrage { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 7, MaxDecimalPartSize = 3, PositiveOrZero = true)]
-            [RequiredCustom]
             public Nullable<decimal> Longueur { get; set; }
 
-            [Include]
             public EntityCollection<MesNiveauProtection> MesNiveauProtection { get; set; }
 
-            [Include]
-            [RequiredCollectionAttribute(ErrorMessageResourceType = typeof(ValidationErrorResources),
-            ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
             public EntityCollection<PiSecteurs> PiSecteurs { get; set; }
 
-            [Include]
             public EntityCollection<Pp> Pps { get; set; }
 
-            [Include]
             public RefCommune RefCommune { get; set; }
 
-            [Include]
             public RefCommune RefCommune1 { get; set; }
 
-            [Include]
             public RefDiametre RefDiametre { get; set; }
 
-            [Include]
             public RefRevetement RefRevetement { get; set; }
 
             public bool Supprime { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie PpMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe Pp.
+    // The MetadataTypeAttribute identifies PpMetadata as the class
+    // that carries additional metadata for the Pp class.
     [MetadataTypeAttribute(typeof(Pp.PpMetadata))]
-    public partial class Pp : IOuvrage
+    public partial class Pp
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe Pp.
+        // This class allows you to attach custom attributes to properties
+        // of the Pp class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3276,56 +2827,37 @@ namespace Proteca.Web.Models
         internal sealed class PpMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private PpMetadata()
             {
             }
 
             public bool BypassCategoriePp { get; set; }
 
-            public bool BypassPkLimitation { get; set; }
-
-            [Include]
             public CategoriePp CategoriePp { get; set; }
 
-            [CustomValidation(typeof(CustomValidators),
-              "CheckClassification",
-              ErrorMessageResourceType = typeof(ValidationErrorResources),
-              ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
-            [RequiredReference("CategoriePp")]
             public Nullable<int> CleCategoriePp { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefCommune")]
             public int CleCommune { get; set; }
 
-            [RequiredCustom]
             public int CleNiveauSensibilite { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("PortionIntegrite")]
             public int ClePortion { get; set; }
 
             public int ClePp { get; set; }
 
             public Nullable<int> ClePpOrigine { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("GeoSecteur")]
             public int CleSecteur { get; set; }
 
-            [RequiredReference("UsrUtilisateur1")]
             public Nullable<int> CleUtiDdeDeverrouillage { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("UsrUtilisateur")]
             public int CleUtilisateur { get; set; }
 
             public string Commentaire { get; set; }
 
             public string CommentairePositionnement { get; set; }
 
-            [Include]
             public EntityCollection<Composition> Compositions { get; set; }
 
             public bool CoordonneeGpsFiabilisee { get; set; }
@@ -3352,75 +2884,46 @@ namespace Proteca.Web.Models
 
             public Nullable<int> EnumPolarisation { get; set; }
 
-            [CustomValidation(typeof(CustomValidators),
-              "CheckTMERaccorde",
-              ErrorMessageResourceType = typeof(ValidationErrorResources),
-              ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
             public Nullable<int> EnumSurfaceTme { get; set; }
 
-            [CustomValidation(typeof(CustomValidators),
-              "CheckTMSRaccorde",
-              ErrorMessageResourceType = typeof(ValidationErrorResources),
-              ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
             public Nullable<int> EnumSurfaceTms { get; set; }
 
-            [Include]
             public EntityCollection<EqEquipement> EqEquipement { get; set; }
 
             public EntityCollection<EqEquipementTmp> EqEquipementTmp { get; set; }
 
-            [Include]
             public EntityCollection<EqFourreauMetallique> EqFourreauMetallique { get; set; }
 
-            [Include]
             public EntityCollection<EqLiaisonInterne> EqLiaisonInterne { get; set; }
 
-            [Include]
             public EntityCollection<EqRaccordIsolant> EqRaccordIsolant { get; set; }
 
             public GeoSecteur GeoSecteur { get; set; }
 
-            [Include]
             public EntityCollection<Image> Images { get; set; }
 
-            [RequiredCustom]
             public string Libelle { get; set; }
 
-            [Include]
             public EntityCollection<LogOuvrage> LogOuvrage { get; set; }
 
-            [Include]
             public EntityCollection<MesNiveauProtection> MesNiveauProtection { get; set; }
 
-            [RequiredCustom]
-            [MaxDecimalValue(MaxIntegerPartSize = 7, MaxDecimalPartSize = 3)]
-            [CustomValidation(typeof(CustomValidators), "CheckPkPP")]
-            [RequiredReference("PkNullable")]
             public decimal Pk { get; set; }
 
-            [Include]
             public PortionIntegrite PortionIntegrite { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 2, MaxDecimalPartSize = 9)]
-            [RangeCustom(Minimum = "41.000000000", Maximum = "52.000000000")]
             public Nullable<decimal> PositionGpsLat { get; set; }
 
-            [MaxDecimalValue(MaxIntegerPartSize = 1, MaxDecimalPartSize = 9)]
-            [RangeCustom(Minimum = "-8.000000000", Maximum = "8.500000000")]
             public Nullable<decimal> PositionGpsLong { get; set; }
 
             public string PositionnementPostal { get; set; }
 
-            [Include]
             public EntityCollection<Pp> Pp1 { get; set; }
 
-            [Include]
             public Pp Pp2 { get; set; }
 
-            [Include]
             public EntityCollection<PpJumelee> PpJumelee { get; set; }
 
-            [Include]
             public EntityCollection<PpJumelee> PpJumelee1 { get; set; }
 
             public bool PpPoste { get; set; }
@@ -3429,22 +2932,16 @@ namespace Proteca.Web.Models
 
             public bool PresenceDUneTelemesure { get; set; }
 
-            [Include]
             public RefCommune RefCommune { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur2 { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur3 { get; set; }
 
-            [Include]
             public RefNiveauSensibilitePp RefNiveauSensibilitePp { get; set; }
 
             public bool Supprime { get; set; }
@@ -3453,28 +2950,25 @@ namespace Proteca.Web.Models
 
             public bool TemoinMetalliqueDeSurface { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur1 { get; set; }
 
-            [Include]
             public EntityCollection<Visite> Visites { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie PpEquipementMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe PpEquipement.
+    // The MetadataTypeAttribute identifies PpEquipementMetadata as the class
+    // that carries additional metadata for the PpEquipement class.
     [MetadataTypeAttribute(typeof(PpEquipement.PpEquipementMetadata))]
     public partial class PpEquipement
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe PpEquipement.
+        // This class allows you to attach custom attributes to properties
+        // of the PpEquipement class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3482,7 +2976,7 @@ namespace Proteca.Web.Models
         internal sealed class PpEquipementMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private PpEquipementMetadata()
             {
             }
@@ -3507,17 +3001,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie PpJumeleeMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe PpJumelee.
+    // The MetadataTypeAttribute identifies PpJumeleeMetadata as the class
+    // that carries additional metadata for the PpJumelee class.
     [MetadataTypeAttribute(typeof(PpJumelee.PpJumeleeMetadata))]
     public partial class PpJumelee
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe PpJumelee.
+        // This class allows you to attach custom attributes to properties
+        // of the PpJumelee class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3525,7 +3019,7 @@ namespace Proteca.Web.Models
         internal sealed class PpJumeleeMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private PpJumeleeMetadata()
             {
             }
@@ -3534,27 +3028,25 @@ namespace Proteca.Web.Models
 
             public int ClePpJumelee { get; set; }
 
-            [Include]
             public Pp Pp { get; set; }
 
-            [Include]
             public Pp Pp1 { get; set; }
 
             public int PpClePp { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie PpTmpMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe PpTmp.
+    // The MetadataTypeAttribute identifies PpTmpMetadata as the class
+    // that carries additional metadata for the PpTmp class.
     [MetadataTypeAttribute(typeof(PpTmp.PpTmpMetadata))]
     public partial class PpTmp
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe PpTmp.
+        // This class allows you to attach custom attributes to properties
+        // of the PpTmp class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3562,7 +3054,7 @@ namespace Proteca.Web.Models
         internal sealed class PpTmpMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private PpTmpMetadata()
             {
             }
@@ -3605,49 +3097,41 @@ namespace Proteca.Web.Models
 
             public Nullable<decimal> PositionGpsLong { get; set; }
 
-            [Include]
             public Pp Pp { get; set; }
 
             public bool PresenceDUneTelemesure { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur2 { get; set; }
 
-            [Include]
             public RefEnumValeur RefEnumValeur3 { get; set; }
 
-            [Include]
             public RefNiveauSensibilitePp RefNiveauSensibilitePp { get; set; }
 
             public bool TemoinEnterreAmovible { get; set; }
 
             public bool TemoinMetalliqueDeSurface { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur { get; set; }
 
-            [Include]
             public EntityCollection<Visite> Visites { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie RefCommuneMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefCommune.
+    // The MetadataTypeAttribute identifies RefCommuneMetadata as the class
+    // that carries additional metadata for the RefCommune class.
     [MetadataTypeAttribute(typeof(RefCommune.RefCommuneMetadata))]
     public partial class RefCommune
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefCommune.
+        // This class allows you to attach custom attributes to properties
+        // of the RefCommune class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3655,7 +3139,7 @@ namespace Proteca.Web.Models
         internal sealed class RefCommuneMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefCommuneMetadata()
             {
             }
@@ -3668,7 +3152,6 @@ namespace Proteca.Web.Models
 
             public string CodeInsee { get; set; }
 
-            [Include]
             public EntityCollection<HistoPp> HistoPp { get; set; }
 
             public Nullable<int> Idmicado { get; set; }
@@ -3685,17 +3168,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie RefDiametreMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefDiametre.
+    // The MetadataTypeAttribute identifies RefDiametreMetadata as the class
+    // that carries additional metadata for the RefDiametre class.
     [MetadataTypeAttribute(typeof(RefDiametre.RefDiametreMetadata))]
     public partial class RefDiametre
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefDiametre.
+        // This class allows you to attach custom attributes to properties
+        // of the RefDiametre class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3703,7 +3186,7 @@ namespace Proteca.Web.Models
         internal sealed class RefDiametreMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefDiametreMetadata()
             {
             }
@@ -3720,17 +3203,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie RefEnumValeurMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefEnumValeur.
+    // The MetadataTypeAttribute identifies RefEnumValeurMetadata as the class
+    // that carries additional metadata for the RefEnumValeur class.
     [MetadataTypeAttribute(typeof(RefEnumValeur.RefEnumValeurMetadata))]
     public partial class RefEnumValeur
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefEnumValeur.
+        // This class allows you to attach custom attributes to properties
+        // of the RefEnumValeur class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3738,7 +3221,7 @@ namespace Proteca.Web.Models
         internal sealed class RefEnumValeurMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefEnumValeurMetadata()
             {
             }
@@ -3783,9 +3266,6 @@ namespace Proteca.Web.Models
 
             public EntityCollection<Image> Images { get; set; }
 
-            [Unique("CodeGroupe")] // Indique que l'identifiant doit être unique en base de données
-            [StringLengthCustom(100)]
-            [RequiredCustom]
             public string Libelle { get; set; }
 
             public string LibelleCourt { get; set; }
@@ -3836,7 +3316,6 @@ namespace Proteca.Web.Models
 
             public EntityCollection<RefNiveauSensibilitePp> RefNiveauSensibilitePp { get; set; }
 
-            [Required(AllowEmptyStrings = true)]
             public string Valeur { get; set; }
 
             public EntityCollection<Visite> Visites { get; set; }
@@ -3845,17 +3324,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie RefNiveauSensibilitePpMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefNiveauSensibilitePp.
+    // The MetadataTypeAttribute identifies RefNiveauSensibilitePpMetadata as the class
+    // that carries additional metadata for the RefNiveauSensibilitePp class.
     [MetadataTypeAttribute(typeof(RefNiveauSensibilitePp.RefNiveauSensibilitePpMetadata))]
     public partial class RefNiveauSensibilitePp
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefNiveauSensibilitePp.
+        // This class allows you to attach custom attributes to properties
+        // of the RefNiveauSensibilitePp class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3863,7 +3342,7 @@ namespace Proteca.Web.Models
         internal sealed class RefNiveauSensibilitePpMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefNiveauSensibilitePpMetadata()
             {
             }
@@ -3888,17 +3367,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie RefParametreMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefParametre.
+    // The MetadataTypeAttribute identifies RefParametreMetadata as the class
+    // that carries additional metadata for the RefParametre class.
     [MetadataTypeAttribute(typeof(RefParametre.RefParametreMetadata))]
     public partial class RefParametre
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefParametre.
+        // This class allows you to attach custom attributes to properties
+        // of the RefParametre class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3906,7 +3385,7 @@ namespace Proteca.Web.Models
         internal sealed class RefParametreMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefParametreMetadata()
             {
             }
@@ -3925,22 +3404,21 @@ namespace Proteca.Web.Models
 
             public string TypeDeDonnee { get; set; }
 
-            [CustomValidation(typeof(CustomValidators), "ValidateRefParametreValeur")]
             public string Valeur { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie RefRevetementMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefRevetement.
+    // The MetadataTypeAttribute identifies RefRevetementMetadata as the class
+    // that carries additional metadata for the RefRevetement class.
     [MetadataTypeAttribute(typeof(RefRevetement.RefRevetementMetadata))]
     public partial class RefRevetement
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefRevetement.
+        // This class allows you to attach custom attributes to properties
+        // of the RefRevetement class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3948,7 +3426,7 @@ namespace Proteca.Web.Models
         internal sealed class RefRevetementMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefRevetementMetadata()
             {
             }
@@ -3965,17 +3443,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie RefSousTypeOuvrageMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefSousTypeOuvrage.
+    // The MetadataTypeAttribute identifies RefSousTypeOuvrageMetadata as the class
+    // that carries additional metadata for the RefSousTypeOuvrage class.
     [MetadataTypeAttribute(typeof(RefSousTypeOuvrage.RefSousTypeOuvrageMetadata))]
     public partial class RefSousTypeOuvrage
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefSousTypeOuvrage.
+        // This class allows you to attach custom attributes to properties
+        // of the RefSousTypeOuvrage class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -3983,15 +3461,13 @@ namespace Proteca.Web.Models
         internal sealed class RefSousTypeOuvrageMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefSousTypeOuvrageMetadata()
             {
             }
 
             public int CleSousTypeOuvrage { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(25)]
             public string CodeGroupe { get; set; }
 
             public EntityCollection<EqAnodeGalvanique> EqAnodeGalvanique { get; set; }
@@ -4034,32 +3510,25 @@ namespace Proteca.Web.Models
 
             public EntityCollection<HistoEqSoutirage> HistoEqSoutirage { get; set; }
 
-            [StringLengthCustom(30)]
-            [RequiredCustom]
-            [Unique("CodeGroupe")]
             public string Libelle { get; set; }
 
-            [EntierPositif]
-            [Unique("CodeGroupe")]
-            [RequiredReference("DisplayNumOrdreNullable")]
             public int NumeroOrdre { get; set; }
 
-            [StringLengthCustom(100)]
             public string Valeur { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie RefUsrAutorisationMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefUsrAutorisation.
+    // The MetadataTypeAttribute identifies RefUsrAutorisationMetadata as the class
+    // that carries additional metadata for the RefUsrAutorisation class.
     [MetadataTypeAttribute(typeof(RefUsrAutorisation.RefUsrAutorisationMetadata))]
     public partial class RefUsrAutorisation
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefUsrAutorisation.
+        // This class allows you to attach custom attributes to properties
+        // of the RefUsrAutorisation class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4067,7 +3536,7 @@ namespace Proteca.Web.Models
         internal sealed class RefUsrAutorisationMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefUsrAutorisationMetadata()
             {
             }
@@ -4080,7 +3549,6 @@ namespace Proteca.Web.Models
 
             public string LibelleAutorisation { get; set; }
 
-            [Include]
             public RefUsrGroupe RefUsrGroupe { get; set; }
 
             public string TypePortee { get; set; }
@@ -4089,17 +3557,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie RefUsrGroupeMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefUsrGroupe.
+    // The MetadataTypeAttribute identifies RefUsrGroupeMetadata as the class
+    // that carries additional metadata for the RefUsrGroupe class.
     [MetadataTypeAttribute(typeof(RefUsrGroupe.RefUsrGroupeMetadata))]
     public partial class RefUsrGroupe
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefUsrGroupe.
+        // This class allows you to attach custom attributes to properties
+        // of the RefUsrGroupe class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4107,7 +3575,7 @@ namespace Proteca.Web.Models
         internal sealed class RefUsrGroupeMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefUsrGroupeMetadata()
             {
             }
@@ -4116,22 +3584,21 @@ namespace Proteca.Web.Models
 
             public string LibelleGroupe { get; set; }
 
-            [Include]
             public EntityCollection<RefUsrAutorisation> RefUsrAutorisation { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie RefUsrPorteeMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe RefUsrPortee.
+    // The MetadataTypeAttribute identifies RefUsrPorteeMetadata as the class
+    // that carries additional metadata for the RefUsrPortee class.
     [MetadataTypeAttribute(typeof(RefUsrPortee.RefUsrPorteeMetadata))]
     public partial class RefUsrPortee
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe RefUsrPortee.
+        // This class allows you to attach custom attributes to properties
+        // of the RefUsrPortee class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4139,7 +3606,7 @@ namespace Proteca.Web.Models
         internal sealed class RefUsrPorteeMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private RefUsrPorteeMetadata()
             {
             }
@@ -4160,17 +3627,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie TourneeMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe Tournee.
+    // The MetadataTypeAttribute identifies TourneeMetadata as the class
+    // that carries additional metadata for the Tournee class.
     [MetadataTypeAttribute(typeof(Tournee.TourneeMetadata))]
     public partial class Tournee
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe Tournee.
+        // This class allows you to attach custom attributes to properties
+        // of the Tournee class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4178,57 +3645,48 @@ namespace Proteca.Web.Models
         internal sealed class TourneeMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private TourneeMetadata()
             {
             }
 
             public int CleTournee { get; set; }
 
-            [RequiredReference("UsrUtilisateur")]
             public Nullable<int> CleUtilisateur { get; set; }
 
-            [StringLengthCustom(10)]
             public string CodeTournee { get; set; }
 
-            [StringLengthCustom(100)]
             public string Commentaire { get; set; }
 
-            [Include]
             public EntityCollection<Composition> Compositions { get; set; }
 
             public Nullable<DateTime> DateCreation { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(50)]
-            [Unique]
             public string Libelle { get; set; }
 
-            [Include]
             public EntityCollection<LogTournee> LogTournee { get; set; }
 
             public Nullable<int> Numero { get; set; }
 
             public bool Supprime { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur { get; set; }
 
             public bool Verrouille { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie TourneePpEqMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe TourneePpEq.
+    // The MetadataTypeAttribute identifies TourneePpEqMetadata as the class
+    // that carries additional metadata for the TourneePpEq class.
     [MetadataTypeAttribute(typeof(TourneePpEq.TourneePpEqMetadata))]
     public partial class TourneePpEq
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe TourneePpEq.
+        // This class allows you to attach custom attributes to properties
+        // of the TourneePpEq class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4236,7 +3694,7 @@ namespace Proteca.Web.Models
         internal sealed class TourneePpEqMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private TourneePpEqMetadata()
             {
             }
@@ -4271,17 +3729,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie TypeEquipementMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe TypeEquipement.
+    // The MetadataTypeAttribute identifies TypeEquipementMetadata as the class
+    // that carries additional metadata for the TypeEquipement class.
     [MetadataTypeAttribute(typeof(TypeEquipement.TypeEquipementMetadata))]
     public partial class TypeEquipement
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe TypeEquipement.
+        // This class allows you to attach custom attributes to properties
+        // of the TypeEquipement class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4289,7 +3747,7 @@ namespace Proteca.Web.Models
         internal sealed class TypeEquipementMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private TypeEquipementMetadata()
             {
             }
@@ -4316,17 +3774,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie UsrProfilMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe UsrProfil.
+    // The MetadataTypeAttribute identifies UsrProfilMetadata as the class
+    // that carries additional metadata for the UsrProfil class.
     [MetadataTypeAttribute(typeof(UsrProfil.UsrProfilMetadata))]
     public partial class UsrProfil
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe UsrProfil.
+        // This class allows you to attach custom attributes to properties
+        // of the UsrProfil class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4334,47 +3792,40 @@ namespace Proteca.Web.Models
         internal sealed class UsrProfilMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private UsrProfilMetadata()
             {
             }
 
-            [RequiredCustom]
-            [RequiredReference("RefUsrPortee")] // Membre lié => Signifie que si la clé <= 0 alors l'erreur de validation sera également déclenchée sur ce membre
             public int ClePortee { get; set; }
 
             public int CleProfil { get; set; }
 
             public bool Editable { get; set; }
 
-            [RequiredCustom]
-            [Unique] // Indique que le libelle profil doit être unique en base de données
-            [StringLengthCustom(30)]
             public string LibelleProfil { get; set; }
 
             public bool ProfilAdmin { get; set; }
 
             public RefUsrPortee RefUsrPortee { get; set; }
 
-            [Include]
             public EntityCollection<UsrRole> UsrRole { get; set; }
 
-            [Include]
             public EntityCollection<UsrUtilisateur> UsrUtilisateur { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie UsrRoleMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe UsrRole.
+    // The MetadataTypeAttribute identifies UsrRoleMetadata as the class
+    // that carries additional metadata for the UsrRole class.
     [MetadataTypeAttribute(typeof(UsrRole.UsrRoleMetadata))]
     public partial class UsrRole
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe UsrRole.
+        // This class allows you to attach custom attributes to properties
+        // of the UsrRole class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4382,44 +3833,38 @@ namespace Proteca.Web.Models
         internal sealed class UsrRoleMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private UsrRoleMetadata()
             {
             }
 
-            [RequiredCustom]
-            [RequiredReference("RefUsrAutorisation")]
             public int CleAutorisation { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefUsrPortee")] // Membre lié => Signifie que si la clé <= 0 alors l'erreur de validation sera également déclenchée sur ce membre
             public int ClePortee { get; set; }
 
             public int CleProfil { get; set; }
 
             public int CleRole { get; set; }
 
-            [Include]
             public RefUsrAutorisation RefUsrAutorisation { get; set; }
 
-            [Include]
             public RefUsrPortee RefUsrPortee { get; set; }
 
             public UsrProfil UsrProfil { get; set; }
         }
     }
 
-    // MetadataTypeAttribute identifie UsrUtilisateurMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe UsrUtilisateur.
+    // The MetadataTypeAttribute identifies UsrUtilisateurMetadata as the class
+    // that carries additional metadata for the UsrUtilisateur class.
     [MetadataTypeAttribute(typeof(UsrUtilisateur.UsrUtilisateurMetadata))]
     public partial class UsrUtilisateur
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe UsrUtilisateur.
+        // This class allows you to attach custom attributes to properties
+        // of the UsrUtilisateur class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4427,7 +3872,7 @@ namespace Proteca.Web.Models
         internal sealed class UsrUtilisateurMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private UsrUtilisateurMetadata()
             {
             }
@@ -4438,18 +3883,8 @@ namespace Proteca.Web.Models
 
             public EntityCollection<AnAnalyse> AnAnalyse { get; set; }
 
-            [CustomValidation(typeof(CustomValidators),
-                "CheckUsrIfNotExterneAndNotSupprime", // vérification de l'agence en fonction si l'utilisateur est un prestataire ou non
-                ErrorMessageResourceType = typeof(ValidationErrorResources),
-                ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
-            [RequiredReference("SelectedAgence")] // C'est le nom de la propriété utilisé au niveau du ViewModel plutot que [RequiredReference("GeoAgence")]
             public Nullable<int> CleAgence { get; set; }
 
-            [CustomValidation(typeof(CustomValidators),
-                "CheckUsrIfNotExterneAndNotSupprime", // vérification de l'agence en fonction si l'utilisateur est un prestataire ou non
-                ErrorMessageResourceType = typeof(ValidationErrorResources),
-                ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
-            [RequiredReference("UsrProfil")]
             public Nullable<int> CleProfil { get; set; }
 
             public Nullable<int> CleSecteur { get; set; }
@@ -4462,38 +3897,20 @@ namespace Proteca.Web.Models
 
             public bool Externe { get; set; }
 
-            [Include]
             public GeoAgence GeoAgence { get; set; }
 
-            [Include]
             public GeoSecteur GeoSecteur { get; set; }
 
             public int GestionDesComptes { get; set; }
 
-            [CustomValidation(typeof(CustomValidators),
-                "CheckUsrIfNotExterne", // vérification de l'identifiant en fonction si l'utilisateur est un prestataire ou non
-                ErrorMessageResourceType = typeof(ValidationErrorResources),
-                ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
-            [StringLengthCustom(10)]
-            [Unique] // Indique que l'identifiant doit être unique en base de données
             public string Identifiant { get; set; }
 
             public EntityCollection<LogOuvrage> LogOuvrage { get; set; }
 
             public EntityCollection<LogTournee> LogTournee { get; set; }
 
-            [CustomValidation(typeof(CustomValidators),
-                "CheckUsrIfNotExterne", // vérification du mail en fonction si l'utilisateur est un prestataire ou non
-                ErrorMessageResourceType = typeof(ValidationErrorResources),
-                ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
-            [EmailCustom]
-            [StringLengthCustom(70)]
-            [Required(AllowEmptyStrings = true)]
-            [Unique]
             public string Mail { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(20)]
             public string Nom { get; set; }
 
             public EntityCollection<Pp> Pps { get; set; }
@@ -4502,25 +3919,16 @@ namespace Proteca.Web.Models
 
             public EntityCollection<PpTmp> PpTmp { get; set; }
 
-            [RequiredCustom]
-            [StringLengthCustom(15)]
             public string Prenom { get; set; }
 
-            [Include]
             public RefUsrPortee RefUsrPortee { get; set; }
 
-            [CustomValidation(typeof(CustomValidators),
-                "CheckUsrIfExterne", // vérification de la société en fonction si l'utilisateur est un prestataire ou non
-                ErrorMessageResourceType = typeof(ValidationErrorResources),
-                ErrorMessageResourceName = "DefaultRequiredFieldErrorMessage")]
-            [StringLengthCustom(30)]
             public string Societe { get; set; }
 
             public bool Supprime { get; set; }
 
             public EntityCollection<Tournee> Tournees { get; set; }
 
-            [Include]
             public UsrProfil UsrProfil { get; set; }
 
             public EntityCollection<Visite> Visites { get; set; }
@@ -4533,17 +3941,17 @@ namespace Proteca.Web.Models
         }
     }
 
-    // MetadataTypeAttribute identifie VisiteMetadata comme la classe
-    // qui comporte des métadonnées supplémentaires pour la classe Visite.
+    // The MetadataTypeAttribute identifies VisiteMetadata as the class
+    // that carries additional metadata for the Visite class.
     [MetadataTypeAttribute(typeof(Visite.VisiteMetadata))]
     public partial class Visite
     {
 
-        // Cette classe vous permet d'attacher des attributs personnalisés aux propriétés 
-        // de la classe Visite.
+        // This class allows you to attach custom attributes to properties
+        // of the Visite class.
         //
-        // Par exemple, le code suivant marque la propriété Xyz en tant que
-        // propriété requise et spécifie le format pour les valeurs valides :
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
         //    [Required]
         //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
         //    [StringLength(32)]
@@ -4551,26 +3959,21 @@ namespace Proteca.Web.Models
         internal sealed class VisiteMetadata
         {
 
-            // Les classes de métadonnées ne sont pas conçues pour être instanciées.
+            // Metadata classes are not meant to be instantiated.
             private VisiteMetadata()
             {
             }
 
-            [Include]
             public EntityCollection<Alerte> Alertes { get; set; }
 
             public EntityCollection<AnAnalyseEeVisite> AnAnalyseEeVisite { get; set; }
 
-            [Include]
             public EntityCollection<AnAnalyseSerieMesure> AnAnalyseSerieMesure { get; set; }
 
-            [RequiredReference("EqEquipement")]
             public Nullable<int> CleEqTmp { get; set; }
 
-            [RequiredReference("EqEquipementTmp")]
             public Nullable<int> CleEquipement { get; set; }
 
-            [RequiredReference("Pp")]
             public Nullable<int> ClePp { get; set; }
 
             public Nullable<int> ClePpTmp { get; set; }
@@ -4579,16 +3982,12 @@ namespace Proteca.Web.Models
 
             public Nullable<int> CleUtilisateurImport { get; set; }
 
-            [RequiredCustom(AllowZero = true)]
-            [RequiredReference("UsrUtilisateur2")]
             public Nullable<int> CleUtilisateurMesure { get; set; }
 
             public Nullable<int> CleUtilisateurValidation { get; set; }
 
             public int CleVisite { get; set; }
 
-            [CheckCommentaireVisiteAttribute]
-            [StringLengthCustom(500)]
             public string Commentaire { get; set; }
 
             public Nullable<DateTime> DateImport { get; set; }
@@ -4597,35 +3996,24 @@ namespace Proteca.Web.Models
 
             public Nullable<DateTime> DateValidation { get; set; }
 
-            [RequiredCustom]
             public Nullable<DateTime> DateVisite { get; set; }
 
             public Nullable<int> EnumConformiteTournee { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur")]
             public int EnumTypeEval { get; set; }
 
-            [RequiredCustom]
-            [RequiredReference("RefEnumValeur1")]
             public int EnumTypeEvalComposition { get; set; }
 
-            [Include]
             public EqEquipement EqEquipement { get; set; }
 
-            [Include]
             public EqEquipementTmp EqEquipementTmp { get; set; }
 
-            [RequiredCustom]
             public bool EstValidee { get; set; }
 
-            [Include]
             public EntityCollection<InstrumentsUtilises> InstrumentsUtilises { get; set; }
 
-            [Include]
             public EntityCollection<MesMesure> MesMesure { get; set; }
 
-            [Include]
             public Pp Pp { get; set; }
 
             public PpTmp PpTmp { get; set; }
@@ -4634,54 +4022,17 @@ namespace Proteca.Web.Models
 
             public RefEnumValeur RefEnumValeur1 { get; set; }
 
-            [RequiredCustom]
             public bool RelevePartiel { get; set; }
 
-            [RequiredCustom]
             public bool Telemesure { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur1 { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur2 { get; set; }
 
-            [Include]
             public UsrUtilisateur UsrUtilisateur3 { get; set; }
-        }
-    }
-
-
-    // Classe pour SP_TOURNEE_TABLEAU_BORD_Result
-    [MetadataTypeAttribute(typeof(SelectTourneeTableauBord_Result.SelectTourneeTableauBord_Result_Metadata))]
-    public partial class SelectTourneeTableauBord_Result
-    {
-        internal sealed class SelectTourneeTableauBord_Result_Metadata
-        {
-            // Metadata classes are not meant to be instantiated, so mark constructor as private
-            private SelectTourneeTableauBord_Result_Metadata()
-            { }
-
-            [Key]
-            public int ID { get; set; }
-        }
-    }
-
-    // Classe pour SP_PORTION_GRAPHIQUE_Result
-    [MetadataTypeAttribute(typeof(SelectPortionGraphique_Result.SelectPortionGraphique_Result_Metadata))]
-    public partial class SelectPortionGraphique_Result
-    {
-        internal sealed class SelectPortionGraphique_Result_Metadata
-        {
-            // Metadata classes are not meant to be instantiated, so mark constructor as private
-            private SelectPortionGraphique_Result_Metadata()
-            { }
-
-            [Key]
-            public int ID { get; set; }
         }
     }
 }

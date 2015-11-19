@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="ProtecaLayouts" Url="_catalogs/masterpage">
+    <File Path="ProtecaLayouts\AccueilLayout.aspx" Url="AccueilLayout.aspx" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE">
+      <Property Name="Title" Value="Page d'accueil PROTECA" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+    </File>
+    <File Path="ProtecaLayouts\XAPLayout.aspx" Url="XAPLayout.aspx" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE">
+      <Property Name="Title" Value="Page XAP PROTECA" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+    </File>
+    <File Path="ProtecaLayouts\SearchLayout.aspx" Url="SearchLayout.aspx" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE">
+      <Property Name="Title" Value="Search Page PROTECA" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+    </File>
+    <File Path="ProtecaLayouts\RedirectLayout.aspx" Url="RedirectLayout.aspx" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE">
+      <Property Name="Title" Value="Redirect Search PROTECA" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+    </File>
+</Module>
+</Elements>

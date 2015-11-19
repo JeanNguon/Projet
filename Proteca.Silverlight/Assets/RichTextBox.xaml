@@ -1,0 +1,224 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:System="clr-namespace:System;assembly=mscorlib">
+	<SolidColorBrush x:Key="RichTextBoxBorderBrush" Color="#FF848484"/>
+	<!-- Resource dictionary entries should be defined here. -->
+	<SolidColorBrush x:Key="RichTextBoxSelectionStroke" Color="#601B81E7"/>
+	<SolidColorBrush x:Key="RichTextBoxSelectionFill" Color="#604BB1FF"/>
+	<SolidColorBrush x:Key="BorderBetweenScrollBarsBackground" Color="#F5F5F5"/>
+	<telerik:Office_BlackTheme x:Key="Theme"/>
+	<SolidColorBrush x:Key="PrintingScreenGridBackground" Color="White"/>
+	<SolidColorBrush x:Key="MouseOverBorderBorderBrush_MouseNotOver" Color="Transparent"/>
+	<SolidColorBrush x:Key="DisabledVisualElementBorderBorderBrush" Color="#A5F7F7F7"/>
+	<SolidColorBrush x:Key="DisabledVisualElementBorderBackground" Color="#A5F7F7F7"/>
+	<SolidColorBrush x:Key="FocusVisualElementBorderBorderBrush" Color="#FF6DBDD1"/>
+	<SolidColorBrush x:Key="ValidationErrorElementBorderBorderBrush" Color="#FFDB000C"/>
+	<SolidColorBrush x:Key="ValidationErrorElementGridBackground" Color="Transparent"/>
+	<SolidColorBrush x:Key="ValidationErrorElementGridPath1Fill" Color="#FFDC000C"/>
+	<SolidColorBrush x:Key="ValidationErrorElementGridPath2Fill" Color="#ffffff"/>
+	<SolidColorBrush x:Key="ValidationToolTipTemplateBorder1Background" Color="#052A2E31"/>
+	<SolidColorBrush x:Key="ValidationToolTipTemplateBorder2Background" Color="#152A2E31"/>
+	<SolidColorBrush x:Key="ValidationToolTipTemplateBorder3Background" Color="#252A2E31"/>
+	<SolidColorBrush x:Key="ValidationToolTipTemplateBorder4Background" Color="#352A2E31"/>
+	<SolidColorBrush x:Key="ValidationToolTipTemplateBorder5Background" Color="#FFDC000C"/>
+	<SolidColorBrush x:Key="ValidationToolTipTemplateTextBlockForeground" Color="White"/>
+	<ControlTemplate x:Key="ValidationToolTipTemplate">
+		<Grid x:Name="Root" Margin="5 0" Opacity="0" RenderTransformOrigin="0 0">
+			<Grid.RenderTransform>
+				<TranslateTransform x:Name="xform" X="-25"/>
+			</Grid.RenderTransform>
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="OpenStates">
+					<VisualStateGroup.Transitions>
+						<VisualTransition GeneratedDuration="0"/>
+						<VisualTransition GeneratedDuration="0:0:0.2" To="Open">
+							<Storyboard>
+								<DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="xform">
+									<DoubleAnimation.EasingFunction>
+										<BackEase Amplitude=".3" EasingMode="EaseOut"/>
+									</DoubleAnimation.EasingFunction>
+								</DoubleAnimation>
+								<DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Root"/>
+							</Storyboard>
+						</VisualTransition>
+					</VisualStateGroup.Transitions>
+					<VisualState x:Name="Closed">
+						<Storyboard>
+							<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Root"/>
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Open">
+						<Storyboard>
+							<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="xform"/>
+							<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Root"/>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Border Background="{StaticResource ValidationToolTipTemplateBorder1Background}" CornerRadius="5" Margin="4 4 -4 -4"/>
+			<Border Background="{StaticResource ValidationToolTipTemplateBorder2Background}" CornerRadius="4" Margin="3 3 -3 -3"/>
+			<Border Background="{StaticResource ValidationToolTipTemplateBorder3Background}" CornerRadius="3" Margin="2 2 -2 -2"/>
+			<Border Background="{StaticResource ValidationToolTipTemplateBorder4Background}" CornerRadius="2" Margin="1 1 -1 -1"/>
+			<Border Background="{StaticResource ValidationToolTipTemplateBorder5Background}" CornerRadius="2"/>
+			<Border CornerRadius="2">
+				<TextBlock Foreground="{StaticResource ValidationToolTipTemplateTextBlockForeground}" MaxWidth="250" Margin="8 4 8 4" TextWrapping="Wrap" Text="{Binding ValidationErrors[0].ErrorContent}" UseLayoutRounding="false"/>
+			</Border>
+		</Grid>
+	</ControlTemplate>
+	<Color x:Key="MouseOverBorderBorderBrush_MouseOver">#FFFFC92B</Color>
+	<Style x:Key="RichTextBoxStyle" TargetType="telerik:RadRichTextBox">
+		<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+		<Setter Property="VerticalContentAlignment" Value="Stretch"/>
+		<Setter Property="Padding" Value="0"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="BorderBrush" Value="{StaticResource RichTextBoxBorderBrush}"/>
+		<Setter Property="Background" Value="#FFFFFFFF"/>
+		<Setter Property="SelectionStroke" Value="{StaticResource RichTextBoxSelectionStroke}"/>
+		<Setter Property="SelectionFill" Value="{StaticResource RichTextBoxSelectionFill}"/>
+		<Setter Property="MouseOverBorderThickness" Value="1"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadRichTextBox">
+					<Grid x:Name="LayoutRoot">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Normal"/>
+								<VisualState x:Name="PagedMode">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(Border.BorderThickness)" Storyboard.TargetName="MouseOverBorder">
+											<DiscreteObjectKeyFrame KeyTime="00:00:00">
+												<DiscreteObjectKeyFrame.Value>
+													<Thickness>0</Thickness>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(Border.BorderThickness)" Storyboard.TargetName="Border">
+											<DiscreteObjectKeyFrame KeyTime="00:00:00">
+												<DiscreteObjectKeyFrame.Value>
+													<Thickness>0</Thickness>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(Border.BorderThickness)" Storyboard.TargetName="FocusVisualElement">
+											<DiscreteObjectKeyFrame KeyTime="00:00:00">
+												<DiscreteObjectKeyFrame.Value>
+													<Thickness>0</Thickness>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="MouseOver">
+									<Storyboard>
+										<ColorAnimation Duration="0" To="{StaticResource MouseOverBorderBorderBrush_MouseOver}" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="MouseOverBorder"/>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Disabled">
+									<Storyboard>
+										<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement"/>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="ReadOnly"/>
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="FocusStates">
+								<VisualState x:Name="Focused">
+									<Storyboard>
+										<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualElement"/>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Unfocused">
+									<Storyboard>
+										<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualElement"/>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="ValidationStates">
+								<VisualState x:Name="Valid"/>
+								<VisualState x:Name="InvalidUnfocused">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ValidationErrorElement">
+											<DiscreteObjectKeyFrame KeyTime="0">
+												<DiscreteObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="InvalidFocused">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ValidationErrorElement">
+											<DiscreteObjectKeyFrame KeyTime="0">
+												<DiscreteObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IsOpen" Storyboard.TargetName="validationTooltip">
+											<DiscreteObjectKeyFrame KeyTime="0">
+												<DiscreteObjectKeyFrame.Value>
+													<System:Boolean>True</System:Boolean>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Canvas x:Name="MeasuringPanel" Height="0" Width="0"/>
+						<Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Opacity="1">
+							<Grid Background="{TemplateBinding Background}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="Auto"/>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+								<ContentControl x:Name="ViewPresenter" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" IsTabStop="False" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+								<Border Background="{StaticResource BorderBetweenScrollBarsBackground}" Grid.Column="1" Grid.Row="1"/>
+								<ScrollBar x:Name="HorizontalScrollBar" Grid.Column="0" Height="16" IsTabStop="False" Minimum="0" Orientation="Horizontal" Grid.Row="1" telerik:StyleManager.Theme="{StaticResource Theme}"/>
+								<ScrollBar x:Name="VerticalScrollBar" Grid.Column="1" IsTabStop="False" Minimum="0" Orientation="Vertical" Grid.Row="0" telerik:StyleManager.Theme="{StaticResource Theme}" Width="16"/>
+								<Grid x:Name="PrintingScreen" Background="{StaticResource PrintingScreenGridBackground}" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Collapsed">
+									<TextBlock HorizontalAlignment="Center" Text="Printing..." VerticalAlignment="Center"/>
+								</Grid>
+							</Grid>
+						</Border>
+						<Border x:Name="MouseOverBorder" BorderBrush="{StaticResource MouseOverBorderBorderBrush_MouseNotOver}" BorderThickness="{TemplateBinding MouseOverBorderThickness}"/>
+						<Border x:Name="DisabledVisualElement" BorderBrush="{StaticResource DisabledVisualElementBorderBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{StaticResource DisabledVisualElementBorderBackground}" IsHitTestVisible="False" Opacity="0"/>
+						<Border x:Name="FocusVisualElement" BorderBrush="{StaticResource FocusVisualElementBorderBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" IsHitTestVisible="False" Opacity="0"/>
+						<Border x:Name="ValidationErrorElement" BorderBrush="{StaticResource ValidationErrorElementBorderBorderBrush}" BorderThickness="1" CornerRadius="1" Visibility="Collapsed">
+							<ToolTipService.ToolTip>
+								<ToolTip x:Name="validationTooltip" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ValidationToolTipTemplate}">
+									<ToolTip.Triggers>
+										<EventTrigger RoutedEvent="Canvas.Loaded">
+											<BeginStoryboard>
+												<Storyboard>
+													<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IsHitTestVisible" Storyboard.TargetName="validationTooltip">
+														<DiscreteObjectKeyFrame KeyTime="0">
+															<DiscreteObjectKeyFrame.Value>
+																<System:Boolean>true</System:Boolean>
+															</DiscreteObjectKeyFrame.Value>
+														</DiscreteObjectKeyFrame>
+													</ObjectAnimationUsingKeyFrames>
+												</Storyboard>
+											</BeginStoryboard>
+										</EventTrigger>
+									</ToolTip.Triggers>
+								</ToolTip>
+							</ToolTipService.ToolTip>
+                            <Grid Background="Transparent" HorizontalAlignment="Right" Height="20" VerticalAlignment="Center" Width="20">
+                                <Image Source="/Proteca.Silverlight;component/Images/error.png" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Margin="2,2,2,2"/>
+                            </Grid>
+                        </Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+    <Style TargetType="telerik:RadRichTextBox" BasedOn="{StaticResource RichTextBoxStyle}" />
+    
+</ResourceDictionary>

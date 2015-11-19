@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e7f65376-658d-4fce-ab89-9415e894c1ac" solutionId="e7f65376-658d-4fce-ab89-9415e894c1ac" resetWebServer="false" name="Proteca.Sharepoint" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="a1ff2e8c-bd55-4100-876d-dd41b3c3403d" />
+    <featureReference itemId="73c76aed-c61e-48a8-8105-cd254dfed000" />
+    <featureReference itemId="36621948-b1a5-466f-8e94-4f7ef5f7590c" />
+    <featureReference itemId="d4b07761-6e30-4584-9165-ffe9769ba5a2" />
+    <featureReference itemId="f11849b8-3717-4747-ac00-4b53f08848a0" />
+    <featureReference itemId="e7cd2715-0430-4835-a180-b702b3dc5d69" />
+    <featureReference itemId="76a0a947-8d60-46c2-9822-657923e49573" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="fcb2c5ad-e160-42f2-b0e6-fa33e0fb8c82" />
+  </projectItems>
+</package>

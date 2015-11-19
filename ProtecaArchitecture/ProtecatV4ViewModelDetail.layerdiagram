@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="a683e53c-7fe9-413a-8ea5-02c966136973" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="06929008-ec42-472a-b676-b64997a292b8" name="CustomBaseEntityViewModel.cs">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="59d5a968-08c1-4a82-a9a5-38b6fcd7e9bc" direction="Forward">
+          <layerMoniker Id="72d305ee-ec40-4206-a060-115652a94eba" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="c962f377-aba0-429a-8b65-d692ee541c51" direction="Forward">
+          <layerMoniker Id="c07f1196-3d06-4c65-8261-f8645a0e9c37" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="3103b3a0-e398-491b-b838-0f04fbd50cec" name="CustomBaseEntityViewModel.cs">
+          <ArtifactNode Label="CustomBaseEntityViewModel.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/ViewModels/CustomBaseEntityViewModel.cs)" />
+          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.ViewModels Type=(Name=BaseProtecaEntityViewModel GenericParameterCount=1))" Label="BaseProtecaEntityViewModel&lt;T&gt;" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.ViewModels Type=ErrorEventArgs)" Label="ErrorEventArgs" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.ViewModels Type=ActivateViewEventArgs)" Label="ActivateViewEventArgs" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="c07f1196-3d06-4c65-8261-f8645a0e9c37" name="IEntityService.cs">
+      <references>
+        <reference Id="68ce8dd8-c0f7-4111-bacb-9c6fe704b61f" name="IEntityService.cs">
+          <ArtifactNode Label="IEntityService.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Services/Contracts/IEntityService.cs)" />
+          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Services.Contracts Type=(Name=IEntityService GenericParameterCount=1))" Label="IEntityService&lt;T&gt;" Category="CodeSchema_Interface">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="72d305ee-ec40-4206-a060-115652a94eba" name="BaseViewModel.cs">
+      <references>
+        <reference Id="ad33e1f8-9683-474d-b189-2d784bda4c64" name="BaseViewModel.cs">
+          <ArtifactNode Label="BaseViewModel.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Toolkit/Jounce/Core/ViewModel/BaseViewModel.cs)" />
+          <ExpandedNode Id="(Assembly=Jounce Namespace=Jounce.Core.ViewModel Type=BaseViewModel)" Label="BaseViewModel" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="e1da169c-04bd-4104-9df5-f4f9dc1ff554" name="AgenceViewModel.cs">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="153456aa-31be-4217-b0c5-b59e85e5d4e2" direction="Forward">
+          <layerMoniker Id="06929008-ec42-472a-b676-b64997a292b8" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="3a617fac-c0c2-4c89-b008-f268f131c3f2" direction="Forward">
+          <layerMoniker Id="599a6ef1-1916-42f1-9453-be59f201a460" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="27be3fc8-da11-4037-a0ff-3c4fa5480429" name="AgenceViewModel.cs">
+          <ArtifactNode Label="AgenceViewModel.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/ViewModels/AgenceViewModel.cs)" />
+          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.ViewModels Type=AgenceViewModel)" Label="AgenceViewModel" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="599a6ef1-1916-42f1-9453-be59f201a460" name="Agence.cs">
+      <references>
+        <reference Id="56dcca07-486f-4fa4-bb1e-2631284d86e9" name="Agence.cs">
+          <ArtifactNode Label="Agence.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../Proteca.Silverlight/Models/Agence.cs)" />
+          <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Web.Models Type=Agence)" Label="Agence" Category="CodeSchema_Class">
+            <LinkCategory Ref="Contains" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

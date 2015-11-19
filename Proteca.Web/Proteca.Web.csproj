@@ -122,6 +122,141 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include="bower_components\angular-animate\angular-animate.js" />
+    <Content Include="bower_components\angular-animate\angular-animate.min.js" />
+    <Content Include="bower_components\angular-animate\index.js" />
+    <Content Include="bower_components\angular-cookies\angular-cookies.js" />
+    <Content Include="bower_components\angular-cookies\angular-cookies.min.js" />
+    <Content Include="bower_components\angular-cookies\index.js" />
+    <Content Include="bower_components\angular-mocks\angular-mocks.js" />
+    <Content Include="bower_components\angular-mocks\ngAnimateMock.js" />
+    <Content Include="bower_components\angular-mocks\ngMock.js" />
+    <Content Include="bower_components\angular-mocks\ngMockE2E.js" />
+    <Content Include="bower_components\angular-resource\angular-resource.js" />
+    <Content Include="bower_components\angular-resource\angular-resource.min.js" />
+    <Content Include="bower_components\angular-resource\index.js" />
+    <Content Include="bower_components\angular-route\angular-route.js" />
+    <Content Include="bower_components\angular-route\angular-route.min.js" />
+    <Content Include="bower_components\angular-route\index.js" />
+    <Content Include="bower_components\angular-sanitize\angular-sanitize.js" />
+    <Content Include="bower_components\angular-sanitize\angular-sanitize.min.js" />
+    <Content Include="bower_components\angular-sanitize\index.js" />
+    <Content Include="bower_components\angular-touch\angular-touch.js" />
+    <Content Include="bower_components\angular-touch\angular-touch.min.js" />
+    <Content Include="bower_components\angular-touch\index.js" />
+    <Content Include="bower_components\angular-xml\angular-xml.js" />
+    <Content Include="bower_components\angular-xml\angular-xml.min.js" />
+    <Content Include="bower_components\angular-xml\index.js" />
+    <Content Include="bower_components\angular\angular-csp.css" />
+    <Content Include="bower_components\angular\angular.js" />
+    <Content Include="bower_components\angular\angular.min.js" />
+    <Content Include="bower_components\angular\index.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap-sprockets.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap.min.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\affix.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\alert.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\button.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\carousel.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\collapse.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\dropdown.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\modal.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\popover.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\scrollspy.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\tab.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\tooltip.js" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\javascripts\bootstrap\transition.js" />
+    <Content Include="bower_components\jquery\dist\jquery.js" />
+    <Content Include="bower_components\jquery\dist\jquery.min.js" />
+    <Content Include="bower_components\jquery\MIT-LICENSE.txt" />
+    <Content Include="bower_components\jquery\src\ajax.js" />
+    <Content Include="bower_components\jquery\src\ajax\jsonp.js" />
+    <Content Include="bower_components\jquery\src\ajax\load.js" />
+    <Content Include="bower_components\jquery\src\ajax\parseJSON.js" />
+    <Content Include="bower_components\jquery\src\ajax\parseXML.js" />
+    <Content Include="bower_components\jquery\src\ajax\script.js" />
+    <Content Include="bower_components\jquery\src\ajax\var\nonce.js" />
+    <Content Include="bower_components\jquery\src\ajax\var\rquery.js" />
+    <Content Include="bower_components\jquery\src\ajax\xhr.js" />
+    <Content Include="bower_components\jquery\src\attributes.js" />
+    <Content Include="bower_components\jquery\src\attributes\attr.js" />
+    <Content Include="bower_components\jquery\src\attributes\classes.js" />
+    <Content Include="bower_components\jquery\src\attributes\prop.js" />
+    <Content Include="bower_components\jquery\src\attributes\support.js" />
+    <Content Include="bower_components\jquery\src\attributes\val.js" />
+    <Content Include="bower_components\jquery\src\callbacks.js" />
+    <Content Include="bower_components\jquery\src\core.js" />
+    <Content Include="bower_components\jquery\src\core\access.js" />
+    <Content Include="bower_components\jquery\src\core\init.js" />
+    <Content Include="bower_components\jquery\src\core\parseHTML.js" />
+    <Content Include="bower_components\jquery\src\core\ready.js" />
+    <Content Include="bower_components\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="bower_components\jquery\src\css.js" />
+    <Content Include="bower_components\jquery\src\css\addGetHookIf.js" />
+    <Content Include="bower_components\jquery\src\css\curCSS.js" />
+    <Content Include="bower_components\jquery\src\css\defaultDisplay.js" />
+    <Content Include="bower_components\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="bower_components\jquery\src\css\support.js" />
+    <Content Include="bower_components\jquery\src\css\swap.js" />
+    <Content Include="bower_components\jquery\src\css\var\cssExpand.js" />
+    <Content Include="bower_components\jquery\src\css\var\getStyles.js" />
+    <Content Include="bower_components\jquery\src\css\var\isHidden.js" />
+    <Content Include="bower_components\jquery\src\css\var\rmargin.js" />
+    <Content Include="bower_components\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="bower_components\jquery\src\data.js" />
+    <Content Include="bower_components\jquery\src\data\accepts.js" />
+    <Content Include="bower_components\jquery\src\data\Data.js" />
+    <Content Include="bower_components\jquery\src\data\var\data_priv.js" />
+    <Content Include="bower_components\jquery\src\data\var\data_user.js" />
+    <Content Include="bower_components\jquery\src\deferred.js" />
+    <Content Include="bower_components\jquery\src\deprecated.js" />
+    <Content Include="bower_components\jquery\src\dimensions.js" />
+    <Content Include="bower_components\jquery\src\effects.js" />
+    <Content Include="bower_components\jquery\src\effects\animatedSelector.js" />
+    <Content Include="bower_components\jquery\src\effects\Tween.js" />
+    <Content Include="bower_components\jquery\src\event.js" />
+    <Content Include="bower_components\jquery\src\event\ajax.js" />
+    <Content Include="bower_components\jquery\src\event\alias.js" />
+    <Content Include="bower_components\jquery\src\event\support.js" />
+    <Content Include="bower_components\jquery\src\exports\amd.js" />
+    <Content Include="bower_components\jquery\src\exports\global.js" />
+    <Content Include="bower_components\jquery\src\intro.js" />
+    <Content Include="bower_components\jquery\src\jquery.js" />
+    <Content Include="bower_components\jquery\src\manipulation.js" />
+    <Content Include="bower_components\jquery\src\manipulation\support.js" />
+    <Content Include="bower_components\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="bower_components\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="bower_components\jquery\src\offset.js" />
+    <Content Include="bower_components\jquery\src\outro.js" />
+    <Content Include="bower_components\jquery\src\queue.js" />
+    <Content Include="bower_components\jquery\src\queue\delay.js" />
+    <Content Include="bower_components\jquery\src\selector-native.js" />
+    <Content Include="bower_components\jquery\src\selector-sizzle.js" />
+    <Content Include="bower_components\jquery\src\selector.js" />
+    <Content Include="bower_components\jquery\src\serialize.js" />
+    <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="bower_components\jquery\src\traversing.js" />
+    <Content Include="bower_components\jquery\src\traversing\findFilter.js" />
+    <Content Include="bower_components\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="bower_components\jquery\src\var\arr.js" />
+    <Content Include="bower_components\jquery\src\var\class2type.js" />
+    <Content Include="bower_components\jquery\src\var\concat.js" />
+    <Content Include="bower_components\jquery\src\var\hasOwn.js" />
+    <Content Include="bower_components\jquery\src\var\indexOf.js" />
+    <Content Include="bower_components\jquery\src\var\pnum.js" />
+    <Content Include="bower_components\jquery\src\var\push.js" />
+    <Content Include="bower_components\jquery\src\var\rnotwhite.js" />
+    <Content Include="bower_components\jquery\src\var\slice.js" />
+    <Content Include="bower_components\jquery\src\var\strundefined.js" />
+    <Content Include="bower_components\jquery\src\var\support.js" />
+    <Content Include="bower_components\jquery\src\var\toString.js" />
+    <Content Include="bower_components\jquery\src\wrap.js" />
+    <Content Include="bower_components\x2js\xml2json.js" />
+    <Content Include="bower_components\x2js\xml2json.min.js" />
     <Content Include="clientaccesspolicy.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -131,7 +266,34 @@
     </Content>
     <Content Include="css\styles.css" />
     <Content Include="Global.asax" />
-    <Content Include="js\controllers\test.js" />
+    <Content Include="Gruntfile.js" />
+    <Content Include="JayData_readme - Copier.txt" />
+    <Content Include="js\Application.js" />
+    <Content Include="js\controllers\UsrUtilisateurCtrl.js" />
+    <Content Include="js\_all.js" />
+    <Content Include="karma.conf.js" />
+    <Content Include="log.txt" />
+    <Content Include="node_modules\angular-ui-bootstrap\index.js" />
+    <Content Include="node_modules\angular-ui-bootstrap\ui-bootstrap-csp.css" />
+    <Content Include="node_modules\angular-ui-bootstrap\ui-bootstrap-tpls.js" />
+    <Content Include="node_modules\angular-ui-bootstrap\ui-bootstrap-tpls.min.js" />
+    <Content Include="node_modules\angular-ui-bootstrap\ui-bootstrap.js" />
+    <Content Include="node_modules\angular-ui-bootstrap\ui-bootstrap.min.js" />
+    <Content Include="obj\Debug\Proteca.Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\TempPE\Models.ProtecaModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.ProtecaModel.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.ProtecaModel.g.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.ProtecaModel.Views.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.ProtecaModelGenerated.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Resources.ADResource.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Resources.Resource.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Resources.ResourceHisto.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Resources.ResourceImg.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Resources.ValidationErrorResources.Designer.cs.dll" />
+    <Content Include="release\js\app.js" />
+    <Content Include="release\js\app.min.js" />
+    <Content Include="release\test\tests.js" />
+    <Content Include="Scripts\proteca.js" />
     <Content Include="test.html" />
     <Content Include="JayData_readme.txt" />
     <Content Include="JaySvcUtil.exe" />
@@ -140,6 +302,170 @@
     <Content Include="Proteca.SilverlightUnitTestTestPage.aspx" />
     <Content Include="Scripts\datajs-1.0.3.js" />
     <Content Include="Scripts\datajs-1.0.3.min.js" />
+    <Content Include=".bowerrc" />
+    <Content Include=".editorconfig" />
+    <Content Include=".jshintrc" />
+    <Content Include=".travis.yml" />
+    <Content Include=".yo-rc.json" />
+    <Content Include="bower.json" />
+    <Content Include="package.json" />
+    <Content Include="release\js\app.js.map" />
+    <Content Include="bower_components\angular-animate\.bower.json" />
+    <Content Include="bower_components\angular-animate\angular-animate.min.js.map" />
+    <Content Include="bower_components\angular-animate\bower.json" />
+    <Content Include="bower_components\angular-animate\package.json" />
+    <Content Include="bower_components\angular-animate\README.md" />
+    <Content Include="bower_components\angular-cookies\.bower.json" />
+    <Content Include="bower_components\angular-cookies\angular-cookies.min.js.map" />
+    <Content Include="bower_components\angular-cookies\bower.json" />
+    <Content Include="bower_components\angular-cookies\package.json" />
+    <Content Include="bower_components\angular-cookies\README.md" />
+    <Content Include="bower_components\angular-mocks\.bower.json" />
+    <Content Include="bower_components\angular-mocks\bower.json" />
+    <Content Include="bower_components\angular-mocks\package.json" />
+    <Content Include="bower_components\angular-mocks\README.md" />
+    <Content Include="bower_components\angular-resource\.bower.json" />
+    <Content Include="bower_components\angular-resource\angular-resource.min.js.map" />
+    <Content Include="bower_components\angular-resource\bower.json" />
+    <Content Include="bower_components\angular-resource\package.json" />
+    <Content Include="bower_components\angular-resource\README.md" />
+    <Content Include="bower_components\angular-route\.bower.json" />
+    <Content Include="bower_components\angular-route\angular-route.min.js.map" />
+    <Content Include="bower_components\angular-route\bower.json" />
+    <Content Include="bower_components\angular-route\package.json" />
+    <Content Include="bower_components\angular-route\README.md" />
+    <Content Include="bower_components\angular-sanitize\.bower.json" />
+    <Content Include="bower_components\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="bower_components\angular-sanitize\bower.json" />
+    <Content Include="bower_components\angular-sanitize\package.json" />
+    <Content Include="bower_components\angular-sanitize\README.md" />
+    <Content Include="bower_components\angular-touch\.bower.json" />
+    <Content Include="bower_components\angular-touch\angular-touch.min.js.map" />
+    <Content Include="bower_components\angular-touch\bower.json" />
+    <Content Include="bower_components\angular-touch\package.json" />
+    <Content Include="bower_components\angular-touch\README.md" />
+    <Content Include="bower_components\angular-xml\.bower.json" />
+    <Content Include="bower_components\angular-xml\.editorconfig" />
+    <Content Include="bower_components\angular-xml\bower.json" />
+    <Content Include="bower_components\angular-xml\LICENSE" />
+    <Content Include="bower_components\angular\.bower.json" />
+    <Content Include="bower_components\angular\angular.min.js.gzip" />
+    <Content Include="bower_components\angular\angular.min.js.map" />
+    <Content Include="bower_components\angular\bower.json" />
+    <Content Include="bower_components\angular\package.json" />
+    <Content Include="bower_components\angular\README.md" />
+    <Content Include="bower_components\bootstrap-sass-official\.bower.json" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_alerts.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_buttons.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_center-block.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_forms.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_gradients.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_grid.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_image.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_labels.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_list-group.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_opacity.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_pagination.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_panels.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_resize.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_size.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_table-row.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_alerts.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_badges.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_breadcrumbs.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_button-groups.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_buttons.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_carousel.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_close.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_code.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_component-animations.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_dropdowns.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_forms.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_glyphicons.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_grid.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_input-groups.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_jumbotron.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_labels.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_list-group.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_media.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_mixins.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_modals.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_navbar.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_navs.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_normalize.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_pager.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_pagination.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_panels.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_popovers.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_print.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_progress-bars.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_responsive-embed.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_responsive-utilities.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_scaffolding.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_tables.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_theme.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_thumbnails.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_tooltip.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_type.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_utilities.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_variables.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\bootstrap\_wells.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\_bootstrap-compass.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\_bootstrap-mincer.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\_bootstrap-sprockets.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\assets\stylesheets\_bootstrap.scss" />
+    <Content Include="bower_components\bootstrap-sass-official\bower.json" />
+    <Content Include="bower_components\bootstrap-sass-official\CHANGELOG.md" />
+    <Content Include="bower_components\bootstrap-sass-official\composer.json" />
+    <Content Include="bower_components\bootstrap-sass-official\CONTRIBUTING.md" />
+    <Content Include="bower_components\bootstrap-sass-official\LICENSE" />
+    <Content Include="bower_components\bootstrap-sass-official\package.json" />
+    <Content Include="bower_components\bootstrap-sass-official\README.md" />
+    <Content Include="bower_components\bootstrap-sass-official\sache.json" />
+    <Content Include="bower_components\jquery\.bower.json" />
+    <Content Include="bower_components\jquery\bower.json" />
+    <Content Include="bower_components\jquery\dist\jquery.min.map" />
+    <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="bower_components\x2js\.bower.json" />
+    <Content Include="bower_components\x2js\bower.json" />
+    <Content Include="bower_components\x2js\README.md" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ProtecaModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ProtecaModel.g.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ProtecaModel.g.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ProtecaModel.g.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ProtecaModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ProtecaModel.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ProtecaModelGenerated.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ProtecaModelGenerated.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ProtecaModelGenerated.ssdl" />
+    <Content Include="obj\Debug\Proteca.Web.csproj.GenerateResource.Cache" />
+    <Content Include="obj\Debug\Proteca.Web.csprojResolveAssemblyReference.cache" />
+    <Content Include="js\Application.js.map" />
+    <Content Include="js\_all.js.map" />
+    <Content Include="node_modules\angular-ui-bootstrap\.npmignore" />
+    <Content Include="node_modules\angular-ui-bootstrap\package.json" />
+    <Content Include="node_modules\angular-ui-bootstrap\README.md" />
+    <Content Include="js\controllers\UsrUtilisateurCtrl.js.map" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <None Include="Scripts\jaydata-vsdoc.js" />
     <Content Include="Scripts\jaydata.js" />
@@ -192,15 +518,14 @@
     <Content Include="Scripts\jaydataproviders\YQLProvider.min.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
-    <Content Include="Services\index.html" />
     <Content Include="Services\LogService.svc" />
     <Content Include="View\Header\filAriane.html" />
     <Content Include="View\Header\header.html" />
     <Content Include="View\Main\Article\article.html" />
     <Content Include="View\usrUtilisateur.html" />
-    <Content Include="WcfDataServiceProteca.svc" />
     <Content Include="Silverlight.js" />
     <Content Include="Pages\searchproteca.aspx" />
+    <Content Include="WcfProtecaDataService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -211,6 +536,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="View\Main\Aside\aside.html" />
+    <Content Include="tsd.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -226,6 +552,7 @@
     <Compile Include="Models\Iouvrage.cs" />
     <Compile Include="Models\LiaisonCommunes.cs" />
     <Compile Include="Models\MesMesure.shared.cs" />
+    <Compile Include="Models\ProtecaEntitiesPartial.cs" />
     <Compile Include="Models\Validators\RequiredCustomActionAttribute.shared.cs" />
     <Compile Include="Resources\ResourceImg.Designer.cs">
       <DependentUpon>ResourceImg.resx</DependentUpon>
@@ -233,6 +560,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Services\ProtecaDomainService.cs" />
+    <Compile Include="Services\ProtecaDomainService.metadata.cs" />
     <Compile Include="Services\ProtecaDomainService.partial.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -245,8 +573,8 @@
     <Compile Include="Models\Validators\CheckCommentaireVisiteAttribute.shared.cs" />
     <Compile Include="Models\Validators\CheckCommentaireAnalyseAttribute.shared.cs" />
     <Compile Include="Models\Validators\EmailCustomAttribute.shared.cs" />
-    <Compile Include="WcfDataServiceProteca.svc.cs">
-      <DependentUpon>WcfDataServiceProteca.svc</DependentUpon>
+    <Compile Include="WcfProtecaDataService.svc.cs">
+      <DependentUpon>WcfProtecaDataService.svc</DependentUpon>
     </Compile>
     <Content Include="Models\ProtecaModel.Views.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -300,12 +628,14 @@
       <DependentUpon>LogService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\ProtecaAdDomainService.cs" />
-    <Compile Include="Services\ProtecaDomainService.metadata.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="obj\Debug\Proteca.Web.Resources.ADResource.resources" />
+    <EmbeddedResource Include="obj\Debug\Proteca.Web.Resources.Resource.resources" />
+    <EmbeddedResource Include="obj\Debug\Proteca.Web.Resources.ResourceHisto.resources" />
+    <EmbeddedResource Include="obj\Debug\Proteca.Web.Resources.ResourceImg.resources" />
+    <EmbeddedResource Include="obj\Debug\Proteca.Web.Resources.ValidationErrorResources.resources" />
     <EmbeddedResource Include="Resources\ADResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ADResource.Designer.cs</LastGenOutput>
@@ -333,6 +663,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bower_components\bootstrap-sass-official\assets\images\" />
     <Folder Include="ClientBin\" />
     <Folder Include="typings\" />
   </ItemGroup>
@@ -351,13 +682,24 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="js\controllers\ProtecaCtrl.ts" />
+    <TypeScriptCompile Include="js\Application.ts" />
+    <TypeScriptCompile Include="js\controllers\UsrUtilisateurCtrl.ts" />
     <TypeScriptCompile Include="js\directives\ProtecaTest.ts" />
     <TypeScriptCompile Include="js\interfaces\IProtecaScope.ts" />
     <TypeScriptCompile Include="js\interfaces\IProtecaStorage.ts" />
+    <TypeScriptCompile Include="Scripts\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\jquery.d.ts" />
+    <TypeScriptCompile Include="js\models\Agence.ts" />
+    <TypeScriptCompile Include="js\models\GestionUtilisateur.ts" />
+    <TypeScriptCompile Include="js\models\Profil.ts" />
     <TypeScriptCompile Include="js\models\ProtecaItem.ts" />
+    <TypeScriptCompile Include="js\models\Region.ts" />
+    <TypeScriptCompile Include="js\models\Secteur.ts" />
     <TypeScriptCompile Include="js\models\UsrUtilisateur.ts" />
+    <TypeScriptCompile Include="js\_all.ts" />
+    <TypeScriptCompile Include="NetworkConfig.ts" />
     <TypeScriptCompile Include="Scripts\jaydata.d.ts" />
+    <TypeScriptCompile Include="Scripts\proteca.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerDiagram dslVersion="1.0.0.0" Id="878191c4-22b4-400e-b115-86fbb4383c91" absoluteBounds="0, 0, 11, 8.5" name="LayerDiagram1">
+  <layerModelMoniker Id="4542103d-30a1-497c-95eb-461627d5dcc3" />
+  <nestedChildShapes>
+    <layerShape Id="31b45cc9-3eeb-4c8a-a8a3-216a7a84f890" absoluteBounds="0.875, 4.75, 6.625, 3.375" customColor="161, 199, 231">
+      <layerMoniker Id="da52f2b0-b14c-4b84-b87b-e995f8b954f4" />
+      <nestedChildShapes>
+        <layerShape Id="5e5de691-0829-4b4a-a024-49f3b7936865" absoluteBounds="1, 5.375, 6.375, 2.625" customColor="192, 255, 192">
+          <layerMoniker Id="93431a17-e02d-4e6b-916d-8510b191c6b8" />
+          <nestedChildShapes>
+            <layerShape Id="d7919844-29ed-4271-9f7d-0c124390985e" absoluteBounds="2.875, 5.625, 4.25, 2.25" customColor="192, 255, 192">
+              <layerMoniker Id="6b22f5a5-ae18-497f-9197-09c54113cceb" />
+              <nestedChildShapes>
+                <layerShape Id="19d30cad-e36b-46db-9246-00f7a298d9ab" absoluteBounds="3, 5.875, 4, 1.875" customColor="255, 192, 255">
+                  <layerMoniker Id="a1e3b03d-2f27-4710-b998-568eb6cd381b" />
+                </layerShape>
+              </nestedChildShapes>
+            </layerShape>
+            <layerShape Id="516029f8-fd20-4501-8bae-7a53b4c6f57e" absoluteBounds="1.125, 5.625, 1.625, 2.25" customColor="192, 255, 192">
+              <layerMoniker Id="e072b6d1-3b50-4d93-abf6-d508bea6d661" />
+              <nestedChildShapes>
+                <layerShape Id="076012dd-b440-4324-bcee-18218c71a464" absoluteBounds="1.25, 5.875, 1.25, 1.875" customColor="161, 199, 231">
+                  <layerMoniker Id="69d97d49-e9ff-42ef-bd18-6311de1b894d" />
+                  <nestedChildShapes>
+                    <layerShape Id="ea1d98f0-f507-4035-a38e-6c425b6a1c9b" absoluteBounds="1.375, 6.375, 1, 1.25" customColor="161, 199, 231">
+                      <layerMoniker Id="e2baacb6-5988-4a1a-828c-5f8e617cc6b4" />
+                    </layerShape>
+                  </nestedChildShapes>
+                </layerShape>
+              </nestedChildShapes>
+            </layerShape>
+          </nestedChildShapes>
+        </layerShape>
+        <layerShape Id="59c19723-5a4a-44ec-bfe9-c8a315391e40" absoluteBounds="1, 5, 6.375, 0.25" customColor="192, 255, 192">
+          <layerMoniker Id="c5cfd0a7-5c08-400d-808b-862cc44463ef" />
+        </layerShape>
+      </nestedChildShapes>
+    </layerShape>
+  </nestedChildShapes>
+</layerDiagram>

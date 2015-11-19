@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Proteca.Silverlight.Views.UserContols.DetailsEQ" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           d:DesignWidth="640" d:DesignHeight="480">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--Secteur / Ensemble Electrique-->
+        <TextBlock x:Name="TxtEnsembleElec" Visibility="{Binding IsLightVersion, Converter={StaticResource VisibilityConverter}}"
+                                                 Text="{Binding Path=Resource.Visite_EnsembleElec, Source={StaticResource ApplicationResources}}" 
+                                                 Style="{StaticResource FormulaireText}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"  />
+        <TextBlock x:Name="TxtEnsembleElecValue" Visibility="{Binding IsLightVersion, Converter={StaticResource VisibilityConverter}}"
+                                                Style="{StaticResource FormulaireText}" Grid.Row="0" Grid.Column="1"
+                                                VerticalAlignment="Center" Text="{Binding SecteurEnsElecLibelle, Mode=TwoWay}" />
+
+        <!--Portion -->
+        <TextBlock x:Name="TxtPortion" Visibility="{Binding IsLightVersion, Converter={StaticResource VisibilityConverter}}"
+                                               Text="{Binding Path=Resource.Visite_Portion, Source={StaticResource ApplicationResources}}" 
+                                               Style="{StaticResource FormulaireText}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"  />
+        <TextBlock x:Name="TxtPortionValue" Visibility="{Binding IsLightVersion, Converter={StaticResource VisibilityConverter}}"
+                                               Text="{Binding PortionPpAttacheeLibelle, Mode=TwoWay}"  Style="{StaticResource FormulaireText}" Grid.Row="1" Grid.Column="1" />
+
+        <!-- PK - PP -->
+        <TextBlock x:Name="TxtPP" Visibility="{Binding IsLightVersion, Converter={StaticResource VisibilityConverter}}"
+                                               Text="{Binding Path=Resource.Visite_PP, Source={StaticResource ApplicationResources}}" 
+                                               Style="{StaticResource FormulaireText}" Grid.Row="2" Grid.Column="0"   />
+        <TextBlock x:Name="TxtPPValue" Visibility="{Binding IsLightVersion, Converter={StaticResource VisibilityConverter}}"
+                                               Text="{Binding PPwithPKLibelle, Mode=TwoWay}" Style="{StaticResource FormulaireText}" Grid.Row="2" Grid.Column="1"/>
+        
+        <!-- Type d'évaluation -->
+        <TextBlock x:Name="TxtTypeEval" Visibility="{Binding IsLightVersion, Converter={StaticResource VisibilityConverter}}"
+                                               Text="{Binding Path=Resource.TypeEvalPP, Source={StaticResource ApplicationResources}}" 
+                                               Style="{StaticResource FormulaireText}" Grid.Row="3" Grid.Column="0"   />
+        <TextBlock x:Name="TxtTypeEvalValue" Visibility="{Binding IsLightVersion, Converter={StaticResource VisibilityConverter}}"
+                                               Text="{Binding TypeEvalLibelle, Mode=TwoWay}" Style="{StaticResource FormulaireText}" Grid.Row="3" Grid.Column="1"/>
+        
+    </Grid>
+</UserControl>

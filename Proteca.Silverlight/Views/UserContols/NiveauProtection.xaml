@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="Proteca.Silverlight.Views.UserContols.NiveauProtection"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+    xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+
+    <UserControl.Resources>
+        <converter:InverseBoolConverter x:Key="InverseBoolValue" TrueValue="false" FalseValue="true" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="White" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Rectangle Grid.Row="0" Style="{StaticResource RectBlueUnderline_LittleFormulaire}"/>
+        <TextBlock x:Name="tbkNiveauProtection" Text="{Binding Path=Resource.NiveauProtection_Title, Source={StaticResource ApplicationResources}}" Grid.Row="1" Style="{StaticResource FormulaireText}"/>
+
+        <UC:CustomGridView x:Name="RadGridViewNiveauProtection" Grid.Row="2"
+                           ItemsSource="{Binding ListNiveauProtection, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}" SelectionMode="Single"
+						   Margin="30 0 0 0" Padding="0" ActionOnLostFocus="CommitEdit" ShowGroupPanel="False"
+						   CanUserDeleteRows="{Binding CanDelete, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}" 
+                           CanUserInsertRows="{Binding CanAdd, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}" 
+                           CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed"
+                           IsReadOnly="{Binding IsEditMode, Converter={StaticResource InverseBoolValue}, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}"
+                           HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,1,1"
+                           BorderBrush="#7F000000" AutoGenerateColumns="False" >
+            <UC:CustomGridView.Resources>
+                <Style TargetType="telerik:RadComboBox">
+                    <Setter Property="ClearSelectionButtonContent" Value="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}" />
+                    <Setter Property="ClearSelectionButtonVisibility" Value="Visible" />
+                </Style>
+            </UC:CustomGridView.Resources>
+            <UC:CustomGridView.Columns>
+
+                <!-- Bouton d'édition -->
+                <telerik:GridViewColumn IsSortable="False" IsReorderable="False" IsResizable="False" IsVisible="{Binding IsEditMode, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}">
+                    <telerik:GridViewColumn.Header>
+                        <telerik:RadButton Margin="0" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" 
+                                           Command="{Binding AddNiveauProtectionCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}">
+                            <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </telerik:RadButton>
+                    </telerik:GridViewColumn.Header>
+                    <telerik:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="/Proteca.Silverlight;component/Images/Modifier.png" Visibility="{Binding HasChangesOrIsNew, Converter={StaticResource VisibilityConverter}}" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellTemplate>
+                </telerik:GridViewColumn>
+
+                <!-- Affichage des données  -->
+                <telerik:GridViewComboBoxColumn Header="{Binding Path=Resource.NiveauProtection_TypeEq, Source={StaticResource ApplicationResources}}" DataMemberBinding="{Binding TypeEquipement, Mode=TwoWay}" EditorStyle="{StaticResource BaseRadComboBoxForm}" CellStyle="{StaticResource DefaultGridViewCellStyle}"
+                                                DisplayMemberPath="Libelle" ItemsSource="{Binding ListTypeEq, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}"
+                                                IsResizable="False" IsFilterable="False" Width="Auto" IsVisible="{Binding IsTypeEqVisible, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}"/>
+
+                <telerik:GridViewComboBoxColumn Header="{Binding Path=Resource.NiveauProtection_ModeleMesure, Source={StaticResource ApplicationResources}}" DataMemberBinding="{Binding MesModeleMesure, Mode=TwoWay}" EditorStyle="{StaticResource BaseRadComboBoxForm}" CellStyle="{StaticResource DefaultGridViewCellStyle}"
+                                                DisplayMemberPath="Libelle" ItemsSourceBinding="{Binding ListeModeleMesure}"
+                                                IsResizable="False" IsFilterable="False" Width="Auto" />
+
+                <telerik:GridViewDataColumn Width="Auto" Header="{Binding Path=Resource.NiveauProtection_SeuilMini, Source={StaticResource ApplicationResources}}" EditTriggers="CellClick" EditorStyle="{StaticResource DefaultTextBoxStyle}"
+                                            DataMemberBinding="{Binding SeuilMini, Mode=OneTime, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}">
+                    <telerik:GridViewColumn.CellEditTemplate>
+                        <DataTemplate>
+                            <UC:NumericTextBox Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                               Text="{Binding SeuilMiniStringFormatted, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellEditTemplate>
+                    <telerik:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SeuilMiniStringFormatted}"/>
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Width="Auto" Header="{Binding Path=Resource.NiveauProtection_SeuilMaxi, Source={StaticResource ApplicationResources}}" EditTriggers="CellClick" EditorStyle="{StaticResource DefaultTextBoxStyle}"
+                                            DataMemberBinding="{Binding SeuilMaxi, Mode=OneTime, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}">
+                    <telerik:GridViewColumn.CellEditTemplate>
+                        <DataTemplate>
+                            <UC:NumericTextBox Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                                               Text="{Binding SeuilMaxiStringFormatted, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellEditTemplate>
+                    <telerik:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SeuilMaxiStringFormatted}"/>
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+
+                <!-- Bouton de suppression -->
+                <telerik:GridViewColumn IsSortable="False" IsReorderable="False" IsResizable="False" IsVisible="{Binding IsEditMode, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}">
+                    <telerik:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <telerik:RadButton Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" 
+                                               Command="{Binding DeleteNiveauProtectionCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UC:NiveauProtection}}" 
+                                               CommandParameter="{Binding}">
+                                <Image Source="/Proteca.Silverlight;component/Images/Supprimer.png" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </telerik:RadButton>
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellTemplate>
+                </telerik:GridViewColumn>
+
+            </UC:CustomGridView.Columns>
+
+        </UC:CustomGridView>
+    </Grid>
+</UserControl>

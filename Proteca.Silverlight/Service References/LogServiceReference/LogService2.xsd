@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Proteca.Web.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Proteca.Web.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="LogLevel">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="short" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Verbose" />
+      <xs:enumeration value="Information" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Critical" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LogLevel" nillable="true" type="tns:LogLevel" />
+</xs:schema>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Styles" Url="Style Library" Path="Styles" RootWebOnly="TRUE" >
+    <File Path="proteca.css" Url="proteca.css" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+  </Module>
+</Elements>

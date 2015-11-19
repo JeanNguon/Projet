@@ -1,0 +1,489 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.ImportVisiteView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="818" d:DesignHeight="470"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="ImportVisiteView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:BoolToVisibilityConverter x:Key="InverseVisibilityConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:NullOrEmptyToHideConverter x:Key="NullOrEmptyToHideConverter" />
+        <converter:NullOrEmptyToVisibibilityConverter x:Key="NullOrEmptyToVisibibilityConverter" />
+        <converter:InverseBoolConverter x:Key="InverseBoolValue" TrueValue="false" FalseValue="true" />
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" HideTopNavigation="True" HideFooter="False" Grid.Column="0">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot" >
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding ImportCommand}" />
+                </i:Interaction.Behaviors>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="250"/>
+                    <ColumnDefinition Width="*" MaxWidth="250"/>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" MaxWidth="250"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal"
+                            Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}">
+                    <HyperlinkButton x:Name="dlProtein" Content="{Binding Path=Resource.BTN_Telecharger_Protein, Source={StaticResource ApplicationResources}}"
+                                     NavigateUri="{Binding ProteinURI}" TargetName="_media"
+                                     Visibility="{Binding ProteinAvailable, Converter={StaticResource VisibilityConverter}}" Margin="25 10"/>
+                    <HyperlinkButton x:Name="dlProtOn" Content="{Binding Path=Resource.BTN_Telecharger_ProtOn, Source={StaticResource ApplicationResources}}"
+                                     NavigateUri="{Binding ProtOnURI}" TargetName="_media"
+                                     Visibility="{Binding ProtOnAvailable, Converter={StaticResource VisibilityConverter}}" Margin="25 10"/>
+                </StackPanel>
+
+                <!-- Fichier d'import Prote'in -->
+                <RadioButton Margin="0,10,10,9" HorizontalContentAlignment="Left" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                                    IsChecked="{Binding IsFicProteinSelected, Mode=TwoWay}"
+                                    Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}"
+                                    Content="{Binding Path=Resource.ImportVisite_FicProtein, Source={StaticResource ApplicationResources}}" 
+                                    Style="{StaticResource RadioButtonStyle}" VerticalAlignment="Center" />
+
+                <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
+                                    Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Style="{StaticResource TextBoxForm}" HorizontalAlignment="Stretch" Grid.Column="0" 
+                             Text="{Binding FicProteinLoaded, UpdateSourceTrigger=PropertyChanged}"
+                             IsEnabled="False" />
+
+                    <Button Style="{StaticResource BtnParcourir}" VerticalAlignment="Bottom" Grid.Column="1" 
+                            Command="{Binding ChargerFicProteinCommand}" HorizontalAlignment="Right" />
+
+                </Grid>
+
+                <!-- #### Caractéristique de l'import #### -->
+                <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="0 5"
+                      Visibility="{Binding FicProteinLoaded, Converter={StaticResource NullOrEmptyToVisibibilityConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="250"/>
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <!-- Tournée concerné -->
+                    <TextBlock Text="{Binding Path=Resource.ImportVisite_Tournee, Source={StaticResource ApplicationResources}}" 
+                           Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                           Grid.Row="0" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource FormulaireText}"
+                           Text="{Binding LibelleTourneeProtein}"
+                           Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}" />
+
+                    <!-- Version -->
+                    <TextBlock Text="{Binding Path=Resource.ImportVisite_VersionFichier, Source={StaticResource ApplicationResources}}" 
+                           Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                           Grid.Row="1" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource FormulaireText}"
+                           Text="{Binding Version}"
+                           Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}" />
+
+                    <!-- Agent -->
+                    <TextBlock Text="{Binding Path=Resource.ImportVisite_Agent, Source={StaticResource ApplicationResources}}" 
+                           Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                           Grid.Row="2" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+
+                    <telerik:RadComboBox SelectAllTextEvent="None" Style="{StaticResource RadComboBoxForm}" Grid.Row="2" Grid.Column="1"
+                            ItemsSource="{Binding Agents, UpdateSourceTrigger=PropertyChanged}"
+                            DisplayMemberPath="Nom_Prenom" SelectedItem="{Binding UserSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding IsFicProteinWorking}"
+                            ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}"
+                            ClearSelectionButtonVisibility="Visible"	                            
+                            Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}" />
+
+                    <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Visibility="{Binding UserSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource NullOrEmptyToHideConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" MaxWidth="250"/>
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.ColumnSpan="3"
+                         Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                         Style="{StaticResource RectBlueUnderline_LittleFormulaire}" />
+
+                        <!-- Nom -->
+                        <TextBlock Text="{Binding Path=Resource.ImportVisite_Nom, Source={StaticResource ApplicationResources}}" 
+                           Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                           Grid.Row="1" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxForm}"
+                         Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                         HorizontalAlignment="Stretch" Text="{Binding UserInput.Nom, Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsFicProteinWorking}" />
+
+                        <!-- Prenom -->
+                        <TextBlock Text="{Binding Path=Resource.ImportVisite_Prenom, Source={StaticResource ApplicationResources}}" 
+                           Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                           Grid.Row="2" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxForm}"
+                         Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                         HorizontalAlignment="Stretch" Text="{Binding UserInput.Prenom, Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsFicProteinWorking}" />
+
+                        <!-- Societe -->
+                        <TextBlock Text="{Binding Path=Resource.ImportVisite_Societe, Source={StaticResource ApplicationResources}}"
+                           Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                           Grid.Row="3" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxForm}"
+                         Visibility="{Binding IsFicProteinSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                         HorizontalAlignment="Stretch" Text="{Binding UserInput.Societe, Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsFicProteinWorking}" />
+
+                    </Grid>
+                </Grid>
+
+                <Rectangle Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Style="{StaticResource RectBlueUnderline}"
+                                    Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}" />
+
+                <!-- Fichier d'import ProtOn -->
+                <RadioButton Margin="0,10,10,9" HorizontalContentAlignment="Left" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" 
+                                    IsChecked="{Binding IsFicProtOnSelected, Mode=TwoWay}"
+                                    Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}"
+                                    Content="{Binding Path=Resource.ImportVisite_FicProtOn, Source={StaticResource ApplicationResources}}"
+                                    Style="{StaticResource RadioButtonStyle}" VerticalAlignment="Center" />
+
+                <Grid Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
+                                    Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Style="{StaticResource TextBoxForm}" HorizontalAlignment="Stretch" Grid.Column="0" 
+                             Text="{Binding FicProtOnLoaded, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100"
+                             IsEnabled="False" />
+
+                    <Button Style="{StaticResource BtnParcourir}" VerticalAlignment="Bottom" Grid.Column="1"
+                            Command="{Binding ChargerFicProtOnCommand}" HorizontalAlignment="Right" />
+                </Grid>
+                <!--information de chargement-->
+                <Grid
+                    Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2"  Margin="0 5"
+                        Visibility="{Binding LoadProgress.IsLoading,Converter={StaticResource VisibilityConverter}}" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ProgressBar Minimum="0" Height="15"
+                                 IsIndeterminate="{Binding LoadProgress.IsIndeterminate}"
+                                 Maximum="{Binding LoadProgress.Maximum}" 
+                                 Value="{Binding LoadProgress.CurrentValue}"/>
+                    <TextBlock Text="{Binding LoadProgress.TextInfo}" 
+                               Grid.Row="1" />
+
+                </Grid>
+
+                <!-- #### Caractéristique de l'import #### -->
+                <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2"  Margin="0 5"
+                      Visibility="{Binding FicProtOnLoaded, Converter={StaticResource NullOrEmptyToVisibibilityConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="250"/>
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <!-- Tournée concerné -->
+                    <TextBlock Text="{Binding Path=Resource.ImportVisite_Tournee, Source={StaticResource ApplicationResources}}" 
+                           Visibility="{Binding IsFicProtOnSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                           Grid.Row="0" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource FormulaireText}"
+                           Text="{Binding LibelleTourneeProtOn}"
+                           Visibility="{Binding IsFicProtOnSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}" />
+                </Grid>
+
+                <Rectangle Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="4" Style="{StaticResource RectBlueUnderline}"
+                                    Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}" />
+
+                <!-- Fichier d'import télémesure -->
+                <RadioButton Margin="0,10,10,9" HorizontalContentAlignment="Left" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" 
+                                    IsChecked="{Binding IsFicTelemesureSelected, Mode=TwoWay}"
+                                    Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}"
+                                    Content="{Binding Path=Resource.ImportVisite_FicTelemesure, Source={StaticResource ApplicationResources}}"
+                                    Style="{StaticResource RadioButtonStyle}" VerticalAlignment="Center" />
+
+                <Grid Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
+                                    Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Style="{StaticResource TextBoxForm}" HorizontalAlignment="Stretch" Grid.Column="0" 
+                             Text="{Binding FicTelemesureLoaded, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100"
+                             IsEnabled="False" />
+
+                    <Button Style="{StaticResource BtnParcourir}" VerticalAlignment="Bottom" Grid.Column="1"
+                            Command="{Binding ChargerFicTelemesureCommand}" HorizontalAlignment="Right" />
+
+                </Grid>
+
+                <Rectangle Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="4" Style="{StaticResource RectBlueUnderline}"
+                                    Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}" />
+
+                <!-- Expander administration -->
+                <!--- Analyse -->
+                <Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch"
+                      Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}" >
+                    <telerik:RadExpander Height="Auto" VerticalAlignment="Stretch"
+                                         VerticalContentAlignment="Stretch" Margin="5" Padding="0" BorderThickness="0 0 0 0"
+                                         Visibility="{Binding CurrentUser.IsAdministrateur, Converter={StaticResource VisibilityConverter}}"
+                                         ExpandDirection="Down" >
+                        <telerik:RadExpander.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Administration" Grid.Row="0" Style="{StaticResource RegroupementText}" />
+
+                                <Rectangle Grid.Row="1" Style="{StaticResource RectBlueUnderline}" />
+                            </Grid>
+                        </telerik:RadExpander.Header>
+                        <telerik:RadExpander.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" MaxWidth="250" />
+                                    <ColumnDefinition Width="*" MaxWidth="250" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="*" MaxWidth="250" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Module ProtOn -->
+                                <RadioButton HorizontalContentAlignment="Left" Grid.Row="0"
+                                             IsChecked="{Binding IsModuleProtOnSelected, Mode=TwoWay}"
+                                             Content="{Binding Path=Resource.ImportVisite_ModuleProton, Source={StaticResource ApplicationResources}}"
+                                             Style="{StaticResource RadioButtonStyle}" VerticalAlignment="Center" />
+
+                                <Button Style="{StaticResource BtnSupprimer}" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1"
+                                        Command="{Binding SupprimerModuleProtOnCommand}" HorizontalAlignment="Left" />
+
+                                <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
+                                      Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBox Style="{StaticResource TextBoxForm}" HorizontalAlignment="Stretch" Grid.Column="0" 
+                                             Text="{Binding ModuleProtOnLoaded, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" IsEnabled="False" />
+
+                                    <Button Style="{StaticResource BtnParcourir}" VerticalAlignment="Bottom" Grid.Column="1"
+                                            Command="{Binding ChargerModuleProtOnCommand}" HorizontalAlignment="Right" />
+                                </Grid>
+
+                                <!-- Module Prote'In -->
+                                <RadioButton HorizontalContentAlignment="Left" Grid.Row="1"
+                                             IsChecked="{Binding IsModuleProteinSelected, Mode=TwoWay}"
+                                             Content="{Binding Path=Resource.ImportVisite_ModuleProtein, Source={StaticResource ApplicationResources}}"
+                                             Style="{StaticResource RadioButtonStyle}" VerticalAlignment="Center" />
+
+                                <Button Style="{StaticResource BtnSupprimer}" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1"
+                                        Command="{Binding SupprimerModuleProteinCommand}" HorizontalAlignment="Left" />
+
+                                <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
+                                      Visibility="{Binding IsWorking, Converter={StaticResource InverseVisibilityConverter}}" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBox Style="{StaticResource TextBoxForm}" HorizontalAlignment="Stretch" Grid.Column="0" 
+                                             Text="{Binding ModuleProteinLoaded, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" IsEnabled="False" />
+
+                                    <Button Style="{StaticResource BtnParcourir}" VerticalAlignment="Bottom" Grid.Column="1"
+                                            Command="{Binding ChargerModuleProteinCommand}" HorizontalAlignment="Right" />
+                                </Grid>
+
+                                <TextBlock Grid.Column="1" Grid.Row="2" Text="N° de version *:" Style="{StaticResource FormulaireText}" />
+
+                                <TextBox Style="{StaticResource TextBoxForm}" Width="200" Grid.Column="2" Grid.Row="2"
+                                         HorizontalAlignment="Left" MaxLength="20"
+                                         IsEnabled="{Binding IsModuleProteinSelected}"
+                                         Text="{Binding VersionModuleProtein, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                <Button Style="{StaticResource BtnTelecharger}" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="2"
+                                        Command="{Binding ChargerModuleCommand}" HorizontalAlignment="Right" />
+
+                            </Grid>
+                        </telerik:RadExpander.Content>
+                    </telerik:RadExpander>
+                </Grid>
+
+                <!-- #### Journal d'import #### -->
+                <TextBlock Text="{Binding Path=Resource.ImportVisite_Log_Titre, Source={StaticResource ApplicationResources}}" 
+                           Visibility="{Binding IsWorking, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                           Grid.Row="12" Grid.Column="0" Style="{StaticResource RegroupementText}" />
+
+                <Rectangle Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="4"
+                           Visibility="{Binding IsWorking, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"
+                           Style="{StaticResource RectBlueUnderline}" />
+
+                <Grid Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="4"
+                      Visibility="{Binding IsWorking, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <UC:ExportAndPrint x:Name="exportAndPrint" Grid.Row="0" ColumnsHiddenToExport="{Binding ColumnsHiddenToExport}" 
+                                       Visibility="Visible" ExportPDFCommand="{Binding ExportPDFCommand}"
+                                       PrintCommand="{Binding PrintCommand}" ExportExcelCommand="{Binding ExportExcelCommand}"
+                                       GridView="{Binding ElementName=RadGridViewLogImport}" DataPager="{Binding ElementName=RadDataPagerLogImport}"/>
+
+                    <UC:CustomGridView x:Name="RadGridViewLogImport" Grid.Row="1"
+                                       AreRowDetailsFrozen="True"
+                                       RowDetailsVisibilityMode="VisibleWhenSelected"
+                                       ItemsSource="{Binding VisitesImportRapportFinal, UpdateSourceTrigger=PropertyChanged}"
+                                       Margin="0" Padding="0" ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto"
+						               CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed" AlternationCount="2" IsReadOnly="True"
+                                       VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="1,0,1,1" 
+                                       ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                       BorderBrush="#7F000000" AutoGenerateColumns="False">
+
+                        <UC:CustomGridView.Columns>
+
+                            <!-- Affichage des données  -->
+                            <telerik:GridViewDataColumn IsFilterable="True" IsSortable="True"
+                                DataMemberBinding="{Binding NomFichier}"
+                                Width="Auto" Header="Fichier" />
+
+                            <telerik:GridViewDataColumn
+                                DataMemberBinding="{Binding TypeEquipement}"
+                                Width="Auto" Header="{Binding Path=Resource.ImportVisite_Log_TypeEquipement, Source={StaticResource ApplicationResources}}" />
+
+                            <telerik:GridViewDataColumn
+                                DataMemberBinding="{Binding CleEquipement}"
+                                Width="Auto" Header="{Binding Path=Resource.ImportVisite_Log_CleOuvrage, Source={StaticResource ApplicationResources}}" />
+
+                            <telerik:GridViewDataColumn
+                                DataMemberBinding="{Binding LibelleEq}"
+                                Width="Auto" Header="{Binding Path=Resource.ImportVisite_Log_LibelleOuvrage, Source={StaticResource ApplicationResources}}" />
+
+                            <telerik:GridViewDataColumn
+                                DataMemberBinding="{Binding DateVisite}" DataFormatString="{} {0:dd/MM/yyyy}"
+                                Width="Auto" Header="{Binding Path=Resource.ImportVisite_Log_DateVisite, Source={StaticResource ApplicationResources}}" />
+
+                            <telerik:GridViewColumn Header="{Binding Path=Resource.ImportVisite_Log_Statut, Source={StaticResource ApplicationResources}}" 
+                                                IsResizable="False" >
+                                <telerik:GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding ImgError}" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </telerik:GridViewColumn.CellTemplate>
+                            </telerik:GridViewColumn>
+
+                            <telerik:GridViewDataColumn 
+                                DataMemberBinding="{Binding Sortie}" TextWrapping="Wrap"
+                                Width="*" Header="{Binding Path=Resource.ImportVisite_Log_Message, Source={StaticResource ApplicationResources}}" />
+
+                            <telerik:GridViewDataColumn 
+                                DataMemberBinding="{Binding TextImport}" TextWrapping="Wrap" IsVisible="False"
+                                Width="*" Header="{Binding Path=Resource.ImportVisite_ContenuEnErreur, Source={StaticResource ApplicationResources}}" />
+
+                        </UC:CustomGridView.Columns>
+
+                        <telerik:RadGridView.RowDetailsTemplate>
+                            <DataTemplate>
+                                <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MaxHeight="200"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              VerticalScrollBarVisibility="Auto"
+                                              Visibility="{Binding IsOnSuccess, Converter={StaticResource HideConverter}}">
+                                    <TextBlock Text="{Binding TextImport}" Style="{StaticResource FormulaireText}" HorizontalAlignment="Stretch"/>
+                                </ScrollViewer>
+                            </DataTemplate>
+                        </telerik:RadGridView.RowDetailsTemplate>
+
+                    </UC:CustomGridView>
+
+                    <telerik:RadDataPager Grid.Row="2"
+							          x:Name="RadDataPagerLogImport"
+							          PageSize="10" 
+							          BorderThickness="1,0,1,1"
+							          Source="{Binding Items, ElementName=RadGridViewLogImport}"
+							          DisplayMode="All"
+							          AutoEllipsisMode="Both"
+							          NumericButtonCount="7"
+							          IsTotalItemCountFixed="True" />
+
+                    <StackPanel Grid.Row="3" Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Resource.Action_NbElements, Source={StaticResource ApplicationResources}}" Style="{StaticResource ResultCount}" />
+                        <TextBlock Text="{Binding ResultCountCustom}" Style="{StaticResource ResultCount}" />
+                    </StackPanel>
+                </Grid>
+
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid Margin="10,10" HorizontalAlignment="Stretch" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <UC:ErrorSummary />
+                <Button x:Name="btnValider" Style="{StaticResource BtnImporter}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding ImportCommand}" 
+                        HorizontalAlignment="Right" />
+                <Button x:Name="btnReinitialiser" Style="{StaticResource BtnReinitialiser}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" 
+                        HorizontalAlignment="Right" />
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+

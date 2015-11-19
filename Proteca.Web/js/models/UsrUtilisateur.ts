@@ -2,13 +2,17 @@
     'use strict';
 
     export class UsrUtilisateur {
+        identifiant: string;
         nom: string;
         prenom: string;
-        identifiant: string;
         mail: string;
         societe: string;
-        supprime: boolean;
-        externe: boolean;
+        gestion: GestionUtilisateur;
+        estSupprime: boolean;
         estPrestataire: boolean;
+        profil: Profil;
+        region: Region;
+        agence: Agence;
+        secteur: Secteur;
     }
 }

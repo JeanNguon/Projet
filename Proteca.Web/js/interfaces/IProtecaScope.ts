@@ -6,6 +6,6 @@
         newUsrUtilisateur: UsrUtilisateur;
         editedUsrUtilisateur: UsrUtilisateur;
         location: ng.ILocationService;
-        viewModel: ProtecaCtrl;
+        viewModel: UtilisateurCtrl;
     }
 }

@@ -1,0 +1,139 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.ActionView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="ActionView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:InverseBoolConverter x:Key="InverseBoolValue" TrueValue="false" FalseValue="true" />
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" HideTopNavigation="True" DisableScrollViewer="True" Grid.Column="0">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot">
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding SaveCommand}" />
+                </i:Interaction.Behaviors>
+                <!-- Contenu de la vue -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="42" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <telerik:ItemsControl ItemsSource="{Binding SearchList}" Grid.Row="0" Grid.Column="0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="10 10  0 10" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <RadioButton Margin="0 0 10 0" HorizontalContentAlignment="Center" 
+                                    Content="{Binding Key}" Style="{StaticResource RadioButtonStyle}" 
+                                    Command="{Binding DataContext.CheckCommand, RelativeSource={RelativeSource AncestorType=Grid}}" 
+                                    CommandParameter="{Binding Key}" IsEnabled="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=Grid}, Converter={StaticResource InverseBoolValue}}" 
+                                         IsChecked="{Binding Value}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </telerik:ItemsControl>
+                
+                <Rectangle Style="{StaticResource RectBlueUnderline}" Grid.Row="1" Grid.Column="0"/>
+                <Grid x:Name="DataGridView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <UC:ExportAndPrint x:Name="exportAndPrint" Grid.Row="0" Grid.Column="1" ColumnsHiddenToExport="{Binding ColumnsHiddenToExport, Mode=TwoWay}" 
+                                       Visibility="Visible" ExportPDFCommand="{Binding ExportPDFCommand}"
+                                       PrintCommand="{Binding PrintCommand}" ExportExcelCommand="{Binding ExportExcelCommand}"
+                                       GridView="{Binding ElementName=RadGridViewTypeAction}"/>
+
+                    <UC:CustomGridView x:Name="RadGridViewTypeAction" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ListActions}" SelectionMode="Single"
+						             Margin="0" Padding="0" ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto"
+						             CanUserDeleteRows="{Binding CanDelete}" CanUserInsertRows="{Binding CanAdd}" 
+                                     CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed" AlternationCount="2"
+                                     IsReadOnly="{Binding IsEditMode, Converter={StaticResource InverseBoolValue}}"
+                                     VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="1,0,1,1" 
+                                     BorderBrush="#7F000000" AutoGenerateColumns="False">
+                        <UC:CustomGridView.Columns>
+
+                            <!-- Bouton d'édition -->
+                            <telerik:GridViewColumn IsSortable="False" IsReorderable="False" IsResizable="False" IsVisible="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=Grid}}">
+                                <telerik:GridViewColumn.Header>
+                                    <telerik:RadButton Margin="0" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" 
+                                                                   Command="{Binding DataContext.AddCommand, RelativeSource={RelativeSource AncestorType=telerik:RadGridView}}">
+                                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </telerik:RadButton>
+                                </telerik:GridViewColumn.Header>
+                                <telerik:GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="/Proteca.Silverlight;component/Images/Modifier.png" Visibility="{Binding HasChangesOrIsNew, Converter={StaticResource VisibilityConverter}}" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </telerik:GridViewColumn.CellTemplate>
+                            </telerik:GridViewColumn>
+
+                            <!-- Affichage des données  -->
+                            <telerik:GridViewDataColumn  Width="Auto" MinWidth="700" Header="{Binding Path=Resource.ParamAction_HeaderLibelle, Source={StaticResource ApplicationResources}}" EditTriggers="CellClick"
+                                            DataMemberBinding="{Binding Libelle, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" CellStyle="{StaticResource DefaultGridViewCellStyle}" EditorStyle="{StaticResource DefaultTextBoxStyle}"/>
+
+                            <!-- Bouton de suppression -->
+                            <telerik:GridViewColumn IsSortable="False" IsReorderable="False" IsResizable="False" IsVisible="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=Grid}}">
+                                <telerik:GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <telerik:RadButton Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" 
+                                                       Command="{Binding DataContext.DeleteLineCommand, RelativeSource={RelativeSource AncestorType=telerik:RadGridView}}" 
+                                                       CommandParameter="{Binding}">
+                                            <Image Source="/Proteca.Silverlight;component/Images/Supprimer.png" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </telerik:RadButton>
+                                    </DataTemplate>
+                                </telerik:GridViewColumn.CellTemplate>
+                            </telerik:GridViewColumn>
+
+                        </UC:CustomGridView.Columns>
+
+                    </UC:CustomGridView>
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Resource.Action_NbElements, Source={StaticResource ApplicationResources}}" Style="{StaticResource ResultCount}" />
+                        <TextBlock  Text="{Binding Items.ItemCount, ElementName=RadGridViewTypeAction}" Style="{StaticResource ResultCount}" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid Margin="10,10" HorizontalAlignment="Stretch" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <UC:ErrorSummary />
+                <Button x:Name="btnModifier" Style="{StaticResource BtnModifier}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding EditCommand}"
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" />
+                <Button x:Name="btnValider" Style="{StaticResource BtnValider}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding SaveCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" Click="btnValider_Click" />
+                <Button x:Name="btnAnnuler" Style="{StaticResource BtnAnnuler}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" Click="btnAnnuler_Click" />
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+

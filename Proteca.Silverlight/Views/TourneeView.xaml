@@ -1,0 +1,709 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.TourneeView" 
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:CustomBehavior="clr-namespace:Proteca.Silverlight.Views.Behaviors"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"  
+           xmlns:AggregateFunction="clr-namespace:Proteca.Silverlight.Views.AggregateFunctions"
+           xmlns:autocomplete="clr-namespace:Proteca.Controls"
+           Title="TourneeView Page">
+
+    <UserControl.Resources>
+        <!--Note: With this style we make the ListBoxItems draggable:-->
+        <Style TargetType="ListBoxItem" x:Key="WishlistItemStyle" >
+            <Setter Property="telerik:DragDropManager.AllowCapturedDrag" Value="True" />
+        </Style>
+        <Style TargetType="telerik:GridViewRow" x:Key="OrderItemStyle" >
+            <Setter Property="telerik:DragDropManager.AllowCapturedDrag" Value="True" />
+        </Style>
+        <Style TargetType="ListBoxItem" x:Key="draggableItemStyle">
+            <Setter Property="telerik:DragDropManager.AllowDrag" Value="True" />
+            <Setter Property="telerik:DragDropManager.AllowCapturedDrag" Value="True" />
+        </Style>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:InverseBoolConverter x:Key="InverseBoolValue" TrueValue="false" FalseValue="true" />
+        <converter:BoolToColorConverter x:Key="InstrumentToBGConverter" TrueValue="{StaticResource GridMediumGradientGray}" FalseValue="{StaticResource GridSelectedGrayBrush}" />
+        <converter:BoolToColorConverter x:Key="InstrumentToAltBGConverter" TrueValue="{StaticResource GridLightGradientGray}" FalseValue="{StaticResource GridSelectedGrayBrush}" />
+        <converter:BoolToColorConverter x:Key="InstrumentToFGConverter" TrueValue="{StaticResource GridView_RowForeground_Default}" FalseValue="{StaticResource GridView_RowForeground_Hover}" />
+        <converter:BoolToTileViewItemPosition x:Key="BoolToItemPosition" TrueValue="Bottom" FalseValue="Right" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedRowHeight" TrueValue="17" FalseValue="*" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedColumnWidth" TrueValue="*" FalseValue="190" />
+        <converter:BoolToStringConverter x:Key="BoolToStringConverter" TrueValue="Oui" FalseValue="Non" />
+        <converter:EmptyToNullConverter x:Key="EmptyToNullConverter" />
+        <converter:TileViewItemStateToThicknessConverter x:Key="TileViewItemStateToThicknessConverter" MinimizedValue="1 0 1 1" MaximizedValue="0" />
+        <converter:DateTimeToStringConverter x:Key="DateTimeConverter" />
+        <DataTemplate x:Key="DraggedItemTemplate">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Déplacement:" />
+                    <TextBlock Text="{Binding CurrentDraggedItemStr}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding CurrentDropPositionStr}" FontWeight="Bold" MinWidth="45" />
+                    <TextBlock Text=", (" Foreground="Gray" />
+                    <TextBlock Text="{Binding CurrentDraggedOverItem}" />
+                    <TextBlock Text=")" Foreground="Gray" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" DisableScrollViewer="True" HideTopNavigation="False"
+                      HideFooter="{Binding IsNonEditableTileItemState}"
+                      Grid.Column="0" IsEditMode="{Binding IsEditMode}"
+                      CurrentElementHeader="{Binding SelectedEntity.Libelle}"
+                      PreviousUri="{Binding PreviousUri}" NextUri="{Binding NextUri}" Margin="0">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot" Background="Transparent">
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding SaveCommand}" />
+                </i:Interaction.Behaviors>
+
+                <!-- Contenu de la vue -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <telerik:RadTileView x:Name="TileView" Grid.Row="0" Grid.Column="0"
+                                     MaximizeMode="One"
+                                     TileStateChangeTrigger="SingleClick"
+                                     IsDockingEnabled="True"
+                                     PreservePositionWhenMaximized="True"
+                                     MinimizedRowHeight="{Binding IsLeftBarExpanded, Converter={StaticResource TileMinimizedRowHeight}}"
+                                     MinimizedColumnWidth="{Binding IsLeftBarExpanded, Converter={StaticResource TileMinimizedColumnWidth}}" 
+                                     MinimizedItemsPosition="{Binding IsLeftBarExpanded, Converter={StaticResource BoolToItemPosition}}"
+                                     RowHeight="Auto" AllowDrop="False">
+
+                    <!-- Tile View Tournee -->
+                    <telerik:RadTileViewItem x:Name="MainItem" Header="{Binding Path=Resource.TileView_Title_Tournee, Source={StaticResource ApplicationResources}}" TileState="{Binding MainTileItemState, Mode=TwoWay}" BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}" AllowDrop="False">
+                        <ScrollViewer Grid.Row="0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" BorderThickness="0" BorderBrush="{StaticResource SBMainGray}" AllowDrop="False">
+                            <Grid Background="Transparent" AllowDrop="False">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <telerik:RadExpander x:Name="radExpander" Grid.Row="0" Height="Auto" VerticalAlignment="Stretch" 
+                                    VerticalContentAlignment="Stretch" Margin="0" Padding="0" BorderThickness="0 0 0 0"
+                                    IsExpanded="True" ExpandDirection="Down" AllowDrop="False" >
+                                    <telerik:RadExpander.Header>
+                                        <TextBlock x:Name="expanderCaption" Text="{Binding Path=Resource.Tournee_Caracteristique, Source={StaticResource ApplicationResources}}" Foreground="{StaticResource SBTextLightBlue}" />
+                                    </telerik:RadExpander.Header>
+                                    <telerik:RadExpander.Content>
+                                        <Grid Background="Transparent" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="3*" MinWidth="100" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="3*" MinWidth="100" />
+                                                <ColumnDefinition Width="4*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <!-- element supprimé -->
+                                            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Left" Visibility="{Binding IsInfoAffiche, Converter={StaticResource VisibilityConverter}}">
+                                                <TextBlock Text="{Binding SelectedEntity.InfosTournee}"  Style="{StaticResource SupprimeOuDeplacerStyle}"/>
+                                            </StackPanel>
+
+                                            <!-- Libelle -->
+                                            <TextBlock x:Name="tbkLibelle" Text="{Binding Path=Resource.Tournee_Libelle, Source={StaticResource ApplicationResources}}" Grid.Row="1" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                                            <TextBox x:Name="tbxLibelle" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxForm}" HorizontalAlignment="Stretch"
+                                                Text="{Binding SelectedEntity.Libelle, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" 
+                                                IsEnabled="{Binding IsVerrouilleEnable, Converter={StaticResource InverseBoolValue}}"/>
+
+                                            <!-- Numero -->
+                                            <TextBlock x:Name="tbkNumero" Text="{Binding Path=Resource.Tournee_Numero, Source={StaticResource ApplicationResources}}" Grid.Row="2" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                                            <TextBlock x:Name="tbxNumero" Text="{Binding SelectedEntity.Numero}" Grid.Column="1" Grid.Row="2" Style="{StaticResource FormulaireText}"/>
+
+                                            <!-- Code Tournee -->
+                                            <TextBlock x:Name="tbkCode" Text="{Binding Path=Resource.Tournee_Code, Source={StaticResource ApplicationResources}}" Grid.Row="2" Grid.Column="2" Style="{StaticResource FormulaireText}"  HorizontalAlignment="left"/>
+                                            <TextBox x:Name="tbxCode" Grid.Column="3" Grid.Row="2" Style="{StaticResource TextBoxForm}" 
+                                                Text="{Binding SelectedEntity.CodeTournee, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" 
+                                                IsEnabled="{Binding IsVerrouilleEnable, Converter={StaticResource InverseBoolValue}}"/>
+
+                                            <!-- Commentaire -->
+                                            <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0" >
+                                                <TextBlock x:Name="tbkCommentaire" Text="{Binding Path=Resource.Tournee_Commentaire, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireText}" />
+                                            </StackPanel>
+                                            <TextBox x:Name="tbxCommentaire" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Height="70"
+                                                HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Left"
+                                                Style="{StaticResource TextBoxMultilineForm}"
+                                                Text="{Binding SelectedEntity.Commentaire, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" 
+                                                IsEnabled="{Binding IsVerrouilleEnable, Converter={StaticResource InverseBoolValue}}" />
+
+                                            <!-- Verrouillage -->
+                                            <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="0" >
+                                                <TextBlock x:Name="tbkverrou" Text="{Binding Path=Resource.Tournee_Verrouillage, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireText}" />
+                                            </StackPanel>
+                                            <CheckBox x:Name="chkVerrou" Grid.Row="4" Grid.Column="1" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" 
+                                                IsChecked="{Binding SelectedEntity.Verrouille, Mode=TwoWay}" IsEnabled="{Binding CanVerrouilleTournee}" />
+
+
+                                            <!-- RadioButton -->
+                                            <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" Margin="10,10,10,0" Orientation="Horizontal">
+                                                <RadioButton x:Name="rdbEq" Margin="0,0,20,0" Style="{StaticResource RadioButtonStyle}" Content="{Binding Path=Resource.Tournee_TriEq, Source={StaticResource ApplicationResources}}" IsEnabled="{Binding IsTypeEditable}" IsChecked="{Binding ByEqSelected, Mode=TwoWay}"/>
+                                                <RadioButton x:Name="rdbportion" Margin="0,0,20,0" Style="{StaticResource RadioButtonStyle}" Content="{Binding Path=Resource.Tournee_TriPortion, Source={StaticResource ApplicationResources}}" IsEnabled="{Binding IsTypeEditable}" IsChecked="{Binding ByPortionSelected, Mode=TwoWay}"/>
+                                                <RadioButton x:Name="rdbEnsElec" Margin="0,0,20,0" Style="{StaticResource RadioButtonStyle}" Content="{Binding Path=Resource.Tournee_TriEnsElec, Source={StaticResource ApplicationResources}}" IsEnabled="{Binding IsTypeEditable}" IsChecked="{Binding ByEnsembleElecSelected, Mode=TwoWay}"/>
+                                            </StackPanel>
+
+                                            <!-- Calcul de coûts et mesure -->
+                                            <Grid Grid.Column="4" Grid.Row="0" Grid.RowSpan="4" Margin="10 0 0 0" 
+                                                  Visibility="{Binding IsEntityAdmin, Converter={StaticResource VisibilityConverter}, UpdateSourceTrigger=PropertyChanged}">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+
+                                                <Border Grid.Column="0" Grid.RowSpan="5" BorderBrush="#FF04255B" BorderThickness="1" />
+
+                                                <TextBlock Text="Coût :" Grid.Row="0" Style="{StaticResource FormulaireText}"  HorizontalAlignment="left" Foreground="{StaticResource SBTextLightBlue}"/>
+                                                <TextBlock Text="{Binding Cout, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Margin="20 0 10 0"
+                                                           Style="{StaticResource FormulaireText}"  HorizontalAlignment="Right"/>
+
+                                                <Rectangle Grid.Row="2" Grid.Column="0" Style="{StaticResource RectBlueUnderline}" Margin="5" />
+
+                                                <TextBlock Text="Charge de travail :" Grid.Row="3" Style="{StaticResource FormulaireText}"  HorizontalAlignment="left" Foreground="{StaticResource SBTextLightBlue}"/>
+                                                <TextBlock Text="{Binding NbHeures, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" Margin="20 0 10 10" 
+                                                           Style="{StaticResource FormulaireText}"  HorizontalAlignment="Right"/>
+
+                                            </Grid>
+
+                                        </Grid>
+                                    </telerik:RadExpander.Content>
+                                </telerik:RadExpander>
+
+                                <Rectangle Grid.Row="1" Grid.Column="0" Style="{StaticResource RectBlueUnderline}" />
+
+                                <!-- Filtre Equipement -->
+                                <Grid Background="Transparent" Grid.Row="2" Margin="0" AllowDrop="False">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="180" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*"  />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="150" />
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <!--Sélection de la région -->
+                                    <TextBlock x:Name="TxtRegion" Text="{Binding Path=Resource.RegionComboBox_PresentationText, Source={StaticResource ApplicationResources}}" 
+                                            Style="{StaticResource FormulaireText}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" />
+                                    <telerik:RadComboBox x:Name="RadCbxEquipRegion" Style="{StaticResource RadComboBoxForm}" Grid.Row="1" Grid.Column="1" 					                            
+					                            ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}"
+                                                ClearSelectionButtonVisibility="Visible" Background="White" IsEditable="False" IsReadOnly="True" IsEnabled="{Binding CanSelectRegion}"
+					                            EmptyText="{Binding Path=Resource.RegionComboBox_EmptyText, Source={StaticResource ApplicationResources}}" 
+                                                Height="20"  Width="160" VerticalAlignment="Bottom" 
+                                                ItemsSource="{Binding Regions}" DisplayMemberPath="LibelleRegion"
+                                                SelectedValue="{Binding FiltreCleRegionEqui, Mode=TwoWay}" SelectedValuePath="CleRegion" HorizontalAlignment="Left" 
+                                                HorizontalContentAlignment="Left" />
+
+                                    <!--Sélection de l'agence -->
+                                    <TextBlock x:Name="TxtAgence" Text="{Binding Path=Resource.AgenceComboBox_PresentationText, Source={StaticResource ApplicationResources}}" 
+                                            Style="{StaticResource FormulaireText}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" />
+                                    <telerik:RadComboBox x:Name="RadCbxEquipAgence" Style="{StaticResource RadComboBoxForm}" Grid.Row="2" Grid.Column="1" 					                            
+					                            ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}"
+                                                ClearSelectionButtonVisibility="Visible" Background="White" IsEditable="False" IsReadOnly="True"
+					                            EmptyText="{Binding Path=Resource.AgenceComboBox_EmptyText, Source={StaticResource ApplicationResources}}" 
+                                                Height="20" Width="160" VerticalAlignment="Top"
+                                                ItemsSource="{Binding SelectedItem.AgencesTriees, ElementName=RadCbxEquipRegion, Mode=TwoWay}" DisplayMemberPath="LibelleAgence"
+                                                SelectedValue="{Binding FiltreCleAgenceEqui, Mode=TwoWay}" SelectedValuePath="CleAgence" HorizontalAlignment="Left" HorizontalContentAlignment="Left" 
+                                                IsEnabled="{Binding CanSelectAgence}" />
+
+                                    <!--Sélection du secteur -->
+                                    <TextBlock x:Name="TxtSecteur" Text="{Binding Path=Resource.SecteurComboBox_PresentationText, Source={StaticResource ApplicationResources}}" 
+                                            Style="{StaticResource FormulaireText}" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" />
+
+                                    <telerik:RadComboBox x:Name="RadCbxEquipSecteur" Style="{StaticResource RadComboBoxForm}" Grid.Row="3" Grid.Column="1" 					                            
+					                            ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}" 
+                                                ClearSelectionButtonVisibility="Visible" Background="White" IsEditable="False" IsReadOnly="True"
+					                            EmptyText="{Binding Path=Resource.SecteurComboBox_EmptyText, Source={StaticResource ApplicationResources}}" 
+                                                Height="20" Width="160" VerticalAlignment="Top"
+                                                ItemsSource="{Binding SelectedItem.SecteursTries, ElementName=RadCbxEquipAgence, Mode=TwoWay}" DisplayMemberPath="LibelleSecteur"
+                                                SelectedValue="{Binding FiltreCleSecteurEqui, Mode=TwoWay}" SelectedValuePath="CleSecteur" HorizontalAlignment="Left"  HorizontalContentAlignment="Left" 
+                                                IsEnabled="{Binding CanSelectSecteur}" />
+
+                                    <!--Ensemble Electrique -->
+                                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0" >
+
+                                            <!-- Inclure les stations -->
+                                            <CheckBox Content="{Binding Path=Resource.EnsElec_TileViewEnsElec_Station, Source={StaticResource ApplicationResources}}" 
+                                                      IsChecked="{Binding IsStation, Mode=TwoWay}"  IsEnabled="{Binding IsEditMode}"  
+                                                      Style="{StaticResource CheckBoxForm}"/>
+
+                                            <!-- Inclure les poste gaz -->
+                                            <CheckBox Content="{Binding Path=Resource.LBL_PosteGaz, Source={StaticResource ApplicationResources}}"
+                                                      IsChecked="{Binding IsPosteGaz, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}"
+                                                      Style="{StaticResource CheckBoxForm}"/>
+
+                                        </StackPanel>
+                                        
+                                        <!-- Libellé -->
+                                        <TextBlock x:Name="TxtEnsElec" Text="{Binding Path=Resource.EnsElecComboBox_PresentationText, Source={StaticResource ApplicationResources}}" 
+                                                   Style="{StaticResource FormulaireText}" />  
+                                        </StackPanel>
+
+                                    <telerik:RadComboBox x:Name="RadCbxEE" Style="{StaticResource RadComboBoxForm}" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                                                         HorizontalAlignment="Left"  Width="300"
+					                                     ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}" 
+                                                         ClearSelectionButtonVisibility="{Binding ByEnsembleElecSelected, Converter={StaticResource HideConverter}}"
+                                                         CanAutocompleteSelectItems="False"
+					                                     CanKeyboardNavigationSelectItems="False"
+					                                     IsEditable="True"
+					                                     OpenDropDownOnFocus="True"
+					                                     IsFilteringEnabled="True"
+					                                     TextSearchMode="Contains"
+                                                         IsReadOnly="False" Height="22" VerticalAlignment="Top"
+                                                         EmptyText="{Binding Path=Resource.EnsElecComboBox_EmptyText, Source={StaticResource ApplicationResources}}"  
+                                                         ItemsSource="{Binding GeoEnsemblesElectriqueEqui}" DisplayMemberPath="LibelleEe"
+                                                         SelectedValue="{Binding FiltreCleEnsElecEqui, Mode=TwoWay}" SelectedValuePath="CleEnsElectrique"
+                                                         IsEnabled="{Binding IsEditMode}"
+                                                         Visibility="{Binding ByEnsembleElecSelected, Converter={StaticResource HideConverter}}"/>
+
+                                    <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Visibility="{Binding ByEnsembleElecSelected, Converter={StaticResource VisibilityConverter}}">
+                                        <telerik:RadComboBox x:Name="RadCbxEEbyee" Style="{StaticResource RadComboBoxForm}" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                                                         HorizontalAlignment="Left"  Width="300"
+					                                     ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}" 
+                                                         ClearSelectionButtonVisibility="{Binding ByEnsembleElecSelected, Converter={StaticResource HideConverter}}"
+                                                         CanAutocompleteSelectItems="False"
+					                                     CanKeyboardNavigationSelectItems="False"
+					                                     IsEditable="True"
+					                                     OpenDropDownOnFocus="True"
+					                                     IsFilteringEnabled="True"
+					                                     TextSearchMode="Contains"
+                                                         IsReadOnly="False" Height="22" VerticalAlignment="Top"
+                                                         EmptyText="{Binding Path=Resource.EnsElecComboBox_EmptyText, Source={StaticResource ApplicationResources}}"  
+                                                         ItemsSource="{Binding GeoEnsemblesElectriqueEqui}" DisplayMemberPath="LibelleEe"
+                                                         SelectedValue="{Binding FiltreCleEnsElecEqui, Mode=TwoWay}" SelectedValuePath="CleEnsElectrique"
+                                                         IsEnabled="{Binding IsEditMode}"
+                                                         Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}"/>
+                                        <TextBlock x:Name="TxtEnsElecSelected" Text="{Binding LibelleEE}" 
+                                                   Style="{StaticResource FormulaireText}" 
+                                                   Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}"/>
+                                    </StackPanel>
+
+                                    <!-- Sélection des portion-->
+                                    <TextBlock x:Name="TxtPortion" Text="{Binding Path=Resource.PortionCombobox_PresentationText, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireText}"
+                                               Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center"
+                                               Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}" />
+                                    <telerik:RadComboBox x:Name="RadCbxPortion" Style="{StaticResource RadComboBoxForm}" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Top" 
+					                                     HorizontalAlignment="Left" Width="300"
+                                                         Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"
+                                                         ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}" 
+                                                         ClearSelectionButtonVisibility="Visible"
+                                                         CanAutocompleteSelectItems="False"
+					                                     CanKeyboardNavigationSelectItems="False"
+					                                     IsEditable="True"
+					                                     OpenDropDownOnFocus="True"
+					                                     IsFilteringEnabled="True"
+					                                     TextSearchMode="Contains"
+                                                         IsReadOnly="False" Height="22"
+					                                     EmptyText="{Binding Path=Resource.PortionComboBox_EmptyText, Source={StaticResource ApplicationResources}}" 
+                                                         ItemsSource="{Binding GeoEnsElecPortionsEqui}" DisplayMemberPath="LibellePortion"
+                                                         SelectedValue="{Binding FiltreClePortionEqui, Mode=TwoWay}" SelectedValuePath="ClePortion"
+                                                         IsEnabled="{Binding IsEditMode}"/>
+
+                                    <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <!-- Type d'équipement -->
+                                        <CheckBox x:Name="chkPP" Grid.Row="0" Grid.Column="0" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2"  Content="{Binding Path=Resource.Tournee_PP, Source={StaticResource ApplicationResources}}"
+                                                  IsChecked="{Binding EqPp, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                        <CheckBox x:Name="chkSoutirage" Grid.Row="1" Grid.Column="0" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_SO, Source={StaticResource ApplicationResources}}" 
+                                                  IsChecked="{Binding EqSo, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                        <CheckBox x:Name="chkDrainage" Grid.Row="2" Grid.Column="0" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_DR, Source={StaticResource ApplicationResources}}" 
+                                                  IsChecked="{Binding EqDr, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+
+                                        <CheckBox x:Name="chkLiaisonsInternes" Grid.Row="0" Grid.Column="1" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_LI, Source={StaticResource ApplicationResources}}" 
+                                                  IsChecked="{Binding EqLi, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                        <CheckBox x:Name="chkLiaisonsExternes" Grid.Row="1" Grid.Column="1" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_LE, Source={StaticResource ApplicationResources}}"
+                                                  IsChecked="{Binding EqLe, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                        <CheckBox x:Name="chkTiersCoirses" Grid.Row="2" Grid.Column="1" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_TC, Source={StaticResource ApplicationResources}}" 
+                                                  IsChecked="{Binding EqTc, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+
+                                        <CheckBox x:Name="chkFourreaux" Grid.Row="0" Grid.Column="2" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_FM, Source={StaticResource ApplicationResources}}" 
+                                                  IsChecked="{Binding EqFm, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                        <CheckBox x:Name="chkPostesGaz" Grid.Row="1" Grid.Column="2" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_PO, Source={StaticResource ApplicationResources}}" 
+                                                  IsChecked="{Binding EqPo, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                        <CheckBox x:Name="chkAnodesGalvaniques" Grid.Row="2" Grid.Column="2" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_AG, Source={StaticResource ApplicationResources}}" 
+                                                  IsChecked="{Binding EqAg, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+
+                                        <CheckBox x:Name="chkDispEcoulement" Grid.Row="0" Grid.Column="3" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_DE, Source={StaticResource ApplicationResources}}"
+                                                  IsChecked="{Binding EqDe, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                        <CheckBox x:Name="chkRaccordIsolant" Grid.Row="1" Grid.Column="3" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_RI, Source={StaticResource ApplicationResources}}" 
+                                                  IsChecked="{Binding EqRi, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                        <CheckBox x:Name="chkPiles" Grid.Row="2" Grid.Column="3" Style="{StaticResource CheckBoxForm}" Margin="5, 2, 5, 2" Content="{Binding Path=Resource.Tournee_PI, Source={StaticResource ApplicationResources}}"
+                                                  IsChecked="{Binding EqPi, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                    </Grid>
+
+                                    <!--Bouton rechercher -->
+                                    <Button x:Name="btnRechercher" Style="{StaticResource BtnRechercher}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Bottom" 
+                                            Command="{Binding FindEquipementCommand}" HorizontalAlignment="Right" 
+                                            IsEnabled="{Binding IsEditMode}" Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+
+                                    <!-- Equipements disponibles -->
+                                    <TextBlock x:Name="tbkEquipementDispo" Text="{Binding Path=Resource.Tournee_EqDispo, Source={StaticResource ApplicationResources}}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource FormulaireTextBlue}"  
+                                               Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}"/>
+                                    <telerik:RadListBox x:Name="lstEquipementDispo" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="2" MaxHeight="150" VerticalAlignment="Top"
+                                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                        ItemsSource="{Binding Equipements}" DisplayMemberPath="LibelleExtended" 
+                                                        Style="{StaticResource RadListBox}" IsEnabled="{Binding IsEditMode}" 
+                                                        Visibility="{Binding ByEqSelected, Converter={StaticResource VisibilityConverter}}" Margin="10,0,10,0"
+                                                        AllowDrop="False" SelectionMode="Extended"
+				                                        CustomBehavior:TourneeListBoxBehavior.IsEnabled="True">
+                                        <telerik:RadListBox.Resources>
+                                            <Style TargetType="telerik:RadListBoxItem">
+                                                <Setter Property="telerik:DragDropManager.AllowCapturedDrag" Value="True" />
+                                            </Style>
+                                            <DataTemplate x:Key="DraggedItemTemplate">
+                                                <StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Déplacement:" />
+                                                        <TextBlock Text="{Binding CurrentDraggedItemStr}" FontWeight="Bold" />
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding CurrentDropPositionStr}" FontWeight="Bold" MinWidth="45" />
+                                                        <TextBlock Text=", (" Foreground="Gray" />
+                                                        <TextBlock Text="{Binding CurrentDraggedOverItem}" />
+                                                        <TextBlock Text=")" Foreground="Gray" />
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </telerik:RadListBox.Resources>
+                                    </telerik:RadListBox>
+                                    <StackPanel Orientation="Vertical" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                                        <!-- Portions disponibles -->
+                                        <TextBlock x:Name="tbkPortionDispo" Text="{Binding Path=Resource.Tournee_PortionDispo, Source={StaticResource ApplicationResources}}"  Style="{StaticResource FormulaireTextBlue}"  
+                                        Visibility="{Binding ByPortionSelected, Converter={StaticResource VisibilityConverter}}"/>
+
+                                        <telerik:RadListBox x:Name="lstPortionsDispo"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxHeight="150"
+                                                            ItemsSource="{Binding GeoEnsElecPortionsEqui, Mode=TwoWay}" DisplayMemberPath="LibellePortion" Style="{StaticResource RadListBox}" IsEnabled="{Binding IsEditMode}"
+                                                            Visibility="{Binding ByPortionSelected, Converter={StaticResource VisibilityConverter}}" Margin="10,0,10,0" VerticalAlignment="Top"
+                                                            AllowDrop="False" SelectionMode="Extended"
+				                                            CustomBehavior:TourneeListBoxBehavior.IsEnabled="True"
+                                                            CustomBehavior:TourneeListBoxBehavior.InfosHidden="True">
+                                            <telerik:RadListBox.Resources>
+                                                <Style TargetType="telerik:RadListBoxItem">
+                                                    <Setter Property="telerik:DragDropManager.AllowCapturedDrag" Value="True" />
+                                                </Style>
+                                                <DataTemplate x:Key="DraggedItemTemplate">
+                                                    <StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="Déplacement:" />
+                                                            <TextBlock Text="{Binding CurrentDraggedItemStr}" FontWeight="Bold" />
+                                                        </StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding CurrentDropPositionStr}" FontWeight="Bold" MinWidth="45" />
+                                                            <TextBlock Text=", (" Foreground="Gray" />
+                                                            <TextBlock Text="{Binding CurrentDraggedOverItem}" />
+                                                            <TextBlock Text=")" Foreground="Gray" />
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </telerik:RadListBox.Resources>
+                                        </telerik:RadListBox>
+
+                                        <!-- Portions sélectionnées -->
+                                        <TextBlock x:Name="tbkPortionsSelec" Text="{Binding Path=Resource.Tournee_PortionsSelec, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireTextBlue}"  
+                                        Visibility="{Binding ByPortionSelected, Converter={StaticResource VisibilityConverter}}" />
+                                        <UC:CustomGridView x:Name="RadGridViewPortions" 
+                                                           ItemContainerStyle="{StaticResource draggableItemStyle}" MinHeight="50"
+									                       ItemsSource="{Binding SelectedEntity.CompositionPortions}" SelectionMode="Extended"
+						                                   ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto"						             
+                                                           CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                           VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="1,0,1,1" 
+                                                           BorderBrush="#7F000000" AutoGenerateColumns="False" IsEnabled="{Binding IsEditMode}"
+                                                           Visibility="{Binding ByPortionSelected, Converter={StaticResource VisibilityConverter}}" Margin="10,5,10,0"
+                                                           AllowDrop="True" CanUserSortColumns="False" IsFilteringAllowed="False"
+                                                           CustomBehavior:TourneeGridViewBehavior.IsEnabled="{Binding IsEditMode}"
+                                                           CustomBehavior:TourneeGridViewBehavior.IsAllowDropPortion="True"
+							                               telerik:ScrollingSettingsBehavior.IsEnabled="True"
+                                                           telerik:ScrollingSettingsBehavior.ScrollAreaPadding="30"
+                                                           telerik:ScrollingSettingsBehavior.ScrollStep="24"
+                                                           telerik:ScrollingSettingsBehavior.ScrollStepTime="00:00:00.05">
+                                            <UC:CustomGridView.Resources>
+                                                <Style TargetType="telerik:GridViewRow">
+                                                    <Setter Property="telerik:DragDropManager.AllowDrag" Value="False" />
+                                                    <Setter Property="ToolTipService.ToolTip" Value="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+                                                </Style>
+                                                <DataTemplate x:Key="DraggedItemTemplate">
+                                                    <StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="Déplacement:" />
+                                                            <TextBlock Text="{Binding CurrentDraggedItemStr}" FontWeight="Bold" />
+                                                        </StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding CurrentDropPositionStr}" FontWeight="Bold" MinWidth="45" />
+                                                            <TextBlock Text=", (" Foreground="Gray" />
+                                                            <TextBlock Text="{Binding CurrentDraggedOverItem}" />
+                                                            <TextBlock Text=")" Foreground="Gray" />
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </UC:CustomGridView.Resources>
+                                            <UC:CustomGridView.Columns>
+                                                <!-- Astuce pour ne pas garder les nouveaux éléments en haut de tableau -->
+                                                <telerik:GridViewColumn UniqueName="IsNew" Header="IsNew" IsVisible="False" />
+
+                                                <!-- Affichage des données  -->
+                                                <telerik:GridViewDataColumn Width="*" Header="Libellé" IsResizable="False" DataMemberBinding="{Binding Libelle}"  />
+
+                                                <!-- Bouton de suppression -->
+                                                <telerik:GridViewColumn IsSortable="False" IsReorderable="False" IsResizable="False" IsVisible="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=Grid}}">
+                                                    <telerik:GridViewColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <Button Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" 
+                                                                               Command="{Binding DataContext.DeleteLineCommand, RelativeSource={RelativeSource AncestorType=telerik:RadGridView}}" 
+                                                                               CommandParameter="{Binding}">
+                                                                <Image Source="/Proteca.Silverlight;component/Images/Supprimer.png" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                            </Button>
+                                                        </DataTemplate>
+                                                    </telerik:GridViewColumn.CellTemplate>
+                                                </telerik:GridViewColumn>
+                                            </UC:CustomGridView.Columns>
+                                        </UC:CustomGridView>
+                                    </StackPanel>
+
+                                    <!-- RadioButton évaluation -->
+                                    <TextBlock x:Name="TxtEval" Text="{Binding Path=Resource.Tournee_Evaluation, Source={StaticResource ApplicationResources}}" Grid.Row="6" Grid.Column="2" Style="{StaticResource FormulaireText}" 
+                                        VerticalAlignment="Bottom" />
+                                    
+                                    <telerik:ItemsControl ItemsSource="{Binding ListTypeEvaluation}" Grid.Row="6" Grid.Column="3" VerticalAlignment="Bottom" >
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal" Margin="10 0 0 0" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <RadioButton Margin="0 0 10 0" HorizontalContentAlignment="Center" IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                                             Content="{Binding LibelleCourt}" Style="{StaticResource RadioButtonStyle}"
+                                                             IsEnabled="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </telerik:ItemsControl>
+
+                                    <!-- Equipements sélectionnés -->
+                                    <Grid Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="3">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="25" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition MaxHeight="300" />
+                                        </Grid.RowDefinitions>
+                                        
+                                        <UC:CustomGridView x:Name="RadGridViewEquipements" Grid.Column="0" Grid.Row="0"
+						                                   ItemsSource="{Binding SelectedEntity.CompositionEqs, Mode=TwoWay}" SelectionMode="Single"
+						                                   ActionOnLostFocus="None" ShowGroupPanel="False" MinHeight="50"	AlternationCount="2"					             
+                                                           CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed"
+                                                           VerticalAlignment="Top" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" BorderThickness="1,0,1,1" 
+                                                           BorderBrush="#7F000000" AutoGenerateColumns="False"                                                     
+                                                           Margin="5 5 10 0"
+                                                           SelectedItem="{Binding DataContext.CompoSelected, Mode=TwoWay, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"
+                                                           AllowDrop="True" CanUserSortColumns="False" IsFilteringAllowed="False"
+                                                           ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                           CustomBehavior:TourneeGridViewBehavior.IsEnabled="{Binding IsEditMode}"
+                                                           CustomBehavior:TourneeGridViewBehavior.IsAllowDropOuvrage="True"
+                                                           MaxHeight="300" >
+
+                                            <UC:CustomGridView.Resources>
+                                                <Style TargetType="telerik:GridViewRow">
+                                                    <Setter Property="telerik:DragDropManager.AllowDrag" Value="True" />
+                                                </Style>
+                                                <DataTemplate x:Key="DraggedItemTemplate">
+                                                    <StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="Déplacement:" />
+                                                            <TextBlock Text="{Binding CurrentDraggedItemStr}" FontWeight="Bold" />
+                                                        </StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding CurrentDropPositionStr}" FontWeight="Bold" MinWidth="45" />
+                                                            <TextBlock Text=", (" Foreground="Gray" />
+                                                            <TextBlock Text="{Binding CurrentDraggedOverItem}" />
+                                                            <TextBlock Text=")" Foreground="Gray" />
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </UC:CustomGridView.Resources>
+                                            <UC:CustomGridView.Columns>
+                                                <!-- Astuce pour ne pas garder les nouveaux éléments en haut de tableau -->
+                                                <telerik:GridViewColumn UniqueName="IsNew" Header="IsNew" IsVisible="False" />
+
+                                                <!-- Affichage des données  -->
+                                                <telerik:GridViewComboBoxColumn Width="Auto" Header="{Binding Path=Resource.Tournee_EqTabEval, Source={StaticResource ApplicationResources}}"                                                                             
+                                                                                IsResizable="False" IsVisible="{Binding DataContext.ByEqSelected, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                                                IsReadOnly="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}, Converter={StaticResource InverseBoolValue}}"
+                                                                                ItemsSource="{Binding DataContext.ListTypeEvaluation, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"
+                                                                                DisplayMemberPath="LibelleCourt" DataMemberBinding="{Binding RefEnumValeur, Mode=TwoWay}" />
+
+                                                <telerik:GridViewDataColumn Width="Auto" IsReadOnly="True" IsResizable="False" Header="{Binding Path=Resource.Tournee_EqTabType, Source={StaticResource ApplicationResources}}" DataMemberBinding="{Binding Type}" />
+                                                <telerik:GridViewDataColumn Width="*"    IsReadOnly="True" IsResizable="False" Header="{Binding Path=Resource.Tournee_EqTabLibelle, Source={StaticResource ApplicationResources}}" DataMemberBinding="{Binding Libelle}" />
+                                                <telerik:GridViewDataColumn Width="Auto" IsReadOnly="True" IsResizable="False" Header="{Binding Path=Resource.Tournee_EqTabPK, Source={StaticResource ApplicationResources}}" DataMemberBinding="{Binding Pk}" />
+
+                                                <!-- Bouton de suppression -->
+                                                <telerik:GridViewColumn IsSortable="False" IsReorderable="False" IsResizable="False" IsVisible="{Binding DataContext.CanDeleteEq, RelativeSource={RelativeSource AncestorType=Grid}}">
+                                                    <telerik:GridViewColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <Button Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" 
+                                                                               Command="{Binding DataContext.DeleteLineCommand, RelativeSource={RelativeSource AncestorType=telerik:RadGridView}}" 
+                                                                               CommandParameter="{Binding}">
+                                                                <Image Source="/Proteca.Silverlight;component/Images/Supprimer.png" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                            </Button>
+                                                        </DataTemplate>
+                                                    </telerik:GridViewColumn.CellTemplate>
+                                                </telerik:GridViewColumn>
+                                            </UC:CustomGridView.Columns>
+                                        </UC:CustomGridView>
+
+                                        <StackPanel Orientation="Vertical" Grid.Column="1">
+                                            <telerik:RadButton x:Name="BtnUp" Margin="0 10 0 0" BorderThickness="0" Background="Transparent" Command="{Binding UpOrderLineCommand}"
+                                                               ToolTipService.ToolTip="Monter" >
+                                                <Image Source="/Proteca.Silverlight;component/Images/up.png" Width="20" Height="20" />
+                                            </telerik:RadButton>
+                                            <telerik:RadButton x:Name="BtnInit" Margin="0 10 0 0" BorderThickness="0" Background="Transparent" Command="{Binding ReOrderCommand}" 
+                                                               ToolTipService.ToolTip="Réinitialiser" >
+                                                <Image Source="/Proteca.Silverlight;component/Images/Annuler.png" Width="20" Height="20" />
+                                            </telerik:RadButton>
+                                            <telerik:RadButton x:Name="BtnDown" Margin="0 10 0 0" BorderThickness="0" Background="Transparent" Command="{Binding DownOrderLineCommand}"
+                                                               ToolTipService.ToolTip="Descendre" >
+                                                <Image Source="/Proteca.Silverlight;component/Images/down.png" Width="20" Height="20" />
+                                            </telerik:RadButton>
+                                        </StackPanel>
+
+                                    </Grid>
+                                </Grid>
+
+                            </Grid>
+                        </ScrollViewer>
+                    </telerik:RadTileViewItem>
+
+                    <!-- Histo -->
+                    <telerik:RadTileViewItem Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}"
+                                             Header="{Binding Path=Resource.TileView_Title_Histo, Source={StaticResource ApplicationResources}}"
+                                             TileState="{Binding HistoriquesTileItemState, Mode=TwoWay}" BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}" 
+                                             AllowDrop="False">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <UC:ExportAndPrint x:Name="exportAndPrint" Grid.Row="0" ColumnsHiddenToExport="{Binding ColumnsHiddenToExport, Mode=TwoWay}" 
+                                                Visibility="Visible" ExportPDFCommand="{Binding ExportPDFCommand}"
+                                                PrintCommand="{Binding PrintCommand}" ExportExcelCommand="{Binding ExportExcelCommand}" GridView="{Binding ElementName=RadGridViewHistorique}" />
+
+                            <UC:CustomGridView x:Name="RadGridViewHistorique" Grid.Row="1" ItemsSource="{Binding SelectedEntity.LogTournee}" 
+                            SelectionMode="Extended" AutoGenerateColumns="False"
+						    Margin="0" ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto" AlternationCount="2"
+						    CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed"
+                            VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="1,0,1,1" BorderBrush="#7F000000">
+                                <UC:CustomGridView.Columns>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding UsrUtilisateur.Nom_Prenom}" IsSortable="True" IsReorderable="False" 
+                                                                IsResizable="False" IsReadOnly="True" Header="Utilisateur" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding RefEnumValeur.Libelle}" IsSortable="True" IsReorderable="False" 
+                                                                IsResizable="False" IsReadOnly="True" Header="Opération" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ListeChamps}" IsSortable="True" IsReorderable="False" Width="*" 
+                                                                IsResizable="False" IsReadOnly="True" Header="Champ(s) modifié(s)" TextWrapping="Wrap" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding DateHistorisation, StringFormat='dd/MM/yyyy HH:mm'}" Width="Auto" IsReadOnly="True"
+                                                    Header="Date" />
+
+                                </UC:CustomGridView.Columns>
+                            </UC:CustomGridView>
+
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Resource.Historique_NbElements, Source={StaticResource ApplicationResources}}" Style="{StaticResource ResultCount}" />
+                                <TextBlock  Text="{Binding Items.ItemCount, ElementName=RadGridViewHistorique}" Style="{StaticResource ResultCount}" />
+                            </StackPanel>
+                        </Grid>
+
+                    </telerik:RadTileViewItem>
+
+                </telerik:RadTileView>
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid>
+                <Grid Margin="10,10" HorizontalAlignment="Stretch" Visibility="{Binding IsDocumentTileItemState, Converter={StaticResource HideConverter}}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <UC:ErrorSummary />
+                    <UC:AddButton x:Name="btnAjouter" ButtonText ="{Binding Path=Resource.BTN_AjouterTournee, Source={StaticResource ApplicationResources}}" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                              ButtonCommand="{Binding AddCommand}" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}"/>
+                    <Button x:Name="btnValider" Style="{StaticResource BtnValider}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding SaveCommand}" 
+                            HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" Click="btnValider_Click" />
+                    <Button x:Name="btnModifier" Style="{StaticResource BtnModifier}" Grid.Column="3" VerticalAlignment="Bottom" Command="{Binding EditCommand}"
+                            HorizontalAlignment="Right" Visibility="{Binding IsDeleteEnable, Converter={StaticResource VisibilityConverter}}" />
+                    <Button x:Name="btnAnnuler" Style="{StaticResource BtnAnnuler}" Grid.Column="3" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" 
+                            HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+                    <Button x:Name="btnExport" Style="{StaticResource BtnExporterTournee}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding ExportTourneeCommand}" 
+                            HorizontalAlignment="Right"  Visibility="{Binding IsDeleteEnable, Converter={StaticResource VisibilityConverter}}" />
+                    <Button x:Name="btnImprimer" Style="{StaticResource BtnImprimer}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding PrintTourneeCommand}" 
+                            HorizontalAlignment="Right" Visibility="{Binding IsDeleteEnable, Converter={StaticResource VisibilityConverter}}" />
+                    <Button x:Name="btnSupprimer" Style="{StaticResource BtnSupprimer}" Grid.Column="4" VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right" Visibility="{Binding IsDeleteEnable, Converter={StaticResource VisibilityConverter}}" Command="{Binding DeleteCommand}" />
+
+                </Grid>
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+</navigation:Page>

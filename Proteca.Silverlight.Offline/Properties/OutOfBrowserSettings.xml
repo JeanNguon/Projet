@@ -1,0 +1,12 @@
+<OutOfBrowserSettings ShortName="ProtOn" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>Module ProtOn</OutOfBrowserSettings.Blurb>
+  <OutOfBrowserSettings.WindowSettings>
+    <WindowSettings Title="ProtOn" />
+  </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.Icons>
+    <Icon Size="128,128">Images/ProtOnV2.png</Icon>
+  </OutOfBrowserSettings.Icons>
+  <!--<OutOfBrowserSettings.SecuritySettings>
+    <SecuritySettings ElevatedPermissions="Required"/>
+  </OutOfBrowserSettings.SecuritySettings>-->
+</OutOfBrowserSettings>

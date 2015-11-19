@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="ProtecaHelp.Pages" Url="$Resources:osrvcore,List_Pages_UrlName;/System">
+    <File Path="ProtecaHelp.Pages\OnlineHelp.aspx" Url="OnlineHelp.aspx" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="ProtecaHelp.Pages\DiagnosticHelp.aspx" Url="DiagnosticHelp.aspx" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="ProtecaHelp.Pages\Glossary.aspx" Url="Glossary.aspx" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+  </Module>
+  <Module Name="ProtecaHelp.Styles" Url="Style Library/Proteca">
+    <File Path="ProtecaHelp.Pages\Styles\help.css" Url="help.css" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE"/>
+    <File Path="ProtecaHelp.Pages\Styles\Images\profilelist-header.png" Url="Images/profilelist-header.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE"/>
+  </Module>
+</Elements>

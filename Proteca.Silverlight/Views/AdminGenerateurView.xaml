@@ -1,0 +1,92 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.AdminGenerateurView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="AdminGenerateurView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisiblityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+    </UserControl.Resources>
+    
+    <UC:MainContainer x:Name="container" HideTopNavigation="True" Grid.Column="0">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot">
+				<i:Interaction.Behaviors>
+					<Behavior:KeyDownBehavior Command="{Binding SaveCommand}" />
+				</i:Interaction.Behaviors>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"  />
+                        <ColumnDefinition Width="Auto"  />
+                        <ColumnDefinition Width="*"  />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Domaine des ouvrages" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource RegroupementText}" />
+                    <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource RectBlueUnderline}" />
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Génère un jeu de test des ouvrages "
+                               ToolTipService.ToolTip="Génère 1 ensemble électrique, 2 portions intégrités, 1 PP par portions, 1 équipements de chaque type par PP"
+                               VerticalAlignment="Center" Margin="30 0 5 0"
+                               MaxWidth="250" TextWrapping="Wrap" TextAlignment="Left" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding OuvrageSuffixe01, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" MaxWidth="200" MaxHeight="25" Style="{StaticResource TextBoxForm}" />
+                    <Button Style="{StaticResource BtnAdminOdima}" Grid.Column="2" Grid.Row="2"  Command="{Binding OuvrageJeuTestCommand}" />
+   
+
+                    <TextBlock Text="Domaine des visites" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource RegroupementText}" />
+                    <Rectangle Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource RectBlueUnderline}" />
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Génère un jeu de test (validation Equip.)"
+                               ToolTipService.ToolTip="Génère 1 PP, 1 équipement temporaire, 2 visites + max 2 mesures par visites"
+                               VerticalAlignment="Center" Margin="30 0 5 0"
+                               MaxWidth="250" TextWrapping="Wrap" TextAlignment="Left" />
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding VisiteSuffixe01, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" MaxWidth="200" MaxHeight="25" Style="{StaticResource TextBoxForm}" />
+                    <Button Style="{StaticResource BtnAdminOdima}" Grid.Column="2" Grid.Row="5"  Command="{Binding VisiteJeuTestCommand}" />
+
+                    <TextBlock Text="Offline" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource RegroupementText}" />
+                    <Rectangle Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource RectBlueUnderline}" />
+
+                    <TextBlock Grid.Row="8" Grid.Column="0" Text="Exporter le contexte"
+                              VerticalAlignment="Center" Margin="30 0 5 0"
+                             MaxWidth="250" TextWrapping="Wrap" TextAlignment="Left" />
+                    <Button Style="{StaticResource BtnAdminOdima}" Grid.Column="2" Grid.Row="8"  Command="{Binding ExportContextCommand}" />
+                    
+                    <TextBlock Grid.Row="9" Grid.Column="0" Text="Importer le contexte"
+                              VerticalAlignment="Center" Margin="30 0 5 0"
+                             MaxWidth="250" TextWrapping="Wrap" TextAlignment="Left" />
+                    <Button Style="{StaticResource BtnAdminOdima}" Grid.Column="2" Grid.Row="9"  Command="{Binding ImportContextCommand}" />
+
+                </Grid>
+                
+            </Grid>
+        </UC:MainContainer.MainContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+

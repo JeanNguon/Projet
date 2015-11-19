@@ -1,0 +1,270 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.EnsembleElectriqueView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+           Title="EnsembleElectriqueView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:NullOrEmptyToVisibibilityConverter x:Key="NullOrEmptyToVisibibilityConverter" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:BoolToTileViewItemPosition x:Key="BoolToItemPosition" TrueValue="Bottom" FalseValue="Right" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedRowHeight" TrueValue="17" FalseValue="*" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedColumnWidth" TrueValue="*" FalseValue="190" />
+        <converter:DateTimeToStringConverter x:Key="DateTimeConverter" />
+        <converter:TileViewItemStateToThicknessConverter x:Key="TileViewItemStateToThicknessConverter" MinimizedValue="1 0 1 1" MaximizedValue="0" />
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" HideTopNavigation="False" HideFooter="{Binding IsNonEditableTileItemState}" Grid.Column="0" IsEditMode="{Binding IsEditMode}"
+                      CurrentElementHeader="{Binding SelectedEntity.Libelle}" 
+                      PreviousUri="{Binding PreviousUri}" NextUri="{Binding NextUri}" DisableScrollViewer="True" >
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot">
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding SaveCommand}" />
+                </i:Interaction.Behaviors>
+                <telerik:RadTileView x:Name="TileView" MaximizeMode="One" TileStateChangeTrigger="SingleClick"
+                                     IsDockingEnabled="True" PreservePositionWhenMaximized="True"
+                                     MinimizedRowHeight="{Binding IsLeftBarExpanded, Converter={StaticResource TileMinimizedRowHeight}}"
+                                     MinimizedColumnWidth="{Binding IsLeftBarExpanded, Converter={StaticResource TileMinimizedColumnWidth}}" 
+                                     MinimizedItemsPosition="{Binding IsLeftBarExpanded, Converter={StaticResource BoolToItemPosition}}" RowHeight="Auto">
+                    
+                    <!-- TileView des Ensemble électrique  -->
+                    <telerik:RadTileViewItem x:Name="MainItem" Visibility="{Binding IsDocumentEditMode, Converter={StaticResource HideConverter}}" TileState="{Binding MainTileItemState, Mode=TwoWay}" BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}"
+                                             Header="{Binding Path=Resource.TileView_Title_EnsElec, Source={StaticResource ApplicationResources}}" >
+                        <ScrollViewer Grid.Row="0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                                              BorderThickness="0" BorderBrush="{StaticResource SBMainGray}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*" MinWidth="350"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Code -->
+                                <TextBlock Text="{Binding Path=Resource.EnsElec_TileViewEnsElec_Code, Source={StaticResource ApplicationResources}}" 
+                                            Style="{StaticResource FormulaireText}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource TextBoxForm}" Width="100" HorizontalAlignment="Left"
+                                            Text="{Binding SelectedEntity.Code, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" 
+                                            IsEnabled="{Binding IsEditMode}" />
+
+                                <!-- Libellé -->
+                                <TextBlock Text="{Binding Path=Resource.EnsElec_TileViewEnsElec_Libelle, Source={StaticResource ApplicationResources}}" 
+                                                Style="{StaticResource FormulaireText}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" />
+                                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource TextBoxForm}" IsEnabled="{Binding IsEditMode}" 
+                                        Width="380" HorizontalAlignment="Left"
+                                        Text="{Binding SelectedEntity.Libelle, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" />
+
+                                <!-- Structure Complexe -->
+                                <TextBlock x:Name="tbkStrComplexe" Grid.Row="2" Grid.Column="0" Style="{StaticResource FormulaireText}" 
+                                            Text="{Binding Path=Resource.EnsElec_TileViewEnsElec_StructureComplexe, Source={StaticResource ApplicationResources}}"/>
+                                <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <CheckBox Style="{StaticResource CheckBoxForm}" Height="16" IsChecked="{Binding IsStation, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}"
+                                                Content="{Binding Path=Resource.EnsElec_TileViewEnsElec_Station, Source={StaticResource ApplicationResources}}" />
+                                    <CheckBox Style="{StaticResource CheckBoxForm}" Height="16" IsChecked="{Binding IsPosteGaz, Mode=TwoWay}" IsEnabled="{Binding IsEditMode}"
+                                                Content="{Binding Path=Resource.EnsElec_TileViewEnsElec_PosteGaz, Source={StaticResource ApplicationResources}}" />
+                                </StackPanel>
+
+                                <Rectangle Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" Style="{StaticResource RectBlueUnderline_LittleFormulaire}" />
+                                
+                                <!-- Longueur de réseau -->
+                                <TextBlock x:Name="tbkLongReseau" Grid.Row="4" Grid.Column="0" Style="{StaticResource FormulaireText}" 
+                                            Text="{Binding Path=Resource.EnsElec_TileViewEnsElec_LongueurRes, Source={StaticResource ApplicationResources}}"/>
+                                <TextBlock x:Name="LongueurReseau" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Width="Auto" Margin="5 2 5 2" 
+                                            Foreground="{StaticResource SBDarkGray}" Text="{Binding SelectedEntity.LongueurReseau}" HorizontalAlignment="Right" />
+                                <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource FormulaireText}" HorizontalAlignment="Left" 
+                                           Visibility="{Binding Path=Text, ElementName=LongueurReseau, Converter={StaticResource NullOrEmptyToVisibibilityConverter}}"
+                                           Text="{Binding Path=Resource.EnsElec_TileViewEnsElec_LongueurUnite, Source={StaticResource ApplicationResources}}"/>
+
+                                <!-- Périodicité d'analyse -->
+                                <TextBlock x:Name="tbkperiode" Grid.Row="5" Grid.Column="0" Style="{StaticResource FormulaireText}" 
+                                            Text="{Binding Path=Resource.EnsElec_TileViewEnsElec_PeriodAnalyse, Source={StaticResource ApplicationResources}}"/>
+                                <telerik:RadComboBox SelectAllTextEvent="None" Style="{StaticResource RadComboBoxForm}" Grid.Row="5" Grid.Column="1" IsEnabled="{Binding IsEditMode}"
+                                                     Width="Auto" Height="22" VerticalAlignment="Top" Margin="5 0"
+                                                  ItemsSource="{Binding RefEnumValeurPeriodicite}" DisplayMemberPath="Libelle" SelectedValuePath="CleEnumValeur"
+                                                  SelectedValue="{Binding SelectedEntity.EnumPeriodiciteNullable, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" />
+                                
+                                <!-- Date dernière analyse -->
+                                <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource FormulaireText}" 
+                                            Text="{Binding Path=Resource.EnsElec_TileViewEnsElec_DateAnalyse, Source={StaticResource ApplicationResources}}"
+                                            Visibility="{Binding SelectedEntity.AnyAnalyse, Converter={StaticResource VisibilityConverter}}" />
+                                <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" VerticalAlignment="Center" Width="Auto" Margin="5 2 5 2" 
+                                            Foreground="{StaticResource SBDarkGray}" Text="{Binding SelectedEntity.DateDeLAnalyse}"
+                                            Visibility="{Binding SelectedEntity.AnyAnalyse, Converter={StaticResource VisibilityConverter}}" />
+                                        
+                                <!-- Etat de la dernière analyse -->
+                                <Image Grid.Column="2" Grid.Row="6" Source="{Binding SelectedEntity.EtatSourceImage}" 
+                                        Height="20" Margin="10 0" HorizontalAlignment="Left" 
+                                        Visibility="{Binding SelectedEntity.AnyAnalyse, Converter={StaticResource VisibilityConverter}}" />
+
+                                <Rectangle Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="4" Style="{StaticResource RectBlueUnderline_LittleFormulaire}" />
+
+                                <!-- Commentaire et Date MAJ-->
+                                <StackPanel Orientation="Vertical" Grid.Row="8" Grid.Column="0">
+                                    <TextBlock Style="{StaticResource FormulaireText}" Text="{Binding Path=Resource.EnsElec_TileViewEnsElec_Commentaire, Source={StaticResource ApplicationResources}}"/>
+                                    <TextBlock Style="{StaticResource FormulaireText}" Foreground="{StaticResource SBDarkGray}"
+                                            Text="{Binding SelectedEntity.DateMajCommentaire, Mode=OneWay, Converter={StaticResource DateTimeConverter}}"/>
+                                </StackPanel>
+                                
+                                
+                                <TextBox x:Name="tbxCommentaire" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" IsEnabled="{Binding IsEditMode}" VerticalScrollBarVisibility="Auto"
+                                         Style="{StaticResource TextBoxMultilineForm}" Height="Auto" TextWrapping="Wrap" AcceptsReturn="True" Width="380" HorizontalAlignment="Left"
+                                         Text="{Binding SelectedEntity.Commentaire, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" />
+                                
+                            </Grid>
+                        </ScrollViewer>
+
+                    </telerik:RadTileViewItem>
+                    
+                    <!-- TileView Document -->
+                    <telerik:RadTileViewItem Visibility="{Binding IsMainEditMode, Converter={StaticResource HideConverter}}" Header="{Binding Path=Resource.EnsElec_TileViewDocuments_Title, Source={StaticResource ApplicationResources}}" 
+                                             TileState="{Binding DocumentsTileItemState, Mode=TwoWay}" BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}" >
+                        
+                        <ScrollViewer Grid.Row="0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" BorderThickness="0" BorderBrush="{StaticResource SBMainGray}">
+                            <UC:Documents />
+                        </ScrollViewer>
+                        
+                    </telerik:RadTileViewItem>
+
+                    <!-- TileView Portions Intégrité -->
+                    <telerik:RadTileViewItem Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" 
+                                             Header="{Binding Path=Resource.TileView_Title_Portions, Source={StaticResource ApplicationResources}}"
+                                             TileState="{Binding PortionsTileItemState, Mode=TwoWay}" BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                                    
+                            <UC:ExportAndPrint x:Name="exportAndPrint" Grid.Row="0" ColumnsHiddenToExport="{Binding ColumnsHiddenToExport, Mode=TwoWay}" 
+                                               Visibility="Visible" ExportPDFCommand="{Binding ExportPDFCommand}"
+                                               PrintCommand="{Binding PrintCommand}" ExportExcelCommand="{Binding ExportExcelCommand}"
+                                               GridView="{Binding ElementName=RadGridViewPI}"/>
+
+                            <UC:CustomGridView x:Name="RadGridViewPI" Grid.Row="1" ItemsSource="{Binding ListPortions}" 
+                                                SelectionMode="Extended" AutoGenerateColumns="False" 
+						                        Margin="0" ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto" AlternationCount="2"
+						                        CanUserDeleteRows="{Binding IsChecked, ElementName=CanUserDeleteRowsCheckBox, Mode=TwoWay}"
+						                        CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed"
+                                                VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="1,0,1,1" BorderBrush="#7F000000">
+                                <UC:CustomGridView.Columns>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Libelle}" IsSortable="True" IsReorderable="False" 
+                                                                IsResizable="False" IsReadOnly="True" Width="*" Header="{Binding Path=Resource.Ouvrage_Libelle_PortionIntegrite, Source={StaticResource ApplicationResources}}" >
+                                        <telerik:GridViewDataColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <HyperlinkButton NavigateUri="{Binding NaviagtionUrl}" Content="{Binding Libelle}" />
+                                            </DataTemplate>
+                                        </telerik:GridViewDataColumn.CellTemplate>
+                                    </telerik:GridViewDataColumn>
+
+                                    <telerik:GridViewDataColumn IsSortable="True" IsReadOnly="True" IsFilterable="False" Width="Auto"
+                                                                Header="{Binding Path=Resource.Ouvrage_Portion_DateEG, Source={StaticResource ApplicationResources}}" 
+                                                                DataMemberBinding="{Binding DateEg}" DataFormatString="{} {0:dd/MM/yyyy}" />
+                                    <telerik:GridViewDataColumn IsSortable="True" IsReadOnly="True" IsFilterable="False" Width="Auto" 
+                                                                Header="{Binding Path=Resource.Ouvrage_Portion_DateECD, Source={StaticResource ApplicationResources}}" 
+                                                                DataMemberBinding="{Binding DateEcd}" DataFormatString="{} {0:dd/MM/yyyy}" />
+                                    <telerik:GridViewDataColumn IsSortable="True" IsReadOnly="True" IsFilterable="False" Width="Auto" 
+                                                                Header="{Binding Path=Resource.Ouvrage_Portion_DateCF, Source={StaticResource ApplicationResources}}" 
+                                                                DataMemberBinding="{Binding DateCf}" DataFormatString="{} {0:dd/MM/yyyy}" />
+                                </UC:CustomGridView.Columns>
+                            </UC:CustomGridView>
+
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Resource.EnsembleElectrique_NbElements, Source={StaticResource ApplicationResources}}" Style="{StaticResource ResultCount}" />
+                                <TextBlock  Text="{Binding Items.ItemCount, ElementName=RadGridViewPI}" Style="{StaticResource ResultCount}" />
+                            </StackPanel>
+
+                        </Grid>
+                            
+                    </telerik:RadTileViewItem>
+
+                    <!-- TileView Actions-->
+                    <telerik:RadTileViewItem Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" 
+                                             Header="{Binding Path=Resource.TileView_Title_Actions, Source={StaticResource ApplicationResources}}"
+                                             TileState="{Binding ActionsTileItemState, Mode=TwoWay}" BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}" >
+                        <UC:ActionTileview ListActions="{Binding ListActions}"/>
+
+                    </telerik:RadTileViewItem>
+
+                    <!-- Histo -->
+                    <telerik:RadTileViewItem Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}"
+                                             Header="{Binding Path=Resource.TileView_Title_Histo, Source={StaticResource ApplicationResources}}"
+                                             TileState="{Binding HistoriquesTileItemState, Mode=TwoWay}" BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}" >
+
+                        <UC:Historique MesLogsOuvrages="{Binding ListLogOuvrages}" ColumnsHiddenToExport="{Binding ColumnsHiddenToExport}"
+                                        ExportExcelCommand="{Binding ExportExcelCommand}" ExportPDFCommand="{Binding ExportPDFCommand}" 
+                                        PrintCommand="{Binding PrintCommand}" />
+
+                    </telerik:RadTileViewItem>
+                    
+                </telerik:RadTileView>
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid>
+                <Grid Margin="10,10" HorizontalAlignment="Stretch" Visibility="{Binding IsDocumentTileItemState, Converter={StaticResource HideConverter}}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+				    <UC:ErrorSummary />
+                
+                    <UC:AddButton x:Name="btnAjouter" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                                  ButtonCommand="{Binding AddCommand}" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}"
+                                  ButtonText="{Binding Path=Resource.BtnAjouterEnsembleElectrique, Source={StaticResource ApplicationResources}}" />
+				    <Button x:Name="btnModifier" Style="{StaticResource BtnModifier}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding EditCommand}"
+                            HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" />
+                    <Button x:Name="btnValider" Style="{StaticResource BtnValider}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding SaveCommand}" 
+                            HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+                    <Button x:Name="btnAnnuler" Style="{StaticResource BtnAnnuler}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" 
+                            HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+                    <Button x:Name="btnSupprimer" Style="{StaticResource BtnSupprimer}" Grid.Column="2" VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" Command="{Binding DeleteCommand}" />
+                </Grid>
+                 <Grid Margin="10,10" HorizontalAlignment="Stretch" Visibility="{Binding IsDocumentTileItemState, Converter={StaticResource VisibilityConverter}}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <UC:ErrorSummary />
+
+                    <Button x:Name="btnModifierDocument" Style="{StaticResource BtnModifier}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding EditDocumentCommand}"
+                            HorizontalAlignment="Right" Visibility="{Binding IsDeleteEnable, Converter={StaticResource VisibilityConverter}}" />
+                    <Button x:Name="btnValiderDocument" Style="{StaticResource BtnValider}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding SaveDocumentCommand}" 
+                            HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" Click="btnValiderDocument_Click" />
+                    <Button x:Name="btnAnnulerDocument" Style="{StaticResource BtnAnnuler}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelDocumentCommand}" 
+                            HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+                </Grid>
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+

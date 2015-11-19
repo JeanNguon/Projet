@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="2f2fac92-1c43-4079-976c-326ddb186018" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="8bd07ab9-a45b-4c0a-aa8c-1390c37e9567" name="Proteca.Silverlight">
+      <childLayers>
+        <layer Id="8c099b5c-fcbe-4b60-a2fc-d06eef1581fc" name="Proteca.Silverlight.ViewModels">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="5254c458-8d10-402e-a30a-5e521110e966" direction="Forward">
+              <layerMoniker Id="8b659f1f-49cb-44a9-b818-963948308bef" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="f4b038fe-f787-4724-b52b-7075d2de37d4" direction="Forward">
+              <layerMoniker Id="c3289090-be96-45f0-bc7f-77d6111c881d" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="efe83995-32c7-4f88-8961-24586c92436c" direction="Forward">
+              <layerMoniker Id="970fc49d-bcae-42f8-839f-d3989c5592ea" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="90fafc3f-024c-4874-a622-71965697a920" name="Proteca.Silverlight.ViewModels">
+              <ArtifactNode Label="Proteca.Silverlight.ViewModels" Category="CodeSchema_Namespace" Id="(Namespace=Proteca.Silverlight.ViewModels)" />
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight)" Label="Proteca.Silverlight.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Proteca.Silverlight.ViewModels)" Label="Proteca.Silverlight.ViewModels" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="126c81d6-608f-4dcc-ac8e-13cb04363d5d" name="Proteca.Silverlight.Views">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="95d3253e-e23a-4548-9050-09c3923b0adf" direction="Forward">
+              <layerMoniker Id="8c099b5c-fcbe-4b60-a2fc-d06eef1581fc" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="9475846b-defe-4c3a-a51c-2e0d70bd5a3f" name="Proteca.Silverlight.Views">
+              <ArtifactNode Label="Proteca.Silverlight.Views" Category="CodeSchema_Namespace" Id="(Namespace=Proteca.Silverlight.Views)" />
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight)" Label="Proteca.Silverlight.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Proteca.Silverlight.Views)" Label="Proteca.Silverlight.Views" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="c3289090-be96-45f0-bc7f-77d6111c881d" name="Proteca.Silverlight.Services">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="e6efde78-347b-4881-b6ea-d4b3690d9774" direction="Forward">
+              <layerMoniker Id="8b659f1f-49cb-44a9-b818-963948308bef" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="9b42d336-ae88-4e03-8604-356811865c70" direction="Forward">
+              <layerMoniker Id="0c14c5a3-8a27-45e5-a450-f72c10550489" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="5533b319-adc5-4f03-89a5-8cbcb198154c" direction="Forward">
+              <layerMoniker Id="970fc49d-bcae-42f8-839f-d3989c5592ea" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="c011eab2-313e-4316-aa96-45a217fa0771" name="Proteca.Silverlight.Services">
+              <ArtifactNode Label="Proteca.Silverlight.Services" Category="CodeSchema_Namespace" Id="(Namespace=Proteca.Silverlight.Services)" />
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight)" Label="Proteca.Silverlight.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Proteca.Silverlight.Services)" Label="Proteca.Silverlight.Services" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="cc325ab4-c3fc-4a63-8e49-ac4c51e2906c" name="CustomLogger">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="26fa37d6-5e5f-48a5-bed4-f61ade7356d1" direction="Forward">
+              <layerMoniker Id="bcd02af0-3e4e-4378-bca3-c16f3e127148" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="e1e14e4d-99de-4e6c-832a-8181c2da2ae9" direction="Forward">
+              <layerMoniker Id="970fc49d-bcae-42f8-839f-d3989c5592ea" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="38dadea4-931e-4203-884c-f989ab8ab57d" name="CustomLogger">
+              <ArtifactNode Label="CustomLogger" Category="CodeSchema_Class" Id="(Assembly=../Proteca.Silverlight/Bin/Debug/Proteca.Silverlight.dll Namespace=Proteca.Silverlight.Helpers Type=CustomLogger)" />
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight Namespace=Proteca.Silverlight.Helpers Type=CustomLogger)" Label="CustomLogger" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="8b659f1f-49cb-44a9-b818-963948308bef" name="Proteca.Web.Models">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="6605315e-9a4d-4344-a28b-ead36b6f754e" direction="Forward">
+              <layerMoniker Id="3a0e6a03-0407-4cd8-a63d-0c1305fbab23" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="4238f4fc-866d-4033-890b-f88905942e7b" name="Proteca.Web.Models">
+              <ArtifactNode Label="Proteca.Web.Models" Category="CodeSchema_Namespace" Id="(Namespace=Proteca.Web.Models)" />
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight)" Label="Proteca.Silverlight.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Proteca.Web)" Label="Proteca.Web.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Proteca.Web.Models)" Label="Proteca.Web.Models" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="970fc49d-bcae-42f8-839f-d3989c5592ea" name="ILogger">
+          <references>
+            <reference Id="f520fc89-286c-4f8b-9f8d-6817adaaf1a2" name="ILogger">
+              <ArtifactNode Label="ILogger" Category="CodeSchema_Interface" Id="(Assembly=../Toolkit/Jounce/Bin/Debug/Jounce.dll Namespace=Jounce.Core.Application Type=ILogger)" />
+              <ExpandedNode Id="(Assembly=Jounce Namespace=Jounce.Core.Application Type=ILogger)" Label="ILogger" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+      <references>
+        <reference Id="0d799280-c3f6-43ad-99ac-2eebf21fbdd0" name="Proteca.Silverlight">
+          <ArtifactNode Label="Proteca.Silverlight" Category="CodeSchema_Project" Id="(Assembly=../Proteca.Silverlight/Proteca.Silverlight.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Proteca.Silverlight)" Label="Proteca.Silverlight.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="e080e4b7-fa98-4542-8778-e0d28608e6f0" name="Proteca.Web">
+      <childLayers>
+        <layer Id="0c14c5a3-8a27-45e5-a450-f72c10550489" name="ProtecaDomainService">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="7ce484c0-3ea4-46e0-bd2a-86378672e710" direction="Forward">
+              <layerMoniker Id="7ce8f69e-01b8-41e1-b217-70d02035e450" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="fe0d5cd9-6e8a-4112-80f4-7aa54fe1c31c" name="ProtecaDomainService">
+              <ArtifactNode Label="ProtecaDomainService" Category="CodeSchema_Class" Id="(Assembly=../Proteca.Web/bin/Proteca.Web.dll Namespace=Proteca.Web.Services Type=ProtecaDomainService)" />
+              <ExpandedNode Id="(Assembly=Proteca.Web Namespace=Proteca.Web.Services Type=ProtecaDomainService)" Label="ProtecaDomainService" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="7ce8f69e-01b8-41e1-b217-70d02035e450" name="ProtecaModel.edmx">
+          <references>
+            <reference Id="e3dbb55f-c7a8-4db0-912f-c52ac8607fb5" name="ProtecaModel.edmx">
+              <ArtifactNode Label="ProtecaModel.edmx" Category="CodeSchema_SourceFile" Id="(Assembly=../Proteca.Web/Models/ProtecaModel.edmx)">
+                <Category Ref="CodeSchema_ProjectItem" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Proteca.Web Namespace=Proteca.Web.Models Type=Secteur)" Label="Secteur" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Proteca.Web Namespace=Proteca.Web.Models Type=Region)" Label="Region" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Proteca.Web Namespace=Proteca.Web.Models Type=Agence)" Label="Agence" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Proteca.Web Namespace=Proteca.Web.Models Type=ProtecaEntitiesConnection)" Label="ProtecaEntitiesConnection" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="bcd02af0-3e4e-4378-bca3-c16f3e127148" name="LogService.svc">
+          <references>
+            <reference Id="1fb6955a-d258-47f5-aabc-292907926b9a" name="LogService.svc">
+              <ArtifactNode Label="LogService.svc" Category="CodeSchema_SourceFile" Id="(Assembly=../Proteca.Web/Services/LogService.svc)">
+                <Category Ref="CodeSchema_ProjectItem" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Proteca.Web Namespace=Proteca.Web.Services Type=LogService)" Label="LogService" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="3a0e6a03-0407-4cd8-a63d-0c1305fbab23" name="Proteca.Web.Models">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="2cc8cc6a-7a4b-4b9c-b20a-a461212b2272" direction="Forward">
+              <layerMoniker Id="7ce8f69e-01b8-41e1-b217-70d02035e450" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="7cdcf110-e760-47cf-b9d5-b6292374992e" name="Proteca.Web.Models">
+              <ArtifactNode Label="Proteca.Web.Models" Category="CodeSchema_Namespace" Id="(Namespace=Proteca.Web.Models)" />
+              <ExpandedNode Id="(Assembly=Proteca.Silverlight)" Label="Proteca.Silverlight.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Proteca.Web)" Label="Proteca.Web.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Proteca.Web.Models)" Label="Proteca.Web.Models" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+      <references>
+        <reference Id="d1911435-4af6-4ad6-b125-a91903f5b03a" name="Proteca.Web">
+          <ArtifactNode Label="Proteca.Web" Category="CodeSchema_Project" Id="(Assembly=../Proteca.Web/Proteca.Web.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Proteca.Web)" Label="Proteca.Web.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="9d62a7f8-915d-483d-b133-925206e361c4" name="Toolkit (Jounce Framework)">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="05947c76-d2c2-4d10-8675-3f972c88d4ff" direction="Forward">
+          <layerMoniker Id="126c81d6-608f-4dcc-ac8e-13cb04363d5d" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="b838952e-ca59-408c-a43b-2a85d8ebb7e4" direction="Forward">
+          <layerMoniker Id="8c099b5c-fcbe-4b60-a2fc-d06eef1581fc" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="ab9aa70e-5f71-4bcb-b231-9817d6a01080" name="Toolkit">
+          <ArtifactNode Label="Toolkit" Category="SolutionFolder" Id="(Assembly=../Toolkit)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Jounce)" Label="Jounce.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

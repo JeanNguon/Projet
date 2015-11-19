@@ -1,0 +1,404 @@
+<%@Master language="C#"%>
+<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register Tagprefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Import Namespace="Microsoft.SharePoint" %>
+<%@ Register Tagprefix="PublishingWebControls" Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Assembly Name="Microsoft.Web.CommandUI, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Import Namespace="Microsoft.SharePoint.ApplicationPages" %>
+<%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="wssuc" TagName="Welcome" src="~/_controltemplates/Welcome.ascx" %>
+<%@ Register TagPrefix="wssuc" TagName="MUISelector" src="~/_controltemplates/MUISelector.ascx" %>
+<%@ Register TagPrefix="wssuc" TagName="DesignModeConsole" src="~/_controltemplates/DesignModeConsole.ascx" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html id="Html1" lang="<%$Resources:wss,language_value%>" dir="<%$Resources:wss,multipages_direction_dir_value%>" runat="server" xmlns:o="urn:schemas-microsoft-com:office:office" __expr-val-dir="ltr">
+<head id="Head1" runat="server">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Expires" content="0"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=8"/>
+	
+	<!-- robots -->
+	<SharePoint:RobotsMetaTag runat="server"/>
+	
+	<!-- page title - overridden by asp:content on pages or page layouts -->
+	<title id="Title1" runat="server"><asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server">Protection Cathodique</asp:ContentPlaceHolder></title>
+	
+	<!-- favicon -->
+	<SharePoint:SPShortcutIcon runat="server" IconUrl="/Images/favicon.ico"/>
+	
+	<!-- all OOTB css -->
+	<SharePoint:CssLink runat="server" Version="4"/>
+	<SharePoint:Theme runat="server"/>
+	
+	<!-- page manager interacts with script and the sharepoint object model -->
+	<SharePoint:SPPageManager runat="server"/>
+	
+	<!-- unified logging service -->
+	<SharePoint:ULSClientConfig runat="server"/>
+	
+	<!-- identifies to scripting elements that this is a v4 master page. required for scrolling? -->
+	<script type="text/javascript">
+	    var _fV4UI = true;
+	</script>
+
+	<!-- load SharePoint javascript -->
+	<SharePoint:ScriptLink language="javascript" Defer="true" runat="server"/>
+ 
+ 	<style type="text/css">
+		/* fix scrolling on list pages */
+		/*#s4-bodyContainer {
+			position: relative;
+		}*/
+
+		/* hide body scrolling (SharePoint will handle) */
+		body {
+			height:100%;
+			overflow:hidden;
+			width:100%;
+		}
+				
+		/* popout breadcrumb menu needs background color for firefox */
+		.s4-breadcrumb-menu {
+			background:#F2F2F2;
+		}
+
+		/* if you want to change the left nav width, change this and the margin-left in .s4-ca */
+		body #s4-leftpanel {
+			/* width:155px; */
+		}		
+		
+		/* body area normally has a white background */
+		.s4-ca {
+			background:transparent none repeat scroll 0 0;
+			/* margin-left:155px; */
+		}	
+	</style>
+ 
+	<!-- link to our custom css  -->
+	<SharePoint:CssRegistration name="/Style Library/proteca.css" After="corev4.css" runat="server"/>
+	
+	<!-- javascript to override the active-x message in ie 
+		// See http://blog.drisgill.com/2010/02/removing-name-activex-control-warning.html for more info
+		// Remove if the IM pressence icons are needed in SharePoint
+	-->
+	<script type="text/javascript">
+	    function ProcessImn() { }
+	    function ProcessImnMarkers() { }	
+	</script>
+	
+	<!-- additional header delegate control -->
+	<SharePoint:DelegateControl runat="server" ControlId="AdditionalPageHead" AllowMultipleControls="true"/>
+	
+	<!-- additional header placeholder - overridden by asp:content on pages or page layouts -->
+	<asp:ContentPlaceHolder id="PlaceHolderAdditionalPageHead" runat="server"/>	
+
+	<!-- microsoft says these should always be inside the head tag. -->
+   	<asp:ContentPlaceHolder id="PlaceHolderBodyAreaClass" runat ="server"/>
+	<asp:ContentPlaceHolder id="PlaceHolderTitleAreaClass" runat ="server"/>
+
+    <SharePoint:ScriptLink language="javascript" name="Proteca/Scripts/HelpActivator.js" LoadAfterUI="false" OnDemand="false" Localizable="false" runat="server"/>
+
+    <script type="text/javascript">
+        function ToggleMenu(expand) {            
+            if (document.getElementById("AccueilXAPZone"))
+            {
+                host = document.getElementById("AccueilXAPZone");
+                if (expand) {
+                    host.style.zIndex = 2;
+                }
+                else {
+                    host.style.zIndex = 0;
+                }
+            }
+        }
+
+        var resizeSilverlight = function () {
+            if(document.getElementById('s4-workspace') && document.getElementById('ProtecaHeader'))
+            {
+                var mainHeight = document.getElementById('s4-workspace').offsetHeight;
+                var headerHeight = document.getElementById('ProtecaHeader').offsetHeight;
+                var XAPHeight = mainHeight - headerHeight;
+                var myXAPs = document.getElementsByTagName("object");
+                if (!document.getElementById('SilverlightWebPart') && myXAPs && myXAPs[0]) {
+                    myXAPs[0].height = XAPHeight + "px";
+                }
+                else if (document.getElementById('AccueilMainZone')) {
+                    XAPHeight = XAPHeight - 30;
+                    document.getElementById('AccueilMainZone').style.height = XAPHeight + "px";
+                }
+            }
+        }
+
+        SP.UI.Workspace.add_resized(resizeSilverlight);
+    </script>
+
+</head>
+
+<body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" >
+
+
+  <form id="Form1" runat="server" onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}">
+
+<!-- handles SharePoint scripts -->
+<asp:ScriptManager id="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />
+
+<!-- controls the web parts and zones -->
+<WebPartPages:SPWebPartManager runat="server"/>
+
+
+<!-- =====  Begin Ribbon ============================================================ -->
+
+<div id="s4-ribbonrow" class="s4-pr s4-ribbonrowhidetitle" style="display:none;">
+	<div id="s4-ribboncont">
+	
+		<!-- ribbon starts here -->
+		<SharePoint:SPRibbon
+			runat="server"
+			PlaceholderElementId="RibbonContainer"
+			CssFile="">
+		
+			<!-- ribbon left side content starts here -->
+			<SharePoint:SPRibbonPeripheralContent
+				runat="server"
+				Location="TabRowLeft"
+				CssClass="ms-siteactionscontainer s4-notdlg">
+
+                <!-- save button at top of ribbon -->
+			<SharePoint:PageStateActionButton id="PageStateActionButton" runat="server" Visible="false" />
+			
+			</SharePoint:SPRibbonPeripheralContent>
+			
+			<!-- ribbon right side content starts here -->
+			<SharePoint:SPRibbonPeripheralContent
+				runat="server"
+				Location="TabRowRight"
+				ID="RibbonTabRowRight"
+				CssClass="s4-trc-container s4-notdlg">
+				
+				<!-- GlobalSiteLink0 delegate - the variation selector / shows nothing by default otherwise -->
+				<SharePoint:DelegateControl runat="server" ID="GlobalDelegate0" ControlId="GlobalSiteLink0" />
+			
+				<!-- GlobalSiteLink2 delegate default shows nothing -->
+				<SharePoint:DelegateControl ControlId="GlobalSiteLink2" ID="GlobalDelegate2" Scope="Farm" runat="server" />
+				
+				<!-- link to launch developer dashboard if its activated by admin -->
+				<span>
+					<span class="s4-devdashboard">
+					<Sharepoint:DeveloperDashboardLauncher
+						ID="DeveloperDashboardLauncher"
+						NavigateUrl="javascript:ToggleDeveloperDashboard()"
+						runat="server"
+						ImageUrl="/_layouts/images/fgimg.png"
+						Text="<%$Resources:wss,multipages_launchdevdashalt_text%>"
+						OffsetX=0
+						OffsetY=222
+						Height=16
+						Width=16 />
+					</span>
+				</span>
+			</SharePoint:SPRibbonPeripheralContent>
+	  </SharePoint:SPRibbon>
+	  
+	  <!-- end main ribbon control -->
+	</div>
+
+    <!-- dynamic notification area -->
+	<div id="notificationArea" class="s4-noti"></div>
+
+    <!-- old navigation delegate? -->
+	<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+			<SharePoint:DelegateControl runat="server" ControlId="PublishingConsole" Id="PublishingConsoleDelegate">
+		   </SharePoint:DelegateControl>
+	</asp:ContentPlaceHolder>
+	
+	<!-- top web part panel -->
+	<div id="WebPartAdderUpdatePanelContainer">
+		<asp:UpdatePanel
+			ID="WebPartAdderUpdatePanel"
+			UpdateMode="Conditional"
+			ChildrenAsTriggers="false"
+			runat="server">
+			<ContentTemplate>
+				<WebPartPages:WebPartAdder ID="WebPartAdder" runat="server" />
+			</ContentTemplate>
+			<Triggers>
+				<asp:PostBackTrigger ControlID="WebPartAdder" />
+			</Triggers>
+		</asp:UpdatePanel>
+	</div>
+</div>
+
+<Sharepoint:SPSecurityTrimmedControl ID="SPSecurityTrimmedControlRibbon2" runat="server" PermissionsString="AddAndCustomizePages">
+    <PublishingWebControls:EditModePanel runat="server" id="ShowRibbon" PageDisplayMode="Edit" >
+        <script type="text/javascript">
+            document.getElementById("s4-ribbonrow").style.display = "block";
+        </script>
+    </PublishingWebControls:EditModePanel> 
+</Sharepoint:SPSecurityTrimmedControl>
+
+<!-- =====  End Ribbon and other Top Content ============================================================ -->
+
+<!-- =====  Start Scrolling Body Area ============================================================ -->
+
+<!-- these two div id's are used to setup the main scrolling page area, they should stay if you are sticking the ribbon to the top -->
+<div ID="s4-workspace" class="s4-nosetwidth">  <!-- NOTE: s4-nosetwidth is used when you are setting a fixed page width in css, remove for 100% -->
+  <!-- =====  Start Header ========================================================================= -->
+
+  <div ID="ProtecaHeader">
+    <div class="proteca_firstBandeau">
+        <!-- Welcome / Login control -->
+	    <ul class="proteca_login">
+			    <li>Bienvenue <wssuc:Welcome id="IdWelcome" runat="server" EnableViewState="false" /></li>
+                <li class="sepBandeau">&nbsp;</li>
+                <li><a href="javascript:Proteca.Help.Activator.showGlossary()">Glossaire</a></li>
+                <li class="sepBandeau">&nbsp;</li>
+                <li><a href="javascript:Proteca.Help.Activator.showDiagnosticHelp()">Aide au diagnostic</a></li>
+                <li class="sepBandeau">&nbsp;</li>
+                <li><a href="javascript:Proteca.Help.Activator.showOnlineHelp()"><img src="/Images/aide.gif" border="0" /></a></li>                
+	    </ul>
+        <ul class="proteca_version">
+            <li>Proteca version 4.0</li>
+            <li class="sepBandeau">&nbsp;</li>
+            <li>Copyright GRTgaz 2012</li>
+        </ul>
+    </div>
+	
+    <div class="proteca_secondBandeau">
+        <!-- search box loads from delegate, style with CSS -->
+	    <div class="s4-notdlg proteca_search">
+		    <asp:ContentPlaceHolder id="PlaceHolderSearchArea" runat="server">
+			    <SharePoint:DelegateControl runat="server" ControlId="SmallSearchInputBox" Version="4" />
+		    </asp:ContentPlaceHolder>
+            <a href="/Pages/proteca.aspx#/Search/Search" class="advancedSearchLink"> > Recherche avanc&eacute;e</a>
+	    </div>
+        
+        <!-- link back to homepage, SiteLogoImage gets replaced by the Site Icon, you can hard code this so that its not overridden by the Site Icon or even remove -->
+	    <div class="s4-notdlg proteca_logo"><!-- NOTE: any time you see s4-notdlg, this element will be hidden from SharePoint dialog windows  -->
+		    <SharePoint:SPLinkButton runat="server" NavigateUrl="~sitecollection/">
+			    <SharePoint:SiteLogoImage  LogoImageUrl="/Images/logo_proteca.jpg" runat="server"/>
+		    </SharePoint:SPLinkButton>	
+	    </div>
+        <div class="clear">&nbsp;</div>
+    </div>
+
+</div>
+<!-- =====  End Header =========================================================================== -->
+
+<!-- page editing status bar -->
+    <div class="s4-notdlg">
+        <div id="s4-statusbarcontainer">
+	        <div id="pageStatusBar" class="s4-status-s1">
+	        </div>
+        </div>
+    </div>
+
+  <div ID="s4-bodyContainer">
+  <!-- id="mso_contentdiv" required, helps SharePoint put the web part editing pane in the main body on the right, you can move the ID if needed -->
+  <div id="MSO_ContentDiv" class="proteca_MainContent" runat="server">
+	<!-- s4-ca is the main body div -->
+	<div class="s4-ca proteca_content">
+		<div class="s4-notdlg">
+			<!--<asp:ContentPlaceHolder id="PlaceHolderPageTitleInTitleArea" runat="server" />			-->
+		</div>
+		
+		<!-- place a table around this to handle funky markup in _Layouts/areacachesettings.aspx (if you want) -->
+		
+		
+		<div class="proteca_content">
+			<!-- page content loads from the pages and pages layout -->
+			<asp:ContentPlaceHolder id="PlaceHolderMain" runat="server"/>
+		</div>
+	</div>
+
+	<!-- footer - this is purely optional -->
+	<div class="s4-notdlg" style="clear: both;">
+	</div>
+
+	<!-- the developer dashboard can be turned on by administrators and shows debuging and performance info for the page -->
+	<div id="DeveloperDashboard" class="ms-developerdashboard">
+		<SharePoint:DeveloperDashboard runat="server"/>
+	</div>
+
+  </div>
+  </div>
+</div>
+
+<!-- =====  End scrolling body area with these two previous div's ============================================================ -->
+
+<!-- The form digest security control used to for security validation on forms -->
+<asp:ContentPlaceHolder id="PlaceHolderFormDigest" runat="server">
+	<SharePoint:FormDigest id="ProtecaFormDigest" runat="server"/>
+</asp:ContentPlaceHolder>
+
+<!-- =====  Hidden Placeholders ============================================================ -->
+<asp:Panel ID="Panel1" visible="false" runat="server">
+
+    <!-- PROTECA Hidden PlaceHolder -->
+    <asp:ContentPlaceHolder id="PlaceHolderPageDescription" runat="server"/>
+    <asp:ContentPlaceHolder id="PlaceHolderLeftNavBar" runat="server" />
+    <asp:ContentPlaceHolder id="PlaceHolderLeftActions" runat ="server"/>
+    <asp:ContentPlaceHolder id="PlaceHolderGlobalNavigation" runat="server" />
+    <asp:ContentPlaceHolder ID="SPNavigation" runat="server" />
+    <asp:ContentPlaceHolder id="PlaceHolderTitleBreadcrumb" runat="server" />
+			
+   <!-- =====  These placeholders don't output anything very often OOTB ========== -->
+	<!-- The navigation menu that is inside the top navigation bar. -->
+	<asp:ContentPlaceHolder id="PlaceHolderHorizontalNav" runat="server"/>
+	<!-- The top navigation where GlobalNavigationSiteMap is contained. Gets overridden by default. V4 uses it to change the top nav -->
+	<asp:ContentPlaceHolder id="PlaceHolderTopNavBar" runat="server"/>
+	<!-- The top of the Quick Launch menu. -->
+	<asp:ContentPlaceHolder id="PlaceHolderQuickLaunchTop" runat="server"/>
+	<!-- The bottom of the Quick Launch menu. -->
+	<asp:ContentPlaceHolder id="PlaceHolderQuickLaunchBottom" runat="server"/>
+	<!-- The placement of the data source used to populate the left navigation bar. -->
+	<asp:ContentPlaceHolder id="PlaceHolderLeftNavBarDataSource" runat="server" />
+	<!-- The date picker used when a calendar is visible on the page. -->
+	<asp:ContentPlaceHolder id="PlaceHolderCalendarNavigator" runat ="server" />
+	<!-- The top section of the left navigation bar. -->
+	<asp:ContentPlaceHolder id="PlaceHolderLeftNavBarTop" runat="server" />	
+	<!-- used to override the global sitemap? -->
+	<asp:ContentPlaceHolder id="PlaceHolderGlobalNavigationSiteMap" runat="server" />
+	
+   <!-- =====  These placeholders does not appear as part of the 2010 UI but must be present for backward compatibility. ========== -->
+	<!-- The name of the site where the current page resides. -->
+	<asp:ContentPlaceHolder id="PlaceHolderSiteName" runat="server"/>	
+	<!-- Page icon in the upper-left area of the page -->
+	<asp:ContentPlaceHolder ID="PlaceHolderPageImage" runat="server"/>
+	<!-- Left border of the title area -->
+	<asp:ContentPlaceHolder ID="PlaceHolderTitleLeftBorder" runat="server"/>
+	<!-- mini console - supplementary buttons for pages like the wiki / history / incoming links -->
+	<asp:ContentPlaceHolder id="PlaceHolderMiniConsole" runat="server"/>
+	<!-- Right margin of the title area -->
+	<asp:ContentPlaceHolder id="PlaceHolderTitleRightMargin" runat="server"/>
+	<!-- Left border of the title area -->
+	<asp:ContentPlaceHolder ID="PlaceHolderTitleAreaSeparator" runat="server"/>	
+	<!-- The width of the left navigation area -->
+	<asp:ContentPlaceHolder ID="PlaceHolderNavSpacer" runat="server"/>
+	<asp:ContentPlaceHolder id="PlaceHolderLeftNavBarBorder" runat="server"/>
+	<!-- Border element for the main page body -->
+	<asp:ContentPlaceHolder ID="PlaceHolderBodyLeftBorder" runat="server"/>
+	<!-- Right margin of the main page body -->
+	<asp:ContentPlaceHolder id="PlaceHolderBodyRightMargin" runat="server" />
+	
+</asp:Panel>
+
+<!-- Handle Search "enter" key and back button -->
+<input type="text" name="__spDummyText1" style="display:none;" size="1"/>
+<input type="text" name="__spDummyText2" style="display:none;" size="1"/>
+
+</form>
+
+<!-- extra form for some instances -->
+<asp:ContentPlaceHolder id="PlaceHolderUtilityContent" runat="server" />
+
+<!-- warn users of old browsers that they need to upgrade -->
+<SharePoint:WarnOnUnsupportedBrowsers runat="server"/>
+
+<!-- désactivation du timeout Sharepoint pour Silverlight -->
+<script type="text/javascript">
+    function _spCheckIfSilverlightPluginIsLoaded_WebPartctl00_ctl16_g_34935611_d8a7_437c_9794_9eb7e3708b87() 
+    {
+    }
+</script>
+</body>
+</html>

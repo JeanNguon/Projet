@@ -1,0 +1,282 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.DeplacementPpView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="DeplacementPpView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:BoolToVisibilityConverter x:Key="InverseVisibilityConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:InverseBoolConverter x:Key="InverseBoolValue" TrueValue="false" FalseValue="true" />
+        <converter:BoolToTileViewItemPosition x:Key="BoolToItemPosition" TrueValue="Bottom" FalseValue="Right" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedRowHeight" TrueValue="17" FalseValue="*" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedColumnWidth" TrueValue="*" FalseValue="190" />
+        <converter:BoolToStringConverter x:Key="BoolToStringConverter" TrueValue="Oui" FalseValue="Non" />
+        <converter:EmptyToNullConverter x:Key="EmptyToNullConverter" />
+        <converter:TileViewItemStateToThicknessConverter x:Key="TileViewItemStateToThicknessConverter" MinimizedValue="1 0 1 1" MaximizedValue="0" />
+        <converter:DateTimeToStringConverter x:Key="DateTimeConverter" />
+        <converter:BoolToColorConverter x:Key="InstrumentToBGConverter" FalseValue="{StaticResource GridMediumGradientGray}" TrueValue="{StaticResource GridSelectedGrayBrush}" />
+        <converter:BoolToColorConverter x:Key="InstrumentToAltBGConverter" FalseValue="{StaticResource GridLightGradientGray}" TrueValue="{StaticResource GridSelectedGrayBrush}" />
+        <converter:BoolToColorConverter x:Key="InstrumentToFGConverter" FalseValue="{StaticResource GridView_RowForeground_Default}" TrueValue="{StaticResource GridView_RowForeground_Hover}" />
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" DisableScrollViewer="True" HideTopNavigation="False"
+                      HideFooter="{Binding IsNonEditableTileItemState}"
+                      Grid.Column="0" IsEditMode="{Binding IsEditMode}"
+                      CurrentElementHeader="{Binding SelectedEntity.Libelle}"
+                      PreviousUri="{Binding PreviousUri}" NextUri="{Binding NextUri}" >
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot">
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding DeplacerCommand}" />
+                </i:Interaction.Behaviors>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <telerik:RadTileView x:Name="TileView" Grid.Row="0" Grid.Column="0"
+                                    MaximizeMode="One" TileStateChangeTrigger="SingleClick" IsDockingEnabled="True"
+                                    PreservePositionWhenMaximized="True"
+                                    MinimizedRowHeight="{Binding IsLeftBarExpanded, Converter={StaticResource TileMinimizedRowHeight}}"
+                                    MinimizedColumnWidth="{Binding IsLeftBarExpanded, Converter={StaticResource TileMinimizedColumnWidth}}" 
+                                    MinimizedItemsPosition="{Binding IsLeftBarExpanded, Converter={StaticResource BoolToItemPosition}}"
+                                    RowHeight="Auto" IsAutoScrollingEnabled="True" >
+
+                    <!-- Tile View Déplacement PP -->
+                    <telerik:RadTileViewItem x:Name="MainItem" Header="Portion" TileState="{Binding MainTileItemState, Mode=TwoWay}" BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}" >
+                        <ScrollViewer Grid.Row="0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" BorderThickness="0" BorderBrush="{StaticResource SBMainGray}">
+                            <Grid Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="2*" MinWidth="420" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Alerte -->
+                                <TextBlock Text="{Binding Path=Resource.DeplacementPp_Alerte, Source={StaticResource ApplicationResources}}" 
+                                       Grid.Row="0" Grid.Column="0" Style="{StaticResource RegroupementText}" />
+
+                                <Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource RectBlueUnderline}" />
+
+                                <UC:CustomGridView x:Name="RadGridViewAlerte" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"
+                                                   ItemsSource="{Binding AlerteDetail}" SelectionMode="Single"
+						                           Margin="0" Padding="0" ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto"
+						                           CanUserDeleteRows="{Binding CanDelete}" AlternationCount="2"
+                                                   SelectedItem="{Binding SelectedAlerteDetail, Mode=TwoWay}"
+                                                   RowDetailsVisibilityMode="VisibleWhenSelected" Language="fr"
+                                                   CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="1,0,1,1" 
+                                                   BorderBrush="#7F000000" AutoGenerateColumns="False" >
+
+                                    <UC:CustomGridView.Resources>
+                                        <Style TargetType="telerik:GridViewCell">
+                                            <Setter Property="Foreground" Value="{Binding Alerte.Supprime, Converter={StaticResource InstrumentToFGConverter}, UpdateSourceTrigger=PropertyChanged}" />
+                                        </Style>
+                                    </UC:CustomGridView.Resources>
+
+                                    <!-- Row styles pour l'affichage de éléments supprimés -->
+                                    <UC:CustomGridView.RowStyle>
+                                        <Style BasedOn="{StaticResource GridViewRowStyleMain}" TargetType="telerik:GridViewRow">
+                                            <Setter Property="Background" Value="{Binding Alerte.Supprime, Converter={StaticResource InstrumentToBGConverter}}" />
+                                        </Style>
+                                    </UC:CustomGridView.RowStyle>
+                                    <UC:CustomGridView.AlternateRowStyle>
+                                        <Style BasedOn="{StaticResource GridViewRowStyleMain}" TargetType="telerik:GridViewRow">
+                                            <Setter Property="Background" Value="{Binding Alerte.Supprime, Converter={StaticResource InstrumentToAltBGConverter}}" />
+                                        </Style>
+                                    </UC:CustomGridView.AlternateRowStyle>
+                                    
+                                    <UC:CustomGridView.RowDetailsTemplate>
+                                        <DataTemplate>
+                                            <UC:VisiteMesures Visite="{Binding Alerte.Visite}" HidePrecedent="True" IsEditMode="False"/>
+                                        </DataTemplate>
+                                    </UC:CustomGridView.RowDetailsTemplate>
+
+                                    <!-- Colones -->
+                                    <UC:CustomGridView.Columns>
+                                        
+                                        <!-- Colone des Libellé d'équipement enrichis -->
+                                        <telerik:GridViewDataColumn Header="{Binding Path=Resource.Alerte_EqPp, Source={StaticResource ApplicationResources}}" 
+                                                            DataMemberBinding="{Binding RichLibelle, NotifyOnValidationError=False}"
+                                                            IsResizable="True" IsFilterable="True" Width="Auto" IsReadOnly="True" IsReorderable="False" IsSortable="False"/>
+                                        
+                                        <!-- Colone des Commentaires -->
+                                        <telerik:GridViewDataColumn Width="*" Header="{Binding Path=Resource.Alerte_Commentaire, Source={StaticResource ApplicationResources}}"
+                                                                    TextWrapping="Wrap"
+                                                                    IsResizable="True" DataMemberBinding="{Binding CommentaireASCII, Converter={StaticResource EmptyToNullConverter}}" 
+                                                                    IsReadOnly="True" IsReorderable="False" IsSortable="False"/>
+
+                                        <!-- Colone des Types d'alerte -->
+                                        <telerik:GridViewDataColumn Header="{Binding Path=Resource.Alerte_Type, Source={StaticResource ApplicationResources}}" 
+                                                            DataMemberBinding="{Binding LibelleType, NotifyOnValidationError=False}"
+                                                            IsResizable="True" IsFilterable="True" Width="Auto" IsReadOnly="True" IsReorderable="False" IsSortable="False"/>
+
+                                        <!-- Colone des dates-->
+                                        <telerik:GridViewDataColumn Width="Auto" Header="{Binding Path=Resource.Alerte_Date, Source={StaticResource ApplicationResources}}"
+                                                    IsResizable="True" DataMemberBinding="{Binding Date}" DataFormatString="{}{0:d}" IsReadOnly="True" IsReorderable="False" IsSortable="False"/>
+
+                                        <!-- Bouton de suppression -->
+                                        <telerik:GridViewColumn Header="{Binding Path=Resource.Alerte_Desactiver, Source={StaticResource ApplicationResources}}" 
+                                                IsSortable="False" IsReorderable="False" IsResizable="False" >
+                                            <telerik:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox IsChecked="{Binding Alerte.Supprime, Mode=TwoWay}" IsEnabled="{Binding CanDisableGeo}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </telerik:GridViewColumn.CellTemplate>
+                                        </telerik:GridViewColumn>
+
+                                    </UC:CustomGridView.Columns>
+                                </UC:CustomGridView>
+
+                                <!-- Pagination des résultats -->
+                                <telerik:RadDataPager Grid.Row="3" Grid.ColumnSpan="3"
+							          x:Name="radDataPagerAlerte"
+							          PageSize="20" 
+							          BorderThickness="1,0,1,1"
+							          Source="{Binding Items, ElementName=RadGridViewAlerte}"
+							          DisplayMode="All"
+							          AutoEllipsisMode="Both"
+							          NumericButtonCount="7"
+							          IsTotalItemCountFixed="True" />
+
+                                <!-- Déplacement -->
+                                <TextBlock Text="{Binding Path=Resource.DeplacementPp_Deplacement, Source={StaticResource ApplicationResources}}" 
+                                       Grid.Row="4" Grid.Column="0" Style="{StaticResource RegroupementText}" />
+
+                                <Rectangle Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Style="{StaticResource RectBlueUnderline}" />
+
+                                <!-- Dépalacer vers -->
+                                <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Path=Resource.DeplacementPp_Deplacer, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireText}" VerticalAlignment="Center" />
+                                    <UC:CustomAutoCompleteBox Grid.Row="0" Grid.Column="1" Margin="5 2 5 2" IsTextCompletionEnabled="True" 
+                                                     MinimumPrefixLength="3" MaxDropDownHeight="100" MinimumPopulateDelay="10" ValueMemberBinding="{Binding Path=LibellePortion}"
+                                                     ItemsSource="{Binding ListPortions}" ValueMemberPath="LibellePortion" FilterMode="Contains"
+                                                     SelectedItem="{Binding PortionSelected, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" >
+                                        <UC:CustomAutoCompleteBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding LibellePortion}" Style="{StaticResource FormulaireText}" />
+                                            </DataTemplate>
+                                        </UC:CustomAutoCompleteBox.ItemTemplate>
+                                    </UC:CustomAutoCompleteBox>
+
+                                    <Image Grid.Row="0" Grid.Column="2" Source="/Proteca.Silverlight;component/Images/info.png" Width="20" Margin="0 0 5 0"
+                                       ToolTipService.ToolTip="{Binding Path=Resource.TooltipAutoComplete_PI, Source={StaticResource ApplicationResources}}" />
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Resource.DeplacementPp_Pk, Source={StaticResource ApplicationResources}}" 
+                                               Style="{StaticResource FormulaireText}" VerticalAlignment="Center" />
+
+                                    <UC:NumericTextBox x:Name="txtBoxPointKilo" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" 
+                                        Text="{Binding PKSelected, Mode=TwoWay,NotifyOnValidationError=True, ValidatesOnExceptions=True, Converter={StaticResource EmptyToNullConverter}}" 
+                                        Style="{StaticResource TextBoxForm}" >                                        
+                                    </UC:NumericTextBox>
+
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                    </telerik:RadTileViewItem>
+
+                    <!-- Tile View Equipements -->
+                    <telerik:RadTileViewItem x:Name="Equipements" Header="{Binding Path=Resource.TileView_Title_Equipement, Source={StaticResource ApplicationResources}}" 
+                                             TileState="{Binding EquipementssTileItemState, Mode=TwoWay}" BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <UC:ExportAndPrint x:Name="exportAndPrint" Grid.Row="0" 
+                                               ColumnsHiddenToExport="{Binding ColumnsHiddenToExport, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                               Visibility="Visible" ExportPDFCommand="{Binding ExportPDFCommand}"
+                                               PrintCommand="{Binding PrintCommand}" ExportExcelCommand="{Binding ExportExcelCommand}"
+                                               GridView="{Binding ElementName=RadGridViewEquipement}"/>
+
+                            <UC:CustomGridView x:Name="RadGridViewEquipement" Grid.Row="1" ItemsSource="{Binding ListEquipement}" 
+                                                SelectionMode="Extended" AutoGenerateColumns="False" 
+						                        Margin="0" ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto" AlternationCount="2"
+						                        CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed"
+                                                VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="1,0,1,1" BorderBrush="#7F000000">
+                                <UC:CustomGridView.Columns>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Libelle}" IsSortable="True" IsReorderable="False" 
+                                                                IsResizable="False" IsReadOnly="True" Width="*" 
+                                                                Header="{Binding Path=Resource.Ouvrage_Libelle_Equipement, Source={StaticResource ApplicationResources}}" >
+                                        <telerik:GridViewDataColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <HyperlinkButton NavigateUri="{Binding NaviagtionUrl}" Content="{Binding Libelle}" />
+                                            </DataTemplate>
+                                        </telerik:GridViewDataColumn.CellTemplate>
+                                    </telerik:GridViewDataColumn>
+
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding TypeEquipement.Libelle}" IsSortable="True" IsReorderable="False" 
+                                                                IsResizable="False" IsReadOnly="True" Width="*" 
+                                                                Header="{Binding Path=Resource.Equipement_LibelleTypeEquipement, Source={StaticResource ApplicationResources}}" />
+
+                                </UC:CustomGridView.Columns>
+                            </UC:CustomGridView>
+
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Resource.Portions_PP_NbElements, Source={StaticResource ApplicationResources}}" Style="{StaticResource ResultCount}" />
+                                <TextBlock  Text="{Binding Items.ItemCount, ElementName=GridViewPpEquipement}" Style="{StaticResource ResultCount}" />
+                            </StackPanel>
+
+                        </Grid>
+                    </telerik:RadTileViewItem>
+
+                </telerik:RadTileView>
+
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid Margin="10,10" HorizontalAlignment="Stretch" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <UC:ErrorSummary />
+                
+                <Button x:Name="btnDeplacer" Style="{StaticResource BtnDeplacer}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding DeplacerCommand}" 
+                        HorizontalAlignment="Right" IsEnabled="{Binding IsDeplaceEnable, Mode=TwoWay}" />
+                
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+

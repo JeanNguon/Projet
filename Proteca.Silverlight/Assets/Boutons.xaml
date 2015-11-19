@@ -1,0 +1,489 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+
+    <!-- style pour les textes dans les boutons de formulaire-->
+    <Style x:Key="ButtonText" TargetType="Button">
+        <Setter Property="Margin" Value="5 5 5 5" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <!-- ############################ -->
+    <!-- #### BOUTONS GENERIQUES #### -->
+    <!-- ############################ -->
+    
+    <!-- style pour les bouttons valider -->
+    <Style x:Key="BtnValider" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Valider.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Valider, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- style pour les boutons Upload -->
+    <Style x:Key="BtnParcourir" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/folder_lightblue.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Parcourir, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- style pour les boutons Telecharger -->
+    <Style x:Key="BtnTelecharger" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Archiver.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Telecharger, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- style pour les boutons Importer -->
+    <Style x:Key="BtnImporter" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Valider.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Importer, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- style pour les bouttons valider avec historisation -->
+    <Style x:Key="BtnValiderHistorisation" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Historiser.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_ValiderHistorisation, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style pour les boutons annuler -->
+    <Style x:Key="BtnAnnuler" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Annuler.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Annuler, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Style pour les boutons annuler -->
+    <Style x:Key="BtnReinitialiser" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Annuler.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Reinitialiser, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Style pour les boutons Supprimer -->
+    <Style x:Key="BtnSupprimer" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Supprimer.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Supprimer, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Style pour les boutons imprimer -->
+    <Style x:Key="BtnImprimer" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/fileprint.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Imprimer, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BtnSupprimerNoText" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Supprimer.png" Width="25" Margin="0" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style pour les boutons rechercher -->
+    <Style x:Key="BtnRechercher" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Rechercher.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BTN_Rechercher, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style pour les boutons rechercher -->
+    <Style x:Key="BtnModifier" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Modifier.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BTN_Modifier, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ############################# -->
+    <!-- #### BOUTONS SPECIFIQUES #### -->
+    <!-- ############################# -->
+
+    <!-- Style Bouton Ajouter (petite taille) -->
+    <Style x:Key="BtnSmallAdd" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="15" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Ajouter, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Ajouter (petite taille) -->
+    <Style x:Key="BtnSmallManage" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Center" Text="..." VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Ajouter un profil -->
+    <Style x:Key="BtnAjouterUsrProfil" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_AjouterProfil, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Ajouter un utilisateur -->
+    <Style x:Key="BtnAjouterUsrUtilisateur" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_AjouterUtilisateur, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Ajouter un utilisateur -->
+    <Style x:Key="BtnAjouterUsrUtilisateurIcone" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add_user.png" Width="25" Margin="0 0 5 0" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Ajouter un instrument -->
+    <Style x:Key="BtnAjouterInsInstrumentIcone" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add_ins.png" Width="25" Margin="0 0 5 0" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Style Bouton Réintégrer un utilisateur -->
+    <Style x:Key="BtnIntegrer" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/reintegrer.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Resource.BTN_Integrer, Source={StaticResource ApplicationResources}}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Style Bouton Découper -->
+    <Style x:Key="BtnDecouper" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BTN_Decouper, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Style Bouton Assembler -->
+    <Style x:Key="BtnAssembler" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BTN_Assembler, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Ajouter un equipement temporaire -->
+    <Style x:Key="BtnAjouterEqTmp" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BTN_AjouterEqTmp, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Ajouter un modèle de mesure -->
+    <Style x:Key="BtnAjouterModeleMesure" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BTN_AjouterModeleMesure, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Ajouter un secteur -->
+    <Style x:Key="BtnAjouterGeoSecteur_Mini" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BtnAjouterGeoSecteur, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- Style Bouton Exporter une tournée -->
+    <Style x:Key="BtnExporterTournee" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.TourneeBoutonExporter, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- Style Bouton Exporter une tournée -->
+    <Style x:Key="BtnExporterTourneeProteIn" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.TourneeBoutonExporterProteIn, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- Style Bouton Exporter une tournée -->
+    <Style x:Key="BtnExporterTourneeProtOn" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.TourneeBoutonExporterProtOn, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- Style Bouton Exporter une tournée -->
+    <Style x:Key="BtnExporterTourneeExcel" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.TourneeBoutonExporterExcel, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- Style Bouton Genrer une action -->
+    <Style x:Key="BtnGenererAction" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=Resource.Bouton_GenererAction, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- Style Bouton Déplacer une PP -->
+    <Style x:Key="BtnDeplacer" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/déplacer.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BTN_Deplacer, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+     <!-- Style Bouton Restitution -->
+    <Style x:Key="BtnRestitutionGlobale" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+       
+
+    <!-- Style Bouton Analyser -->
+    <Style x:Key="BtnAnalyser" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/restitution.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BTN_Analyser, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Ajouter une action -->
+    <Style x:Key="BtnAjoutAction" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Add.png" Width="25" Margin="0 0 5 0" />
+                        <TextBlock Text="{Binding Path=Resource.BTN_AjoutAction, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style Bouton Admin Odima -->
+    <Style x:Key="BtnAdminOdima" TargetType="Button" BasedOn="{StaticResource ButtonText}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Proteca.Silverlight;component/Images/Ajouter.png" Width="20" Margin="0 0 5 0" />
+                        <TextBlock Text="Valider" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

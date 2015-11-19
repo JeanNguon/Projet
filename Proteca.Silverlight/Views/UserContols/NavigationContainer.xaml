@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Proteca.Silverlight.Views.UserContols.NavigationContainer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+   xmlns:Regions="clr-namespace:Jounce.Regions;assembly=Jounce"
+    d:DesignHeight="300" d:DesignWidth="400">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{StaticResource HeaderGradientGray}" />
+
+        <!-- TITRE -->
+        <TextBlock x:Name="HeaderText" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource HeaderTextStyle}" Text="{Binding Title}" />
+        <ContentControl Grid.Row="1" x:Name="LeftContainer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                          Regions:ExportAsRegion.RegionName="LeftContainer"/>
+        <ContentControl x:Name="MainContainer"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="2"
+                    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                    Regions:ExportAsRegion.RegionName="MainContainer"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,313 @@
+﻿<UserControl x:Class="Proteca.Silverlight.Views.UserContols.VisiteMesures"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+    xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters" 
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToColorConverter x:Key="SeuilColorConverter" TrueValue="Red" FalseValue="Black" />
+        <converter:BoolToColorConverter x:Key="SeuilBGColorConverter" TrueValue="Yellow" FalseValue="White" />
+        <converter:BoolToColorConverter x:Key="BackgroundColorConverter" TrueValue="Transparent" FalseValue="DarkGray" />
+        <converter:NullOrEmptyToVisibibilityConverter x:Key="NullOrEmptyToVisibilityConverter" />
+        <converter:InverseBoolConverter x:Key="InverseBoolConverter" TrueValue="False" FalseValue="True"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Height="Auto" Width="Auto" Background="Transparent" 
+          Visibility="{Binding Visite, Converter={StaticResource NullOrEmptyToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=UserControl}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Visibility="{Binding Visite.HasVisiteMesure, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                   Text="{Binding Path=Resource.ValidationVisite_MesuresStd, Source={StaticResource ApplicationResources}}"
+                   Style="{StaticResource FormulaireText}"/>
+
+        <UC:CustomGridView x:Name="RadGridViewMesureStd" BorderThickness="0,1,0,1" GridLinesVisibility="Both" CanUserFreezeColumns="False" 
+                             ItemsSource="{Binding Visite.VisiteMesures, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                             ShowGroupPanel="False" Grid.Row="1" HorizontalAlignment="Left" RowIndicatorVisibility="Collapsed" AutoGenerateColumns="False"
+                             Visibility="{Binding Visite.HasVisiteMesure, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource AncestorType=UserControl}}">
+            <UC:CustomGridView.Columns>
+                <telerik:GridViewDataColumn Width="200" DataMemberBinding="{Binding Libelle}" IsReadOnly="True" IsFilterable="False" IsSortable="False"
+											Header="{Binding Path=Resource.ValidationVisite_TypeMesure, Source={StaticResource ApplicationResources}}" />
+                
+                <telerik:GridViewDataColumn Width="100" IsFilterable="False" IsSortable="False" EditTriggers="CellClick" 
+                                            IsReadOnlyBinding="{Binding IsMaxiEnable, Converter={StaticResource InverseBoolConverter}}"
+                                            EditorStyle="{StaticResource DefaultTextBoxStyle}"
+                                            DataMemberBinding="{Binding Maxi.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                            Header="{Binding Path=Resource.ValidationVisite_Maxi, Source={StaticResource ApplicationResources}}" >
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="telerik:GridViewCell" BasedOn="{StaticResource DefaultGridViewCellStyle}">
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="Margin" Value="0 0 1 0" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding IsMaxiEnable, Converter={StaticResource BackgroundColorConverter}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <TextBlock Visibility="{Binding IsMaxiEnable, Converter={StaticResource HideConverter}}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"
+                                           Text="{Binding Maxi.ValeurStringFormated}" 
+                                           Foreground="White"/>
+                                <UC:NumericTextBox Visibility="{Binding IsMaxiEnable, Converter={StaticResource VisibilityConverter}}" IsEnabled="False"
+                                                   Style="{StaticResource NoDisableTextBoxStyle}" StringFormat="{Binding Maxi.StringFormat}"
+                                                   Background="{Binding Maxi.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                                   Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                                   Text="{Binding Maxi.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                                   Foreground="{Binding Maxi.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                    <telerik:GridViewDataColumn.CellEditTemplate>
+                        <DataTemplate>
+                            <UC:NumericTextBox IsEnabled="{Binding IsEditMode, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                               Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                               Text="{Binding Maxi.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                               Background="{Binding Maxi.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                               Foreground="{Binding Maxi.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellEditTemplate>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Width="100" IsFilterable="False" IsSortable="False" EditTriggers="CellClick" 
+                                            IsReadOnlyBinding="{Binding IsMoyenEnable, Converter={StaticResource InverseBoolConverter}}"
+                                            EditorStyle="{StaticResource DefaultTextBoxStyle}"
+                                            DataMemberBinding="{Binding Moyen.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                            Header="{Binding Path=Resource.ValidationVisite_Moyen, Source={StaticResource ApplicationResources}}" >
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="telerik:GridViewCell" BasedOn="{StaticResource DefaultGridViewCellStyle}">
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="Margin" Value="0 0 1 0" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding IsMoyenEnable, Converter={StaticResource BackgroundColorConverter}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <TextBlock Visibility="{Binding IsMoyenEnable, Converter={StaticResource HideConverter}}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"
+                                           Text="{Binding Moyen.ValeurStringFormated}" 
+                                           Foreground="White"/>
+                                <UC:NumericTextBox Visibility="{Binding IsMoyenEnable, Converter={StaticResource VisibilityConverter}}" IsEnabled="False"
+                                                   Style="{StaticResource NoDisableTextBoxStyle}" StringFormat="{Binding Moyen.StringFormat}"
+                                                   Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                                   Text="{Binding Moyen.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                                   Background="{Binding Moyen.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                                   Foreground="{Binding Moyen.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                    <telerik:GridViewDataColumn.CellEditTemplate>
+                        <DataTemplate>
+                            <UC:NumericTextBox IsEnabled="{Binding IsEditMode, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                               Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                               Text="{Binding Moyen.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                               Background="{Binding Moyen.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                               Foreground="{Binding Moyen.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellEditTemplate>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Width="100" IsFilterable="False" IsSortable="False" EditTriggers="CellClick" 
+                                            IsReadOnlyBinding="{Binding IsMiniEnable, Converter={StaticResource InverseBoolConverter}}"
+                                            EditorStyle="{StaticResource DefaultTextBoxStyle}"
+                                            DataMemberBinding="{Binding Mini.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                            Header="{Binding Path=Resource.ValidationVisite_Mini, Source={StaticResource ApplicationResources}}" >
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="telerik:GridViewCell" BasedOn="{StaticResource DefaultGridViewCellStyle}">
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="Margin" Value="0 0 1 0" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding IsMiniEnable, Converter={StaticResource BackgroundColorConverter}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <TextBlock Visibility="{Binding IsMiniEnable, Converter={StaticResource HideConverter}}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"
+                                           Text="{Binding Mini.ValeurStringFormated}" 
+                                           Foreground="White"/>
+                                <UC:NumericTextBox Visibility="{Binding IsMiniEnable, Converter={StaticResource VisibilityConverter}}" IsEnabled="False"
+                                                   Style="{StaticResource NoDisableTextBoxStyle}" StringFormat="{Binding Mini.StringFormat}"
+                                                   Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                                   Text="{Binding Mini.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                                   Background="{Binding Mini.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                                   Foreground="{Binding Mini.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                    <telerik:GridViewDataColumn.CellEditTemplate>
+                        <DataTemplate>
+                            <UC:NumericTextBox IsEnabled="{Binding IsEditMode, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                               Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                               Text="{Binding Mini.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                               Background="{Binding Mini.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                               Foreground="{Binding Mini.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellEditTemplate>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Width="100" IsReadOnly="True" IsFilterable="False" IsSortable="False"
+                                            IsVisible="{Binding HidePrecedent, Converter={StaticResource InverseBoolConverter}, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            DataMemberBinding="{Binding Precedente.ValeurStringFormated}"
+                                            TextAlignment="Center"
+                                            Header="{Binding Path=Resource.ValidationVisite_Precedente, Source={StaticResource ApplicationResources}}" >
+                </telerik:GridViewDataColumn>
+
+            </UC:CustomGridView.Columns>
+        </UC:CustomGridView>
+
+        <TextBlock Grid.Row="2" Visibility="{Binding Visite.HasVisiteMesureComplementaire, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                   Text="{Binding Path=Resource.ValidationVisite_MesuresComp, Source={StaticResource ApplicationResources}}"
+                   Style="{StaticResource FormulaireText}"/>
+
+        <UC:CustomGridView x:Name="RadGridViewMesureComp" BorderThickness="0,1,0,1" GridLinesVisibility="Both" CanUserFreezeColumns="False"
+						     ItemsSource="{Binding Visite.VisiteMesuresComplementaires, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                             ShowGroupPanel="False" Grid.Row="3" HorizontalAlignment="Left" RowIndicatorVisibility="Collapsed" AutoGenerateColumns="False"
+                             Visibility="{Binding Visite.HasVisiteMesureComplementaire, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource AncestorType=UserControl}}">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="200" DataMemberBinding="{Binding Libelle}" IsReadOnly="True" IsFilterable="False" IsSortable="False"
+											Header="{Binding Path=Resource.ValidationVisite_TypeMesure, Source={StaticResource ApplicationResources}}" />
+
+                <telerik:GridViewDataColumn Width="100" IsFilterable="False" IsSortable="False" EditTriggers="CellClick" 
+                                            IsReadOnlyBinding="{Binding IsMaxiEnable, Converter={StaticResource InverseBoolConverter}}"
+                                            EditorStyle="{StaticResource DefaultTextBoxStyle}"
+                                            DataMemberBinding="{Binding Maxi.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                            Header="{Binding Path=Resource.ValidationVisite_Maxi, Source={StaticResource ApplicationResources}}" >
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="telerik:GridViewCell" BasedOn="{StaticResource DefaultGridViewCellStyle}">
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="Margin" Value="0 0 1 0" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding IsMaxiEnable, Converter={StaticResource BackgroundColorConverter}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <TextBlock Visibility="{Binding IsMaxiEnable, Converter={StaticResource HideConverter}}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"
+                                           Text="{Binding Maxi.ValeurStringFormated}" 
+                                           Foreground="White"/>
+                                <UC:NumericTextBox Visibility="{Binding IsMaxiEnable, Converter={StaticResource VisibilityConverter}}" IsEnabled="False"
+                                                   Style="{StaticResource NoDisableTextBoxStyle}" StringFormat="{Binding Maxi.StringFormat}"
+                                                   Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                                   Text="{Binding Maxi.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                                   Background="{Binding Maxi.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                                   Foreground="{Binding Maxi.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                    <telerik:GridViewDataColumn.CellEditTemplate>
+                        <DataTemplate>
+                            <UC:NumericTextBox IsEnabled="{Binding IsEditMode, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                               Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                               Text="{Binding Maxi.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                               Background="{Binding Maxi.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                               Foreground="{Binding Maxi.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellEditTemplate>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Width="100" IsFilterable="False" IsSortable="False" EditTriggers="CellClick" 
+                                            IsReadOnlyBinding="{Binding IsMoyenEnable, Converter={StaticResource InverseBoolConverter}}"
+                                            EditorStyle="{StaticResource DefaultTextBoxStyle}"
+                                            DataMemberBinding="{Binding Moyen.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                            Header="{Binding Path=Resource.ValidationVisite_Moyen, Source={StaticResource ApplicationResources}}" >
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="telerik:GridViewCell" BasedOn="{StaticResource DefaultGridViewCellStyle}">
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="Margin" Value="0 0 1 0" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding IsMoyenEnable, Converter={StaticResource BackgroundColorConverter}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <TextBlock Visibility="{Binding IsMoyenEnable, Converter={StaticResource HideConverter}}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"
+                                           Text="{Binding Moyen.ValeurStringFormated}" 
+                                           Foreground="White"/>
+                                <UC:NumericTextBox Visibility="{Binding IsMoyenEnable, Converter={StaticResource VisibilityConverter}}" IsEnabled="False"
+                                                   Style="{StaticResource NoDisableTextBoxStyle}" StringFormat="{Binding Moyen.StringFormat}"
+                                                   Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                                   Text="{Binding Moyen.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                                   Background="{Binding Moyen.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                                   Foreground="{Binding Moyen.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                    <telerik:GridViewDataColumn.CellEditTemplate>
+                        <DataTemplate>
+                            <UC:NumericTextBox IsEnabled="{Binding IsEditMode, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                               Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                               Text="{Binding Moyen.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                               Background="{Binding Moyen.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                               Foreground="{Binding Moyen.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellEditTemplate>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Width="100" IsFilterable="False" IsSortable="False" EditTriggers="CellClick" 
+                                            IsReadOnlyBinding="{Binding IsMoyenEnable, Converter={StaticResource InverseBoolConverter}}"
+                                            EditorStyle="{StaticResource DefaultTextBoxStyle}"
+                                            DataMemberBinding="{Binding Mini.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                            Header="{Binding Path=Resource.ValidationVisite_Mini, Source={StaticResource ApplicationResources}}" >
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="telerik:GridViewCell" BasedOn="{StaticResource DefaultGridViewCellStyle}">
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="Margin" Value="0 0 1 0" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding IsMiniEnable, Converter={StaticResource BackgroundColorConverter}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <TextBlock Visibility="{Binding IsMiniEnable, Converter={StaticResource HideConverter}}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"
+                                           Text="{Binding Mini.ValeurStringFormated}" 
+                                           Foreground="White"/>
+                                <UC:NumericTextBox Visibility="{Binding IsMiniEnable, Converter={StaticResource VisibilityConverter}}" IsEnabled="False"
+                                                   Style="{StaticResource NoDisableTextBoxStyle}" StringFormat="{Binding Mini.StringFormat}"
+                                                   Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                                   Text="{Binding Mini.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                                   Background="{Binding Mini.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                                   Foreground="{Binding Mini.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                    <telerik:GridViewDataColumn.CellEditTemplate>
+                        <DataTemplate>
+                            <UC:NumericTextBox IsEnabled="{Binding IsEditMode, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                               Margin="0 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                               Text="{Binding Mini.Valeur, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                               Background="{Binding Mini.IsDepassementSeuil, Converter={StaticResource SeuilBGColorConverter}}"
+                                               Foreground="{Binding Mini.IsDepassementSeuil, Converter={StaticResource SeuilColorConverter}}"/>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellEditTemplate>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Width="100" IsReadOnly="True" IsFilterable="False" IsSortable="False"
+                                            IsVisible="{Binding HidePrecedent, Converter={StaticResource InverseBoolConverter}, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            DataMemberBinding="{Binding Precedente.ValeurStringFormated}"
+                                            TextAlignment="Center"
+                                            Header="{Binding Path=Resource.ValidationVisite_Precedente, Source={StaticResource ApplicationResources}}" >
+                </telerik:GridViewDataColumn>
+
+            </telerik:RadGridView.Columns>
+        </UC:CustomGridView>
+    </Grid>
+</UserControl>

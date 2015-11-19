@@ -1,0 +1,274 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.ValidationVisiteView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:AggregateFunction="clr-namespace:Proteca.Silverlight.Views.AggregateFunctions"
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="ValidationVisiteView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:InverseBoolConverter x:Key="InverseBoolValue" TrueValue="False" FalseValue="True" />
+        <converter:BoolToTileViewItemPosition x:Key="BoolToItemPosition" TrueValue="Bottom" FalseValue="Right" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedRowHeight" TrueValue="17" FalseValue="*" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedColumnWidth" TrueValue="*" FalseValue="190" />
+        <converter:EmptyToNullConverter x:Key="EmptyToNullConverter" />
+        <converter:BoolToColorConverter x:Key="ColorConverter" TrueValue="Red" FalseValue="Black" />
+        <converter:NullOrEmptyToVisibibilityConverter x:Key="NullOrEmptyToVisibibilityConverter"/>
+        <converter:VisiteFunctionToVisibibilityConverter x:Key="VisiteFunctionToVisibibilityConverter" />
+        <converter:TileViewItemStateToBoolConverter x:Key="TileViewItemStateToBoolConverter" />
+        <converter:TileViewItemStateToThicknessConverter x:Key="TileViewItemStateToThicknessConverter" MinimizedValue="1 0 1 1" MaximizedValue="0" />
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" HideTopNavigation="True" Grid.Column="0" IsEditMode="{Binding IsEditMode}" DisableScrollViewer="True"
+                      HideFooter="{Binding MainTileItemState, Converter={StaticResource TileViewItemStateToBoolConverter}}">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding BtnValider}" />
+                </i:Interaction.Behaviors>
+                <telerik:RadTileView x:Name="TileView" MaximizeMode="One"
+                                     TileStateChangeTrigger="SingleClick"
+                                     IsDockingEnabled="True"
+                                     PreservePositionWhenMaximized="True"
+                                     MinimizedRowHeight="{Binding IsLeftBarExpanded, Converter={StaticResource TileMinimizedRowHeight}}"
+                                     MinimizedColumnWidth="{Binding IsLeftBarExpanded, Converter={StaticResource TileMinimizedColumnWidth}}" 
+                                     MinimizedItemsPosition="{Binding IsLeftBarExpanded, Converter={StaticResource BoolToItemPosition}}"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                     RowHeight="Auto">
+                    <!-- TileView spécifique équipement  -->
+                    <telerik:RadTileViewItem x:Name="MainItem" 
+                                             TileState="{Binding MainTileItemState, Mode=TwoWay}" 
+                                             BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}"
+                                             Header="{Binding Path=Resource.TileView_Title_Visites, Source={StaticResource ApplicationResources}}"
+                                             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                             ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        <ScrollViewer Grid.Row="0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                                      BorderThickness="0" BorderBrush="{StaticResource SBMainGray}">
+
+                            <Grid Background="Transparent">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <UC:ExportAndPrint x:Name="exportAndPrint" Height="42" Grid.Row="0" ColumnsHiddenToExport="{Binding ColumnsHiddenToExport, Mode=TwoWay}" 
+                                   Visibility="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}, Converter={StaticResource HideConverter}}" ExportPDFCommand="{Binding ExportPDFCommand}"
+                                   PrintCommand="{Binding PrintCommand}" ExportExcelCommand="{Binding ExportExcelCommand}" 
+                                   GridView="{Binding ElementName=RadGridViewValidationVisites}" DataPager="{Binding ElementName=radDataPagerValidationVisites}" />
+
+                                <UC:CustomGridView x:Name="RadGridViewValidationVisites" Grid.Row="1" ItemsSource="{Binding Entities}" SelectionMode="Single"
+						                           Margin="0" Padding="0" ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto"
+						                           CanUserDeleteRows="{Binding CanDelete}" AlternationCount="2"
+                                                   CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" BorderThickness="1,0,1,1" 
+                                                   BorderBrush="#7F000000" AutoGenerateColumns="False" GroupRowStyle="{StaticResource GroupRowStyle}">
+
+                                    <!-- Groupement par PortionIntegrite + design du groupHeaderRow -->
+                                    <UC:CustomGridView.GroupDescriptors>
+                                        <telerik:GroupDescriptor Member="LibellePortion">
+                                            <telerik:GroupDescriptor.AggregateFunctions>
+                                                <AggregateFunction:VisiteFunction Caption="" ResultFormatString=" " />
+                                                <AggregateFunction:VisiteCheckFunction Caption="" ResultFormatString=" " />
+                                                <AggregateFunction:VisiteCanEditGetFunction Caption="" ResultFormatString=" " />
+                                            </telerik:GroupDescriptor.AggregateFunctions>
+                                        </telerik:GroupDescriptor>
+                                    </UC:CustomGridView.GroupDescriptors>
+                                    <UC:CustomGridView.GroupHeaderTemplate>
+                                        <DataTemplate>
+                                            <Grid HorizontalAlignment="Stretch">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <!--<ColumnDefinition Width="Auto"/>-->
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Text="{Binding Header}" />
+
+                                                <Grid Grid.Column="0" HorizontalAlignment="Right">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="110"/>
+                                                        <ColumnDefinition Width="Auto" MaxWidth="80"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Image Margin="3 0 0 0"
+                                                           Grid.Column="0" Visibility="{Binding AggregateResults, Converter={StaticResource VisiteFunctionToVisibibilityConverter}}"
+                                                           Source="/Proteca.Silverlight;component/Images/warning.png" 
+                                                           Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                                                    <Border Margin="16 0 44 0"
+                                                              Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                            Visibility="{Binding DataContext.IsEditMode, Converter={StaticResource VisibilityConverter}, ElementName=RadGridViewValidationVisites}"
+                                                            >
+
+                                                        <CheckBox IsThreeState="True"
+                                                              IsChecked="{Binding AggregateResults[1].Value}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                                                              Visibility="{Binding AggregateResults[2].Value, Converter={StaticResource VisibilityConverter}}"
+                                                              Command="{Binding DataContext.CheckGroupCommand, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"
+                                                              Click="CheckBox_Click"
+                                                              x:Name="groupHeaderBox"/>
+
+                                                    </Border>
+                                                </Grid>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </UC:CustomGridView.GroupHeaderTemplate>
+
+                                    <telerik:RadGridView.ChildTableDefinitions>
+                                        <telerik:GridViewTableDefinition />
+                                    </telerik:RadGridView.ChildTableDefinitions>
+
+                                    <!-- Colones -->
+                                    <UC:CustomGridView.Columns>
+
+                                        <!-- Affichage du Pk  -->
+                                        <telerik:GridViewDataColumn Header="{Binding Path=Resource.ValidationVisite_Pk, Source={StaticResource ApplicationResources}}" 
+                                                    DataMemberBinding="{Binding Pk}" 
+                                                    IsResizable="False" IsFilterable="True" Width="Auto" IsReadOnly="True" IsReorderable="False" IsSortable="False"/>
+
+                                        <!-- Affichage du libellé de l'équipement -->
+                                        <telerik:GridViewDataColumn Header="{Binding Path=Resource.ValidationVisite_EqPp, Source={StaticResource ApplicationResources}}" 
+                                                    DataMemberBinding="{Binding LibelleOuvrage}"
+                                                    IsResizable="True" IsFilterable="True" Width="*" IsReadOnly="True" IsReorderable="False" IsSortable="False">
+                                            <telerik:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                                        <TextBlock Text="{Binding LibelleOuvrage}" Margin="0 0 5 0"/>
+                                                        <Image Visibility="{Binding EnumConformiteTournee, Converter={StaticResource NullOrEmptyToVisibibilityConverter}}"
+                                                               Source="/Proteca.Silverlight;component/Images/broken.png" Width="15" Height="15"
+                                                               ToolTipService.ToolTip="{Binding Path=Resource.ValidationVisite_ConformiteToolTip, Source={StaticResource ApplicationResources}}"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </telerik:GridViewColumn.CellTemplate>
+                                        </telerik:GridViewDataColumn>
+
+                                        <!-- Colone des dates-->
+                                        <telerik:GridViewDataColumn Width="120" Header="{Binding Path=Resource.ValidationVisite_Date, Source={StaticResource ApplicationResources}}"
+                                                    IsResizable="False" DataMemberBinding="{Binding DateVisite, StringFormat='dd/MM/yyyy'}" IsReadOnly="True" IsReorderable="False" IsSortable="False"/>
+
+                                        <!-- Affichage relevé partiel -->
+                                        <telerik:GridViewDataColumn IsSortable="False" IsReorderable="False" IsFilterable="True" IsResizable="False" Width="110"
+                                                    DataMemberBinding="{Binding RelevePartiel}" IsReadOnly="True"
+                                                    Header="{Binding Path=Resource.ValidationVisite_RelevePartiel, Source={StaticResource ApplicationResources}}">
+                                            <telerik:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Image Visibility="{Binding RelevePartiel, Converter={StaticResource VisibilityConverter}}" Source="/Proteca.Silverlight;component/Images/warning.png" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </DataTemplate>
+                                            </telerik:GridViewColumn.CellTemplate>
+                                        </telerik:GridViewDataColumn>
+
+                                        <!-- Detail de la visite serialisé -->
+                                        <telerik:GridViewDataColumn DataMemberBinding="{Binding VisiteSerialized}" Width="*" IsVisible="False"
+                                                    Header="{Binding Path=Resource.Rejets_VisiteContent, Source={StaticResource ApplicationResources}}"/>
+
+                                        <!-- Bouton Validation -->
+                                        <telerik:GridViewDataColumn Width="50" DataMemberBinding="{Binding EstValidee, Mode=TwoWay}" IsFilterable="False" IsSortable="False" UniqueName="Valider" IsReorderable="False" IsResizable="False" IsReadOnly="True"
+                                                    IsVisible="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=Grid}}">
+                                            <telerik:GridViewDataColumn.AggregateFunctions>
+                                                <AggregateFunction:VisiteCheckFunction Caption="" ResultFormatString=" " />
+                                            </telerik:GridViewDataColumn.AggregateFunctions>
+                                            <telerik:GridViewDataColumn.Header>
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock Text="{Binding Path=Resource.ValidationVisite_Valider, Source={StaticResource ApplicationResources}}" HorizontalAlignment="Center"/>
+                                                    <CheckBox Command="{Binding DataContext.CheckColumnCommand, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}" 
+                                                              CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                                                              IsChecked="{Binding AggregateResults[0].Value, RelativeSource={RelativeSource AncestorType=UC:CustomGridView}}" 
+                                                              IsThreeState="True" HorizontalAlignment="Center"
+                                                               Click="CheckBox_Click"
+                                                              x:Name="headerBox"/>
+                                                </StackPanel>
+                                            </telerik:GridViewDataColumn.Header>
+                                            <telerik:GridViewDataColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox IsChecked="{Binding EstValidee, Mode=TwoWay}" 
+                                                              Visibility="{Binding CanEditGeo, Converter={StaticResource VisibilityConverter}}" 
+                                                              HorizontalAlignment="Center"
+                                                              Click="CheckBox_Click"
+                                                              x:Name="lineBox"/>
+                                                </DataTemplate>
+                                            </telerik:GridViewDataColumn.CellTemplate>
+                                        </telerik:GridViewDataColumn>
+
+                                        <!-- Bouton de suppression -->
+                                        <telerik:GridViewColumn Width="30" IsSortable="False" IsReorderable="False" IsResizable="False" IsReadOnly="True" IsVisible="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=Grid}}">
+                                            <telerik:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <telerik:RadButton Background="Transparent" HorizontalAlignment="Center" BorderThickness="0"
+                                                                       Visibility="{Binding CanEditGeo, Converter={StaticResource VisibilityConverter}}"
+                                                                       Command="{Binding DataContext.DeleteLineCommand, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}" CommandParameter="{Binding}">
+                                                        <Image Source="/Proteca.Silverlight;component/Images/Supprimer.png" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </telerik:RadButton>
+                                                </DataTemplate>
+                                            </telerik:GridViewColumn.CellTemplate>
+                                        </telerik:GridViewColumn>
+                                    </UC:CustomGridView.Columns>
+
+                                    <telerik:RadGridView.HierarchyChildTemplate>
+                                        <DataTemplate>
+                                            <UC:VisiteMesures Visite="{Binding}" 
+                                              IsEditMode="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"/>
+                                        </DataTemplate>
+                                    </telerik:RadGridView.HierarchyChildTemplate>
+
+                                </UC:CustomGridView>
+                                <!-- Pagination des résultats -->
+                                <telerik:RadDataPager x:Name="radDataPagerValidationVisites" Source="{Binding Items, ElementName=RadGridViewValidationVisites}"
+							          Grid.Row="2" PageSize="10" DisplayMode="All" BorderThickness="1,0,1,1" AutoEllipsisMode="Both"
+							          NumericButtonCount="7" IsTotalItemCountFixed="True" />
+
+                                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=Resource.Visite_NbElements, Source={StaticResource ApplicationResources}}" Style="{StaticResource ResultCount}" />
+                                    <TextBlock Text="{Binding CountVisitesAValider}" Style="{StaticResource ResultCount}" />
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
+                    </telerik:RadTileViewItem>
+                    <telerik:RadTileViewItem Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}"
+                                             TileState="{Binding RejetsTileItemState, Mode=TwoWay}" 
+                                             BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}"
+                                             Header="{Binding Path=Resource.TileView_Title_Rejets, Source={StaticResource ApplicationResources}}"
+                                             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                             ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        <UC:Rejets ListRejets="{Binding ListRejets}" ColumnsHiddenToExport="{Binding ColumnsHiddenToExport}" 
+                                   ExportExcelCommand="{Binding ExportExcelCommand}" ExportPDFCommand="{Binding ExportPDFCommand}" 
+                                   PrintCommand="{Binding PrintCommand}"/>
+                    </telerik:RadTileViewItem>
+                </telerik:RadTileView>
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid Margin="10,10" HorizontalAlignment="Stretch" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <UC:ErrorSummary />
+
+                <Button x:Name="btnModifier" Style="{StaticResource BtnModifier}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding EditCommand}"
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" />
+                <Button x:Name="btnValider" Style="{StaticResource BtnValider}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding SaveCommand}"
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}"/>
+                <!-- Click="btnValider_Click" -->
+                <Button x:Name="btnAnnuler" Style="{StaticResource BtnAnnuler}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelCommand}"
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}"/>
+                <!-- Click="btnAnnuler_Click" -->
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+

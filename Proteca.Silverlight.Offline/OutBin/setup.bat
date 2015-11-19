@@ -1,0 +1,1 @@
+"C:\Program Files\Microsoft Silverlight\sllauncher.exe" /install:"./ProtOn.xap" /origin:http://proteca.grtgaz.net/Modules/ProtOn.xap /shortcut:desktop+startmenu /overwrite  

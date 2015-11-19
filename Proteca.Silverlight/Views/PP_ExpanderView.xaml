@@ -1,0 +1,30 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.PP_ExpanderView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="280" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="PP_ExpanderView  Page">
+
+
+    <UC:EquipementExpander Regions="{Binding Regions}" DisplayEquipmentResult="False"
+                           GeoEnsElecPortions="{Binding GeoEnsElecPortions}"
+                           GeoEnsemblesElectrique="{Binding GeoEnsemblesElectrique}"
+                           FiltreCleRegion="{Binding FiltreCleRegion, Mode=TwoWay}" 
+                           FiltreCleAgence="{Binding FiltreCleAgence, Mode=TwoWay}" 
+                           FiltreCleSecteur="{Binding FiltreCleSecteur, Mode=TwoWay}" 
+                           FiltreClePortion="{Binding FiltreClePortion, Mode=TwoWay}"
+                           FiltreCleEnsElec="{Binding FiltreCleEnsElec, Mode=TwoWay}"
+                           IncludeDeletedEquipment="{Binding IncludeDeletedEquipment, Mode=TwoWay}"
+                           FindCommand="{Binding FindCommand}"/>
+
+</navigation:Page>
+

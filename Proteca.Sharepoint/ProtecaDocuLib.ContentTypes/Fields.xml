@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<Field ID="{fc282714-d1a9-44bb-a7f6-4532f9312924}" Name="ClePP" DisplayName="ClePP"
+			   Type="Integer" Required="FALSE" Group="Proteca" StaticName="ClePP" DisplaceOnUpgrade="TRUE" />
+	<Field ID="{ac8c0f70-fe86-4675-81b2-f709a40b06d3}" Name="CleEquipement" DisplayName="CleEquipement"
+			   Type="Integer" Required="FALSE" Group="Proteca" StaticName="CleEquipement" DisplaceOnUpgrade="TRUE" />
+	<Field ID="{0ea6179f-d304-45b4-b545-e1eeec7f0d1f}" Name="ClePortion" DisplayName="ClePortion"
+			   Type="Integer" Required="FALSE" Group="Proteca" StaticName="ClePortion" DisplaceOnUpgrade="TRUE" />
+	<Field ID="{959ea557-f935-48da-b4db-3a5a68e359a3}" Name="CleEnsembleElectrique" DisplayName="CleEnsembleElectrique"
+			   Type="Integer" Required="FALSE" Group="Proteca" StaticName="CleEnsembleElectrique" DisplaceOnUpgrade="TRUE" />
+	<Field ID="{c03294a8-804b-4e16-8754-67fa122806fa}" Name="Libellé" DisplayName="Libellé"
+			   Type="Text" MaxLength="100" Required="TRUE" Group="Proteca" StaticName="Libellé" DisplaceOnUpgrade="TRUE" />
+	<Field ID="{2ead815b-7a67-4527-83d3-8e88b0203561}" Name="NumEnregistrement" DisplayName="NumEnregistrement"
+			   Type="Text" MaxLength="30" Required="TRUE" Group="Proteca" StaticName="NumEnregistrement" DisplaceOnUpgrade="TRUE" />
+	<Field ID="{5c4daf8a-7c10-4b5e-86ba-32c971c81cb0}" Name="Archive" DisplayName="Archive"
+           Type="Boolean" Required="TRUE" Group="Proteca" StaticName="Archive" DisplaceOnUpgrade="TRUE" />
+  <Field ID="{365D92FF-48CC-4035-BAD5-7E274043BCE8}" Name="Region" DisplayName="Region"
+         Type="Region" Required="FALSE" Group="Proteca" StaticName="Region" DisplaceOnUpgrade="TRUE" />
+  <Field ID="{AF5C817A-3DEC-483E-8F57-8443385C7417}" Name="Agence" DisplayName="Agence"
+         Type="Agence" Required="FALSE" Group="Proteca" StaticName="Agence" DisplaceOnUpgrade="TRUE" />
+  <Field ID="{867F4843-A835-4769-8236-FE833580B8DE}" Name="Secteur" DisplayName="Secteur"
+         Type="Secteur" Required="FALSE" Group="Proteca" StaticName="Secteur" DisplaceOnUpgrade="TRUE" />
+</Elements>

@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="printDocumentUrl" xml:space="preserve">
+    <value>/_layouts/ReportServer/RSViewerPage.aspx?rv:RelativeReportUrl=/ProtecaV4/</value>
+  </data>
+  <data name="printFicheEquipementFileName" xml:space="preserve">
+    <value>Proteca_Fiches_Equipements_{0}.rdl&amp;rv:HeaderArea=None&amp;rv:ParamMode=Hidden&amp;rs:Command=Render&amp;rp:Cle_EQ={1}</value>
+  </data>
+  <data name="RANA_Rapport_Analyse_FileName" xml:space="preserve">
+    <value>Proteca_RANA_Rapport_Analyse.rdl&amp;rp:Cle_Analyse_EE={0}&amp;rp:Annexe1={1}&amp;rp:Annexe2={2}&amp;rp:Annexe3={3}&amp;rp:Annexe4={4}&amp;rp:Annexe5={5}&amp;rp:Annexe6={6}&amp;rp:Id_Auteur={7}</value>
+  </data>
+  <data name="RANA_Rapport_Analyse_Lbl" xml:space="preserve">
+    <value>Générer un rapport</value>
+  </data>
+  <data name="RBAG_Bilan_Agent_FileName" xml:space="preserve">
+    <value>Proteca_RBAG_Bilan_Agent.rdl&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>BILAN</comment>
+  </data>
+  <data name="RBAG_Bilan_Agent_Lbl" xml:space="preserve">
+    <value>Bilan par Agent</value>
+  </data>
+  <data name="RBGEO_Bilan_Geo_FileName" xml:space="preserve">
+    <value>Proteca_RBGEO_Bilan_Geographique.rdl&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>BILAN</comment>
+  </data>
+  <data name="RBGEO_Bilan_Geo_Lbl" xml:space="preserve">
+    <value>Bilan Géographique</value>
+  </data>
+  <data name="RFTO_Composition_FileName" xml:space="preserve">
+    <value>Proteca_RFTO_Tournee_Composition.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RFTO_Composition_Lbl" xml:space="preserve">
+    <value>Tournées et Compositions</value>
+  </data>
+  <data name="RFVI_Visite_Tournee_FileName" xml:space="preserve">
+    <value>Proteca_RFVI_Fiche_Visite_Tournee.rdl</value>
+  </data>
+  <data name="RGRAPH_Distance_FileName" xml:space="preserve">
+    <value>Proteca_RGRAPH_Distance.rdl&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>GRAPH</comment>
+  </data>
+  <data name="RGRAPH_Distance_Lbl" xml:space="preserve">
+    <value>Graphes sur la distance</value>
+  </data>
+  <data name="RGRAPH_Histo_DR_FileName" xml:space="preserve">
+    <value>Proteca_RGRAPH_Histo_DR.rdl&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>GRAPH</comment>
+  </data>
+  <data name="RGRAPH_Histo_DR_Lbl" xml:space="preserve">
+    <value>Historique drainage</value>
+  </data>
+  <data name="RGRAPH_Histo_PP_FileName" xml:space="preserve">
+    <value>Proteca_RGRAPH_Histo_PP.rdl&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>GRAPH</comment>
+  </data>
+  <data name="RGRAPH_Histo_PP_Lbl" xml:space="preserve">
+    <value>Historique PP</value>
+  </data>
+  <data name="RGRAPH_Histo_SO_FileName" xml:space="preserve">
+    <value>Proteca_RGRAPH_Histo_SO.rdl&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>GRAPH</comment>
+  </data>
+  <data name="RGRAPH_Histo_SO_Lbl" xml:space="preserve">
+    <value>Historique soutirage</value>
+  </data>
+  <data name="RGRAPH_Potentiel_Cana_FileName" xml:space="preserve">
+    <value>Proteca_RGRAPH_Potentiel_Cana.rdl&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>GRAPH</comment>
+  </data>
+  <data name="RGRAPH_Potentiel_Cana_Lbl" xml:space="preserve">
+    <value>Historique Potentiel Cana</value>
+  </data>
+  <data name="RLAC_Liste_Action_FileName" xml:space="preserve">
+    <value>Proteca_RLAC_Tableau_Suivi_Fiches_Action.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLAC_Liste_Action_Lbl" xml:space="preserve">
+    <value>Liste des Fiches Action</value>
+  </data>
+  <data name="RLAN_Liste_Analyse_FileName" xml:space="preserve">
+    <value>Proteca_RLAN_Liste_Analyse.rdl&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLAN_Liste_Analyse_Lbl" xml:space="preserve">
+    <value>Analyses par région</value>
+  </data>
+  <data name="RLCEQ_Liste_EQ_ALL_FileName" xml:space="preserve">
+    <value>Proteca_RLCEQ_Liste_Complete_Equipements.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLCEQ_Liste_EQ_ALL_Lbl" xml:space="preserve">
+    <value>Liste Complète des Equipements</value>
+  </data>
+  <data name="RLEE_Liste_EE_FileName" xml:space="preserve">
+    <value>Proteca_RLEE_Liste_Ens_Electrique.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLEE_Liste_EE_Lbl" xml:space="preserve">
+    <value>Liste des Ensembles Electriques</value>
+  </data>
+  <data name="RLEM_Liste_EQ_Mesures_FileName" xml:space="preserve">
+    <value>Proteca_RLEM_Liste_Equipements_Mesures.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLEM_Liste_EQ_Mesures_Lbl" xml:space="preserve">
+    <value>Liste des Equipements Mesurés</value>
+  </data>
+  <data name="RLEQ_Liste_EQ_FileName" xml:space="preserve">
+    <value>Proteca_RLEQ_Liste_Equipements.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLEQ_Liste_EQ_Lbl" xml:space="preserve">
+    <value>Liste des Equipements</value>
+  </data>
+  <data name="RLGRDF_Liaison_GRDF_FileName" xml:space="preserve">
+    <value>Proteca_RLGRDF_Liaison_GRDF.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLGRDF_Liaison_GRDF_Lbl" xml:space="preserve">
+    <value>Tableau Liaison GrDF</value>
+  </data>
+  <data name="RLMES_Liste_Mesures_FileName" xml:space="preserve">
+    <value>Proteca_RLMES_Liste_Mesures.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLMES_Liste_Mesures_Lbl" xml:space="preserve">
+    <value>Liste des Mesures</value>
+  </data>
+  <data name="RLP_Liste_Portion_FileName" xml:space="preserve">
+    <value>Proteca_RLP_Liste_Portions.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLP_Liste_Portion_Lbl" xml:space="preserve">
+    <value>Liste des Portions</value>
+  </data>
+  <data name="RLRI_Liste_RI_FileName" xml:space="preserve">
+    <value>Proteca_RLRI_Liste_RI.rdl&amp;rv:HeaderArea=None&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RLRI_Liste_RI_Lbl" xml:space="preserve">
+    <value>Liste des Raccords Isolants</value>
+  </data>
+  <data name="RMEICA_Bilan_PC_FileName" xml:space="preserve">
+    <value>Proteca_RMEICA_Bilan_PC.rdl&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}</value>
+    <comment>BILAN</comment>
+  </data>
+  <data name="RMEICA_Bilan_PC_Lbl" xml:space="preserve">
+    <value>Bilan PC : MEICA</value>
+  </data>
+  <data name="RMES_Liste_Modeles_Mesures_FileName" xml:space="preserve">
+    <value>Proteca_RMES_Liste_Modeles_Mesures.rdl&amp;rv:HeaderArea=None</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RMES_Liste_Modeles_Mesures_Lbl" xml:space="preserve">
+    <value>Liste des Modèles de Mesure</value>
+  </data>
+  <data name="RPRO_Liste_Profils_FileName" xml:space="preserve">
+    <value>Proteca_RPRO_Liste_Profils.rdl&amp;rv:HeaderArea=None</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RPRO_Liste_Profils_Lbl" xml:space="preserve">
+    <value>Liste des Profils</value>
+  </data>
+  <data name="RSUIVI_Suivi_EG_ECD_FileName" xml:space="preserve">
+    <value>Proteca_RSUIVI_Suivi_EG_ECD.rdl&amp;rp:Region={0}</value>
+    <comment>BILAN</comment>
+  </data>
+  <data name="RSUIVI_Suivi_EG_ECD_Lbl" xml:space="preserve">
+    <value>Suivi des EG, ECD</value>
+  </data>
+  <data name="RFTO_Composition_FileName_Extended" xml:space="preserve">
+    <value>Proteca_RFTO_Tournee_Composition.rdl&amp;rv:HeaderArea=None&amp;rv:ParamMode=Hidden&amp;rs:Command=Render&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}&amp;rp:EE={3}&amp;rp:Portion={4}&amp;rp:TO_sup={5}&amp;rp:Tournee={6}</value>
+  </data>
+  <data name="RFVI_Visite_Tournee_FileName_Extended" xml:space="preserve">
+    <value>Proteca_RFVI_Fiche_Visite_Tournee.rdl&amp;rv:HeaderArea=None&amp;rv:ParamMode=Hidden&amp;rs:Command=Render&amp;rp:Region={0}&amp;rp:Agence={1}&amp;rp:Secteur={2}&amp;rp:EE={3}&amp;rp:Portion={4}&amp;rp:MesureBase={5}&amp;rp:Tournée={6}</value>
+  </data>
+  <data name="RFVI_Visite_Tournee_Lbl" xml:space="preserve">
+    <value>Fiche de la tournée</value>
+  </data>
+  <data name="RFAC_Fiche_Action_FileName" xml:space="preserve">
+    <value>Proteca_RFAC_Fiche_Action.rdl&amp;rp:CleAction={0}</value>
+    <comment>RESTITUTION</comment>
+  </data>
+  <data name="RFAC_Fiche_Action_Lbl" xml:space="preserve">
+    <value>Fiche Action</value>
+  </data>
+  <data name="RANA_Rapport_Analyse_Annexe6_FileName" xml:space="preserve">
+    <value>Proteca_RANA[DETAIL]_Rapport_Analyse_Annexe_6.rdl&amp;rv:HeaderArea=None&amp;rv:ParamMode=Hidden&amp;rs:Command=Render&amp;rp:EE={0}</value>
+  </data>
+  <data name="RANA_Rapport_Analyse_Annexe6_Lbl" xml:space="preserve">
+    <value>Classification des PP...</value>
+  </data>
+  <data name="RANA_Rapport_Analyse_Annexe5_ECD_FileName" xml:space="preserve">
+    <value>Proteca_RANA[DETAIL]_Rapport_Analyse_Annexe_5_TAB8.rdl&amp;rv:HeaderArea=None&amp;rv:ParamMode=Hidden&amp;rs:Command=Render&amp;rp:Cle_Analyse_EE={0}</value>
+  </data>
+  <data name="RANA_Rapport_Analyse_Annexe5_ECD_Lbl" xml:space="preserve">
+    <value>Tableaux de mesure ECD</value>
+  </data>
+</root>

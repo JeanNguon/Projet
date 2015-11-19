@@ -1,0 +1,3171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MesurePP_TitreExpender" xml:space="preserve">
+    <value>Recherche des Modèles de Mesures</value>
+  </data>
+  <data name="Profils_Ajouter" xml:space="preserve">
+    <value>Ajouter un profil</value>
+  </data>
+  <data name="Decoupage_Agence" xml:space="preserve">
+    <value>Agence :</value>
+  </data>
+  <data name="Decoupage_AssemblageAvec" xml:space="preserve">
+    <value>Assemblage avec :</value>
+  </data>
+  <data name="Decoupage_AssemblageTitre" xml:space="preserve">
+    <value>Assemblage de la portion :</value>
+  </data>
+  <data name="Decoupage_BtnAssembler" xml:space="preserve">
+    <value>Assembler</value>
+  </data>
+  <data name="Decoupage_BtnDecouper" xml:space="preserve">
+    <value>Découper</value>
+  </data>
+  <data name="Decoupage_BtnRechercher" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="Decoupage_DecoupageTitre" xml:space="preserve">
+    <value>Découpage de la portion :</value>
+  </data>
+  <data name="Decoupage_EnsembleElec" xml:space="preserve">
+    <value>Ensemble électrique :</value>
+  </data>
+  <data name="Decoupage_PortionsTitre" xml:space="preserve">
+    <value>Portions</value>
+  </data>
+  <data name="Decoupage_PTKilometrique" xml:space="preserve">
+    <value>Point Kilométrique* :</value>
+  </data>
+  <data name="Decoupage_Regions" xml:space="preserve">
+    <value>Region :</value>
+  </data>
+  <data name="Decoupage_resultatrecherche" xml:space="preserve">
+    <value>Résultat de la recherche :</value>
+  </data>
+  <data name="Decoupage_Secteur" xml:space="preserve">
+    <value>Secteur :</value>
+  </data>
+  <data name="Decoupage_Titre" xml:space="preserve">
+    <value>Découpage / Assemblage des Portions</value>
+  </data>
+  <data name="Profils_Selection" xml:space="preserve">
+    <value>Sélection du profil</value>
+  </data>
+  <data name="Profils_Titre" xml:space="preserve">
+    <value>Gestion des profils</value>
+  </data>
+  <data name="Utilisateurs_AffectionTitre" xml:space="preserve">
+    <value>Affectation</value>
+  </data>
+  <data name="Utilisateurs_Agence" xml:space="preserve">
+    <value>Agence* :</value>
+  </data>
+  <data name="Utilisateurs_Ajouter" xml:space="preserve">
+    <value>Ajouter un utilisateur</value>
+  </data>
+  <data name="Utilisateurs_Annuler" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Utilisateurs_Etat" xml:space="preserve">
+    <value>Utilisateur supprimé :</value>
+  </data>
+  <data name="Utilisateurs_Gestion" xml:space="preserve">
+    <value>Gestion des utilisateurs* :</value>
+  </data>
+  <data name="Utilisateurs_Identifiant" xml:space="preserve">
+    <value>Identifiant* :</value>
+  </data>
+  <data name="Utilisateurs_Mail" xml:space="preserve">
+    <value>Mail* :</value>
+  </data>
+  <data name="Utilisateurs_Nom" xml:space="preserve">
+    <value>Nom* :</value>
+  </data>
+  <data name="Utilisateurs_Precedent" xml:space="preserve">
+    <value>&lt; précédent</value>
+  </data>
+  <data name="Utilisateurs_Prenom" xml:space="preserve">
+    <value>Prénom* :</value>
+  </data>
+  <data name="Utilisateurs_Profil" xml:space="preserve">
+    <value>Profil* :</value>
+  </data>
+  <data name="Utilisateurs_Region" xml:space="preserve">
+    <value>Région* :</value>
+  </data>
+  <data name="Utilisateurs_Secteur" xml:space="preserve">
+    <value>Secteur :</value>
+  </data>
+  <data name="Utilisateurs_Societe" xml:space="preserve">
+    <value>Société :</value>
+  </data>
+  <data name="Utilisateurs_Suivant" xml:space="preserve">
+    <value>suivant &gt;</value>
+  </data>
+  <data name="Utilisateurs_Titre" xml:space="preserve">
+    <value>Gestion des utilisateurs</value>
+  </data>
+  <data name="Utilisateurs_TitreExpander" xml:space="preserve">
+    <value>Recherche des Utilisateurs</value>
+  </data>
+  <data name="Utilisateurs_Valider" xml:space="preserve">
+    <value>Valider</value>
+  </data>
+  <data name="TypeMesures_Titre" xml:space="preserve">
+    <value>Type de Mesures</value>
+  </data>
+  <data name="TypeMesure_Ajouter" xml:space="preserve">
+    <value>Ajouter un modèle de mesure</value>
+  </data>
+  <data name="TypeMesure_Annuler" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="TypeMesure_TitreExpander" xml:space="preserve">
+    <value>Sélection du Modèle de Mesures</value>
+  </data>
+  <data name="TypeMesure_Valider" xml:space="preserve">
+    <value>Valider</value>
+  </data>
+  <data name="TypeMesure_Equipement" xml:space="preserve">
+    <value>Type d'équipement :</value>
+  </data>
+  <data name="TypeMesure_Groupe" xml:space="preserve">
+    <value>Groupe de mesures de PP</value>
+  </data>
+  <data name="TypeMesure_Modele" xml:space="preserve">
+    <value>Libellé du modèle de mesure* :</value>
+  </data>
+  <data name="TypeMesure_NumOrdre" xml:space="preserve">
+    <value>Numéro d'ordre* :</value>
+  </data>
+  <data name="DeplacementPp" xml:space="preserve">
+    <value>Déplacement des PP</value>
+  </data>
+  <data name="Valeurs_btnAjoutValeur" xml:space="preserve">
+    <value>Ajouter une valeur</value>
+  </data>
+  <data name="Valeurs_LibelleCourt" xml:space="preserve">
+    <value>Libellé court*:</value>
+  </data>
+  <data name="Valeurs_LibelleLong" xml:space="preserve">
+    <value>Libellé long* :</value>
+  </data>
+  <data name="Valeurs_NumOrdre" xml:space="preserve">
+    <value>Numéro d' ordre* :</value>
+  </data>
+  <data name="Valeurs_Recherchevaleurs" xml:space="preserve">
+    <value>Recherche des valeurs</value>
+  </data>
+  <data name="Valeurs_Titre" xml:space="preserve">
+    <value>Gestion des listes de valeurs</value>
+  </data>
+  <data name="Valeurs_Type" xml:space="preserve">
+    <value>Type de valeur :</value>
+  </data>
+  <data name="TypeMesure_Simple" xml:space="preserve">
+    <value>Mesure simple</value>
+  </data>
+  <data name="TypeMesure_MesureRealisation" xml:space="preserve">
+    <value>A réaliser dans le cas d'évaluation* :</value>
+  </data>
+  <data name="TypeMesure_MesureService" xml:space="preserve">
+    <value>Mesure en service :</value>
+  </data>
+  <data name="TypeMesure_Seuil" xml:space="preserve">
+    <value>Seuil d'alertes : </value>
+  </data>
+  <data name="TypeMesure_SeuilMaxi" xml:space="preserve">
+    <value>maxi :</value>
+  </data>
+  <data name="TypeMesure_SeuilMini" xml:space="preserve">
+    <value>mini : </value>
+  </data>
+  <data name="TypeMesure_Unite" xml:space="preserve">
+    <value>Unité* : </value>
+  </data>
+  <data name="BTN_Annuler" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="BTN_Rechercher" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="BTN_Valider" xml:space="preserve">
+    <value>Valider</value>
+  </data>
+  <data name="DeplacementPp_Agence" xml:space="preserve">
+    <value>Agence :</value>
+  </data>
+  <data name="DeplacementPp_Deplacer" xml:space="preserve">
+    <value>Déplacer vers :</value>
+  </data>
+  <data name="DeplacementPp_EnsembleElec" xml:space="preserve">
+    <value>Ensemble électrique :</value>
+  </data>
+  <data name="DeplacementPp_FicheAction" xml:space="preserve">
+    <value>Fiche action</value>
+  </data>
+  <data name="DeplacementPp_Inclure" xml:space="preserve">
+    <value>Inclure les équipements supprimés</value>
+  </data>
+  <data name="DeplacementPp_Portion" xml:space="preserve">
+    <value>Portion :</value>
+  </data>
+  <data name="DeplacementPp_RecherchePP" xml:space="preserve">
+    <value>Recherche des PP</value>
+  </data>
+  <data name="DeplacementPp_Region" xml:space="preserve">
+    <value>Region :</value>
+  </data>
+  <data name="DeplacementPp_ResultatRecherche" xml:space="preserve">
+    <value>Résultat de la recherche</value>
+  </data>
+  <data name="DeplacementPp_Secteur" xml:space="preserve">
+    <value>Secteur :</value>
+  </data>
+  <data name="DeplacementPp_SelectAgence" xml:space="preserve">
+    <value>Sélectionner une agence</value>
+  </data>
+  <data name="DeplacementPp_SelectEnsembleElec" xml:space="preserve">
+    <value>Saisir un ensemble électrique</value>
+  </data>
+  <data name="DeplacementPp_SelectPortion" xml:space="preserve">
+    <value>Saisir une portion</value>
+  </data>
+  <data name="DeplacementPp_SelectRegion" xml:space="preserve">
+    <value>Sélectionner une région</value>
+  </data>
+  <data name="DeplacementPp_SelectSecteur" xml:space="preserve">
+    <value>Sélectionner un secteur</value>
+  </data>
+  <data name="ParamGen_Archivage" xml:space="preserve">
+    <value>Archivage :</value>
+  </data>
+  <data name="ParamGen_BilanPP" xml:space="preserve">
+    <value>Bilans des PP:</value>
+  </data>
+  <data name="ParamGen_BilanSoutirage" xml:space="preserve">
+    <value>Bilans des soutirages :</value>
+  </data>
+  <data name="ParamGen_Echange" xml:space="preserve">
+    <value>Echanges PROTECA &lt;-&gt; Micado</value>
+  </data>
+  <data name="ParamGen_EchangeMP" xml:space="preserve">
+    <value>Echanges Micado  -&gt; PROTECTAautorisés</value>
+  </data>
+  <data name="ParamGen_EchangePM" xml:space="preserve">
+    <value>Echanges PROTECA -&gt; Micado autorisés</value>
+  </data>
+  <data name="ParamGen_Echanges" xml:space="preserve">
+    <value>Echanges PROTECA &lt;-&gt; Micado :</value>
+  </data>
+  <data name="ParamGen_Img" xml:space="preserve">
+    <value>Gestion des images :</value>
+  </data>
+  <data name="ParamGen_Nbjours" xml:space="preserve">
+    <value>Nombre de jours de service des déversoirs avant contrôle* :</value>
+  </data>
+  <data name="ParamGen_PoidMax" xml:space="preserve">
+    <value>Poids maximum des images* :</value>
+  </data>
+  <data name="ParamGen_Portions" xml:space="preserve">
+    <value>Gestion des Portions Intégrités :</value>
+  </data>
+  <data name="ParamGen_PriseCompte" xml:space="preserve">
+    <value>Date de prise en compte des visites pour le prochain archivage* :</value>
+  </data>
+  <data name="ParamGen_ProchainArchivage" xml:space="preserve">
+    <value>Date du prochain archivage de la base* :</value>
+  </data>
+  <data name="ParamGen_Repertoire" xml:space="preserve">
+    <value>Répertoire de stockage des fichiers d’archive* :</value>
+  </data>
+  <data name="ParamGen_Seuil" xml:space="preserve">
+    <value>Seuil de (US-[Eon cana])/[Eon cana]* :</value>
+  </data>
+  <data name="ParamGen_SeuilAlternatif" xml:space="preserve">
+    <value>Niveau d'alerte en alternatif</value>
+  </data>
+  <data name="ParamGen_SeuilDeclenche" xml:space="preserve">
+    <value>Seuil de protection en continu à courant déclenché</value>
+  </data>
+  <data name="ParamGen_Seuilenclenche" xml:space="preserve">
+    <value>Seuil de protection en continu à courant enclenché</value>
+  </data>
+  <data name="ParamGen_SeuilUcana" xml:space="preserve">
+    <value>Seuil inférieur de Ucana ~* :</value>
+  </data>
+  <data name="ParamGen_Titre" xml:space="preserve">
+    <value>Paramètres généraux</value>
+  </data>
+  <data name="ParamGen_UniteAlternatif" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="ParamGen_UniteDeclenche" xml:space="preserve">
+    <value>mV</value>
+  </data>
+  <data name="ParamGen_UniteEnclenche" xml:space="preserve">
+    <value>mV</value>
+  </data>
+  <data name="ParamGen_UniteImage" xml:space="preserve">
+    <value>Ko</value>
+  </data>
+  <data name="ParamGen_UniteUcana" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="ParamGen_VisitesAnterieur" xml:space="preserve">
+    <value>(les visites effectués à une date antérieure seront archivées)</value>
+  </data>
+  <data name="Valeurs_cbxTypeempty" xml:space="preserve">
+    <value>Caractère</value>
+  </data>
+  <data name="TypeMesure_PPPrincipale" xml:space="preserve">
+    <value>sur PP de rattachement principale</value>
+  </data>
+  <data name="TypeMesure_PPSecondaire" xml:space="preserve">
+    <value>sur PP de rattachement secondaire</value>
+  </data>
+  <data name="TypeMesures_Maxi" xml:space="preserve">
+    <value>Maxi</value>
+  </data>
+  <data name="TypeMesures_Mini" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="TypeMesures_Moyen" xml:space="preserve">
+    <value>Moyen</value>
+  </data>
+  <data name="BTN_Assembler" xml:space="preserve">
+    <value>Assembler</value>
+  </data>
+  <data name="BTN_Decouper" xml:space="preserve">
+    <value>Découper</value>
+  </data>
+  <data name="BTN_AjouterProfil" xml:space="preserve">
+    <value>Ajouter un profil</value>
+  </data>
+  <data name="BTN_AjouterUtilisateur" xml:space="preserve">
+    <value>Ajouter un utilisateur</value>
+  </data>
+  <data name="BTN_Integrer" xml:space="preserve">
+    <value>Réintégrer</value>
+  </data>
+  <data name="BTN_Supprimer" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="BTN_AjouterModeleMesure" xml:space="preserve">
+    <value>Ajouter un modèle de mesure</value>
+  </data>
+  <data name="BTN_AjouterValeur" xml:space="preserve">
+    <value>Ajouter une valeur</value>
+  </data>
+  <data name="BTN_AjouterUnite" xml:space="preserve">
+    <value>Ajouter une unité</value>
+  </data>
+  <data name="DeplacementPp_PortionRattachement" xml:space="preserve">
+    <value>Portion de rattachement :</value>
+  </data>
+  <data name="Profils_Name" xml:space="preserve">
+    <value>Libellé du profil* :</value>
+  </data>
+  <data name="Profils_Niveau" xml:space="preserve">
+    <value>Niveau du profil* :</value>
+  </data>
+  <data name="RegroupeRegion_Libelle" xml:space="preserve">
+    <value>Libellé :</value>
+  </data>
+  <data name="RegroupeRegion_LibelleAbrege" xml:space="preserve">
+    <value>Libellé abrégé :</value>
+  </data>
+  <data name="RegroupeRegion_RegionDeGroup" xml:space="preserve">
+    <value>Région de regroupement :</value>
+  </data>
+  <data name="RegroupeRegion_RegionGroup" xml:space="preserve">
+    <value>Région à regrouper :</value>
+  </data>
+  <data name="RegionComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner une région</value>
+  </data>
+  <data name="EnsemblesElectriques_Titre" xml:space="preserve">
+    <value>Gestion des ensembles électriques</value>
+  </data>
+  <data name="EnsemblesElectriques_Recherche" xml:space="preserve">
+    <value>Recherche des ensembles électriques</value>
+  </data>
+  <data name="Portions_Titre" xml:space="preserve">
+    <value>Gestions des Portions</value>
+  </data>
+  <data name="Portions_Recherche" xml:space="preserve">
+    <value>Recherche des Portions</value>
+  </data>
+  <data name="PP_Recherche" xml:space="preserve">
+    <value>Recherche des PP</value>
+  </data>
+  <data name="PP_Titre" xml:space="preserve">
+    <value>Gestions des PP</value>
+  </data>
+  <data name="BTN_AjouterPP" xml:space="preserve">
+    <value>Ajouter une pp</value>
+  </data>
+  <data name="BTN_AjouterPPJumelee" xml:space="preserve">
+    <value>Ajouter une PP Jumelée</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_DeleteError" xml:space="preserve">
+    <value>Impossible de supprimer l'objet de type {0}.</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_LoadError" xml:space="preserve">
+    <value>Impossible de charger les objets de type {0}.</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_SaveError" xml:space="preserve">
+    <value>Impossible de sauvegarder l'objet de type {0}.</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_ActionNotAllowed" xml:space="preserve">
+    <value>Vous ne possédez pas les droits nécessaires pour effectuer cette action.</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cet élément ?</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_NotAllowed" xml:space="preserve">
+    <value>Vous n'avez pas les droits nécessaires pour accéder à cet écran.</value>
+  </data>
+  <data name="OKButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_UnknownObject" xml:space="preserve">
+    <value>L'objet identifié par l'id : {0} est introuvable.</value>
+  </data>
+  <data name="ErrorWindowInnerException" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="ErrorWindowTitle" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="BtnAjouterGeoAgence" xml:space="preserve">
+    <value>Ajouter une agence</value>
+  </data>
+  <data name="BTN_AjouterGeoRegion" xml:space="preserve">
+    <value>Ajouter une région</value>
+  </data>
+  <data name="DecoupageGeo_Code" xml:space="preserve">
+    <value>Code* : </value>
+  </data>
+  <data name="DecoupageGeo_DetailAgence" xml:space="preserve">
+    <value>Détail de l'agence :</value>
+  </data>
+  <data name="DecoupageGeo_DetailRegion" xml:space="preserve">
+    <value>Détail de la région :</value>
+  </data>
+  <data name="DecoupageGeo_DetailSecteur" xml:space="preserve">
+    <value>Détail du secteur :</value>
+  </data>
+  <data name="DecoupageGeo_Libelle" xml:space="preserve">
+    <value>Libellé* : </value>
+  </data>
+  <data name="DecoupageGeo_LibelleAbrege" xml:space="preserve">
+    <value>Libellé abrégé* : </value>
+  </data>
+  <data name="DecoupageGeo_Rattachement" xml:space="preserve">
+    <value>Rattachement : </value>
+  </data>
+  <data name="DecoupageGeo_RattachementAgence" xml:space="preserve">
+    <value>Agence : </value>
+  </data>
+  <data name="DecoupageGeo_RattachementRegion" xml:space="preserve">
+    <value>Région : </value>
+  </data>
+  <data name="MenuContextAddAgence" xml:space="preserve">
+    <value>Ajouter une agence</value>
+  </data>
+  <data name="MenuContextAddRegion" xml:space="preserve">
+    <value>Ajouter une région</value>
+  </data>
+  <data name="MenuContextAddSecteur" xml:space="preserve">
+    <value>Ajouter un secteur</value>
+  </data>
+  <data name="MenuContextRemove" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="MenuContextUpdate" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="GeoAgence_AddButton" xml:space="preserve">
+    <value>Ajouter un secteur</value>
+  </data>
+  <data name="Precedent" xml:space="preserve">
+    <value>&lt; Précédent</value>
+  </data>
+  <data name="Suivant" xml:space="preserve">
+    <value>Suivant &gt;</value>
+  </data>
+  <data name="BtnAjouterGeoRegion" xml:space="preserve">
+    <value>Ajouter une région</value>
+  </data>
+  <data name="BtnAjouterGeoSecteur" xml:space="preserve">
+    <value>Ajouter un secteur</value>
+  </data>
+  <data name="BTN_Modifier" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="DecoupageGeo_DeleteAgenceCaptionMsgError" xml:space="preserve">
+    <value>Suppression impossible</value>
+  </data>
+  <data name="DecoupageGeo_DeleteRegionCaptionMsgError" xml:space="preserve">
+    <value>Suppression impossible</value>
+  </data>
+  <data name="DecoupageGeo_DeleteSecteurCaptionMsgError" xml:space="preserve">
+    <value>Suppression impossible</value>
+  </data>
+  <data name="DecoupageGeo" xml:space="preserve">
+    <value>Gestion des Découpages Géographiques</value>
+  </data>
+  <data name="InsInstrument" xml:space="preserve">
+    <value>Gestion des Instruments</value>
+  </data>
+  <data name="MesUnites" xml:space="preserve">
+    <value>Gestion des Unités</value>
+  </data>
+  <data name="RefParametre" xml:space="preserve">
+    <value>Gestion des Paramètres Généraux</value>
+  </data>
+  <data name="BtnAjouterInsInstrument" xml:space="preserve">
+    <value>Ajouter un instrument</value>
+  </data>
+  <data name="BtnAjouterRefEnumValeur" xml:space="preserve">
+    <value>Ajouter une valeur</value>
+  </data>
+  <data name="RegroupementRegion_ValidationCaption" xml:space="preserve">
+    <value>Regroupement région</value>
+  </data>
+  <data name="RegroupementRegion_ValidationText" xml:space="preserve">
+    <value>Voulez-vous regrouper les 2 régions?</value>
+  </data>
+  <data name="RegoupementRegion" xml:space="preserve">
+    <value>Regroupement de Régions</value>
+  </data>
+  <data name="UsrProfil" xml:space="preserve">
+    <value>Gestion des Profils</value>
+  </data>
+  <data name="UsrUtilisateur" xml:space="preserve">
+    <value>Gestion des Utilisateurs</value>
+  </data>
+  <data name="AgenceComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner une agence</value>
+  </data>
+  <data name="AgenceComboBox_PresentationText" xml:space="preserve">
+    <value>Agence :</value>
+  </data>
+  <data name="ClearSelectionButtonContent" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="RegionComboBox_PresentationText" xml:space="preserve">
+    <value>Région :</value>
+  </data>
+  <data name="SecteurComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner un secteur</value>
+  </data>
+  <data name="SecteurComboBox_PresentationText" xml:space="preserve">
+    <value>Secteur :</value>
+  </data>
+  <data name="Instrument_InstrumentNameHeader" xml:space="preserve">
+    <value>Instrument *</value>
+  </data>
+  <data name="Instrument_NbElements" xml:space="preserve">
+    <value>Nombre d'instruments :</value>
+  </data>
+  <data name="Instrument_RattachementNameHeader" xml:space="preserve">
+    <value>Rattachement</value>
+  </data>
+  <data name="BtnAjouterUnites" xml:space="preserve">
+    <value>Ajouter une unité</value>
+  </data>
+  <data name="UnitesSelectTypeEmptyText" xml:space="preserve">
+    <value>Sélectionner un type</value>
+  </data>
+  <data name="Unites_Libelle" xml:space="preserve">
+    <value>Libellé* :</value>
+  </data>
+  <data name="Unites_NbDecimal" xml:space="preserve">
+    <value>Nombre de décimales :</value>
+  </data>
+  <data name="Unites_Symbole" xml:space="preserve">
+    <value>Symbole* :</value>
+  </data>
+  <data name="Unites_TypeDonnee" xml:space="preserve">
+    <value>Type de donnée* :</value>
+  </data>
+  <data name="Unites_ExpanderTitle" xml:space="preserve">
+    <value>Sélection des unités</value>
+  </data>
+  <data name="Unites_SearchUnite" xml:space="preserve">
+    <value>Unités :</value>
+  </data>
+  <data name="Unites_SearchUniteEmptyText" xml:space="preserve">
+    <value>Sélectionner une unité</value>
+  </data>
+  <data name="BtnAjouterMesUnites" xml:space="preserve">
+    <value>Ajouter une unité</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_DeleteProfilNotAllowed" xml:space="preserve">
+    <value>Un ou plusieurs utilisateurs actifs sont déjà affectés à ce profil, cette opération n'est pas autorisée.</value>
+  </data>
+  <data name="BtnAjouterRefParametre" xml:space="preserve">
+    <value>Ajouter un paramètre</value>
+  </data>
+  <data name="TypeMesure_SelectEmptyText" xml:space="preserve">
+    <value>Sélectionner un modèle</value>
+  </data>
+  <data name="TypeMesure_SelectText" xml:space="preserve">
+    <value>Modèle de mesure :</value>
+  </data>
+  <data name="ModeleMesure_Title" xml:space="preserve">
+    <value>Gestion des Modèles de Mesures</value>
+  </data>
+  <data name="False" xml:space="preserve">
+    <value>non</value>
+  </data>
+  <data name="True" xml:space="preserve">
+    <value>oui</value>
+  </data>
+  <data name="UsrUtilisateur_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cet utilisateur ?</value>
+  </data>
+  <data name="BtnAjouterMesModeleMesure" xml:space="preserve">
+    <value>Ajouter un modèle de mesure</value>
+  </data>
+  <data name="UsrProfil_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce profil ?</value>
+  </data>
+  <data name="CategoriePp" xml:space="preserve">
+    <value>Catégorisation des PP</value>
+  </data>
+  <data name="CategoriePp_Titre" xml:space="preserve">
+    <value>Catégorisation des PP</value>
+  </data>
+  <data name="BtnAjouterMesTypeMesure" xml:space="preserve">
+    <value>Ajouter un type de mesure</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_DeleteSuccess" xml:space="preserve">
+    <value>Suppression effectuée avec succès</value>
+  </data>
+  <data name="ValidationError" xml:space="preserve">
+    <value>Impossible d'enregistrer, il y a au moins une erreur sur la page.</value>
+  </data>
+  <data name="RegroupementRegion_ValidationText2" xml:space="preserve">
+    <value>Vous êtes sur le point de regrouper 2 régions, après validation, il n'y aura pas de retour possible. Voulez-vous continuer ?</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="DecoupageGeo_DeleteAgenceMainMsgError" xml:space="preserve">
+    <value>Impossible de supprimer l'agence "{0}" :</value>
+  </data>
+  <data name="DecoupageGeo_DeleteAgenceSecteurMsgError" xml:space="preserve">
+    <value>- Aucun secteur ne doit être rattaché à cette agence</value>
+  </data>
+  <data name="DecoupageGeo_DeleteAgenceUserMsgError" xml:space="preserve">
+    <value>- Aucun utilisateur ne doit être rattaché à cette agence</value>
+  </data>
+  <data name="DecoupageGeo_DeleteInstrumentMsgError" xml:space="preserve">
+    <value>- Les instruments rattachés doivent être supprimer.</value>
+  </data>
+  <data name="DecoupageGeo_DeleteRegionAgenceMsgError" xml:space="preserve">
+    <value>- Aucune agence ne doit être rattachée à cette région</value>
+  </data>
+  <data name="DecoupageGeo_DeleteRegionMainMsgError" xml:space="preserve">
+    <value>Impossible de supprimer la région "{0}" :</value>
+  </data>
+  <data name="DecoupageGeo_DeleteSecteurMainMsgError" xml:space="preserve">
+    <value>Impossible de supprimer le secteur "{0}" :</value>
+  </data>
+  <data name="DecoupageGeo_DeleteSecteurUserMsgError" xml:space="preserve">
+    <value>- Aucun utilisateur ne doit être rattaché à ce secteur</value>
+  </data>
+  <data name="MesUnites_DeleteUniteCaptionMsgError" xml:space="preserve">
+    <value>Suppression impossible</value>
+  </data>
+  <data name="MesUnites_DeleteUniteMainMsgError" xml:space="preserve">
+    <value>Impossible de supprimer l'unité "{0}" :</value>
+  </data>
+  <data name="MesUnites_DeleteUniteMsgError" xml:space="preserve">
+    <value>- Des modèles de mesures utilisent cette unité</value>
+  </data>
+  <data name="MesModeleMesure" xml:space="preserve">
+    <value>Gestion des Modèles de Mesures</value>
+  </data>
+  <data name="InstrumentsDeletedSearchText" xml:space="preserve">
+    <value>Inclure les instruments supprimés</value>
+  </data>
+  <data name="TypeMesure_ModeleLibGenerique" xml:space="preserve">
+    <value>Libellé générique* :</value>
+  </data>
+  <data name="MesClassementMesure" xml:space="preserve">
+    <value>Gestion de la Classification des Mesures</value>
+  </data>
+  <data name="TypeMesure_LibTypeMesure" xml:space="preserve">
+    <value>Libellé du type de mesure* :</value>
+  </data>
+  <data name="TypeMesure_MesureType" xml:space="preserve">
+    <value>Type de niveau* :</value>
+  </data>
+  <data name="TypeMesure_LibTypeMesureAutre" xml:space="preserve">
+    <value>Libellé autre type de mesure* :</value>
+  </data>
+  <data name="TypeDocument_BtnAjouterTypeDocument" xml:space="preserve">
+    <value>Ajouter un type de dossier</value>
+  </data>
+  <data name="MenuContextAddFolder" xml:space="preserve">
+    <value>Ajouter un type de dossier</value>
+  </data>
+  <data name="TypeDocument_Designation" xml:space="preserve">
+    <value>Désignation* :</value>
+  </data>
+  <data name="TypeDocument_TypeDocument" xml:space="preserve">
+    <value>Type de document : </value>
+  </data>
+  <data name="BtnAjouterEnsembleElectrique" xml:space="preserve">
+    <value>Ajouter un ensemble électrique</value>
+  </data>
+  <data name="EnsElec_IncludeWithoutPortion" xml:space="preserve">
+    <value>Inclure Ensembles électriques sans portion</value>
+  </data>
+  <data name="EnsElecComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner un ensemble électrique</value>
+  </data>
+  <data name="EnsElecComboBox_PresentationText" xml:space="preserve">
+    <value>Ensemble électrique :</value>
+  </data>
+  <data name="EnsElec_IncludePosteGaz" xml:space="preserve">
+    <value>Inclure poste Gaz</value>
+  </data>
+  <data name="EnsElec_IncludeStation" xml:space="preserve">
+    <value>Inclure station</value>
+  </data>
+  <data name="EnsembleElecExpanderTitle" xml:space="preserve">
+    <value>Recherche des Ensembles Electriques</value>
+  </data>
+  <data name="EnsElec_TileViewDocuments_Title" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_Title" xml:space="preserve">
+    <value>Ensemble électrique</value>
+  </data>
+  <data name="EnsElec_TileViewPortionsInt_Title" xml:space="preserve">
+    <value>Portions intégrités</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_Code" xml:space="preserve">
+    <value>Code :</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_Commentaire" xml:space="preserve">
+    <value>Commentaire :</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_DateAnalyse" xml:space="preserve">
+    <value>Date dernière analyse :</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_DateECD" xml:space="preserve">
+    <value>Date ECD :</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_DateMAJCommentaire" xml:space="preserve">
+    <value>Date Mise à jour du commentaire :</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_Libelle" xml:space="preserve">
+    <value>Libellé* :</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_LongueurRes" xml:space="preserve">
+    <value>Longueur de réseau :</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_PeriodAnalyse" xml:space="preserve">
+    <value>Périodicité d'analyse* :</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_StructureComplexe" xml:space="preserve">
+    <value>Structure complexe :</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_PosteGaz" xml:space="preserve">
+    <value>Poste Gaz avec réseau foudre et/ou PC</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_Station" xml:space="preserve">
+    <value>Station</value>
+  </data>
+  <data name="BtnAjouterPortionIntegrite" xml:space="preserve">
+    <value>Ajouter une portion intégrité</value>
+  </data>
+  <data name="EnsembleElectrique_NbElements" xml:space="preserve">
+    <value>Nombre de portions intégrités :</value>
+  </data>
+  <data name="BtnAjouterEquipement" xml:space="preserve">
+    <value>Ajouter un équipement</value>
+  </data>
+  <data name="EquipementExpanderTitle" xml:space="preserve">
+    <value>Recherche des Equipements</value>
+  </data>
+  <data name="BtnAjouterPPJumelee" xml:space="preserve">
+    <value>Ajouter PP</value>
+  </data>
+  <data name="EqEquipement_PP_Categorie" xml:space="preserve">
+    <value>Catégorie* :</value>
+  </data>
+  <data name="EqEquipement_PP_Classification" xml:space="preserve">
+    <value>Classification* :</value>
+  </data>
+  <data name="EqEquipement_PP_Commentaire" xml:space="preserve">
+    <value>Commentaire :</value>
+  </data>
+  <data name="EqEquipement_PP_DateCommentaire" xml:space="preserve">
+    <value>Mise à jour :</value>
+  </data>
+  <data name="EqEquipement_PP_DateMiseEnService" xml:space="preserve">
+    <value>Date de mise en service :</value>
+  </data>
+  <data name="EqEquipement_PP_DateTeleMesure" xml:space="preserve">
+    <value>Mise en service :</value>
+  </data>
+  <data name="EqEquipement_PP_Jumelee" xml:space="preserve">
+    <value>PP Jumelée :</value>
+  </data>
+  <data name="EqEquipement_PP_LastDateECD" xml:space="preserve">
+    <value>Dernière ECD :</value>
+  </data>
+  <data name="EqEquipement_PP_Libelle" xml:space="preserve">
+    <value>Libellé* :</value>
+  </data>
+  <data name="EqEquipement_PP_Poste" xml:space="preserve">
+    <value>PP Poste</value>
+  </data>
+  <data name="EqEquipement_PP_Sensibilite1Title" xml:space="preserve">
+    <value>Sensibilité Niv.1 (annuelle EG)</value>
+  </data>
+  <data name="EqEquipement_PP_Sensibilite2Title" xml:space="preserve">
+    <value>Sensibilité Niv.2 (pluriannuelle)</value>
+  </data>
+  <data name="EqEquipement_PP_Title" xml:space="preserve">
+    <value>Caractéristiques de la PP</value>
+  </data>
+  <data name="EqEquipement_TileViewDocument_Title" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="EqEquipement_TileViewEquipement_Title" xml:space="preserve">
+    <value>Equipement</value>
+  </data>
+  <data name="EqEquipement_TileViewHistorique_Title" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="EqEquipement_TileViewPP_Title" xml:space="preserve">
+    <value>PP</value>
+  </data>
+  <data name="EqEquipement_TileViewTournees_Title" xml:space="preserve">
+    <value>Liste des tournées</value>
+  </data>
+  <data name="BtnAjouterPP" xml:space="preserve">
+    <value>Ajouter une PP</value>
+  </data>
+  <data name="TypeMesure_SelectEvaluationEmptyText" xml:space="preserve">
+    <value>Sélectionner une évaluation</value>
+  </data>
+  <data name="TypeMesure_SelectNiveauEmptyText" xml:space="preserve">
+    <value>Sélectionner un niveau</value>
+  </data>
+  <data name="Error_UserNotFound" xml:space="preserve">
+    <value>Une erreur est survenue lors de la récupération de votre compte utilisateur.</value>
+  </data>
+  <data name="EqEquipement_Histo_NbElements" xml:space="preserve">
+    <value>Nombre d' historique : </value>
+  </data>
+  <data name="Equipement_TileViewDetail_Title" xml:space="preserve">
+    <value>Détail de l'équipement</value>
+  </data>
+  <data name="Equipement_TileViewDocument_Title" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="Equipement_TileViewHistorique_Title" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="Equipement_TileViewTournees_Title" xml:space="preserve">
+    <value>Liste des tournées</value>
+  </data>
+  <data name="Equipement_Tournees_NbElements" xml:space="preserve">
+    <value>Nombre de tournées :</value>
+  </data>
+  <data name="Historique_NbElements" xml:space="preserve">
+    <value>Nombre d'occurrences d'historique :</value>
+  </data>
+  <data name="EqEquipement_chxCourantsVagabonds" xml:space="preserve">
+    <value>Courants vagabonds continus</value>
+  </data>
+  <data name="EqEquipement_chxCourantsInduits" xml:space="preserve">
+    <value>Courants alternatifs induits</value>
+  </data>
+  <data name="EqEquipement_chxElectrode" xml:space="preserve">
+    <value>Electrode enterrée amovible</value>
+  </data>
+  <data name="EqEquipement_chxTemoinEnterre" xml:space="preserve">
+    <value>Témoin enterré</value>
+  </data>
+  <data name="EqEquipement_chxTemoinSurface" xml:space="preserve">
+    <value>Témoin de surface</value>
+  </data>
+  <data name="EqEquipement_chxTelemesure" xml:space="preserve">
+    <value>Télémesure</value>
+  </data>
+  <data name="EqEquipementCoordonnees" xml:space="preserve">
+    <value>Coordonnées WGS84</value>
+  </data>
+  <data name="EqEquipement_Cm2" xml:space="preserve">
+    <value>cm²</value>
+  </data>
+  <data name="EqEquipement_DureeEnrgesitrement" xml:space="preserve">
+    <value>Durée d'enregistrement :</value>
+  </data>
+  <data name="EqEquipement_PK" xml:space="preserve">
+    <value>PK* :</value>
+  </data>
+  <data name="EqEquipement_Secteur" xml:space="preserve">
+    <value>Secteur* :</value>
+  </data>
+  <data name="EqEquipement_SurfaceTME" xml:space="preserve">
+    <value>Surface TME raccordé* :</value>
+  </data>
+  <data name="EqEquipement_SurfaceTMS" xml:space="preserve">
+    <value>Surface TMS raccordé* :</value>
+  </data>
+  <data name="EqEquipement_TpsPolarisation" xml:space="preserve">
+    <value>Temps de polarisation :</value>
+  </data>
+  <data name="EqEquipement_CommentairePosition" xml:space="preserve">
+    <value>Commentaire de positionnement :</value>
+  </data>
+  <data name="EqEquipement_Commune" xml:space="preserve">
+    <value>Département - Commune* :</value>
+  </data>
+  <data name="EqEquipement_Departement" xml:space="preserve">
+    <value>Département :</value>
+  </data>
+  <data name="EqEquipement_Fiabilisees" xml:space="preserve">
+    <value>Fiabilisées</value>
+  </data>
+  <data name="EqEquipement_Lattitude" xml:space="preserve">
+    <value>Latitude :</value>
+  </data>
+  <data name="EqEquipement_Longitude" xml:space="preserve">
+    <value>Longitude :</value>
+  </data>
+  <data name="EqEquipement_NiveauProtection" xml:space="preserve">
+    <value>Niveau de protection :</value>
+  </data>
+  <data name="EqEquipement_PositionPostale" xml:space="preserve">
+    <value>Position par adresse postale :</value>
+  </data>
+  <data name="CategoriePP_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette catégorie PP ?</value>
+  </data>
+  <data name="CategoriePP_DeleteInterdiction" xml:space="preserve">
+    <value>Une ou plusieurs PP possèdent cette catégorie de PP ; suppression impossible</value>
+  </data>
+  <data name="TypeDocument_Dossier" xml:space="preserve">
+    <value>Type de dossier* :</value>
+  </data>
+  <data name="TypeDocument_TypeOuvrage" xml:space="preserve">
+    <value>Type d'ouvrage* :</value>
+  </data>
+  <data name="PP_Equipement_NbElements" xml:space="preserve">
+    <value>Nombre d'équipement :</value>
+  </data>
+  <data name="MesModeleMesure_ValidationCaption" xml:space="preserve">
+    <value>Modèle de mesure</value>
+  </data>
+  <data name="MesModeleMesure_ValidationText" xml:space="preserve">
+    <value>Vous devez supprimer tous les types de mesures avant de supprimer le modèle de mesure.</value>
+  </data>
+  <data name="MesTypeMesure_ValidationCaption" xml:space="preserve">
+    <value>Type de mesure</value>
+  </data>
+  <data name="MesTypeMesure_ValidationDeleteText" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce type de mesure?</value>
+  </data>
+  <data name="MesTypeMesure_ValidationText" xml:space="preserve">
+    <value>Vous devez supprimer toutes les mesures associées au type de mesure {0} avant de supprimer le type de mesure.</value>
+  </data>
+  <data name="TypeDocument_BtnAjouterDesignation" xml:space="preserve">
+    <value>Ajouter une désignation</value>
+  </data>
+  <data name="TypeDocument_DossierLibelle" xml:space="preserve">
+    <value>Type de dossier :</value>
+  </data>
+  <data name="RegroupeRegion_SuccesCaption" xml:space="preserve">
+    <value>Regroupement de region</value>
+  </data>
+  <data name="RegroupeRegion_SuccesText" xml:space="preserve">
+    <value>Le rattachement des régions s'est éffectué avec succès.</value>
+  </data>
+  <data name="NiveauProtectionAssocies_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer le niveau de protection ?</value>
+  </data>
+  <data name="EnterDate" xml:space="preserve">
+    <value>Entrer une date</value>
+  </data>
+  <data name="TypeDocument_TypeOuvrageLibelle" xml:space="preserve">
+    <value>Type d'ouvrage :</value>
+  </data>
+  <data name="EqEquipement_PP_Portions" xml:space="preserve">
+    <value>Portion intégrité* :</value>
+  </data>
+  <data name="MesModeleMesure_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce modèle de mesure ?</value>
+  </data>
+  <data name="MesUnite_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette unité de mesure ?</value>
+  </data>
+  <data name="DecoupageGeo_DeleteAgenceConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette agence ?</value>
+  </data>
+  <data name="DecoupageGeo_DeleteRegionConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette région ?</value>
+  </data>
+  <data name="DecoupageGeo_DeleteSecteurConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce secteur ?</value>
+  </data>
+  <data name="EnsembleElectrique" xml:space="preserve">
+    <value>Gestion des ensembles électriques</value>
+  </data>
+  <data name="Equipement_PP" xml:space="preserve">
+    <value>Gestion des prises de potentiels</value>
+  </data>
+  <data name="Equipement_SO" xml:space="preserve">
+    <value>Gestion des soutirages</value>
+  </data>
+  <data name="PortionIntegrite" xml:space="preserve">
+    <value>Gestion des portions intégrités</value>
+  </data>
+  <data name="BTN_AjouterPortion" xml:space="preserve">
+    <value>Ajouter une portion intégrité</value>
+  </data>
+  <data name="EnsElec_DeleteCaption" xml:space="preserve">
+    <value>Ensemble électrique</value>
+  </data>
+  <data name="EnsElec_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cet ensemble électrique ?</value>
+  </data>
+  <data name="EnsElec_HasNoDeletedPis" xml:space="preserve">
+    <value>Les portions doivent être supprimées logiquement avant de supprimer cet ensemble électrique.</value>
+  </data>
+  <data name="EnsElec_IsDeleted" xml:space="preserve">
+    <value>La suppression de l'ensemble électrique vient d'être réalisée avec succès.</value>
+  </data>
+  <data name="EnsElec_TileViewEnsElec_LongueurUnite" xml:space="preserve">
+    <value>Km</value>
+  </data>
+  <data name="Portions_Etat" xml:space="preserve">
+    <value>Portion supprimée :</value>
+  </data>
+  <data name="PortionIntegrite_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette portion intégrité ?</value>
+  </data>
+  <data name="PortionIntegrite_ErrorOnDelete" xml:space="preserve">
+    <value>Une erreur lors de la suppresion s'est produite. Merci de contacter votre administrateur.</value>
+  </data>
+  <data name="Global_Error" xml:space="preserve">
+    <value>Une erreur est survenue. Merci de contacter votre administrateur.</value>
+  </data>
+  <data name="Global_EmptyEntity" xml:space="preserve">
+    <value>Aucune entité sélectionnée</value>
+  </data>
+  <data name="PortionIntegrite_PpExistOnDelete" xml:space="preserve">
+    <value>Error lors de la suppresion: des PPs sont rattachés à cette portion intégrité.</value>
+  </data>
+  <data name="EqEquipement_Autoregule" xml:space="preserve">
+    <value>Autorégulé :</value>
+  </data>
+  <data name="EqEquipement_Commentaire" xml:space="preserve">
+    <value>Commentaire :</value>
+  </data>
+  <data name="EqEquipement_DateControle" xml:space="preserve">
+    <value>Date de contrôle* :</value>
+  </data>
+  <data name="EqEquipement_DateMiseEnService" xml:space="preserve">
+    <value>Date de mise en service :</value>
+  </data>
+  <data name="EqEquipement_Supprime" xml:space="preserve">
+    <value>Equipement supprimé:</value>
+  </data>
+  <data name="EqEquipement_DateMiseEnServiceRedresseur" xml:space="preserve">
+    <value>Date de mise en service du redresseur* :</value>
+  </data>
+  <data name="EqEquipement_DatePrevisionnelle" xml:space="preserve">
+    <value>Date prévisionnelle de renouvellement du déversoir :</value>
+  </data>
+  <data name="EqEquipement_DebutDevseroire" xml:space="preserve">
+    <value>Début du déversoir</value>
+  </data>
+  <data name="EqEquipement_FinDeversoire" xml:space="preserve">
+    <value>Fin du déversoir</value>
+  </data>
+  <data name="EqEquipement_IntensiteReglage" xml:space="preserve">
+    <value>Intensité de réglage* :</value>
+  </data>
+  <data name="EqEquipement_Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="EqEquipement_Libelle" xml:space="preserve">
+    <value>Libellé* :</value>
+  </data>
+  <data name="EqEquipement_LongueurDeversoir" xml:space="preserve">
+    <value>Longueur ou profondeur du déversoir* :</value>
+  </data>
+  <data name="EqEquipement_Masse" xml:space="preserve">
+    <value>Masse au mètre linéaire :</value>
+  </data>
+  <data name="EqEquipement_MiseEnServiceTelemesure" xml:space="preserve">
+    <value>Mise en service télémesure :</value>
+  </data>
+  <data name="EqEquipement_PP" xml:space="preserve">
+    <value>PP de rattachement* :</value>
+  </data>
+  <data name="EqEquipement_PresenceReenclencheur" xml:space="preserve">
+    <value>Réenclencheur automatique :</value>
+  </data>
+  <data name="EqEquipement_PresenceTelemesure" xml:space="preserve">
+    <value>Télémesure :</value>
+  </data>
+  <data name="EqEquipement_TensionReglage" xml:space="preserve">
+    <value>Tension de réglage* :</value>
+  </data>
+  <data name="EqEquipement_TypeRedresseur" xml:space="preserve">
+    <value>Type de redresseur* :</value>
+  </data>
+  <data name="EqEquipement_TypeDeversoire" xml:space="preserve">
+    <value>Type de déversoir* :</value>
+  </data>
+  <data name="EqEquipement_DatePoseDeversoire" xml:space="preserve">
+    <value>Date de pose du déversoir :</value>
+  </data>
+  <data name="BtnAjouterEquipement_DR" xml:space="preserve">
+    <value>Ajouter un drainage</value>
+  </data>
+  <data name="BtnAjouterEquipement_SO" xml:space="preserve">
+    <value>Ajouter un soutirage</value>
+  </data>
+  <data name="EqEquipement_DatePremiereMiseEnService" xml:space="preserve">
+    <value>Date de première mise en service :</value>
+  </data>
+  <data name="EqEquipement_IntensiteMax" xml:space="preserve">
+    <value>Intensité maximale supportée* :</value>
+  </data>
+  <data name="EqEquipement_TypeDrainage" xml:space="preserve">
+    <value>Type de drainage* :</value>
+  </data>
+  <data name="BTN_Ajouter" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="EqEquipement_DrainageExterne" xml:space="preserve">
+    <value>Drainages associés :</value>
+  </data>
+  <data name="EqEquipement_LiaisonTechnique" xml:space="preserve">
+    <value>Liaison technique :</value>
+  </data>
+  <data name="EqEquipement_LibelleProtectionEqTiersUnite" xml:space="preserve">
+    <value>Protection équipement tiers par l'unité :</value>
+  </data>
+  <data name="EqEquipement_PresencePCTiers" xml:space="preserve">
+    <value>Présence d'une PC sur l'ouvrage tiers :</value>
+  </data>
+  <data name="EqEquipement_ProtectionEqTiersUnite" xml:space="preserve">
+    <value>Libellé équipement tiers :</value>
+  </data>
+  <data name="EqEquipement_SoutirageExterne" xml:space="preserve">
+    <value>Soutirages associés :</value>
+  </data>
+  <data name="EqEquipement_TypeFluideTransRequired" xml:space="preserve">
+    <value>Type de fluide transporté* :</value>
+  </data>
+  <data name="EqEquipement_TypeLiaison" xml:space="preserve">
+    <value>Type de liaison* :</value>
+  </data>
+  <data name="EqEquipement_TypeNomsTiers" xml:space="preserve">
+    <value>Nom du tiers associé* :</value>
+  </data>
+  <data name="BtnAjouterEquipement_FM" xml:space="preserve">
+    <value>Ajouter un fourreau métallique</value>
+  </data>
+  <data name="BtnAjouterEquipement_LE" xml:space="preserve">
+    <value>Ajouter une liaison externe</value>
+  </data>
+  <data name="BtnAjouterEquipement_LI" xml:space="preserve">
+    <value>Ajouter une liaison interne</value>
+  </data>
+  <data name="BtnAjouterEquipement_TC" xml:space="preserve">
+    <value>Ajouter un tiers croisé</value>
+  </data>
+  <data name="EqEquipement_PP2" xml:space="preserve">
+    <value>Seconde PP de rattachement :</value>
+  </data>
+  <data name="BtnAjouterEquipement_AG" xml:space="preserve">
+    <value>Ajouter une anode galvanique</value>
+  </data>
+  <data name="BtnAjouterEquipement_DE" xml:space="preserve">
+    <value>Ajouter un dispo écoulement</value>
+  </data>
+  <data name="BtnAjouterEquipement_PI" xml:space="preserve">
+    <value>Ajouter une pile</value>
+  </data>
+  <data name="BtnAjouterEquipement_PO" xml:space="preserve">
+    <value>Ajouter un poste gaz</value>
+  </data>
+  <data name="BtnAjouterEquipement_RI" xml:space="preserve">
+    <value>Ajouter un raccord isolant</value>
+  </data>
+  <data name="Equipement_DR" xml:space="preserve">
+    <value>Gestion des drainages</value>
+  </data>
+  <data name="Equipement_AG" xml:space="preserve">
+    <value>Gestion des anodes galvaniques</value>
+  </data>
+  <data name="Equipement_DE" xml:space="preserve">
+    <value>Gestion des dispositifs d'écoulement</value>
+  </data>
+  <data name="Equipement_FM" xml:space="preserve">
+    <value>Gestion des fourreaux métalliques</value>
+  </data>
+  <data name="Equipement_LE" xml:space="preserve">
+    <value>Gestion des liaisons externes</value>
+  </data>
+  <data name="Equipement_LI" xml:space="preserve">
+    <value>Gestion des liaisons internes</value>
+  </data>
+  <data name="Equipement_PI" xml:space="preserve">
+    <value>Gestion des piles</value>
+  </data>
+  <data name="Equipement_PO" xml:space="preserve">
+    <value>Gestion des postes gaz</value>
+  </data>
+  <data name="Equipement_RI" xml:space="preserve">
+    <value>Gestion des raccords isolants</value>
+  </data>
+  <data name="Equipement_TC" xml:space="preserve">
+    <value>Gestion des tiers croisés sans liaison</value>
+  </data>
+  <data name="EqEquipement_CodePoste" xml:space="preserve">
+    <value>Code poste :</value>
+  </data>
+  <data name="EqEquipement_PresencePCOuvrageTiers" xml:space="preserve">
+    <value>Présence PC sur ouvrages tiers :</value>
+  </data>
+  <data name="EqEquipement_TiersAssocie" xml:space="preserve">
+    <value>Nom du tiers associé :</value>
+  </data>
+  <data name="EqEquipement_TypeFluide" xml:space="preserve">
+    <value>Type fluide :</value>
+  </data>
+  <data name="EqEquipement_TypePoste" xml:space="preserve">
+    <value>Type de poste* :</value>
+  </data>
+  <data name="EqEquipement_CapaciteCondensateur" xml:space="preserve">
+    <value>Capacité du condensateur* :</value>
+  </data>
+  <data name="EqEquipement_DatePosePriseTerre" xml:space="preserve">
+    <value>Date pose prise de terre :</value>
+  </data>
+  <data name="EqEquipement_DebutPriseTerre" xml:space="preserve">
+    <value>Début de la prise de terre</value>
+  </data>
+  <data name="EqEquipement_FinPriseTerre" xml:space="preserve">
+    <value>Fin de la prise de terre</value>
+  </data>
+  <data name="EqEquipement_PileAssocie" xml:space="preserve">
+    <value>Pile associée :</value>
+  </data>
+  <data name="EqEquipement_ResistanceInitPriseTerre" xml:space="preserve">
+    <value>Résistance initiale prise de terre :</value>
+  </data>
+  <data name="EqEquipement_TypeAnode" xml:space="preserve">
+    <value>Type d'anode* :</value>
+  </data>
+  <data name="EqEquipement_TypePriseTerre" xml:space="preserve">
+    <value>Type prise de terre* :</value>
+  </data>
+  <data name="EqEquipement_ConfigElecNormal" xml:space="preserve">
+    <value>Configuration électrique normale* : </value>
+  </data>
+  <data name="EqEquipement_EtatElectrique" xml:space="preserve">
+    <value>Etat électrique* :</value>
+  </data>
+  <data name="EqEquipement_Liaison" xml:space="preserve">
+    <value>Liaison :</value>
+  </data>
+  <data name="EqEquipement_PresenceEclateur" xml:space="preserve">
+    <value>Présence d'un éclateur :</value>
+  </data>
+  <data name="EqEquipement_SecondPP" xml:space="preserve">
+    <value>PP de rattachement (secondaire) :</value>
+  </data>
+  <data name="EqEquipement_TypeRaccordIsolant" xml:space="preserve">
+    <value>Type de raccord isolant* :</value>
+  </data>
+  <data name="EqEquipement_CaracteristiquePile" xml:space="preserve">
+    <value>Caractéristique de la pile* :</value>
+  </data>
+  <data name="EqEquipement_DatePrevisionRenouvellementDeversoir" xml:space="preserve">
+    <value>Date prévisionnelle de renouvellement du déversoir :</value>
+  </data>
+  <data name="EqEquipement_DateRenouvellementDeversoir" xml:space="preserve">
+    <value>Date de renouvellement du déversoir :</value>
+  </data>
+  <data name="EqEquipement_NombrePile" xml:space="preserve">
+    <value>Nombre de pile </value>
+  </data>
+  <data name="EqEquipement_TypeDeversoir" xml:space="preserve">
+    <value>Type de déversoir* :</value>
+  </data>
+  <data name="EqEquipement_LiaisonInterEE" xml:space="preserve">
+    <value>Liaison inter EE :</value>
+  </data>
+  <data name="EqEquipement_LibellePointCommun" xml:space="preserve">
+    <value>Libellé de point commun :</value>
+  </data>
+  <data name="RefSousTypeOuvrage_AnodeTitle" xml:space="preserve">
+    <value>Gestion des types d'anode</value>
+  </data>
+  <data name="RefSousTypeOuvrage_DeversoirPile" xml:space="preserve">
+    <value>Gestion des types de deversoir pile</value>
+  </data>
+  <data name="RefSousTypeOuvrage_DeversoirSoutirage" xml:space="preserve">
+    <value>Gestion des types de deversoir soutirage</value>
+  </data>
+  <data name="RefSousTypeOuvrage_Drainage" xml:space="preserve">
+    <value>Gestion des types de drainage</value>
+  </data>
+  <data name="RefSousTypeOuvrage_Liaison" xml:space="preserve">
+    <value>Gestion des types de liaison</value>
+  </data>
+  <data name="RefSousTypeOuvrage_NomTiers" xml:space="preserve">
+    <value>Gestion des noms tiers</value>
+  </data>
+  <data name="RefSousTypeOuvrage_PriseTerre" xml:space="preserve">
+    <value>Gestion des types de terre</value>
+  </data>
+  <data name="RefSousTypeOuvrage_Raccord" xml:space="preserve">
+    <value>Gestion des types de raccord</value>
+  </data>
+  <data name="RefSousTypeOuvrage_Redresseur" xml:space="preserve">
+    <value>Gestion des types de redresseur</value>
+  </data>
+  <data name="EqEquipement_Longueur" xml:space="preserve">
+    <value>Longueur* :</value>
+  </data>
+  <data name="RefSousTypeOuvrageViewModelCaptionMsgError" xml:space="preserve">
+    <value>Sous type d'ouvrage</value>
+  </data>
+  <data name="RefSousTypeOuvrageViewModelTextMsgError" xml:space="preserve">
+    <value>Suppression impossible. Un équipement utilise cet élément.</value>
+  </data>
+  <data name="RefSousTypeOuvrage_Libelle" xml:space="preserve">
+    <value>Libellé*</value>
+  </data>
+  <data name="RefSousTypeOuvrage_NbElements" xml:space="preserve">
+    <value>Nombre de sous type d'ouvrage :</value>
+  </data>
+  <data name="RefSousTypeOuvrage_NumOrdre" xml:space="preserve">
+    <value>Numéro d'ordre*</value>
+  </data>
+  <data name="RefSousTypeOuvrage_Valeur" xml:space="preserve">
+    <value>Valeur</value>
+  </data>
+  <data name="ActionType_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce type d'action ?</value>
+  </data>
+  <data name="ParamAction_ExpTypeListe" xml:space="preserve">
+    <value>Type de liste:</value>
+  </data>
+  <data name="ParamAction_HeaderLibelle" xml:space="preserve">
+    <value>Libellé</value>
+  </data>
+  <data name="ParamAction_SearchEmptyText" xml:space="preserve">
+    <value>Sélectionnez un type</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Gestion des catégories d'anomalie et type d'actions</value>
+  </data>
+  <data name="Action_NbElements" xml:space="preserve">
+    <value>Nombre d'éléments :</value>
+  </data>
+  <data name="CategoriePP_NbElements" xml:space="preserve">
+    <value>Nombre de catégorie PP :</value>
+  </data>
+  <data name="EqEquipement_Portion" xml:space="preserve">
+    <value>Portion de rattachement :</value>
+  </data>
+  <data name="UsrUtilisateur_TileViewDetail_Title" xml:space="preserve">
+    <value>Détail de l'utilisateur</value>
+  </data>
+  <data name="UsrUtilisateur_TileViewHisto_Title" xml:space="preserve">
+    <value>Suivi des modifications des comptes Admin.</value>
+  </data>
+  <data name="Ressources_Actions" xml:space="preserve">
+    <value>Coûts des actions</value>
+  </data>
+  <data name="Ressources_Mesures" xml:space="preserve">
+    <value>Coûts des mesures</value>
+  </data>
+  <data name="MenuContextAddDesignation" xml:space="preserve">
+    <value>Ajouter une désignation</value>
+  </data>
+  <data name="TypeDocument_SharepointContextError" xml:space="preserve">
+    <value>Opération impossible car le contexte sharepoint n'existe pas.</value>
+  </data>
+  <data name="TypeDocument_SharepointDeleteFolderError" xml:space="preserve">
+    <value>Vous ne pouvez pas supprimer le dossier car il contient au moins un document.</value>
+  </data>
+  <data name="TypeDocument_SharepointFolderError" xml:space="preserve">
+    <value>Le dossier n'existe pas dans sharepoint.</value>
+  </data>
+  <data name="TypeDocument_SharepointFolderExistError" xml:space="preserve">
+    <value>Il existe déjà un dossier portant ce nom à cet emplacement.</value>
+  </data>
+  <data name="Ressources_Actions_Anomalie" xml:space="preserve">
+    <value>Catégorie d'anomalie*</value>
+  </data>
+  <data name="Ressources_Actions_Codification" xml:space="preserve">
+    <value>Codification</value>
+  </data>
+  <data name="Ressources_Actions_Cout" xml:space="preserve">
+    <value>Coût (K€)</value>
+  </data>
+  <data name="Ressources_Actions_Priorite" xml:space="preserve">
+    <value>Priorité*</value>
+  </data>
+  <data name="Ressources_Actions_Delai" xml:space="preserve">
+    <value>Délai*</value>
+  </data>
+  <data name="Ressources_Actions_Temps" xml:space="preserve">
+    <value>Temps (Heures)</value>
+  </data>
+  <data name="Ressources_Actions_Typeaction" xml:space="preserve">
+    <value>Type d'action*</value>
+  </data>
+  <data name="Couts_NbElements" xml:space="preserve">
+    <value>Nombre de coûts :</value>
+  </data>
+  <data name="Ressources_Mesures_Cout" xml:space="preserve">
+    <value>Coût de mesure (€)</value>
+  </data>
+  <data name="Ressources_Mesures_DureeEnreg" xml:space="preserve">
+    <value>Durée d'enreg.</value>
+  </data>
+  <data name="Ressources_Mesures_Evaluation" xml:space="preserve">
+    <value>Evaluation*</value>
+  </data>
+  <data name="Ressources_Mesures_Polarisation" xml:space="preserve">
+    <value>Polarisation</value>
+  </data>
+  <data name="Ressources_Mesures_Temps" xml:space="preserve">
+    <value>Temps de mesure (Heures)</value>
+  </data>
+  <data name="Ressources_Mesures_TypeEquipement" xml:space="preserve">
+    <value>Type Equipement*</value>
+  </data>
+  <data name="TypeDocument_SharepointFileError" xml:space="preserve">
+    <value>Le fichier n'existe pas dans sharepoint.</value>
+  </data>
+  <data name="EqEquipement_LibelleLiaisonCommune" xml:space="preserve">
+    <value>Liaisons point commun :</value>
+  </data>
+  <data name="LiaisonCommune_LibelleLiaison" xml:space="preserve">
+    <value>Libellé liaison</value>
+  </data>
+  <data name="LiaisonCommune_LibellePortion" xml:space="preserve">
+    <value>Libellé portion</value>
+  </data>
+  <data name="EqEquipement_LibelleAucuneLiaisonCommune" xml:space="preserve">
+    <value>Il n'y a aucune liaison</value>
+  </data>
+  <data name="RefSousTypeOuvrage_NbTypeNomTiers" xml:space="preserve">
+    <value>Nombre de noms tiers :</value>
+  </data>
+  <data name="RefSousTypeOuvrage_NbTypeRedresseur" xml:space="preserve">
+    <value>Nombre de types de redresseur : </value>
+  </data>
+  <data name="Document_NbElements" xml:space="preserve">
+    <value>Nombre de document :</value>
+  </data>
+  <data name="Documents_AddDocument" xml:space="preserve">
+    <value>Ajouter un document</value>
+  </data>
+  <data name="PortionComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner une portion</value>
+  </data>
+  <data name="PortionCombobox_PresentationText" xml:space="preserve">
+    <value>Portion :</value>
+  </data>
+  <data name="TooltipAutoComplete_EE" xml:space="preserve">
+    <value>Saisir 3 caractères du libellé de l’Ensemble électrique</value>
+  </data>
+  <data name="TooltipAutoComplete_PI" xml:space="preserve">
+    <value>Saisir 3 caractères du libellé de la Portion</value>
+  </data>
+  <data name="DecoupageGeo_DeleteRegionCaptionMsg" xml:space="preserve">
+    <value>Suppression region</value>
+  </data>
+  <data name="RefSousTypeOuvrage_DeleteTypeNomTiersCaptionMsg" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce nom tiers?</value>
+  </data>
+  <data name="RefSousTypeOuvrage_DeleteTypeNomTiersCaptionMsgError" xml:space="preserve">
+    <value>Suppression du nom tiers impossible.</value>
+  </data>
+  <data name="RefSousTypeOuvrage_DeleteTypeNomTiersConfirmation" xml:space="preserve">
+    <value>Suppression nom tiers</value>
+  </data>
+  <data name="RefSousTypeOuvrage_DeleteTypeRedresseurCaptionMsg" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce type de redresseur ?</value>
+  </data>
+  <data name="RefSousTypeOuvrage_DeleteTypeRedresseurCaptionMsgError" xml:space="preserve">
+    <value>Suppression du type de redresseur impossible.</value>
+  </data>
+  <data name="RefSousTypeOuvrage_DeleteTypeRedresseurConfirmation" xml:space="preserve">
+    <value>Suppression redresseur</value>
+  </data>
+  <data name="DatePremiereMiseEnService" xml:space="preserve">
+    <value>Date première mise en service :</value>
+  </data>
+  <data name="EqEquipement_PrincipalePortion" xml:space="preserve">
+    <value>Portion principale :</value>
+  </data>
+  <data name="EqEquipement_PrincipalePP" xml:space="preserve">
+    <value>PP de rattachement (principale)* :</value>
+  </data>
+  <data name="EqEquipement_SecondPortion" xml:space="preserve">
+    <value>Portion secondaire :</value>
+  </data>
+  <data name="EqEquipement_DatePrevisionRenouvellementPile" xml:space="preserve">
+    <value>Date prévisionnelle de renouvellement de la pile :</value>
+  </data>
+  <data name="EqEquipement_DeleteCaption" xml:space="preserve">
+    <value>Equipement</value>
+  </data>
+  <data name="EqEquipement_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cet équipement ?</value>
+  </data>
+  <data name="TileView_Title_Documents" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="TileView_Title_EnsElec" xml:space="preserve">
+    <value>Ensembles électriques</value>
+  </data>
+  <data name="TileView_Title_Equipement" xml:space="preserve">
+    <value>Equipements</value>
+  </data>
+  <data name="TileView_Title_Histo" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="TileView_Title_Portions" xml:space="preserve">
+    <value>Portions intégrités</value>
+  </data>
+  <data name="TileView_Title_Tournees" xml:space="preserve">
+    <value>Tournées</value>
+  </data>
+  <data name="Ouvrage_Libelle_Document" xml:space="preserve">
+    <value>Libellé Document</value>
+  </data>
+  <data name="Ouvrage_Libelle_EnsElec" xml:space="preserve">
+    <value>Libellé Ens. Electrique</value>
+  </data>
+  <data name="Ouvrage_Libelle_Equipement" xml:space="preserve">
+    <value>Libellé équipement</value>
+  </data>
+  <data name="Ouvrage_Libelle_PortionIntegrite" xml:space="preserve">
+    <value>Libellé Portion intégrité</value>
+  </data>
+  <data name="Ouvrage_Libelle_Tournee" xml:space="preserve">
+    <value>Libellé Tournée</value>
+  </data>
+  <data name="EqEquipement_SecondPPRequired" xml:space="preserve">
+    <value>PP de rattachement (secondaire)* :</value>
+  </data>
+  <data name="EqEquipement_TypeFluideTrans" xml:space="preserve">
+    <value>Type de fluide transporté :</value>
+  </data>
+  <data name="BTN_ValiderHistorisation" xml:space="preserve">
+    <value>Valider avec historisation</value>
+  </data>
+  <data name="BtnAjouterEquipement_PP" xml:space="preserve">
+    <value>Ajouter une PP</value>
+  </data>
+  <data name="Ouvrage_Portion_DateCF" xml:space="preserve">
+    <value>Date CF</value>
+  </data>
+  <data name="Ouvrage_Portion_DateECD" xml:space="preserve">
+    <value>Date ECD</value>
+  </data>
+  <data name="Ouvrage_Portion_DateEG" xml:space="preserve">
+    <value>Date EG</value>
+  </data>
+  <data name="TileView_Title_HistoView" xml:space="preserve">
+    <value>Visualisation de l'historique</value>
+  </data>
+  <data name="DeletePPCaption" xml:space="preserve">
+    <value>Suppression de la PP</value>
+  </data>
+  <data name="DeletePP_LogicalDeleteSucces" xml:space="preserve">
+    <value>La prise de potentiel a été supprimée logiquement.</value>
+  </data>
+  <data name="DeletePP_Text" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette prise de potentiel ?</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_DeleteImpossible" xml:space="preserve">
+    <value>Des équipements non supprimés logiquement sont encore rattachés à la PP. Pour supprimer une PP, il faut supprimer tous les équipements rattachés.</value>
+  </data>
+  <data name="DeleteEquipement_LogicalDeleteSucces" xml:space="preserve">
+    <value>L'équipement a été supprimé logiquement.</value>
+  </data>
+  <data name="TourneeBoutonExporter" xml:space="preserve">
+    <value>Exporter</value>
+  </data>
+  <data name="TourneeBoutonExporterProteIn" xml:space="preserve">
+    <value>Exporter vers ProteIn</value>
+  </data>
+  <data name="TourneeBoutonExporterProtOn" xml:space="preserve">
+    <value>Exporter vers ProtOn</value>
+  </data>
+  <data name="TourneeBoutonExporterExcel" xml:space="preserve">
+    <value>Exporter vers Excel</value>
+  </data>
+  <data name="TourneeTextBox_PresentationText" xml:space="preserve">
+    <value>Tournée :</value>
+  </data>
+  <data name="EqEquipement_AG_Title" xml:space="preserve">
+    <value>Caractéristiques de l'Anode Galvanique</value>
+  </data>
+  <data name="EqEquipement_DE_Title" xml:space="preserve">
+    <value>Caractéristiques du Dispositif d'Ecoulement</value>
+  </data>
+  <data name="EqEquipement_DR_Title" xml:space="preserve">
+    <value>Caractéristiques du Drainage</value>
+  </data>
+  <data name="EqEquipement_FM_Title" xml:space="preserve">
+    <value>Caractéristiques du Fourreau Métallique</value>
+  </data>
+  <data name="EqEquipement_LE_Title" xml:space="preserve">
+    <value>Caractéristiques de la Liaison Externe</value>
+  </data>
+  <data name="EqEquipement_LI_Title" xml:space="preserve">
+    <value>Caractéristiques de la Liaison Interne</value>
+  </data>
+  <data name="EqEquipement_PI_Title" xml:space="preserve">
+    <value>Caractéristiques de la Pile</value>
+  </data>
+  <data name="EqEquipement_PO_Title" xml:space="preserve">
+    <value>Caractéristiques du Poste Gaz</value>
+  </data>
+  <data name="EqEquipement_RI_Title" xml:space="preserve">
+    <value>Caractéristiques du Raccord Isolant</value>
+  </data>
+  <data name="EqEquipement_SO_Title" xml:space="preserve">
+    <value>Caractéristiques du Soutirage</value>
+  </data>
+  <data name="EqEquipement_TC_Title" xml:space="preserve">
+    <value>Caractéristiques du Tiers Croisé</value>
+  </data>
+  <data name="TooltipAutoComplete" xml:space="preserve">
+    <value>Saisir 3 caractères</value>
+  </data>
+  <data name="Equipement_LibelleTypeEquipement" xml:space="preserve">
+    <value>Libellé type équipement</value>
+  </data>
+  <data name="Portions_PP_NbElements" xml:space="preserve">
+    <value>Nombre de prise de potentiel :</value>
+  </data>
+  <data name="Document_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce document ?</value>
+  </data>
+  <data name="Ressource_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette ressource ?</value>
+  </data>
+  <data name="ActionCategorie_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette catégorie d'anomalie ?</value>
+  </data>
+  <data name="CategorieAnomalie_ErrorOnDelete" xml:space="preserve">
+    <value>Erreur lors de la suppression : il existe des ressources associées à cette catégorie d'anomalie</value>
+  </data>
+  <data name="DefaultErrorOnDelete" xml:space="preserve">
+    <value>Une erreur s'est produite lors de la suppresion. Merci de contacter votre administrateur.</value>
+  </data>
+  <data name="TypeAction_ErrorOnDelete" xml:space="preserve">
+    <value>Erreur lors de la suppression : il existe des ressources associées à ce type d'action</value>
+  </data>
+  <data name="TooltipCommune" xml:space="preserve">
+    <value>Veuillez saisir un code département avant de sélectionner une commune</value>
+  </data>
+  <data name="DeleteLiaisonInterEE" xml:space="preserve">
+    <value>Attention si vous sauvegardez avec la case décochée, la liaison inter EE liée à cette liaison interne sera supprimée</value>
+  </data>
+  <data name="EqEquipement_SamePP" xml:space="preserve">
+    <value>Il est déconseillé d'avoir les prises de potentiels primaire et secondaire identiques. Voulez-vous continuez ?</value>
+  </data>
+  <data name="EqLiaisonInterne_SuppressionImpossible" xml:space="preserve">
+    <value>Impossible de supprimer la liaison car elle est liée à une autre liaison (Inter EE)</value>
+  </data>
+  <data name="DateDebutDTPicker_PresentationText" xml:space="preserve">
+    <value>Du* :</value>
+    <comment>Date début :</comment>
+  </data>
+  <data name="DateFinDTPicker_PresentationText" xml:space="preserve">
+    <value>Au* :</value>
+    <comment>Date fin :</comment>
+  </data>
+  <data name="TourneeComboBox_EmptyText" xml:space="preserve">
+    <value>Selectionner une tournée</value>
+  </data>
+  <data name="VisiteEquipements_PresentationText" xml:space="preserve">
+    <value>Equipements :</value>
+  </data>
+  <data name="VisiteSecteurs_PresentationText" xml:space="preserve">
+    <value>Secteurs :</value>
+  </data>
+  <data name="VisiteTournee_PresentationText" xml:space="preserve">
+    <value>Tournees :</value>
+  </data>
+  <data name="Visite_AgentMesure" xml:space="preserve">
+    <value>Agent de mesure :</value>
+  </data>
+  <data name="Visite_DateVisite" xml:space="preserve">
+    <value>Date de visite :</value>
+  </data>
+  <data name="Visite_InstrumentMesure" xml:space="preserve">
+    <value>Instrument :</value>
+  </data>
+  <data name="Visite_Categorie" xml:space="preserve">
+    <value>Catégorie* :</value>
+  </data>
+  <data name="Visite_Classification" xml:space="preserve">
+    <value>Classification* :</value>
+  </data>
+  <data name="Visite_Coordonnees" xml:space="preserve">
+    <value>Coordonnées WGS84</value>
+  </data>
+  <data name="Visite_CourantAltInduit" xml:space="preserve">
+    <value>Courant alternatif induits</value>
+  </data>
+  <data name="Visite_CourantVagCont" xml:space="preserve">
+    <value>Courant vagabonds continus</value>
+  </data>
+  <data name="Visite_DureeEnregistrement" xml:space="preserve">
+    <value>Durée d'enregistrement :</value>
+  </data>
+  <data name="Visite_ElectrodeEntAmovi" xml:space="preserve">
+    <value>Electrode enterrée amovible</value>
+  </data>
+  <data name="Visite_EnsembleElec" xml:space="preserve">
+    <value>Secteur / Ensemble Electrique :</value>
+  </data>
+  <data name="Visite_Fiabilise" xml:space="preserve">
+    <value>Fiabilisées</value>
+  </data>
+  <data name="Visite_Latitude" xml:space="preserve">
+    <value>Latitude :</value>
+  </data>
+  <data name="Visite_Longitude" xml:space="preserve">
+    <value>Longitude :</value>
+  </data>
+  <data name="Visite_Portion" xml:space="preserve">
+    <value>Portion :</value>
+  </data>
+  <data name="Visite_PP" xml:space="preserve">
+    <value>Pk - PP :</value>
+  </data>
+  <data name="Visite_PPefficacite" xml:space="preserve">
+    <value>PP Efficacité</value>
+  </data>
+  <data name="Visite_Secteur" xml:space="preserve">
+    <value>Pk / Secteur :</value>
+  </data>
+  <data name="Visite_SensNiv1" xml:space="preserve">
+    <value>Sensibilité Niv.1 (annuelle EG)</value>
+  </data>
+  <data name="Visite_SensNiv2" xml:space="preserve">
+    <value>Sensibilité Niv.2 (pluriannuelle</value>
+  </data>
+  <data name="Visite_SurfaceTME" xml:space="preserve">
+    <value>Surface TME raccordé</value>
+  </data>
+  <data name="Visite_SurfaceTMS" xml:space="preserve">
+    <value>Surface TMS raccordé</value>
+  </data>
+  <data name="Visite_Telemesure" xml:space="preserve">
+    <value>Télémesure</value>
+  </data>
+  <data name="Visite_TemoinEnt" xml:space="preserve">
+    <value>Témoin enterré</value>
+  </data>
+  <data name="Visite_TemoinSurf" xml:space="preserve">
+    <value>Témoin de surface</value>
+  </data>
+  <data name="Visite_TempsPolarisation" xml:space="preserve">
+    <value>Temps de polarisation :</value>
+  </data>
+  <data name="Visite_UnitSurfaceTME" xml:space="preserve">
+    <value>cm²</value>
+  </data>
+  <data name="Visite_UnitSurfaceTMS" xml:space="preserve">
+    <value>cm²</value>
+  </data>
+  <data name="Bouton_GenererAction" xml:space="preserve">
+    <value>générer action</value>
+  </data>
+  <data name="VisiteAlerteDeclenche" xml:space="preserve">
+    <value>Alerte déclenchée</value>
+  </data>
+  <data name="VisiteAlerte_Titre" xml:space="preserve">
+    <value>Alerte</value>
+  </data>
+  <data name="VisiteAnalyse_Titre" xml:space="preserve">
+    <value>Analyse</value>
+  </data>
+  <data name="VisiteColonneAncienneValeur" xml:space="preserve">
+    <value>Ancienne Valeur</value>
+  </data>
+  <data name="VisiteColonneMesure" xml:space="preserve">
+    <value>Mesure</value>
+  </data>
+  <data name="VisiteColonneNiveau" xml:space="preserve">
+    <value>Niveau</value>
+  </data>
+  <data name="VisiteColonneNouvelleVakeur" xml:space="preserve">
+    <value>Nouvelle Valeur</value>
+  </data>
+  <data name="VisiteColonneUnité" xml:space="preserve">
+    <value>Unité</value>
+  </data>
+  <data name="VisiteCommentaire" xml:space="preserve">
+    <value>Commentaire :</value>
+  </data>
+  <data name="VisiteEtatPC" xml:space="preserve">
+    <value>Etat PC :</value>
+  </data>
+  <data name="VisiteMesuresComplementaire_Titre" xml:space="preserve">
+    <value>Mesures Complémentaires</value>
+  </data>
+  <data name="VisiteMesureStandart_Titre" xml:space="preserve">
+    <value>Mesures Standards</value>
+  </data>
+  <data name="VisiteRelevePartiel" xml:space="preserve">
+    <value>Relevé partiel</value>
+  </data>
+  <data name="BoutonAjouterVisite" xml:space="preserve">
+    <value>Ajouter une visite</value>
+  </data>
+  <data name="DecoupagePortion_DecoupageDeLaPortion" xml:space="preserve">
+    <value>Découpage de la portion:</value>
+  </data>
+  <data name="DecoupagePortion_AssemblageDeLaPortion" xml:space="preserve">
+    <value>Assemblage de la portion:</value>
+  </data>
+  <data name="DecoupagePortion_PointKilo" xml:space="preserve">
+    <value>Point Kilométrique*:</value>
+  </data>
+  <data name="DecoupagePortion_AssemblageAvec" xml:space="preserve">
+    <value>Assemblage avec*:</value>
+  </data>
+  <data name="DecoupagePortion_InverserLesPK" xml:space="preserve">
+    <value>Inverser les PK</value>
+  </data>
+  <data name="Tournee_Code" xml:space="preserve">
+    <value>Code :</value>
+  </data>
+  <data name="Tournee_Commentaire" xml:space="preserve">
+    <value>Commentaire :</value>
+  </data>
+  <data name="Tournee_Libelle" xml:space="preserve">
+    <value>Libellé* :</value>
+  </data>
+  <data name="Tournee_Numero" xml:space="preserve">
+    <value>Numéro :</value>
+  </data>
+  <data name="DecoupagePortion_Prompt_SaveError" xml:space="preserve">
+    <value>Impossible d'effectuer cette opération a cause d'une erreur de donnée(s).</value>
+  </data>
+  <data name="DecoupagePortion_Prompt_SaveSuccess" xml:space="preserve">
+    <value>L'opération est effectuée avec succès.</value>
+  </data>
+  <data name="DecoupagePortion_Prompt_PKTooSmall" xml:space="preserve">
+    <value>La valeur Point Kilomètre (PK) saisie n'est pas valide. Elle doit être supérieure à zero.</value>
+  </data>
+  <data name="DecoupagePortion_Prompt_PKTooBig" xml:space="preserve">
+    <value>La valeur Point Kilomètre (PK) saisie n'est pas valide. Elle doit être inférieure à la longeur de la portion: {0}.</value>
+  </data>
+  <data name="DecoupagePortion_Prompt_SelectSecondPortion" xml:space="preserve">
+    <value>Veuillez selectionner la deuxième portion.</value>
+  </data>
+  <data name="DecoupagePortion_Confirmation_Assemble" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir assembler les deux portions?</value>
+  </data>
+  <data name="DecoupagePortion_Confirmation_AssembleIncompatibles" xml:space="preserve">
+    <value>Les diamètres et/ou les revêtements des 2 portions selectionnées sont différents. Etes-vous sûr de vouloir les assembler?</value>
+  </data>
+  <data name="PortionIntegrite_DeleteCaption" xml:space="preserve">
+    <value>Portion intégrité</value>
+  </data>
+  <data name="PortionIntegrite_IsDeleted" xml:space="preserve">
+    <value>La suppression de la portion vient d'être réalisée avec succès.</value>
+  </data>
+  <data name="Utilisateurs_BtnAD" xml:space="preserve">
+    <value>Rechercher dans l'annuaire</value>
+  </data>
+  <data name="VisiteMaxi" xml:space="preserve">
+    <value>Maxi</value>
+  </data>
+  <data name="VisiteMini" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="VisiteMoyen" xml:space="preserve">
+    <value>Moyen</value>
+  </data>
+  <data name="VisitePrecedent" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="VisiteValeur" xml:space="preserve">
+    <value>Valeur</value>
+  </data>
+  <data name="CompositionEq_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cet équipement de la tournée ?</value>
+  </data>
+  <data name="CompositionPI_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette portion de la tournée ?</value>
+  </data>
+  <data name="CompositionPp_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette PP de la tournée ?</value>
+  </data>
+  <data name="CompositionEE_ChangeConfirmation" xml:space="preserve">
+    <value>Le changement d'ensemble électrique désélectionnera l'ensemble des équipements actuellement sélectionnés. Voulez-vous continuer ?</value>
+  </data>
+  <data name="DecoupagePortion_Prompt_PortionExist" xml:space="preserve">
+    <value>Une portion a déjà enregistrée avec le libellé suivant : {0}</value>
+  </data>
+  <data name="DecoupagePortion" xml:space="preserve">
+    <value>Découpage / Assemblage des portions</value>
+  </data>
+  <data name="LBL_PosteGaz" xml:space="preserve">
+    <value>Poste de gaz</value>
+  </data>
+  <data name="InsIntrument_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cet instrument ?</value>
+  </data>
+  <data name="Utilisateur_EmptyAD" xml:space="preserve">
+    <value>Aucun utilisateur correspondant à l'identifiant saisi</value>
+  </data>
+  <data name="DeleteStateError" xml:space="preserve">
+    <value>L'équipement sélectionnée est supprimée. Veuillez sélectionner un équipement valide.</value>
+  </data>
+  <data name="Ouvrage_Libelle_PP" xml:space="preserve">
+    <value>Libellé PP</value>
+  </data>
+  <data name="Equipement_PP_ErrorPPJumele" xml:space="preserve">
+    <value>Vous devez supprimer toutes les PP jumelée avant de supprimer la PP.</value>
+  </data>
+  <data name="Tournee_PortionsSelec" xml:space="preserve">
+    <value>Portion(s) selectionnée(s) :</value>
+  </data>
+  <data name="BTN_AjouterTournee" xml:space="preserve">
+    <value>Ajouter une Tournée</value>
+  </data>
+  <data name="Tournee_AG" xml:space="preserve">
+    <value>Anodes galvaniques</value>
+  </data>
+  <data name="Tournee_Caracteristique" xml:space="preserve">
+    <value>Caractéristiques de la tournée</value>
+  </data>
+  <data name="Tournee_DE" xml:space="preserve">
+    <value>Disp. d'écoulement</value>
+  </data>
+  <data name="Tournee_DR" xml:space="preserve">
+    <value>Drainage</value>
+  </data>
+  <data name="Tournee_EqDispo" xml:space="preserve">
+    <value>Equipements disponibles :</value>
+  </data>
+  <data name="Tournee_EqTabEval" xml:space="preserve">
+    <value>Eval.*</value>
+  </data>
+  <data name="Tournee_EqTabLibelle" xml:space="preserve">
+    <value>Libellé</value>
+  </data>
+  <data name="Tournee_EqTabPK" xml:space="preserve">
+    <value>Pk</value>
+  </data>
+  <data name="Tournee_EqTabType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Tournee_Evaluation" xml:space="preserve">
+    <value>Evaluation :</value>
+  </data>
+  <data name="Tournee_FM" xml:space="preserve">
+    <value>Fourreaux métalliques</value>
+  </data>
+  <data name="Tournee_LE" xml:space="preserve">
+    <value>Liaisons Externes</value>
+  </data>
+  <data name="Tournee_LI" xml:space="preserve">
+    <value>Liaisons Internes</value>
+  </data>
+  <data name="Tournee_PI" xml:space="preserve">
+    <value>Piles</value>
+  </data>
+  <data name="Tournee_PO" xml:space="preserve">
+    <value>Postes Gaz</value>
+  </data>
+  <data name="Tournee_PortionDispo" xml:space="preserve">
+    <value>Portions disponibles :</value>
+  </data>
+  <data name="Tournee_PP" xml:space="preserve">
+    <value>PP</value>
+  </data>
+  <data name="Tournee_RI" xml:space="preserve">
+    <value>Raccords Isolants</value>
+  </data>
+  <data name="Tournee_SO" xml:space="preserve">
+    <value>Soutirage</value>
+  </data>
+  <data name="Tournee_TC" xml:space="preserve">
+    <value>Tiers croisés sans liaisons</value>
+  </data>
+  <data name="Tournee_TriEnsElec" xml:space="preserve">
+    <value>Par Ensemble Electrique</value>
+  </data>
+  <data name="Tournee_TriEq" xml:space="preserve">
+    <value>Par Equipements</value>
+  </data>
+  <data name="Tournee_TriPortion" xml:space="preserve">
+    <value>Par Portions</value>
+  </data>
+  <data name="AlerteExpanderTitle" xml:space="preserve">
+    <value>Recherche des alertes</value>
+  </data>
+  <data name="Alerte_DateMax" xml:space="preserve">
+    <value>Date fin* :</value>
+  </data>
+  <data name="Alerte_DateMin" xml:space="preserve">
+    <value>Date début* :</value>
+  </data>
+  <data name="Alerte_IncludeDisabledAlerte" xml:space="preserve">
+    <value>Inclure les alertes désactivées</value>
+  </data>
+  <data name="Alerte_PkMax" xml:space="preserve">
+    <value>Au Pk :</value>
+  </data>
+  <data name="Alerte_PkMin" xml:space="preserve">
+    <value>Du Pk :</value>
+  </data>
+  <data name="Alerte_TypeAlerte" xml:space="preserve">
+    <value>Types d'alerte :</value>
+  </data>
+  <data name="Tournee" xml:space="preserve">
+    <value>Gestion des tournées</value>
+  </data>
+  <data name="Alerte_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Alerte_Commentaire" xml:space="preserve">
+    <value>Commentaire</value>
+  </data>
+  <data name="Alerte_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Alerte_EqPp" xml:space="preserve">
+    <value>Equipement/PP</value>
+  </data>
+  <data name="Alerte_NbElements" xml:space="preserve">
+    <value>Nombre d'alerte(s) :</value>
+  </data>
+  <data name="Alerte_Pk" xml:space="preserve">
+    <value>PK</value>
+  </data>
+  <data name="Alerte_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Tournee_Verrouillage" xml:space="preserve">
+    <value>Verrouiller :</value>
+  </data>
+  <data name="DateDebutDTPicker_EmptyText" xml:space="preserve">
+    <value>Début</value>
+  </data>
+  <data name="DateFinDTPicker_EmptyText" xml:space="preserve">
+    <value>Fin</value>
+  </data>
+  <data name="ImportVisite" xml:space="preserve">
+    <value>Import de visite</value>
+  </data>
+  <data name="ImportVisite_FicProtein" xml:space="preserve">
+    <value>Fichier d'import Prote'in :</value>
+  </data>
+  <data name="ImportVisite_FicTelemesure" xml:space="preserve">
+    <value>Fichiers d'import télémesure :</value>
+  </data>
+  <data name="ImportVisite_Agent" xml:space="preserve">
+    <value>Agent de mesure :</value>
+  </data>
+  <data name="ImportVisite_Nom" xml:space="preserve">
+    <value>Nom* :</value>
+  </data>
+  <data name="ImportVisite_Prenom" xml:space="preserve">
+    <value>Prénom* :</value>
+  </data>
+  <data name="ImportVisite_Societe" xml:space="preserve">
+    <value>Société* :</value>
+  </data>
+  <data name="ImportVisite_Tournee" xml:space="preserve">
+    <value>Tournée concernée :</value>
+  </data>
+  <data name="ImportVisite_VersionFichier" xml:space="preserve">
+    <value>Version du fichier :</value>
+  </data>
+  <data name="BTN_Parcourir" xml:space="preserve">
+    <value>Parcourir... </value>
+  </data>
+  <data name="ImportVisite_Log_DateVisite" xml:space="preserve">
+    <value>Date de visite</value>
+  </data>
+  <data name="ImportVisite_Log_CleOuvrage" xml:space="preserve">
+    <value>Clé ouvrage</value>
+  </data>
+  <data name="ImportVisite_Log_Message" xml:space="preserve">
+    <value>Message d'erreur</value>
+  </data>
+  <data name="ImportVisite_Log_Portion" xml:space="preserve">
+    <value>Portion</value>
+  </data>
+  <data name="ImportVisite_Log_Statut" xml:space="preserve">
+    <value>Statut d'import</value>
+  </data>
+  <data name="ImportVisite_Log_Titre" xml:space="preserve">
+    <value>Journal d'import</value>
+  </data>
+  <data name="BTN_Importer" xml:space="preserve">
+    <value>Importer</value>
+  </data>
+  <data name="Alerte_DisableConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir désactiver cette alerte ?</value>
+  </data>
+  <data name="DeplacementPp_ExpanderTitle" xml:space="preserve">
+    <value>Recherche des PP</value>
+  </data>
+  <data name="ValidationVisite_ExpanderTitle" xml:space="preserve">
+    <value>Recherche des Visites à valider</value>
+  </data>
+  <data name="ValidationVisite_DateMax" xml:space="preserve">
+    <value>Date fin :</value>
+  </data>
+  <data name="ValidationVisite_DateMin" xml:space="preserve">
+    <value>Date début :</value>
+  </data>
+  <data name="Alerte" xml:space="preserve">
+    <value>Gestion des alertes</value>
+  </data>
+  <data name="ValidationVisite" xml:space="preserve">
+    <value>Validation des visites</value>
+  </data>
+  <data name="ValidationVisite_Date" xml:space="preserve">
+    <value>Date de mesure</value>
+  </data>
+  <data name="ValidationVisite_EqPp" xml:space="preserve">
+    <value>Equipement/PP</value>
+  </data>
+  <data name="ValidationVisite_Mesure" xml:space="preserve">
+    <value>Mesure</value>
+  </data>
+  <data name="ValidationVisite_NewValue" xml:space="preserve">
+    <value>Nouvelle valeur</value>
+  </data>
+  <data name="ValidationVisite_OldValue" xml:space="preserve">
+    <value>Ancienne valeur</value>
+  </data>
+  <data name="ValidationVisite_Pk" xml:space="preserve">
+    <value>PK</value>
+  </data>
+  <data name="ValidationVisite_RelevePartiel" xml:space="preserve">
+    <value>Relevé partiel</value>
+  </data>
+  <data name="ValidationVisite_Unité" xml:space="preserve">
+    <value>Unité</value>
+  </data>
+  <data name="ValidationVisite_Valider" xml:space="preserve">
+    <value>Valider</value>
+  </data>
+  <data name="BTN_Deplacer" xml:space="preserve">
+    <value>Déplacer</value>
+  </data>
+  <data name="DeplacementPp_Alerte" xml:space="preserve">
+    <value>Alerte</value>
+  </data>
+  <data name="DeplacementPp_Deplacement" xml:space="preserve">
+    <value>Déplacement</value>
+  </data>
+  <data name="DeplacementPp_Pk" xml:space="preserve">
+    <value>Au Pk :</value>
+  </data>
+  <data name="AnAnalyseEe_ExpanderTitle" xml:space="preserve">
+    <value>Recherche des Analyses</value>
+  </data>
+  <data name="AnAnalyseEe" xml:space="preserve">
+    <value>Analyse par Ensemble Electrique</value>
+  </data>
+  <data name="AnAnalyseEe_DateAnalyse" xml:space="preserve">
+    <value>Date Analyse :</value>
+  </data>
+  <data name="RestitutionSubTitleBilans" xml:space="preserve">
+    <value>Bilans</value>
+  </data>
+  <data name="RestitutionSubTileRestitution" xml:space="preserve">
+    <value>Restitutions</value>
+  </data>
+  <data name="RestitutionSubTitleBilansPerso" xml:space="preserve">
+    <value>Bilans personnalisés</value>
+  </data>
+  <data name="RestitutionBilan" xml:space="preserve">
+    <value>Restitution et Bilan</value>
+  </data>
+  <data name="AgentComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner un agent</value>
+  </data>
+  <data name="AgentComboBox_PresentationText" xml:space="preserve">
+    <value>Agent :</value>
+  </data>
+  <data name="AnalyseComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner un état</value>
+  </data>
+  <data name="AnalyseComboBox_PresentationText" xml:space="preserve">
+    <value>Etat d'analyse :</value>
+  </data>
+  <data name="FicheAction" xml:space="preserve">
+    <value>Gestion des fiches action</value>
+  </data>
+  <data name="FicheAction_AvancementTitre" xml:space="preserve">
+    <value>Avancement de l'action</value>
+  </data>
+  <data name="FicheAction_Categorie" xml:space="preserve">
+    <value>Catégorie d'anomalie* :</value>
+  </data>
+  <data name="FicheAction_Codification" xml:space="preserve">
+    <value>Codification de l'action :</value>
+  </data>
+  <data name="FicheAction_ComStatut" xml:space="preserve">
+    <value>Commentaire sur le statut :</value>
+  </data>
+  <data name="FicheAction_Constat" xml:space="preserve">
+    <value>Constat d'anomalie* :</value>
+  </data>
+  <data name="FicheAction_DateFin" xml:space="preserve">
+    <value>Date de fin de réalisation attendue* :</value>
+  </data>
+  <data name="FicheAction_DateMax" xml:space="preserve">
+    <value>Au :</value>
+  </data>
+  <data name="FicheAction_DateMin" xml:space="preserve">
+    <value>Du :</value>
+  </data>
+  <data name="FicheAction_DelaiReal" xml:space="preserve">
+    <value>Délai de réalisation :</value>
+  </data>
+  <data name="FicheAction_Description" xml:space="preserve">
+    <value>Description de l'action :</value>
+  </data>
+  <data name="FicheAction_Commentaire" xml:space="preserve">
+    <value>Commentaire :</value>
+  </data>
+  <data name="FicheAction_DescriptionTitre" xml:space="preserve">
+    <value>Description de l'action</value>
+  </data>
+  <data name="FicheAction_Entite" xml:space="preserve">
+    <value>Entité de traitement :</value>
+  </data>
+  <data name="FicheAction_ExpanderTitle" xml:space="preserve">
+    <value>Recherche des fiches action</value>
+  </data>
+  <data name="FicheAction_HistoComplet" xml:space="preserve">
+    <value>Complétée le {0} par {1}</value>
+  </data>
+  <data name="FicheAction_HistoCreation" xml:space="preserve">
+    <value>Créée le {0} par {1}</value>
+  </data>
+  <data name="FicheAction_Programme" xml:space="preserve">
+    <value>Programme budgétaire :</value>
+  </data>
+  <data name="FicheAction_Quantite" xml:space="preserve">
+    <value>Quantité* :</value>
+  </data>
+  <data name="FicheAction_Reel" xml:space="preserve">
+    <value>Réel :</value>
+  </data>
+  <data name="FicheAction_Resp" xml:space="preserve">
+    <value>Responsable de l'action :</value>
+  </data>
+  <data name="FicheAction_RessourcesTitre" xml:space="preserve">
+    <value>Ressources</value>
+  </data>
+  <data name="FicheAction_Statut" xml:space="preserve">
+    <value>Statut* :</value>
+  </data>
+  <data name="FicheAction_Temps" xml:space="preserve">
+    <value>Temps de travail global :</value>
+  </data>
+  <data name="FicheAction_Type" xml:space="preserve">
+    <value>Type d'action* :</value>
+  </data>
+  <data name="FicheAction_UniteCout" xml:space="preserve">
+    <value>K€</value>
+  </data>
+  <data name="FicheAction_UniteTemps" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="StatutComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner un statut</value>
+  </data>
+  <data name="StatutComboBox_PresentationText" xml:space="preserve">
+    <value>Statut :</value>
+  </data>
+  <data name="EqEquipement_EqDeplace" xml:space="preserve">
+    <value>Cet équipement a été déplacé</value>
+  </data>
+  <data name="EqEquipement_EqIssuDeplacement" xml:space="preserve">
+    <value>Cet équipement est issu d'un déplacement</value>
+  </data>
+  <data name="EqEquipement_EqSupprime" xml:space="preserve">
+    <value>Cet équipement a été supprimé</value>
+  </data>
+  <data name="AnAnalyseEe_EnsElec" xml:space="preserve">
+    <value>Ensemble électrique* :</value>
+  </data>
+  <data name="AnAnalyseEe_Periode" xml:space="preserve">
+    <value>Période du* :</value>
+  </data>
+  <data name="AnAnalyseEe_PeriodeAu" xml:space="preserve">
+    <value>au* :</value>
+  </data>
+  <data name="BTN_Analyser" xml:space="preserve">
+    <value>Analyser</value>
+  </data>
+  <data name="AnAnalyseEe_Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="AnAnalyseEe_Alertes" xml:space="preserve">
+    <value>Alertes</value>
+  </data>
+  <data name="AnAnalyseEe_Analyse" xml:space="preserve">
+    <value>Evaluation de l'efficacité de la PC</value>
+  </data>
+  <data name="AnAnalyseEe_CategAno" xml:space="preserve">
+    <value>Catégorie d'anomalie</value>
+  </data>
+  <data name="AnAnalyseEe_NFiche" xml:space="preserve">
+    <value>N° fiche</value>
+  </data>
+  <data name="AnAnalyseEe_Rapport" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
+  <data name="AnAnalyseEe_Statut" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="AnAnalyseEe_Priorite" xml:space="preserve">
+    <value>Priorité</value>
+  </data>
+  <data name="AnAnalyseEe_Annexes" xml:space="preserve">
+    <value>Annexes retenues</value>
+  </data>
+  <data name="AnAnalyseEe_LibelleBilan" xml:space="preserve">
+    <value>Bilan des équipements et des contrôles</value>
+  </data>
+  <data name="AnAnalyseEe_LibelleCarac" xml:space="preserve">
+    <value>Caractéristiques des portions intégrité étudiées</value>
+  </data>
+  <data name="AnAnalyseEe_LibelleCtrl" xml:space="preserve">
+    <value>Bilan isolation de l’EE</value>
+  </data>
+  <data name="AnAnalyseEe_LibelleDiag" xml:space="preserve">
+    <value>Diagnostic du système de protection cathodique</value>
+  </data>
+  <data name="AnAnalyseEe_LibelleMesure" xml:space="preserve">
+    <value>Mesures périodiques de l’EE tableaux et graphiques</value>
+  </data>
+  <data name="AnAnalyseEe_LibelleRecap" xml:space="preserve">
+    <value>Classification des PP et synthèse des enregistrements des potentiels et des courants sur témoins métalliques</value>
+  </data>
+  <data name="AnAnalyseEe_Ref" xml:space="preserve">
+    <value>Référence</value>
+  </data>
+  <data name="BTN_AjoutAction" xml:space="preserve">
+    <value>Ajouter une action</value>
+  </data>
+  <data name="BTN_GenererRapport" xml:space="preserve">
+    <value>Générer un rapport</value>
+  </data>
+  <data name="AnAnalyseEe_Commentaire" xml:space="preserve">
+    <value>Commentaire</value>
+  </data>
+  <data name="FicheAction_Libelle" xml:space="preserve">
+    <value>Action {0}n°{1}</value>
+  </data>
+  <data name="FicheAction_PC" xml:space="preserve">
+    <value>PC</value>
+  </data>
+  <data name="BTN_AjouterAnalyse" xml:space="preserve">
+    <value>Ajouter une analyse</value>
+  </data>
+  <data name="AnAnalyseEe_EtatPC" xml:space="preserve">
+    <value>Etat de la protection* :</value>
+  </data>
+  <data name="MesTypeMesure_MesureComplementaires" xml:space="preserve">
+    <value>Mesure complémentaire</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Moteur de recherche</value>
+  </data>
+  <data name="Search_ExpanderTitle" xml:space="preserve">
+    <value>Recherche avancée</value>
+  </data>
+  <data name="TooltipAutoComplete_RespAction" xml:space="preserve">
+    <value>Saisir 3 caractères du libellé du Responsable d'action</value>
+  </data>
+  <data name="DateFormat" xml:space="preserve">
+    <value>dd/MM/yyyy</value>
+  </data>
+  <data name="CategorieAnomalieComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner une catégorie d'anomalie</value>
+  </data>
+  <data name="TypeActionComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner un type d'action</value>
+  </data>
+  <data name="Tournee_Etat" xml:space="preserve">
+    <value>Tournée supprimée :</value>
+  </data>
+  <data name="Search_SearchText" xml:space="preserve">
+    <value>Recherche :</value>
+  </data>
+  <data name="DeplacementPp_ErrorAlerte" xml:space="preserve">
+    <value>Il reste des alertes actives à traiter</value>
+  </data>
+  <data name="CodeOuvrageTextBox_PresentationText" xml:space="preserve">
+    <value>Code ouvrage :</value>
+  </data>
+  <data name="DesignationCombobox_EmptyText" xml:space="preserve">
+    <value>Saisir une désignation</value>
+  </data>
+  <data name="DesignationCombobox_PresentationText" xml:space="preserve">
+    <value>Désignation :</value>
+  </data>
+  <data name="Documentation_TitreExpander" xml:space="preserve">
+    <value>Recherche des documents</value>
+  </data>
+  <data name="TypeDossierCombobox_EmptyText" xml:space="preserve">
+    <value>Saisir un type de dossier</value>
+  </data>
+  <data name="TypeDossierCombobox_PresentationText" xml:space="preserve">
+    <value>Type de dossier :</value>
+  </data>
+  <data name="TypeEquipementComboBox_EmptyText" xml:space="preserve">
+    <value>Saisir un type d' équipement</value>
+  </data>
+  <data name="TypeEquipementCombobox_PresentationText" xml:space="preserve">
+    <value>Type équipement :</value>
+  </data>
+  <data name="TypeOuvrageComboBox_EmptyText" xml:space="preserve">
+    <value>Saisir un type d'ouvrage</value>
+  </data>
+  <data name="TypeOuvrageCombobox_PresentationText" xml:space="preserve">
+    <value>Type ouvrage :</value>
+  </data>
+  <data name="DeplacementPp_ErrorPK" xml:space="preserve">
+    <value>Erreur sur la Pk : La Pk doit être comprise entre 0 et la longueur de la portion sélectionnée</value>
+  </data>
+  <data name="DeplacementPp_ErrorPortion" xml:space="preserve">
+    <value>Aucune portion n'est sélectionnée</value>
+  </data>
+  <data name="DeplacementPp_ErrorGlobal" xml:space="preserve">
+    <value>Une erreur est survenue lors du déplacement. Merci de vérifier les équipements rattachés à la PP.</value>
+  </data>
+  <data name="DecoupagePortion_Prompt_ErrorLongueur" xml:space="preserve">
+    <value>La longueur de la portion sélectionnée n'est pas valide. Elle doit être supérieur à 0.</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>Bilan documentation</value>
+  </data>
+  <data name="ValidationVisite_Maxi" xml:space="preserve">
+    <value>Maxi</value>
+  </data>
+  <data name="ValidationVisite_Mini" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="ValidationVisite_Moyen" xml:space="preserve">
+    <value>Moy./valeur</value>
+  </data>
+  <data name="ValidationVisite_Precedente" xml:space="preserve">
+    <value>Précéd.</value>
+  </data>
+  <data name="ValidationVisite_TypeMesure" xml:space="preserve">
+    <value>Type Mesure</value>
+  </data>
+  <data name="ValidationVisite_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cette visite ?</value>
+  </data>
+  <data name="ValidationVisite_MesuresComp" xml:space="preserve">
+    <value>Mesure(s) complémentaire(s) :</value>
+  </data>
+  <data name="ValidationVisite_MesuresStd" xml:space="preserve">
+    <value>Mesure(s) standard(s) :</value>
+  </data>
+  <data name="Visite_NbElements" xml:space="preserve">
+    <value>Nombre de visites en attente de validation :</value>
+  </data>
+  <data name="BTN_Imprimer" xml:space="preserve">
+    <value>Imprimer</value>
+  </data>
+  <data name="Alerte_Desactiver" xml:space="preserve">
+    <value>Désactiver</value>
+  </data>
+  <data name="Alerte_FindPasComplet" xml:space="preserve">
+    <value>Les champs "Date début" et "Date Fin" sont obligatoires</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Search_DateDeb" xml:space="preserve">
+    <value>Date début :</value>
+  </data>
+  <data name="Search_DateFin" xml:space="preserve">
+    <value>Date fin :</value>
+  </data>
+  <data name="Search_Dossier" xml:space="preserve">
+    <value>Dossier :</value>
+  </data>
+  <data name="Search_Patrimoine" xml:space="preserve">
+    <value>Type de patrimoine PC :</value>
+  </data>
+  <data name="Search_rdbAll" xml:space="preserve">
+    <value>Tous</value>
+  </data>
+  <data name="Search_rdbDocument" xml:space="preserve">
+    <value>Document uniquement</value>
+  </data>
+  <data name="Search_rdbEnsElec" xml:space="preserve">
+    <value>Ensemble électrique</value>
+  </data>
+  <data name="Search_rdbEquipement" xml:space="preserve">
+    <value>Equipement</value>
+  </data>
+  <data name="Search_rdbPortion" xml:space="preserve">
+    <value>Portion</value>
+  </data>
+  <data name="Search_rdbPp" xml:space="preserve">
+    <value>PP</value>
+  </data>
+  <data name="Search_TypeOuv" xml:space="preserve">
+    <value>Type ouvrage :</value>
+  </data>
+  <data name="Documentation_Equipement" xml:space="preserve">
+    <value>Equipement</value>
+  </data>
+  <data name="Documentation_Ouvrage" xml:space="preserve">
+    <value>Ouvrage</value>
+  </data>
+  <data name="EqEquipementFicLoaded" xml:space="preserve">
+    <value>Image de l'équipement téléchargée</value>
+  </data>
+  <data name="EqOuvrageFicLoaded" xml:space="preserve">
+    <value>Image de l'ouvrage téléchargée</value>
+  </data>
+  <data name="PortionIntegrite_Supprimee" xml:space="preserve">
+    <value>La portion  intégrité a été supprimée</value>
+  </data>
+  <data name="Tournee_Supprimee" xml:space="preserve">
+    <value>La tournée a été supprimée</value>
+  </data>
+  <data name="Alerte_TypeEq" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="SaisieVisite" xml:space="preserve">
+    <value>Saisie des visites</value>
+  </data>
+  <data name="SaisieVisite_TileItemGraph" xml:space="preserve">
+    <value>Graphique</value>
+  </data>
+  <data name="SaisieVisite_TileItemHisto" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="SaisieVisite_TileItemTableaux" xml:space="preserve">
+    <value>Tableaux de bord</value>
+  </data>
+  <data name="SaisieVisite_TileItemVisite" xml:space="preserve">
+    <value>Visite</value>
+  </data>
+  <data name="SaisieVisite_MesuresExpdr" xml:space="preserve">
+    <value>Mesures</value>
+  </data>
+  <data name="Utilisateurs_SocieteExterne" xml:space="preserve">
+    <value>Société* :</value>
+  </data>
+  <data name="SaisieVisite_ResultatRecherche" xml:space="preserve">
+    <value>Résultat de la recherche ({0} tournée{1})</value>
+  </data>
+  <data name="SaisieVisite_AgentMesure" xml:space="preserve">
+    <value>Agent de mesure* :</value>
+  </data>
+  <data name="SaisieVisite_AnalyseExpdr" xml:space="preserve">
+    <value>Analyse</value>
+  </data>
+  <data name="SaisieVisite_DateVisite" xml:space="preserve">
+    <value>Date de visite* :</value>
+  </data>
+  <data name="SaisieVisite_InstrumentMesure" xml:space="preserve">
+    <value>Instrument(s) :</value>
+  </data>
+  <data name="AdminGenerateur" xml:space="preserve">
+    <value>Admnistration Odima</value>
+  </data>
+  <data name="DeplacementPp_OK" xml:space="preserve">
+    <value>La PP a été déplacée avec succès </value>
+  </data>
+  <data name="ValidationEquipement" xml:space="preserve">
+    <value>Validation des équipements</value>
+  </data>
+  <data name="ValidationEquipementTmp_DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer cet équipement?</value>
+  </data>
+  <data name="ValidationEquipementTmp_ExpanderTitle" xml:space="preserve">
+    <value>Recherche des équipements à valider</value>
+  </data>
+  <data name="ValidationEquipement_DateMax" xml:space="preserve">
+    <value>Date fin : </value>
+  </data>
+  <data name="ValidationEquipement_DateMin" xml:space="preserve">
+    <value>Date début :</value>
+  </data>
+  <data name="ValidationEquipement_EqPp" xml:space="preserve">
+    <value>Equipement</value>
+  </data>
+  <data name="ValidationEquipement_Etat" xml:space="preserve">
+    <value>Etat :</value>
+  </data>
+  <data name="ValidationEquipement_Pk" xml:space="preserve">
+    <value>PK</value>
+  </data>
+  <data name="TypeMesure_Graphique" xml:space="preserve">
+    <value>Type de graphique :</value>
+  </data>
+  <data name="Unites_SearchGraphEmptyText" xml:space="preserve">
+    <value>Sélectionner un graphique</value>
+  </data>
+  <data name="EqEquipementPp_DdeDeverouillage" xml:space="preserve">
+    <value>Demande de déverrouillage</value>
+  </data>
+  <data name="EqEquipementPp_Deverouillage" xml:space="preserve">
+    <value>Demande en cours...</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_ExportPDFError" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'export PDF.</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_ExportXLSError" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'export Excel.</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_FileInUseError" xml:space="preserve">
+    <value>Impossible d'exporter le fichier, veuillez vérifier que le fichier de destination est accessible.</value>
+  </data>
+  <data name="SaisieVisiteChangePP_InformationBox" xml:space="preserve">
+    <value>La valeur saisie dépasse le seuil {0}. La PP a été modifiée pour indiquer la présence de courants alternatifs induits.</value>
+  </data>
+  <data name="SaisieVisite_TableauBord_LibelleEE" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SelectTourneeTableauBord_Result_Date_Visite" xml:space="preserve">
+    <value>Date visite</value>
+  </data>
+  <data name="SelectTourneeTableauBord_Result_LibelleEq" xml:space="preserve">
+    <value>Equipement/PP</value>
+  </data>
+  <data name="SelectTourneeTableauBord_Result_NonVisite" xml:space="preserve">
+    <value>Non visité</value>
+  </data>
+  <data name="SelectTourneeTableauBord_Result_Pk" xml:space="preserve">
+    <value>Pk</value>
+  </data>
+  <data name="SelectTourneeTableauBord_Result_Secteur" xml:space="preserve">
+    <value>Secteur</value>
+  </data>
+  <data name="SelectTourneeTableauBord_Result_Statut" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="SelectTourneeTableauBord_Result_TypeEq" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="SelectTourneeTableauBord_Result_Visite" xml:space="preserve">
+    <value>Visité</value>
+  </data>
+  <data name="Graphique_NoData" xml:space="preserve">
+    <value>Pas de données à afficher</value>
+  </data>
+  <data name="SelectPortionGraphique_Result_Legende" xml:space="preserve">
+    <value>Légende : </value>
+  </data>
+  <data name="SelectPortionGraphique_Result_Maxi" xml:space="preserve">
+    <value>Maxi</value>
+  </data>
+  <data name="SelectPortionGraphique_Result_Mini" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="SelectPortionGraphique_Result_Moyen" xml:space="preserve">
+    <value>Moyen</value>
+  </data>
+  <data name="VisiteHisto_DateImport" xml:space="preserve">
+    <value>Importée le </value>
+  </data>
+  <data name="VisiteHisto_DateMesure" xml:space="preserve">
+    <value>Mesurée le </value>
+  </data>
+  <data name="VisiteHisto_DateSaisie" xml:space="preserve">
+    <value>Saisie le </value>
+  </data>
+  <data name="VisiteHisto_DateValidation" xml:space="preserve">
+    <value>Validée le </value>
+  </data>
+  <data name="VisiteHisto_Usr" xml:space="preserve">
+    <value> par </value>
+  </data>
+  <data name="VisiteHisto_Titre" xml:space="preserve">
+    <value>Historique de la visite</value>
+  </data>
+  <data name="TypeEqComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner un type d'équipement</value>
+  </data>
+  <data name="TypeEqComboBox_PresentationText" xml:space="preserve">
+    <value>Type d'équipement :</value>
+  </data>
+  <data name="VisiteComboBox_PresentationText" xml:space="preserve">
+    <value>Date de visite :</value>
+  </data>
+  <data name="EditionVisite_ExpanderTitle" xml:space="preserve">
+    <value>Edition des visites</value>
+  </data>
+  <data name="EditionVisite_ResRecherche" xml:space="preserve">
+    <value>Résultat de la recherche ({0} équipement{1})</value>
+  </data>
+  <data name="EditionVisite" xml:space="preserve">
+    <value>Edition des visites</value>
+  </data>
+  <data name="ImportVisite_Log_Type" xml:space="preserve">
+    <value>Type d'équipement</value>
+  </data>
+  <data name="BTN_Reinitialiser" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="ValidationEquipement_ACompleterExpdr" xml:space="preserve">
+    <value>à compléter</value>
+  </data>
+  <data name="ValidationEquipement_AValiderExpdr" xml:space="preserve">
+    <value>à valider</value>
+  </data>
+  <data name="ValidationEquipement_NbElements" xml:space="preserve">
+    <value>Nombre d'équipement(s) :</value>
+  </data>
+  <data name="ValidationEquipement_TypeEq" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ImportVisite_Log_Fichier" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="TileView_Title_Tournee" xml:space="preserve">
+    <value>Tournée</value>
+  </data>
+  <data name="FicheAction_CoutUnitaire" xml:space="preserve">
+    <value>Coût unitaire :</value>
+  </data>
+  <data name="FicheAction_Numero" xml:space="preserve">
+    <value>Action PC n° :</value>
+  </data>
+  <data name="FicheAction_TempsUnitaire" xml:space="preserve">
+    <value>Temps de travail unitaire :</value>
+  </data>
+  <data name="ValidationEquipement_EtatACompleter" xml:space="preserve">
+    <value>2 : à compléter</value>
+  </data>
+  <data name="ValidationEquipement_EtatAValider" xml:space="preserve">
+    <value>1 : à valider</value>
+  </data>
+  <data name="ValidationEquipement_EtatColone" xml:space="preserve">
+    <value>Etape</value>
+  </data>
+  <data name="DetailPp_ErrorCheckbox" xml:space="preserve">
+    <value>Les caractérisques suivantes de la PP sont à corriger : {0}</value>
+  </data>
+  <data name="AddPpJumeleeCaption" xml:space="preserve">
+    <value>Ajout PP Jumelée</value>
+  </data>
+  <data name="EqEquipementPp_AucunDeverrouillage" xml:space="preserve">
+    <value>Aucune demande de déverrouillage en cours...</value>
+  </data>
+  <data name="RestitutionSubTileGraphique" xml:space="preserve">
+    <value>Graphiques</value>
+  </data>
+  <data name="AnAnalyseEe_InfoSuppressionAction" xml:space="preserve">
+    <value>Impossible de supprimer l'analyse car elle contient des actions.</value>
+  </data>
+  <data name="Image_MessageErreur" xml:space="preserve">
+    <value>L'image ne respecte pas la taille maximum ({0} Ko).</value>
+  </data>
+  <data name="Document_MessageErreur" xml:space="preserve">
+    <value>Attention la taille du fichier est supérieure à la taille maximale ({0} Mo), poursuite du traitement?</value>
+  </data>
+  <data name="Visite_NonMesuree_Erreur" xml:space="preserve">
+    <value>La visite ne peut être créée car la PP est non mesurée</value>
+  </data>
+  <data name="ImportVisite_Log_TypeEquipement" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ValidationEquipementTmp_ExpanderEq" xml:space="preserve">
+    <value> équipement(s) créé(s)</value>
+  </data>
+  <data name="ValidationEquipementTmp_ExpanderPp" xml:space="preserve">
+    <value> prise(s) de potentiel modifiée(s)</value>
+  </data>
+  <data name="AnAnalyse_EtatPC" xml:space="preserve">
+    <value>Etat de la protection :</value>
+  </data>
+  <data name="Erreur_Donnees" xml:space="preserve">
+    <value>Erreur dans l'integrité des données. Veuillez les vérifier.</value>
+  </data>
+  <data name="SaisieVisite_SearchEmpty" xml:space="preserve">
+    <value>Une date de début et une date de fin est obligatoire</value>
+  </data>
+  <data name="SaisieVisite_ExpanderTitle" xml:space="preserve">
+    <value>Recherche des visites</value>
+  </data>
+  <data name="SaisieVisite_SearchErrorDate" xml:space="preserve">
+    <value>La date début doit être inférieure à la date de fin</value>
+  </data>
+  <data name="Visite_PkIntervalleError" xml:space="preserve">
+    <value>Le PK minimum doit être inférieur ou égal au PK maximum.</value>
+  </data>
+  <data name="EqTmp_TypeEq" xml:space="preserve">
+    <value>Type d'équipement* :</value>
+  </data>
+  <data name="EqTmp_TypeEval" xml:space="preserve">
+    <value>Type d'évaluation* :</value>
+  </data>
+  <data name="BTN_AjouterEqTmp" xml:space="preserve">
+    <value>Ajouter un équipement</value>
+  </data>
+  <data name="ImportVisite_FicProtOn" xml:space="preserve">
+    <value>Fichier d'import ProtOn :</value>
+  </data>
+  <data name="BTN_Telecharger" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="ImportVisite_ModuleProtein" xml:space="preserve">
+    <value>Module Prote'in :</value>
+  </data>
+  <data name="ImportVisite_ModuleProton" xml:space="preserve">
+    <value>Module ProtOn :</value>
+  </data>
+  <data name="ImportVisite_Log_LibelleOuvrage" xml:space="preserve">
+    <value>Libellé ouvrage</value>
+  </data>
+  <data name="EnterTime" xml:space="preserve">
+    <value>Entrer une heure</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>date</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>heure</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_PrintError" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'impression.</value>
+  </data>
+  <data name="BaseProtecaEntityViewModel_OutOfMemory" xml:space="preserve">
+    <value>Mémoire insuffiante pour traiter la quantité de données.</value>
+  </data>
+  <data name="ParametreAction_ErrorOnDelete" xml:space="preserve">
+    <value>Erreur lors de la suppression : il existe des actions associées à cet élément</value>
+  </data>
+  <data name="BTN_Telecharger_Protein" xml:space="preserve">
+    <value>Télécharger Prote'in</value>
+  </data>
+  <data name="BTN_Telecharger_ProtOn" xml:space="preserve">
+    <value>Télécharger ProtOn</value>
+  </data>
+  <data name="Rejets_DateVisite" xml:space="preserve">
+    <value>Date visite</value>
+  </data>
+  <data name="Rejets_TypeEval" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TileView_Title_Imports" xml:space="preserve">
+    <value>Imports</value>
+  </data>
+  <data name="TileView_Title_Rejets" xml:space="preserve">
+    <value>Rejets</value>
+  </data>
+  <data name="TileView_Title_Visites" xml:space="preserve">
+    <value>Visites</value>
+  </data>
+  <data name="Rejets_PpTmpContent" xml:space="preserve">
+    <value>Contenu de la PP</value>
+  </data>
+  <data name="Rejets_VisiteContent" xml:space="preserve">
+    <value>Contenu de la visite</value>
+  </data>
+  <data name="Rejets_LibellePortion" xml:space="preserve">
+    <value>Portion</value>
+  </data>
+  <data name="ImportVisite_ContenuEnErreur" xml:space="preserve">
+    <value>Contenu en erreur</value>
+  </data>
+  <data name="Instrument_SupprimeNameHeader" xml:space="preserve">
+    <value>Supprime</value>
+  </data>
+  <data name="ValidationVisite_ConformiteToolTip" xml:space="preserve">
+    <value>La tournée a été modifiée dans Proteca depuis son export.</value>
+  </data>
+  <data name="BTN_ClassificationDesPp" xml:space="preserve">
+    <value>Classification des PP...</value>
+  </data>
+  <data name="MicadoEquipement" xml:space="preserve">
+    <value>EPC</value>
+  </data>
+  <data name="MicadoPp" xml:space="preserve">
+    <value>PPO</value>
+  </data>
+  <data name="MicadoURIParams" xml:space="preserve">
+    <value>?carte=WEB_CARTE_ECHANGES&amp;ouvrage={0}</value>
+  </data>
+  <data name="MicadoURIRoot" xml:space="preserve">
+    <value>http://micado.grtgaz.com/micado-consult/</value>
+  </data>
+  <data name="CleMicadoLibelle" xml:space="preserve">
+    <value>(Clé {0})</value>
+  </data>
+  <data name="CleMicado" xml:space="preserve">
+    <value>{0}-{1}</value>
+  </data>
+  <data name="PpComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner une PP</value>
+  </data>
+  <data name="TypeEvalComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner un type d'évaluation</value>
+  </data>
+  <data name="NiveauProtection_ModeleMesure" xml:space="preserve">
+    <value>Modèle de mesure</value>
+  </data>
+  <data name="NiveauProtection_SeuilMaxi" xml:space="preserve">
+    <value>Seuil Maxi</value>
+  </data>
+  <data name="NiveauProtection_SeuilMini" xml:space="preserve">
+    <value>Seuil Mini</value>
+  </data>
+  <data name="NiveauProtection_Title" xml:space="preserve">
+    <value>Niveau de protection :</value>
+  </data>
+  <data name="NiveauProtection_TypeEq" xml:space="preserve">
+    <value>Type d'équipement</value>
+  </data>
+  <data name="Utilisateurs_EstPresta" xml:space="preserve">
+    <value>Utilisateur prestataire :</value>
+  </data>
+  <data name="ImportVisite_TabCount" xml:space="preserve">
+    <value> ({0} en erreur)</value>
+  </data>
+  <data name="ValidationError_PresentationText" xml:space="preserve">
+    <value>{0} =&gt; Propriété{1} en erreur : </value>
+  </data>
+  <data name="TypeMesure_PositifOuNull" xml:space="preserve">
+    <value>Ne peut être négatif :</value>
+  </data>
+  <data name="FicheAction_DeleteConfirmation" xml:space="preserve">
+    <value>Etes vous sûr de vouloir supprimer cette action?</value>
+  </data>
+  <data name="Action_ErrorOnDelete" xml:space="preserve">
+    <value>Une erreur lors de la suppresion s'est produite. Merci de contacter votre administrateur.</value>
+  </data>
+  <data name="FicheAction_IncludeDisabledAction" xml:space="preserve">
+    <value>Inclure les actions supprimées</value>
+  </data>
+  <data name="Action_Supprimee" xml:space="preserve">
+    <value>Cette fiche action a été supprimée</value>
+  </data>
+  <data name="TileView_Title_Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Action_Code" xml:space="preserve">
+    <value>Code de l'action</value>
+  </data>
+  <data name="Action_Priorité" xml:space="preserve">
+    <value>Priorité de l'action</value>
+  </data>
+  <data name="Action_Statut" xml:space="preserve">
+    <value>Statut de l'action</value>
+  </data>
+  <data name="Action_Priorités_ToolTip" xml:space="preserve">
+    <value>1 : Ces actions correctives concernent les anomalies PC liées à la présence d'influences électriques non maitrisées qui peuvent augmenter significativement la vitesse de corrosion et provoquer une situation atypique*
+2 : Ces actions correctives concernent les anomalies PC qui présentent une incidence sur l'efficacité de la PC et/ou un risque de corrosion libre**
+3 : Ces actions correctives concernent les anomalies PC sans incidence immédiate sur l'efficacité de la PC et sur la corrosion du réseau
+4 : Ces actions correctives n'ont pas d'incidence sur l'efficacité de la PC et sur la corrosion du réseauou correspondent à des écarts vis-à-vis de la conformité électrique, atex et sécurité.
+
+*Situation atypique : cratères de corrosion dus aux influences électriques (courants vagabonds continus ou courants alternatifs induits).
+
+**Corrosion libre : corrosion pouvant se développer lors de la mise en défaut de la protection cathodique de la canalisation.</value>
+  </data>
+  <data name="FicheAction_Priorité" xml:space="preserve">
+    <value>Niveau de priorité :</value>
+  </data>
+  <data name="PrioritéComboBox_PresentationText" xml:space="preserve">
+    <value>Niveau de priorité :</value>
+  </data>
+  <data name="NiveauPrioritéComboBox_EmptyText" xml:space="preserve">
+    <value>Sélectionner un niveau</value>
+  </data>
+  <data name="Action_PortionIntegriteAnAction_Obligatoire" xml:space="preserve">
+    <value>Ce champ est obligatoire.</value>
+  </data>
+  <data name="FicheAction_DateCloture" xml:space="preserve">
+    <value>Date de clôture :</value>
+  </data>
+  <data name="FicheAction_DateDebut" xml:space="preserve">
+    <value>Date de début :</value>
+  </data>
+  <data name="FicheAction_EnsembleElectrique" xml:space="preserve">
+    <value>Ensemble électrique :</value>
+  </data>
+  <data name="FicheAction_NomAgent" xml:space="preserve">
+    <value>Nom de l'agent :</value>
+  </data>
+  <data name="FicheAction_PortionsIntegrites" xml:space="preserve">
+    <value>Portions intégrité :</value>
+  </data>
+  <data name="TypeEvalPP" xml:space="preserve">
+    <value>Type d'évaluation:</value>
+  </data>
+  <data name="FicheAction_DateModification" xml:space="preserve">
+    <value>Date de modification :</value>
+  </data>
+  <data name="FicheAction_Cout" xml:space="preserve">
+    <value>Coût global :</value>
+  </data>
+  <data name="FicheAction_Estime" xml:space="preserve">
+    <value>Estimé :</value>
+  </data>
+  <data name="FicheAction_TypeEval" xml:space="preserve">
+    <value>Type d'évaluation :</value>
+  </data>
+</root>

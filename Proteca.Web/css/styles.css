@@ -12,6 +12,8 @@ nav li{
 #aside{
     vertical-align:top;
     margin-left:10px;
+    overflow-x: scroll;
+
 }
 
 input{

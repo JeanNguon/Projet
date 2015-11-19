@@ -1,12 +1,54 @@
 ﻿<header>
-    <nav>
+    <nav class="navbar navbar-default ">
         <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Gestion des ouvrages</a></li>
-            <li><a href="#">Visite</a></li>
-            <li><a href="#">Analyse et Restitution</a></li>
-            <li><a href="#">Administration</a></li>
-            <li><a href="#">Paramètres</a></li>
+            <li>
+                <a href="#" class="col-md-2" ng-click="accueil = !accueil">Accueil</a>
+                <ul ng-show="accueil">
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="col-md-2" ng-click="gestionOuvrages = !gestionOuvrages">Gestion des ouvrages</a>
+                <ul ng-show="gestionOuvrages">
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="col-md-2" ng-click="visite = !visite">Visite</a>
+                <ul ng-show="visite">
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="col-md-2" ng-click="analyse = !analyse">Analyse et Restitution</a>
+                <ul ng-show="analyse">
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="col-md-4" ng-click="administration =!administration">Administration</a>
+                <ul ng-show="administration">
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="col-md-4" ng-click="parametres =!parametres">Paramètres</a>
+                <ul ng-show="parametres">
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                    <li>lien 1</li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </header>

@@ -1,0 +1,492 @@
+﻿body
+{
+}
+
+#s4-workspace
+{
+	overflow: hidden;
+	overflow-x: hidden !important;
+	overflow-y: hidden !important;
+	position: absolute;
+}
+
+html
+{
+}
+
+.clear{
+	clear:both;
+	height: 0;
+    width: 0;
+}
+
+a, a:link
+{
+	color:#2A5CA5;
+	text-decoration:underline;	
+}
+
+.proteca_MainContent
+{	
+    height:100%;
+}
+
+.proteca_firstBandeau
+{
+	height:25px;
+	background-color:#383838;
+}
+
+.proteca_version
+{
+    list-style:none;  
+    height: 25px;
+    margin:0px;
+}
+
+.proteca_login
+{
+    float : right;
+    list-style:none;  
+    height: 25px;
+    margin:0px;
+}
+
+.proteca_firstBandeau li.sepBandeau
+{
+	background:url("/Images/sep_login.png") no-repeat;
+	width:1px;
+	margin-top:4px;
+}
+
+.proteca_firstBandeau li
+{
+    float : left;
+    color : #FFFFFF;    
+    margin : 4px 8px;
+}
+
+.proteca_login a, .proteca_login a
+{
+    color : #FFFFFF;
+    vertical-align:top;
+    text-decoration:none;
+}
+
+.proteca_login a img
+{
+    margin-top:-1px;
+}
+
+.proteca_login .ms-welcomeMenu
+{
+	background:none;
+	border:none;
+	padding:0px;
+	margin: 0px;
+}
+
+.proteca_secondBandeau
+{
+	padding: 0px;
+	clear:both;
+	background:url("/Images/fond_bandeau.png") repeat-x;
+	/*height: 72px;*/
+}
+
+.proteca_grtgaz img
+{
+	float: left;
+}
+
+.proteca_logo
+{
+	float:left;
+    text-align: Left;
+    width: 50%;
+    margin-left:15px;
+    height: 69px;
+}
+.proteca_logo img
+{
+	width:233px;
+}
+
+.proteca_search
+{
+	padding-bottom: 10px;
+    padding-top: 10px;
+	margin-right: 5px;
+	text-align:right;
+	float:right;
+	width:230px;
+}
+
+.proteca_search .advancedSearchLink
+{
+	margin-top:5px;
+	text-align:left;
+	width : 230px;
+	display: block;
+}
+
+.proteca_search .s4-search a
+{
+	background: url("/Images/search.png") no-repeat;
+    height: 30px;
+    width: 30px;
+    display:block;
+}
+
+.proteca_search .s4-search a:hover
+{
+	background: url("/Images/search_on.png") no-repeat;
+}
+
+.proteca_menu
+{
+	margin: 0 5px;
+	clear:both;
+	height: 28px;
+	background:url("/Images/bg_menu.png") repeat-x;
+}
+
+.proteca_menu div
+{
+	float:left;
+}
+
+.proteca_menu li.static .menu-item, .proteca_menu li.static a:hover
+{
+	color:#FFFFFF;
+	text-decoration:none;
+	height:28px;
+	padding:0px 10px 0px 20px;
+	margin:0px 0px 0px 1px;
+	border:0px;
+	line-height:28px;
+}
+
+.proteca_menu li.static a.selected
+{
+	color:#CCCCCC;
+}
+
+.proteca_menu li.static a:hover
+{
+	background:url("/Images/bg_menu_on.png") repeat-x;
+}
+
+.proteca_menu ul.root ul.static li.static
+{
+	background:url("/Images/sep_menu.png") no-repeat left;
+}
+
+.proteca_menu li.static .menu-item-text
+{
+	padding-right:10px;
+}
+
+.proteca_menu ul.dynamic
+{
+	background:#B4D076;
+}
+
+.menu-horizontal a.dynamic-children span.additional-background, .menu-horizontal span.dynamic-children span.additional-background {
+    background-image: url("/Images/menu-down.gif");
+}
+
+
+
+.proteca_menu .ms-siteactionsmenu
+{
+	float:right;
+}
+
+.proteca_menu .ms-siteactionsmenuhover, .proteca_menu .ms-siteactionsmenuinner
+{
+	border:none;
+	background:none;
+	margin:0 5px;
+	padding: 0px;
+	height:28px;
+	line-height:28px;
+	color:#FFFFFF;
+}
+
+.proteca_menu .ms-siteactionsmenuhover a, .proteca_menu .ms-siteactionsmenuinner a
+{
+	color:#FFFFFF;
+}
+
+
+.proteca_content
+{
+	min-height:400px;
+	margin-left: 0px;
+	width: 100%;
+	height:100%;
+}
+
+.proteca_filAriane
+{
+	margin-bottom:0px;
+    margin: 8px 0 0 0;
+    padding: 0;
+}
+
+.proteca_filAriane_node, .proteca_filAriane_current
+{
+	display: inline;
+    list-style-type: none;
+    margin: 0 3px;
+    padding: 0;
+	color:#5BA8C2;    
+}
+
+.proteca_filAriane_node a
+{
+	color:#5BA8C2;
+}
+
+.proteca_filAriane_node a:hover
+{
+	text-decoration:underline;
+}
+
+
+.proteca_filAriane_current
+{
+	color:#666666;
+}
+
+.proteca_filAriane_sep
+{
+	
+}
+
+.proteca_DesignConsole
+{
+	margin: 0 5px;
+}
+
+
+/** Page d'accueil **/
+.AccueilPage
+{
+	padding-top: 30px;
+	width:100%;
+	height:100%;
+}
+
+
+#AccueilMainZone
+{
+    position:relative;
+    z-index: 1;
+    width:100%;
+    overflow-y: scroll;
+}
+
+#AccueilXAPZone
+{
+    height:30px;
+    text-align:center;
+    width:100%;
+    position:relative;
+	z-index:0;
+}
+
+#AccueilXAPZone div, #AccueilXAPZone table, #AccueilXAPZone td
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px none;
+}
+
+.AccueilLeftBar
+{
+	width:30%;
+}
+
+.AccueilRightBar
+{
+    width:auto;
+    margin-top:250px;
+}
+
+.AccueilRightBar td, .AccueilRightBar a, .AccueilRightBar a:hover, .AccueilRightBar a:visited, .AccueilRightBar a:link, .AccueilRightBar a:default
+{
+    white-space:nowrap;
+    color:#04255B !important;
+}
+
+.AccueilRightBar .ms-addnew, .AccueilPage #Hero-WPQ2
+{
+    display:none;
+}
+
+.AccueilMainContent
+{
+	border-left:3px #93CDDD solid;
+    border-right:3px #93CDDD solid;
+	width:100%;
+	padding-left:15px;
+}
+
+.MainTable
+{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 0px none;
+    width: 100%;
+}
+
+/** XAP Page **/
+
+.XAPPage, .XAPPage div, .XAPPage table, .XAPPage .ms-WPBorder
+{
+	width:100%;
+	height: 100% !important;
+	margin: 0px;
+	padding: 0px;
+	border: 0px none;
+}
+
+.XAPPage td
+{
+    height : 100%;
+}
+
+.XAPMainContent
+{
+	padding:0px;
+}
+
+/**  Alerte page d'accueil  **/
+.user_act_sum .section_title
+{	
+	color: #04255B;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.user_act_sum th
+{
+	color: #04255B;
+    background : url("/Images/bg_tableau.png") repeat-x scroll 0px 0px transparent;
+    height : 30px;
+    line-height : 30px;
+    margin: 0;
+    padding: 0 5px;
+    text-align: left;
+    white-space:nowrap;
+    font-size : 10px;
+}
+
+.user_act_sum tr
+{
+}
+
+.user_act_sum .ligne0 td
+{
+    background : url("/Images/bg_ligne.png") repeat-x scroll 0 0 transparent;
+}
+
+.user_act_sum .ligne1 td
+{
+    background : url("/Images/bg_ligne.png") repeat-x scroll 0 0 transparent;
+}
+
+.user_act_sum td
+{
+	color: #04255B;
+    background : url("/Images/bg_tableau.png") repeat-x scroll 0 0 transparent;
+    height : 25px;
+    line-height : 25px;
+    border-style : none solid none solid;
+    border-width : 1px;
+    border-color : #c5c5c5;
+    padding: 0 2px;
+    font-size : 9px;
+}
+
+.user_act_sum table
+{
+	margin : 5px 0px 20px 0px;
+    width: 100%;
+    border-style : none solid solid solid;
+    border-width : 1px;
+    border-color : #c5c5c5;
+}
+
+
+/**  Overwrite MS Style  **/
+
+.ms-sbtable-ex
+{
+    float:none;
+}
+
+.ms-wpContentDivSpace
+{
+    margin : 0px;
+    padding : 0px;
+}
+
+#s4-bodyContainer
+{
+    height:auto;
+    clear:both;
+}
+
+.ms-consolestatuscheckoutframe, .ms-consoleminiframe {
+    background: url("/Images/bg_ms.png") repeat-x scroll 0 0 transparent;
+}
+
+.proteca_menu .ms-siteactionsmenuhover .ms-viewselector-arrow, .proteca_menu .ms-siteactionsmenuinner .ms-viewselector-arrow
+{
+	margin-top:13px;
+}
+
+table.ms-listviewtable > tbody > tr > td.ms-stylebox
+{
+	border:none;
+	width: 100%;
+}
+
+.ms-viewheadertr, .ms-stylelabel
+{
+	display:none;
+}
+
+.ms-stylebody a, .ms-stylebody a:link
+{
+	color:#4B9DBA;
+}
+
+.s4-search .srch-gosearchimg
+{
+    display:none;
+}
+
+.s4-search input.ms-sbplain
+{	
+	background-color:#F8F8F8;
+	border: 1px #7EAAC7 solid !important;
+	margin-right: 2px;
+	height: 26px;
+}
+.ms-MenuUIUL LI[menugroupid="100"],
+.ms-MenuUIUL LI[menugroupid="300"],
+.ms-MenuUIUL LI[type="separator"]
+ {
+    display: none;
+}
+.srch-Page {
+	padding-bottom:3em;
+}
+
+.AccueilRightBar .ms-vb-icon {display:none;}
+.AccueilRightBar .ms-listviewtable {width:150px;}

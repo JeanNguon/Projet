@@ -1,0 +1,65 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.SearchView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           xmlns:my="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           Title="SearchView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+    </UserControl.Resources>
+
+    <toolkit:BusyIndicator Name="isBusyIndicator" IsBusy="{Binding IsBusy}" BusyContent="Merci de patienter..." >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <UC:CustomGridView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="SearchGridView" IsReadOnly="True" ItemsSource="{Binding Results}" Width="auto" AutoGenerateColumns="False">
+                <telerik:RadGridView.Columns>
+
+                    <telerik:GridViewDataColumn Header="Type" DataMemberBinding="{Binding Extension}" IsResizable="False" >
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImageExtension}" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDynamicHyperlinkColumn Header="Titre" DataMemberBinding="{Binding Title}" Width="auto" NavigateUrlFormatString="{} {0}" NavigateUrlMemberPaths="Path" TargetName="_blank" />
+                    <telerik:GridViewDataColumn Width="Auto" Header="Date" DataMemberBinding="{Binding Date}" DataFormatString="{} {0:dd/MM/yyyy}" IsVisible="{Binding DataContext.IsColumnDateVisible, RelativeSource={RelativeSource AncestorType=telerik:RadGridView}}" />
+                    <telerik:GridViewDataColumn Header="Résumé" DataMemberBinding="{Binding HitHighlightedSummary}" Width="*" >
+                        <telerik:GridViewColumn.ToolTipTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding HitHighlightedSummary}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:GridViewColumn.ToolTipTemplate>
+                    </telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+            </UC:CustomGridView>
+
+            <telerik:RadDataPager Grid.Row="1"
+							  x:Name="radDataPager1" PageSize="20" Margin="0,-1,0,0" FontSize="12"
+				              Source="{Binding Items, ElementName=SearchGridView}"
+							  DisplayMode="All" Width="auto"
+							  AutoEllipsisMode="Both"
+							  NumericButtonCount="7"
+							  IsTotalItemCountFixed="True" />
+        </Grid>
+    </toolkit:BusyIndicator>
+</navigation:Page>
+

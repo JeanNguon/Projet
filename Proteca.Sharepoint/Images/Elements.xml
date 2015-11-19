@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Images">
+  <File Path="Images\favicon.ico" Url="Images/favicon.ico" />
+<File Path="Images\aide.gif" Url="Images/aide.gif" />
+<File Path="Images\logo_grtgaz.jpg" Url="Images/logo_grtgaz.jpg" />
+<File Path="Images\bg_menu.png" Url="Images/bg_menu.png" />
+<File Path="Images\sep_menu.png" Url="Images/sep_menu.png" />
+<File Path="Images\bg_menu_on.png" Url="Images/bg_menu_on.png" />
+<File Path="Images\bg_ms.png" Url="Images/bg_ms.png" />
+<File Path="Images\sep_login.png" Url="Images/sep_login.png" />
+<File Path="Images\menu-down.gif" Url="Images/menu-down.gif" />
+<File Path="Images\logo_proteca.jpg" Url="Images/logo_proteca.jpg" />
+<File Path="Images\fond_bandeau.png" Url="Images/fond_bandeau.png" />
+<File Path="Images\search.png" Url="Images/search.png" />
+<File Path="Images\search_on.png" Url="Images/search_on.png" />
+<File Path="Images\bg_tableau.png" Url="Images/bg_tableau.png" />
+<File Path="Images\bg_ligne.png" Url="Images/bg_ligne.png" />
+<File Path="Images\bg_ligne_alt.png" Url="Images/bg_ligne_alt.png" />
+</Module>
+</Elements>

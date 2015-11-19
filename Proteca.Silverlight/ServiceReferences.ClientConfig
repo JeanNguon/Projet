@@ -1,0 +1,30 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_ILogService" closeTimeout="00:10:00"
+                    openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00"
+                    maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="QueryServiceSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+            <customBinding>
+                <binding name="BasicHttpsBinding_ILogService" closeTimeout="00:10:00"
+                    openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00">
+                    <httpsTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:3109/Services/LogService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ILogService"
+                contract="LogServiceReference.ILogService" name="BasicHttpBinding_ILogService" />
+            <endpoint address="http://localhost:3109/_vti_bin/search.asmx" binding="basicHttpBinding"
+                bindingConfiguration="QueryServiceSoap" contract="SearchQueryService.QueryServiceSoap"
+                name="QueryServiceSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

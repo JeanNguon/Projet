@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Proteca.Silverlight.Views.UserContols.GraphiqueMesures"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+    xmlns:templateSelector="clr-namespace:Proteca.Silverlight.Views.DataTemplateSelectors"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    
+    <UserControl.Resources>
+        <templateSelector:BinaryTemplateSelector x:Key="BinarySelector" OddTemplate="{StaticResource OddTemplate}" EvenTemplate="{StaticResource EvenTemplate}"/>
+    </UserControl.Resources>
+
+    <telerik:RadCartesianChart VerticalAlignment="Stretch" VerticalContentAlignment="Stretch"
+                               HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+        <telerik:RadCartesianChart.Behaviors>
+            <telerik:ChartTooltipBehavior HorizontalOffset="-9" VerticalOffset="-52" />
+        </telerik:RadCartesianChart.Behaviors>
+        <telerik:RadCartesianChart.EmptyContentTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding Graphique.NoData, RelativeSource={RelativeSource AncestorType=UserControl}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </DataTemplate>
+        </telerik:RadCartesianChart.EmptyContentTemplate>
+        <telerik:LineSeries ItemsSource="{Binding Graphique.Maxi, RelativeSource={RelativeSource AncestorType=UserControl}}" ValueBinding="Y" CategoryBinding="X" Stroke="Red">
+            <telerik:LineSeries.PointTemplate>
+                <DataTemplate>
+                    <Ellipse Height="5" Width="5" Stroke="White" StrokeThickness="1" Fill="Red" />
+                </DataTemplate>
+            </telerik:LineSeries.PointTemplate>
+        </telerik:LineSeries>
+        <telerik:LineSeries ItemsSource="{Binding Graphique.Moyen, RelativeSource={RelativeSource AncestorType=UserControl}}" ValueBinding="Y" CategoryBinding="X" Stroke="Green">
+            <telerik:LineSeries.PointTemplate>
+                <DataTemplate>
+                    <Ellipse Height="5" Width="5" Stroke="White" StrokeThickness="1" Fill="Green" />
+                </DataTemplate>
+            </telerik:LineSeries.PointTemplate>
+        </telerik:LineSeries>
+        <telerik:LineSeries ItemsSource="{Binding Graphique.Mini, RelativeSource={RelativeSource AncestorType=UserControl}}" ValueBinding="Y" CategoryBinding="X" Stroke="Blue">
+            <telerik:LineSeries.PointTemplate>
+                <DataTemplate>
+                    <Ellipse Height="5" Width="5" Stroke="White" StrokeThickness="1" Fill="Blue" />
+                </DataTemplate>
+            </telerik:LineSeries.PointTemplate>
+        </telerik:LineSeries>
+        <telerik:RadCartesianChart.HorizontalAxis >
+            <telerik:CategoricalAxis PlotMode="OnTicksPadded" LabelTemplateSelector="{StaticResource BinarySelector}" />
+        </telerik:RadCartesianChart.HorizontalAxis>
+        <telerik:RadCartesianChart.VerticalAxis>
+            <telerik:LinearAxis Maximum="{Binding Graphique.MaximumY, RelativeSource={RelativeSource AncestorType=UserControl}}" Minimum="{Binding Graphique.MinimumY, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Title="{Binding Graphique.TitreY, RelativeSource={RelativeSource AncestorType=UserControl}}" MajorStep="{Binding Graphique.StepY, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+        </telerik:RadCartesianChart.VerticalAxis>
+        <telerik:RadCartesianChart.Grid>
+            <telerik:CartesianChartGrid MajorLinesVisibility="Y" StripLinesVisibility="Y" />
+        </telerik:RadCartesianChart.Grid>
+    </telerik:RadCartesianChart>
+</UserControl>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <!-- Parent ContentType: Folder (0x0120) -->
+    <ContentType ID="0x0120009FD4F98820AE594FB5D75A1B6328714E"
+               Name="Groupe de sujet"
+               Group="Proteca"
+               Description="Online help group, which serves as the container of help items."
+               Inherits="TRUE"
+               Version="1">
+        <FieldRefs>
+            <FieldRef ID="{d0663906-8c88-41b9-bfdb-3b96d328dd50}" Name="Description" DisplayName="Description" Sealed="FALSE" ShowInDisplayForm="TRUE" ShowInFileDlg="TRUE" ShowInEditForm="TRUE" ShowInListSettings="TRUE" ShowInNewForm="TRUE" />
+        </FieldRefs>
+    </ContentType>
+    <!-- Parent ContentType: Item (0x01) -->
+    <ContentType ID="0x010043c91c8eac5a4a978b57be8c9710df81"
+                 Name="Élement"
+                 Group="Proteca"
+                 Description="Online help item"
+                 Inherits="TRUE"
+                 Version="1">
+        <FieldRefs>
+            <FieldRef ID="{88F1B0F7-7892-2900-B690-D4BD3119DBDA}" Name="TopicKey" DisplayName="Clé" Sealed="FALSE" ShowInDisplayForm="TRUE" ShowInFileDlg="TRUE" ShowInEditForm="TRUE" ShowInListSettings="TRUE" ShowInNewForm="TRUE" />
+            <FieldRef ID="{38ACDB9B-3345-4d89-A64F-7802000D2048}" Name="TopoicContent" DisplayName="Contenu" Sealed="FALSE" ShowInDisplayForm="TRUE" ShowInFileDlg="TRUE" ShowInEditForm="TRUE" ShowInListSettings="TRUE" ShowInNewForm="TRUE" />
+        </FieldRefs>
+    </ContentType>
+</Elements>

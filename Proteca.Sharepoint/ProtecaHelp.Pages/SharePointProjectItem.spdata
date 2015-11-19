@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="ProtecaHelp.Pages\" Type="ElementManifest" />
+    <ProjectItemFile Source="OnlineHelp.aspx" Target="ProtecaHelp.Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="DiagnosticHelp.aspx" Target="ProtecaHelp.Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="Glossary.aspx" Target="ProtecaHelp.Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="Styles\help.css" Target="ProtecaHelp.Pages\Styles\" Type="ElementFile" />
+    <ProjectItemFile Source="..\ProtecaHelp.Pages\Styles\Images\profilelist-header.png" Target="ProtecaHelp.Pages\Styles\Images\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

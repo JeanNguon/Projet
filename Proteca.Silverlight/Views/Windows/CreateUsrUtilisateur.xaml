@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Proteca.Silverlight.Views.Windows.CreateUsrUtilisateur"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+  xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+  Width="300" Height="Auto">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0 0 5 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="tbkNom" Text="{Binding Path=Resource.Utilisateurs_Nom, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="0" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+            <TextBox x:Name="tbxNom" Text="{Binding User.Nom, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                     Grid.Row="0" Grid.Column="1" Height="22" TabIndex="1"/>
+
+            <TextBlock x:Name="tbkPrenom" Text="{Binding Path=Resource.Utilisateurs_Prenom, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="1" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+            <TextBox x:Name="tbxPrenom" Text="{Binding User.Prenom, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                     Grid.Row="1" Grid.Column="1" Height="22" TabIndex="2"/>
+
+            <TextBlock x:Name="tbkSociete" Text="{Binding Path=Resource.Utilisateurs_SocieteExterne, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="2" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+            <TextBox x:Name="tbxSociete" Text="{Binding User.Societe, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                     Grid.Row="2" Grid.Column="1" Height="22" TabIndex="3"/>
+
+        </Grid>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5 10 5 5">
+            <Button x:Name="btnValider" Style="{StaticResource BtnValider}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding ValidateCommand}" 
+                    HorizontalAlignment="Right" TabIndex="4" />
+            <Button x:Name="btnAnnuler" Style="{StaticResource BtnAnnuler}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" 
+                    HorizontalAlignment="Right" TabIndex="5" />
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

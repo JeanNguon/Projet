@@ -1,0 +1,133 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.RefParametreView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           xmlns:templateSelector="clr-namespace:Proteca.Silverlight.Views.DataTemplateSelectors"
+           Title="RefParametreView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" HideTopNavigation="True" Grid.Column="0" IsEditMode="{Binding IsEditMode}">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot">
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding SaveCommand}" />
+                </i:Interaction.Behaviors>
+                <!-- Contenu de la vue -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="375"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- ECHANGES -->
+                    <TextBlock Text="ECHANGES" Style="{StaticResource RegroupementText}" Grid.Row="1"/>
+                    <Rectangle Style="{StaticResource RectBlueUnderline}" Grid.Row="2" Grid.ColumnSpan="4"/>
+
+                    <UC:ListParametre Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Stretch"
+                                      ListParams="{Binding ListEchanges}" 
+                                      IsEditMode="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"/>
+
+                    <!-- BILANS SOUTIRAGES -->
+                    <TextBlock Text="BILANS SOUTIRAGES" Style="{StaticResource RegroupementText}" Grid.Row="4"/>
+                    <Rectangle Style="{StaticResource RectBlueUnderline}" Grid.Row="5" Grid.ColumnSpan="4"/>
+
+                    <UC:ListParametre Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Stretch"
+                                      ListParams="{Binding ListSoutirages, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                                      IsEditMode="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"
+                                      ListMesModeleMesure="{Binding ListMesModeleMesure, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+
+                    <!-- GESTION IMAGES -->
+                    <TextBlock Text="GESTION IMAGES" Style="{StaticResource RegroupementText}" Grid.Row="7"/>
+                    <Rectangle Style="{StaticResource RectBlueUnderline}" Grid.Row="8" Grid.ColumnSpan="4"/>
+
+                    <UC:ListParametre Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Stretch"
+                                      ListParams="{Binding ListImages}" 
+                                      IsEditMode="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"/>
+
+                    <!-- BILANS PP -->
+                    <TextBlock Text="BILANS PP" Style="{StaticResource RegroupementText}" Grid.Row="10"/>
+                    <Rectangle Style="{StaticResource RectBlueUnderline}" Grid.Row="11" Grid.ColumnSpan="4"/>
+
+                    <UC:ListParametre Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Stretch"
+                                      ListParams="{Binding ListPP}" 
+                                      IsEditMode="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"/>
+
+                    <!-- PORTIONS INTEGRITES -->
+                    <TextBlock Text="PORTIONS INTEGRITES" Style="{StaticResource RegroupementText}" Grid.Row="13"/>
+                    <Rectangle Style="{StaticResource RectBlueUnderline}" Grid.Row="14" Grid.ColumnSpan="4"/>
+
+                    <UC:ListParametre Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Stretch"
+                                      ListParams="{Binding ListPI}" 
+                                      IsEditMode="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"/>
+
+
+                    <!-- VISITE -->
+                    <TextBlock Text="VISITES" Style="{StaticResource RegroupementText}" Grid.Row="16"/>
+                    <Rectangle Style="{StaticResource RectBlueUnderline}" Grid.Row="17" Grid.ColumnSpan="4"/>
+
+                    <UC:ListParametre Grid.Row="18" Grid.Column="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Stretch"
+                                      ListParams="{Binding ListVisites}" 
+                                      IsEditMode="{Binding DataContext.IsEditMode, RelativeSource={RelativeSource AncestorType=UC:MainContainer}}"/>
+                </Grid>
+
+                <!-- Bind IsBusy to IsBusy -->
+                
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid Margin="10,10" HorizontalAlignment="Stretch" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <UC:ErrorSummary />
+                <Button x:Name="btnModifier" Style="{StaticResource BtnModifier}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding EditCommand}"
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" />
+                <Button x:Name="btnValider" Style="{StaticResource BtnValider}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding SaveCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+                <Button x:Name="btnAnnuler" Style="{StaticResource BtnAnnuler}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<aide>	
+	<glossaire>
+		<mot>
+			<libelle>
+				Corrosion 
+			</libelle>
+			<definition>
+				Phénomène de dégradation d'un substrat par le milieu dans lequel il se trouve placé. Pour les métaux, elle est due à leur tendance à retourner à l'état naturel. 
+			</definition>
+		</mot>
+			<mot>
+			<libelle>
+				Courants vagabonds  
+			</libelle>
+			<definition>
+				Courants d'intensité et de sens de circulation variables, circulant dans l'électrolyte et souvent générés par des installations de traction électrique en courant continu.  
+			</definition>
+		</mot>
+			<mot>
+			<libelle>
+				Déversoir (masse anodique) 
+			</libelle>
+			<definition>
+				Système constitué par une ou plusieurs anodes enterrées ou immergées, relié au pôle positif d'une source de courant continu, assurant la diffusion du courant de protection cathodique vers la structure à protéger à travers l'électrolyte.  
+			</definition>
+		</mot>	
+		<mot>
+			<libelle>
+				Drainage (poste de) 
+			</libelle>
+			<definition>
+				 Dispositif destiné à canaliser vers la source émettrice, par l'intermédiaire d'une liaison polarisée, les courants vagabonds captés par une structure. 
+			</definition>
+		</mot>
+		<mot>
+			<libelle>
+				Drainage  
+			</libelle>
+			<definition>
+				Dispositif destiné à canaliser, vers la source émettrice, etc., les courants vagabonds captés par une structure.  
+			</definition>
+		</mot>
+		<mot>
+			<libelle>
+				Electrode de référence  
+			</libelle>
+			<definition>
+				Demi pile impolarisable de potentiel constant. L'électrode au cuivre/sulfate de cuivre est la plus utilisée sur le site (électrode Cu/CuSO4 en solution saturée).
+			</definition>
+		</mot>
+			<mot>
+			<libelle>
+				Electrode enterrée (profonde à poste fixe)   
+			</libelle>
+			<definition>
+				Electrode installée à poste fixe pour mesurer le potentiel d'une structure par rapport au milieu afin de contrôler ou de piloter la protection cathodique. 
+			</definition>
+		</mot>
+		<mot>
+			<libelle>
+				Electrode enterrée avec témoin métallique (profonde à poste fixe) 
+			</libelle>
+			<definition>
+				Installation qui comprend un témoin métallique calibré associé à une électrode de référence et qui est utilisée pour faciliter la mesure du potentiel d'électrode de la structure en évitant l'erreur liée à la chute ohmique. 
+			</definition>
+		</mot>
+		<mot>
+			<libelle>
+				Electrolyte 
+			</libelle>
+			<definition>
+				Milieu conducteur ionique environnant une structure. 
+			</definition>
+		</mot>
+		<mot>
+			<libelle>
+				Liaison électrique 
+			</libelle>
+			<definition>
+				Liaison non résistive et non polarisée entre deux structures.
+			</definition>
+		</mot>	
+		<mot>
+			<libelle>
+				Potentiel à courant déclenché  
+			</libelle>
+			<definition>
+				Potentiel mesuré à l'instant où la structure à contrôler n'est plus soumise aux courants de protection. Cette méthode permet d'éliminer la chute ohmique générée par la circulation du courant de protection entre l'equipement contrôlé et l'électrode de référence. 
+			</definition>
+		</mot>
+		<mot>
+			<libelle>
+				Potentiel de protection
+			</libelle>
+			<definition>
+				Terme utilisé en protection cathodique pour définir le niveau minimal du potentiel à atteindre pour inhiber la corrosion (- 850 mV Cu/CuSo4). 
+			</definition>
+		</mot>
+		<mot>
+			<libelle>
+				Prise de potentiel 
+			</libelle>
+			<definition>
+				Dispositif permettant à l'aide d'une liaison électrique appropriée de mesurer le potentiel d'une structure. 
+			</definition>
+		</mot>
+		<mot>
+			<libelle>
+				Protection cathodique  
+			</libelle>
+			<definition>
+				Procédé qui consiste à rendre négligeable la vitesse de corrosion en abaissant le potentiel du métal par rapport à son milieu environnant.
+			</definition>
+		</mot>	
+		<mot>
+			<libelle>
+				Puits
+			</libelle>
+			<definition>
+				Un puits comporte deux colonnes de cuvelage en acier, voire plus. Il est utilisé pour revêtir un forage à partir de la surface du sol, et généralement cimentée aux formations géologiques. Chaque puits est sous protection cathodique et fait l'objet de contrôles périodiques. 
+			</definition>
+		</mot>
+		<mot>
+			<libelle>
+				Redresseur
+			</libelle>
+			<definition>
+				Dispositif produisant un courant continu redressé à partir de l'alimentation niveau4.
+			</definition>
+		</mot>	
+		<mot>
+			<libelle>
+				Soutirage (poste de) 
+			</libelle>
+			<definition>
+				Dispositif électrique permettant d'injecter dans le sol les courants de protection cathodique. 
+			</definition>
+		</mot>	
+	</glossaire>
+	<diagnostic>
+		<groupe>
+			<titre>Côté Transport</titre>
+			<description>Pour plus d'information sur les buts et méthodes de la protection cathodique, reportez-vous aux Guides de Savoir Faire du Département d'Expertises et Appui Protection contre la Corrosion.</description>
+			<topic>
+					<titre>PRO 0063</titre>
+					<description>Protocole Protection cathodique</description>
+			</topic>
+			<topic>
+					<titre>GSF 0013</titre>
+					<description>Localisation des défauts de revêtements : mesures d'atténuation de courant </description>
+			</topic>
+			<topic>
+					<titre>GSF 0014</titre>
+					<description>Principes généraux de la protection cathodique </description>
+			</topic>
+			<topic>
+					<titre>GSF 0018</titre>
+					<description>Protection cathodique : élements à prendre en compte dans les études d'équipement des réseaux de transport </description>
+			</topic>
+			<topic>
+					<titre>GSF 0019</titre>
+					<description>Dimensionnement et choix de la protection cathodique d'une canalisation de transport </description>
+			</topic>
+			<topic>
+					<titre>GSF 0021</titre>
+					<description>Techniques de mesure et de contrôles en protection cathodique </description>
+			</topic>
+			<topic>
+					<titre>GSF 0022</titre>
+					<description>Corrosion par les courants alternatifs : présentation et traitement des phénomènes d'influences électriques en régime permanent </description>
+			</topic>
+			<topic>
+					<titre>GSF 0024</titre>
+					<description>Courants vagabonds : présentation et traitement des phénomènes d'influence électrique </description>
+			</topic>
+			<topic>
+					<titre>GSF 0025</titre>
+					<description>Protection cathodique provisoire des ouvrages en cours de pose ou de construction </description>
+			</topic>
+			<topic>
+					<titre>GSF 0027</titre>
+					<description>Mise en service de la protection cathodique des canalisations de transport </description>
+			</topic>
+			<topic>
+					<titre>GSF 0039</titre>
+					<description>Liaisons électriques entre les ouvrages de transport de gaz naturel et les autres ouvrages enterrés </description>
+			</topic>
+			<topic>
+					<titre>GSF 0041</titre>
+					<description>Protection contre la corrosion des postes gaz </description>
+			</topic>
+			<topic>
+					<titre>GSF 0044</titre>
+					<description>Evaluation de l'efficacité de la protection cathodique des réseaux de transport </description>
+			</topic>
+			<topic>
+					<titre>GSF 0045</titre>
+					<description>Suivi métrologique des appareils de mesure et de contrôle </description>
+			</topic>
+			<topic>
+					<titre>PRO 0058</titre>
+					<description>Système de professionnalisation et de certification en protection cathodique des agents du "réseau" </description>
+			</topic>
+			<topic>
+					<titre>GSF 0107</titre>
+					<description>Choix et utilisation des systèmes de revêtements </description>
+			</topic>
+			<topic>
+					<titre>GSF 0108</titre>
+					<description>Diagnostic approfondi décennal </description>
+			</topic>
+			<topic>
+					<titre>LI-0041</titre>
+					<description>Besoin en instruments de mesure du processus Réseau </description>
+			</topic>
+			<topic>
+					<titre>TYP 0057</titre>
+					<description>Rapport type "efficacité de la PC" </description>
+			</topic>
+		</groupe>
+	</diagnostic>
+</aide>

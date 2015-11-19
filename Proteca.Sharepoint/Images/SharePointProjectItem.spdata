@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Images\" Type="ElementManifest" />
+    <ProjectItemFile Source="favicon.ico" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="aide.gif" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="logo_grtgaz.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="bg_menu.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="sep_menu.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="bg_menu_on.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="bg_ms.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="sep_login.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="menu-down.gif" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="logo_proteca.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="fond_bandeau.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="search.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="search_on.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="bg_tableau.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="bg_ligne.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="bg_ligne_alt.png" Target="Images\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{b63f9f3a-a854-4ef5-b960-122cac3525b8}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>ProtecaArchitecture</Name>
+    <RootNamespace>ProtecaArchitecture</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="false" />
+  <ItemGroup>
+    <Content Include="NamespaceDependencies.dgml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\ProtecaArchitecture.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="ProtecatV4ViewModelDetail.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="ProtecatV4ViewModelDetail.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ProtecatV4ViewModelDetail.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="ProtecatV4ViewModelDetail.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>ProtecatV4ViewModelDetail.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="ProtecaV4Layout.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="ProtecaV4Layout.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ProtecaV4Layout.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="ProtecaV4Layout.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>ProtecaV4Layout.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="ProtecaV4.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="ProtecaV4.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ProtecaV4.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="ProtecaV4.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>ProtecaV4.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Proteca.Silverlight\Proteca.Silverlight.csproj">
+      <Name>Proteca.Silverlight</Name>
+      <Project>{76ddfe90-6c7b-42ab-960e-6b67e93a633f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Toolkit\Jounce\Jounce.Silverlight5.csproj">
+      <Name>Jounce.Silverlight5</Name>
+      <Project>{51e06ff4-b2bc-4d26-8646-2315bc691430}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

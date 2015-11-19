@@ -1,0 +1,17 @@
+﻿Ce fichier contient des procédures générales pour l'utilisation d'une application Silverlight en local (comme ProtOn).
+
+Procédure d'installation de ProtOn :
+	1) Extraire le contenu de l'archive dans un dossier local (ne pas supprimer/déplacer ce dossier par la suite)
+	2) Exécuter le fichier setup.bat
+	3) L'application est installée, deux raccourcis sont créés : un dans le menu démarrer et l'autre sur le Bureau
+	
+Procédure désinstallation de ProtOn (deux solutions disponibles) :
+	- Supprimer l'application ProtOn via le "Panneau de configuration"/"Désinstaller un programme"
+	ou 
+	- Clic-droit dans l'application et "Supprimer cette application"
+
+Procédure de vidage du cache de l'application :
+	1) Clic-droit dans l'application et "Silverlight"
+	2) Ouvrir l'onglet "Stockage d'application" 
+	3) Sélectionner le site de l'application désirée (ici en local c'est le répertoire ou l'application est située)
+	4) Cliquer sur supprimer et le cache de l'application correspondante est vidé

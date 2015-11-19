@@ -10,23 +10,23 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="Scripts/datajs-1.0.3.min.js"></script>
     <script src="Scripts/jaydata.js"></script>
     <script src="http://include.jaydata.org/jaydatamodules/angular.js"></script>
-    <script src="js/controllers/ProtecaCtrl.js"></script>
-    <script src="Scripts/proteca.js"></script>
+    <script src="js/controllers/UsrUtilisateurCtrl.js"></script>
+    <script src="scripts/proteca.js"></script>
     <script src="node_modules/angular-ui-bootstrap/ui-bootstrap.min.js"></script>
     <script src="js/Application.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-resource.min.js"></script>
 </head>
 <body ng-app="proteca">
     <div ng-include="'View/Header/header.html'"></div>
     <div ng-include="'View/Header/filAriane.html'"></div>
     <h1 class="well well-lg">Gestion des Utilisateurs</h1>
    
-    <main ng-controller="protecaCtrl">
+    <main ng-controller="UtilisateurCtrl">
         <section id="aside" ng-include="'View/Main/Aside/aside.html'"></section>
         <section id="article" ng-include="'View/Main/Article/article.html'"></section>
         

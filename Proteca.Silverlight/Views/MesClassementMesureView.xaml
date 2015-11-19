@@ -1,0 +1,118 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.MesClassementMesureView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           Title="MesClassementMesureView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:BoolToGridLengthConverter x:Key="GridLengthConverter" TrueValue="*" FalseValue="Auto" />
+        <Style TargetType="telerik:RadListBoxItem">
+            <Setter Property="telerik:DragDropManager.AllowCapturedDrag" Value="true" />
+        </Style>
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" HideTopNavigation="True" Grid.Column="0" IsEditMode="{Binding IsEditMode}" DisableScrollViewer="True">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot">
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding SaveCommand}" />
+                </i:Interaction.Behaviors>
+                <!-- Contenu de la vue -->
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{Binding IsEditMode, Converter={StaticResource GridLengthConverter}}"  />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="20,20,20,20"  Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}">
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{StaticResource MainGradientBlue}" />
+                        <TextBlock Grid.Row="0" Text="Types de mesures disponibles" Style="{StaticResource RegroupementText}"></TextBlock>
+
+                        <telerik:RadListBox x:Name="RLBMesureDispo" SelectionMode="Extended" Grid.Row="1" ItemsSource="{Binding TypeMesureDispo}" Style="{StaticResource RadListBox}" >
+                            <telerik:RadListBox.DragVisualProvider>
+                                <telerik:ScreenshotDragVisualProvider  />
+                            </telerik:RadListBox.DragVisualProvider>
+                            <telerik:RadListBox.DragDropBehavior >
+                                <telerik:ListBoxDragDropBehavior AllowReorder="True">
+                                </telerik:ListBoxDragDropBehavior>
+                            </telerik:RadListBox.DragDropBehavior>
+                        </telerik:RadListBox>
+
+                    </Grid>
+
+                    <TextBlock Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" Grid.Column="0" Grid.Row="1" Text="Glisser-Déposer les types de mesures" Style="{StaticResource ContentTextStyle}" HorizontalAlignment="Center" />
+
+                    <Grid Grid.Row="2" Margin="20,20,20,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{StaticResource MainGradientBlue}" />
+                        <TextBlock Grid.Row="0" Text="Types de mesures obligatoires" Style="{StaticResource RegroupementText}"></TextBlock>
+
+                        <telerik:RadListBox x:Name="RLBMesureSelec" SelectionMode="Extended" Grid.Row="1" ItemsSource="{Binding Typesmesure, Mode=TwoWay}" Style="{StaticResource RadListBox}" >
+                            <telerik:RadListBox.DragVisualProvider>
+                                <telerik:ScreenshotDragVisualProvider />
+                            </telerik:RadListBox.DragVisualProvider>
+                            <telerik:RadListBox.DragDropBehavior>
+                                <telerik:ListBoxDragDropBehavior AllowReorder="True" />
+                            </telerik:RadListBox.DragDropBehavior>
+                        </telerik:RadListBox>
+                    </Grid>
+
+                </Grid>
+
+                <!-- Bind IsBusy to IsBusy -->
+                
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid Margin="10,10" HorizontalAlignment="Stretch" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <UC:ErrorSummary />
+                <Button x:Name="btnModifier" Style="{StaticResource BtnModifier}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding EditCommand}"
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" />
+                <Button x:Name="btnValider" Style="{StaticResource BtnValider}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding SaveCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+                <Button x:Name="btnAnnuler" Style="{StaticResource BtnAnnuler}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+

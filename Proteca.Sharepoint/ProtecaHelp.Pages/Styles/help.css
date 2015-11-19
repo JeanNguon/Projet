@@ -1,0 +1,101 @@
+﻿#s4-ribbonrow
+{
+    display:none !important;
+}
+
+h2
+{
+    font-family:Times New Roman;
+    font-size: 150%;
+}
+
+h3
+{
+    font-size: 130%;
+    padding-bottom: 2px;
+    margin: 5x;
+    border-bottom: 1px dotted #999;
+}
+
+#HelpContent
+{
+    margin:20px;
+}
+
+td.keycol
+{
+    padding: 4px 10px 4px 0;
+    font-weight: bold;
+    text-align: left;
+    max-width: 200px;
+}
+td.keycol, td.contentcol
+{
+    border-bottom: 1px dotted #aac;
+}
+#HelpContent ul, #HelpContent li
+{
+    padding:0;
+    margin:0;
+}
+
+li.topic-group
+{
+    list-style-type:none;
+}
+li.topic-item
+{
+    list-style-type:circle;
+}
+.topic-groups .group-title 
+{
+    overflow: hidden;
+    margin-top: 10px;
+}
+.topic-groups .group-desc 
+{
+    margin: 10px;
+    font-style: italic;
+}
+.topic-groups .group-title div
+{
+    float: left;
+    background-image: url("Images/profilelist-header.png");
+    font-family: Times New Roman;
+    font-size: 14px;
+    font-weight: bold;
+    height:31px;
+    line-height:32px;
+    color: #fff;
+}
+.topic-groups .group-title .left
+{
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width:12px;
+}
+.topic-groups .group-title .middle
+{
+    background-position: 0 -31px;
+    background-repeat:repeat-x;
+    padding: 0 5px;
+    min-width: 120px;
+}
+.topic-groups .group-title .right
+{
+    background-position: 0 -62px;
+    background-repeat: no-repeat;
+    width:12px;
+}
+#HelpContent ul.topic-items
+{
+    margin-left: 30px;
+}
+.topic-item
+{
+    margin: 5px 0;
+}
+.topic-title
+{
+    margin: 5px 0;
+}

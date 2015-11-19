@@ -10,20 +10,22 @@ module proteca {
     var proteca = angular.module('proteca', [
         'ngRoute',
         'jaydata',
-        //'ui-bootstrap'
+        'ui.bootstrap',
+        'ngResource'
     ]);
-
-    proteca.controller('protecaCtrl', ProtecaCtrl);
-   
+    proteca.controller('UtilisateurCtrl', UtilisateurCtrl);
     proteca.config(['$routeProvider', function ($routeProvider) {
         $routeProvider
-            .when('http://localhost:65317/test.html', {
-                controller: ("protecaCtrl", ProtecaCtrl),
+            .when('/utilisateur', {
+                controller: ("UtilisateurCtrl", UtilisateurCtrl),
                 templateUrl: 'View/usrUtilisateur.html'
+            })
+            .when('/', {
+                controller: ("UtilisateurCtrl", UtilisateurCtrl),
+                templateUrl:"test.html"
             })
             .otherwise({
                 redirectTo: '/'
             });
     }]);
- 
 }

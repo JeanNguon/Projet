@@ -1,0 +1,134 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.ValidationEquipement_ExpanderView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="280" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="ValidationEquipement_ExpanderView  Page">
+
+
+    <Grid HorizontalAlignment="Stretch">
+        <i:Interaction.Behaviors>
+            <Behavior:KeyDownBehavior Command="{Binding FindCommand}" />
+        </i:Interaction.Behaviors>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--Sélection de la région -->
+        <TextBlock x:Name="TxtRegion" Text="{Binding Path=Resource.RegionComboBox_PresentationText, Source={StaticResource ApplicationResources}}" 
+                   Style="{StaticResource FormulaireText}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" />
+        <telerik:RadComboBox SelectAllTextEvent="None" x:Name="RadCbxRegion" Style="{StaticResource RadComboBoxForm}" Grid.Row="1" Grid.Column="1" 				                            
+					        ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}"
+                            ClearSelectionButtonVisibility="Visible" Background="White" IsEditable="False" IsReadOnly="True"
+					        EmptyText="{Binding Path=Resource.RegionComboBox_EmptyText, Source={StaticResource ApplicationResources}}" 
+                            Height="22" Width="Auto" VerticalAlignment="Top"
+                            ItemsSource="{Binding Regions}" DisplayMemberPath="LibelleRegion"
+                            SelectedValue="{Binding FiltreCleRegion, Mode=TwoWay}" SelectedValuePath="CleRegion"/>
+
+        <!--Sélection de l'agence -->
+        <TextBlock x:Name="TxtAgence" Text="{Binding Path=Resource.AgenceComboBox_PresentationText, Source={StaticResource ApplicationResources}}" 
+                   Style="{StaticResource FormulaireText}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" />
+        <telerik:RadComboBox SelectAllTextEvent="None" x:Name="RadCbxAgence" Style="{StaticResource RadComboBoxForm}" Grid.Row="2" Grid.Column="1"			                            
+					        ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}"
+                            ClearSelectionButtonVisibility="Visible" Background="White" IsEditable="False" IsReadOnly="True"
+					        EmptyText="{Binding Path=Resource.AgenceComboBox_EmptyText, Source={StaticResource ApplicationResources}}" 
+                            Height="22" Width="Auto" VerticalAlignment="Top"
+                            ItemsSource="{Binding SelectedItem.AgencesTriees, ElementName=RadCbxRegion, Mode=TwoWay}" DisplayMemberPath="LibelleAgence"
+                            SelectedValue="{Binding FiltreCleAgence, Mode=TwoWay}" SelectedValuePath="CleAgence"/>
+
+        <!--Sélection du secteur -->
+        <TextBlock x:Name="TxtSecteur" Text="{Binding Path=Resource.SecteurComboBox_PresentationText, Source={StaticResource ApplicationResources}}" 
+                   Style="{StaticResource FormulaireText}" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" />
+        <telerik:RadComboBox SelectAllTextEvent="None" x:Name="RadCbxSecteur" Style="{StaticResource RadComboBoxForm}" Grid.Row="3" Grid.Column="1"				                            
+					        ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}" 
+                            ClearSelectionButtonVisibility="Visible" Background="White" IsEditable="False" IsReadOnly="True"
+					        EmptyText="{Binding Path=Resource.SecteurComboBox_EmptyText, Source={StaticResource ApplicationResources}}" 
+                            Height="22" Width="Auto" VerticalAlignment="Top"
+                            ItemsSource="{Binding SelectedItem.SecteursTries, ElementName=RadCbxAgence, Mode=TwoWay}" DisplayMemberPath="LibelleSecteur"
+                            SelectedValue="{Binding FiltreCleSecteur, Mode=TwoWay}" SelectedValuePath="CleSecteur"/>
+
+        <!-- Sélection des Ensemble électrique -->
+        <TextBlock x:Name="TxtEnsElec" Text="{Binding Path=Resource.EnsElecComboBox_PresentationText, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireText}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+        <telerik:RadComboBox SelectAllTextEvent="None" x:Name="RadCbxEE" Style="{StaticResource RadComboBoxForm}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+					        ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}" 
+                             ClearSelectionButtonVisibility="Visible"
+                             CanAutocompleteSelectItems="False"
+					        CanKeyboardNavigationSelectItems="False"
+					        IsEditable="True"
+					        OpenDropDownOnFocus="True"
+					        IsFilteringEnabled="True"
+					        TextSearchMode="Contains"
+                             IsReadOnly="False" Height="22" Width="Auto" VerticalAlignment="Top"
+                            EmptyText="{Binding Path=Resource.EnsElecComboBox_EmptyText, Source={StaticResource ApplicationResources}}"  
+                            ItemsSource="{Binding GeoEnsemblesElectrique}" DisplayMemberPath="LibelleEe"
+                            SelectedValue="{Binding FiltreCleEnsElec, Mode=TwoWay}" SelectedValuePath="CleEnsElectrique"/>
+
+        <!-- Sélection des portion-->
+        <TextBlock x:Name="TxtPortion" Text="{Binding Path=Resource.PortionCombobox_PresentationText, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireText}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+        <telerik:RadComboBox SelectAllTextEvent="None" x:Name="RadCbxPortion" Style="{StaticResource RadComboBoxForm}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" 
+					         ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}" 
+                             ClearSelectionButtonVisibility="Visible"
+                             CanAutocompleteSelectItems="False"
+					        CanKeyboardNavigationSelectItems="False"
+					        IsEditable="True"
+					        OpenDropDownOnFocus="True"
+					        IsFilteringEnabled="True"
+					        TextSearchMode="Contains"
+                             IsReadOnly="False" Height="22" Width="Auto" 
+					         EmptyText="{Binding Path=Resource.PortionComboBox_EmptyText, Source={StaticResource ApplicationResources}}" 
+                             ItemsSource="{Binding GeoEnsElecPortions}" DisplayMemberPath="LibellePortion"
+                             SelectedValue="{Binding FiltreClePortion, Mode=TwoWay}" SelectedValuePath="ClePortion" />
+        
+        <!-- Sélection par Date -->
+        <!-- Date Min -->
+        <TextBlock x:Name="TxtDateMin" Text="{Binding Path=Resource.ValidationEquipement_DateMin, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireText}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+        <telerik:RadDatePicker Grid.Row="8" Grid.Column="2" Margin="5 2 5 2" Width="120" HorizontalAlignment="Right"
+                                            SelectedValue="{Binding DateMin, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" 
+                                            DateTimeWatermarkContent="{Binding Path=Resource.EnterDate, Source={StaticResource ApplicationResources}}" Style="{StaticResource DefaultRadDatePickerStyle}"/>
+
+        <!-- Date Max -->
+        <TextBlock x:Name="TxtDateMax" Text="{Binding Path=Resource.ValidationEquipement_DateMax, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireText}" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+        <telerik:RadDatePicker Grid.Row="9" Grid.Column="2" Margin="5 2 5 2" Width="120" HorizontalAlignment="Right"
+                                            SelectedValue="{Binding DateMax, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" 
+                                            DateTimeWatermarkContent="{Binding Path=Resource.EnterDate, Source={StaticResource ApplicationResources}}" Style="{StaticResource DefaultRadDatePickerStyle}"/>
+
+        <!-- Etat-->
+        <TextBlock x:Name="TxtEtat" Text="{Binding Path=Resource.ValidationEquipement_Etat, Source={StaticResource ApplicationResources}}" Style="{StaticResource FormulaireText}" Grid.Row="10" Grid.Column="0" VerticalAlignment="Center" />
+        <CheckBox x:Name="ChkBxEtatAValider" IsChecked="{Binding IsAValider, Mode=TwoWay}" Content="{Binding Path=Resource.ValidationEquipement_AValiderExpdr, Source={StaticResource ApplicationResources}}"  Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="2"/>
+        <CheckBox x:Name="ChkBxEtatACompleter" IsChecked="{Binding IsACompleter, Mode=TwoWay}" Content="{Binding Path=Resource.ValidationEquipement_ACompleterExpdr, Source={StaticResource ApplicationResources}}"  Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="2"/>
+
+        <!-- Bouton de recherche -->
+        <Button x:Name="btnRechercher" Style="{StaticResource BtnRechercher}" Grid.Row="13" Grid.Column="1" VerticalAlignment="Bottom" 
+                Command="{Binding FindCommand}" HorizontalAlignment="Right" />
+
+    </Grid>
+
+</navigation:Page>
+

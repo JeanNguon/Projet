@@ -1,0 +1,118 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="Proteca.Silverlight.Views.DecoupagePortionView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="818" d:DesignHeight="470"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="DecoupagePortionView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:InverseBoolConverter x:Key="InverseBoolValue" TrueValue="false" FalseValue="true" />
+        <converter:EmptyToNullConverter x:Key="EmptyToNullConverter" />
+    </UserControl.Resources>
+    
+    <UC:MainContainer x:Name="container" HideTopNavigation="True" HideFooter="True" Grid.Column="0">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <!-- Découpage de la portion -->
+                <TextBlock Text="{Binding Path=Resource.DecoupagePortion_DecoupageDeLaPortion, Source={StaticResource ApplicationResources}}" 
+                           Style="{StaticResource RegroupementText}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                
+                <TextBlock Text="{Binding SelectedEntity.Libelle}" Style="{StaticResource RegroupementText}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" />
+                
+                <Rectangle Style="{StaticResource RectBlueUnderline}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
+                
+                <TextBlock Text="{Binding Path=Resource.DecoupagePortion_PointKilo, Source={StaticResource ApplicationResources}}" 
+                           TextAlignment="Right" VerticalAlignment="Center" Style="{StaticResource FormulaireText}" Grid.Row="2" Grid.Column="0" />
+                
+                <UC:NumericTextBox x:Name="txtBoxPointKiloDecouper" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"
+                         Text="{Binding SelectedEntity.PointKiloDecouper, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                         Style="{StaticResource TextBoxForm}" >
+                    <i:Interaction.Behaviors>
+                        <Behavior:KeyDownBehavior Command="{Binding DecouperCommand}" />
+                    </i:Interaction.Behaviors>
+                </UC:NumericTextBox>
+                
+                <Button x:Name="btnDecouper" Style="{StaticResource BtnDecouper}"  Grid.Row="2" Grid.Column="2" 
+                        VerticalAlignment="Center"  HorizontalAlignment="Left" Margin="20 0 0 0"
+                        Command="{Binding DecouperCommand}" />
+
+
+                <!-- Assemblage de la portion -->
+                <TextBlock Text="{Binding Path=Resource.DecoupagePortion_AssemblageDeLaPortion, Source={StaticResource ApplicationResources}}" 
+                           Style="{StaticResource RegroupementText}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" />
+                
+                <TextBlock Text="{Binding SelectedEntity.Libelle}" Style="{StaticResource RegroupementText}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" />
+                
+                <Rectangle Style="{StaticResource RectBlueUnderline}"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" />
+
+                <TextBlock Text="{Binding Path=Resource.DecoupagePortion_AssemblageAvec, Source={StaticResource ApplicationResources}}" 
+                           TextAlignment="Right"  
+                           VerticalAlignment="Center" 
+                           Style="{StaticResource FormulaireText}" 
+                           Grid.Row="5" 
+                           Grid.Column="0" />
+                
+                <telerik:RadComboBox SelectAllTextEvent="None" x:Name="RadCbxPortionCible" Margin="5 5 5 5" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource RadComboBoxForm}"
+                                     ClearSelectionButtonVisibility="Collapsed"
+					                 CanAutocompleteSelectItems="False"
+					                 CanKeyboardNavigationSelectItems="False"
+					                 IsEditable="True" IsReadOnly="False"
+					                 OpenDropDownOnFocus="True"
+					                 IsFilteringEnabled="True" TextSearchMode="Contains"
+					                 EmptyText="" Height="22" Width="Auto"
+                                     ItemsSource="{Binding PortionsCibles}" DisplayMemberPath="Libelle" 
+                                     SelectedItem="{Binding SelectedEntity.PortionCibleItem, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" >
+                    <i:Interaction.Behaviors>
+                        <Behavior:KeyDownBehavior Command="{Binding AssemblerCommand}" />
+                    </i:Interaction.Behaviors>
+                </telerik:RadComboBox>
+
+                <Button x:Name="btnAssembler" 
+                        Style="{StaticResource BtnAssembler}" 
+                        Grid.Row="5" 
+                        Grid.Column="2"  
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left" 
+                        Margin="20 0 0 0"
+                        Command="{Binding AssemblerCommand}" />
+
+                <CheckBox Content="{Binding Path=Resource.DecoupagePortion_InverserLesPK, Source={StaticResource ApplicationResources}}"
+                          IsChecked="{Binding InversePK, Mode=TwoWay}" 
+                          Style="{StaticResource CheckBoxForm}" 
+                          Grid.Row="6" 
+                          Grid.Column="1" 
+                          Grid.ColumnSpan="2" 
+                          Height="16"/>
+                
+            </Grid>
+        </UC:MainContainer.MainContent>        
+    </UC:MainContainer>
+
+</navigation:Page>
+

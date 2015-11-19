@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<!-- Parent ContentType: Document (0x0101) -->
+	<ContentType ID="0x01010039014819D9D8F142856824CBD5FCBAAF"
+				 Name="Proteca Module Document"
+				 Group="Proteca"
+				 Description="Content Type of Proteca Module documents"
+				 Inherits="TRUE"
+				 Version="1">
+		<FieldRefs>
+			<FieldRef ID="{52578fc3-1f01-4f4d-b016-94ccbcf428cf}" Name="Comments" DisplayName="Comments" Sealed="TRUE" ShowInDisplayForm="TRUE" ShowInFileDlg="TRUE" ShowInEditForm="TRUE" ShowInListSettings="TRUE" ShowInNewForm="TRUE" />
+		</FieldRefs>
+	</ContentType>
+</Elements>

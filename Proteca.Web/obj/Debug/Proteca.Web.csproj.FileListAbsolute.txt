@@ -47,12 +47,6 @@ E:\Nouveau dossier\Proteca.Web\obj\Debug\Proteca.Web.csproj.GenerateResource.Cac
 E:\Nouveau dossier\Proteca.Web\obj\Debug\Proteca.Web.dll
 E:\Nouveau dossier\Proteca.Web\obj\Debug\Proteca.Web.pdb
 E:\Nouveau dossier\Proteca.Web\obj\Debug\Proteca.Web.csprojResolveAssemblyReference.cache
-E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.ADResource.resources
-E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.Resource.resources
-E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.ResourceHisto.resources
-E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.ResourceImg.resources
-E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.ValidationErrorResources.resources
-E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.csproj.GenerateResource.Cache
 E:\projet Proteca\Proteca.Web\bin\Proteca.Web.dll.config
 E:\projet Proteca\Proteca.Web\bin\Proteca.Web.dll
 E:\projet Proteca\Proteca.Web\bin\Proteca.Web.pdb
@@ -148,6 +142,11 @@ E:\projet Proteca\Proteca.Web\bin\ko\System.ServiceModel.DomainServices.Hosting.
 E:\projet Proteca\Proteca.Web\bin\ru\System.ServiceModel.DomainServices.Hosting.resources.dll
 E:\projet Proteca\Proteca.Web\bin\zh-Hans\System.ServiceModel.DomainServices.Hosting.resources.dll
 E:\projet Proteca\Proteca.Web\bin\zh-Hant\System.ServiceModel.DomainServices.Hosting.resources.dll
+E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.ADResource.resources
+E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.Resource.resources
+E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.ResourceHisto.resources
+E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.ResourceImg.resources
+E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.ValidationErrorResources.resources
+E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.csproj.GenerateResource.Cache
 E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.dll
 E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.pdb
-E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.csprojResolveAssemblyReference.cache

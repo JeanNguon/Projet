@@ -1,0 +1,1352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9552339E-0B19-400E-ABC0-E8907602A7E0}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proteca.Silverlight</RootNamespace>
+    <AssemblyName>Proteca.Silverlight</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>ProtOn.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Proteca.Silverlight.App</SilverlightAppEntry>
+    <TestPageFileName>Proteca.Silverlight.OfflineTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>true</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Libs\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.Client.Silverlight">
+      <HintPath>..\Libs\Microsoft.SharePoint.Client.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Silverlight.Runtime">
+      <HintPath>..\Libs\Microsoft.SharePoint.Client.Silverlight.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Toolkit">
+      <HintPath>..\Libs\System.Windows.Controls.Data.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit">
+      <HintPath>..\Libs\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\Libs\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.XPath, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\Libs\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart">
+      <HintPath>..\Libs\Telerik.Windows.Controls.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\Libs\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView">
+      <HintPath>..\Libs\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ImageEditor">
+      <HintPath>..\Libs\Telerik.Windows.Controls.ImageEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\Libs\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\Libs\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView">
+      <HintPath>..\Libs\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI">
+      <HintPath>..\Libs\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\Libs\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents">
+      <HintPath>..\Libs\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html">
+      <HintPath>..\Libs\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.OpenXml">
+      <HintPath>..\Libs\Telerik.Windows.Documents.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf">
+      <HintPath>..\Libs\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\Libs\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\Libs\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\Libs\Telerik.Windows.Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Proteca.Silverlight\Controls\BusyIndicator.cs">
+      <Link>Controls\BusyIndicator.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Controls\VisualStates.cs">
+      <Link>Controls\VisualStates.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Enums\EnumExtension.cs">
+      <Link>Enums\EnumExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Enums\IsBusyEnum.cs">
+      <Link>Enums\IsBusyEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Enums\NavigationEnums.cs">
+      <Link>Enums\NavigationEnums.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Enums\RefEnum.cs">
+      <Link>Enums\RefEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Enums\RefEnumValeurCodeGroupeEnum.cs">
+      <Link>Enums\RefEnumValeurCodeGroupeEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Enums\RefSousTypeOuvrageGroupEnumService.cs">
+      <Link>Enums\RefSousTypeOuvrageGroupEnumService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Enums\StringValueAttribute.cs">
+      <Link>Enums\StringValueAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Enums\ViewEnum.cs">
+      <Link>Enums\ViewEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\AnAction.shared.cs">
+      <Link>Models\AnAction.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\MesMesure.shared.cs">
+      <Link>Models\MesMesure.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\CheckMesureAttribute.shared.cs">
+      <Link>Models\Validators\CheckMesureAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\CheckSeuilAttribute.shared.cs">
+      <Link>Models\Validators\CheckSeuilAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\CustomValidators.shared.cs">
+      <Link>Models\Validators\CustomValidators.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\DateTimeRequiredAttribute.shared.cs">
+      <Link>Models\Validators\DateTimeRequiredAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\DeleteStateAttribute.shared.cs">
+      <Link>Models\Validators\DeleteStateAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\EmailCustomAttribute.shared.cs">
+      <Link>Models\Validators\EmailCustomAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\EntierPositifAttribute.shared.cs">
+      <Link>Models\Validators\EntierPositifAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\MaxDecimalValueAttribute.shared.cs">
+      <Link>Models\Validators\MaxDecimalValueAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\RangeCustomAttribute.shared.cs">
+      <Link>Models\Validators\RangeCustomAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\RequiredCollectionAttribute.shared.cs">
+      <Link>Models\Validators\RequiredCollectionAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\RequiredCustomAttribute.shared.cs">
+      <Link>Models\Validators\RequiredCustomAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\RequiredReferenceCustomAttribute.shared.cs">
+      <Link>Models\Validators\RequiredReferenceCustomAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Models\Validators\StringLengthCustomAttribute.shared.cs">
+      <Link>Models\Validators\StringLengthCustomAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Generated_Code\Proteca.Web.g.cs">
+      <Link>Models\Proteca.Web.g.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Global.cs">
+      <Link>Global.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\CurrentNavigation.cs">
+      <Link>Helpers\CurrentNavigation.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\CustomLocalizationManager.cs">
+      <Link>Helpers\CustomLocalizationManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\DataFieldExtensions.cs">
+      <Link>Helpers\DataFieldExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\EntityExtension.cs">
+      <Link>Helpers\EntityExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\EntityPropertiesComparer.cs">
+      <Link>Helpers\EntityPropertiesComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\EqualityComparer.cs">
+      <Link>Helpers\EqualityComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\ExportAndPrintHelper.cs">
+      <Link>Helpers\ExportAndPrintHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\FrameworkElementExtension.cs">
+      <Link>Helpers\FrameworkElementExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\KeyDownBehavior.cs">
+      <Link>Helpers\KeyDownBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\NotOperatorValueConverter.cs">
+      <Link>Helpers\NotOperatorValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\StreamHelper.cs">
+      <Link>Helpers\StreamHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\StringExtension.cs">
+      <Link>Helpers\StringExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Helpers\TargetNullValueConverter.cs">
+      <Link>Helpers\TargetNullValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\Alerte.cs">
+      <Link>Models\Alerte.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\AlerteDetail.cs">
+      <Link>Models\AlerteDetail.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\AnAction.cs">
+      <Link>Models\AnAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\AnAnalyse.cs">
+      <Link>Models\AnAnalyse.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\AnAnalyseEe.cs">
+      <Link>Models\AnAnalyseEe.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\AnAnalyseSerieMesure.cs">
+      <Link>Models\AnAnalyseSerieMesure.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\CategoriePp.cs">
+      <Link>Models\CategoriePp.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\Composition.cs">
+      <Link>Models\Composition.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\DetailPP.cs">
+      <Link>Models\DetailPP.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\Document.cs">
+      <Link>Models\Document.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\Documentation.cs">
+      <Link>Models\Documentation.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EnsembleElectrique.cs">
+      <Link>Models\EnsembleElectrique.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\Entitee.cs">
+      <Link>Models\Entitee.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqAnodeGalvanique.cs">
+      <Link>Models\EqAnodeGalvanique.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqDispoEcoulementCourantsAlternatifs.cs">
+      <Link>Models\EqDispoEcoulementCourantsAlternatifs.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqDrainage.cs">
+      <Link>Models\EqDrainage.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqEquipement.cs">
+      <Link>Models\EqEquipement.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqEquipementTmp.cs">
+      <Link>Models\EqEquipementTmp.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqFourreauMetallique.cs">
+      <Link>Models\EqFourreauMetallique.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqLiaisonExterne.cs">
+      <Link>Models\EqLiaisonExterne.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqLiaisonInterne.cs">
+      <Link>Models\EqLiaisonInterne.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqPile.cs">
+      <Link>Models\EqPile.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqPostegaz.cs">
+      <Link>Models\EqPostegaz.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqRaccordIsolant.cs">
+      <Link>Models\EqRaccordIsolant.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqSoutirage.cs">
+      <Link>Models\EqSoutirage.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\EqTiersCroiseSansLiaison.cs">
+      <Link>Models\EqTiersCroiseSansLiaison.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\GeoAgence.cs">
+      <Link>Models\GeoAgence.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\GeoEnsembleElectrique.cs">
+      <Link>Models\GeoEnsembleElectrique.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\GeoRegion.cs">
+      <Link>Models\GeoRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\GeoSecteur.cs">
+      <Link>Models\GeoSecteur.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\Graphique.cs">
+      <Link>Models\Graphique.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\IGeoCommun.cs">
+      <Link>Models\IGeoCommun.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\InsIntrument.cs">
+      <Link>Models\InsIntrument.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\IOuvrage.cs">
+      <Link>Models\IOuvrage.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\LogOuvrage.cs">
+      <Link>Models\LogOuvrage.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\MenuItem.cs">
+      <Link>Models\MenuItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\MenuItemsCollection.cs">
+      <Link>Models\MenuItemsCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\MesClassementMesure.cs">
+      <Link>Models\MesClassementMesure.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\MesCoutMesure.cs">
+      <Link>Models\MesCoutMesure.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\MesMesure.cs">
+      <Link>Models\MesMesure.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\MesModeleMesure.cs">
+      <Link>Models\MesModeleMesure.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\MesNiveauProtection.cs">
+      <Link>Models\MesNiveauProtection.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\MesTypeMesure.cs">
+      <Link>Models\MesTypeMesure.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\MesUnite.cs">
+      <Link>Models\MesUnite.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\ParametreAction.cs">
+      <Link>Models\ParametreAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\PointGraphique.cs">
+      <Link>Models\PointGraphique.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\PortionDates.cs">
+      <Link>Models\PortionDates.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\PortionIntegrite.cs">
+      <Link>Models\PortionIntegrite.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\Pp.cs">
+      <Link>Models\Pp.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\PpTmp.cs">
+      <Link>Models\PpTmp.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\RefCommune.cs">
+      <Link>Models\RefCommune.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\RefEnumValeur.cs">
+      <Link>Models\RefEnumValeur.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\RefNiveauSensibilitePp.cs">
+      <Link>Models\RefNiveauSensibilitePp.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\RefParametre.cs">
+      <Link>Models\RefParametre.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\RefSousTypeOuvrage.cs">
+      <Link>Models\RefSousTypeOuvrage.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\RefUsrAutorisation.cs">
+      <Link>Models\RefUsrAutorisation.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\RefUsrPortee.cs">
+      <Link>Models\RefUsrPortee.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\SelectPortionGraphique_Result.cs">
+      <Link>Models\SelectPortionGraphique_Result.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\SelectTourneeTableauBord_Result.cs">
+      <Link>Models\SelectTourneeTableauBord_Result.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\SiteAction.cs">
+      <Link>Models\SiteAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\Tournee.cs">
+      <Link>Models\Tournee.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\TourneePpEq.cs">
+      <Link>Models\TourneePpEq.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\TypeDocument.cs">
+      <Link>Models\TypeDocument.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\TypeEquipement.cs">
+      <Link>Models\TypeEquipement.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\TypeRessource.cs">
+      <Link>Models\TypeRessource.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\User.cs">
+      <Link>Models\User.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\UsrProfil.cs">
+      <Link>Models\UsrProfil.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\UsrRole.cs">
+      <Link>Models\UsrRole.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\UsrUtilisateur.cs">
+      <Link>Models\UsrUtilisateur.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\Visite.cs">
+      <Link>Models\Visite.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Models\VisiteMesure.cs">
+      <Link>Models\VisiteMesure.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Resources\ApplicationResources.cs">
+      <Link>Resources\ApplicationResources.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Resources\EntityProperties.Designer.cs">
+      <Link>Resources\EntityProperties.Designer.cs</Link>
+      <DependentUpon>EntityProperties.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Resources\Resource.Designer.cs">
+      <Link>Resources\Resource.Designer.cs</Link>
+      <DependentUpon>Resource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Resources\Rapports.Designer.cs">
+      <Link>Resources\Rapports.Designer.cs</Link>
+      <DependentUpon>Rapports.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\ProtecaADDomainContext.partial.cs">
+      <Link>Services\ProtecaADDomainContext.partial.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\ViewModels\DetailPPViewModel.cs">
+      <Link>ViewModels\DetailPPViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\DebugConverter.cs">
+      <Link>Views\Converters\DebugConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\DetailPP.xaml.cs">
+      <Link>Views\UserControls\DetailPP.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\DetailsEQ.xaml.cs">
+      <Link>Views\UserControls\DetailsEQ.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\Providers\CustomGridViewKeyboardCommandProvider.cs">
+      <Link>Views\UserControls\Providers\CustomGridViewKeyboardCommandProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Web\Models\Validators\RequiredCustomActionAttribute.shared.cs">
+      <Link>Models\Validators\RequiredCustomActionAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Web\Resources\ResourceHisto.Designer.cs">
+      <Link>Resources\ResourceHisto.Designer.cs</Link>
+      <DependentUpon>ResourceHisto.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\Proteca.Web\Resources\ResourceImg.Designer.cs">
+      <Link>Resources\ResourceImg.Designer.cs</Link>
+      <DependentUpon>ResourceImg.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\Contracts\IConfigurator.cs">
+      <Link>Services\Contracts\IConfigurator.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\Contracts\IEntityService.cs">
+      <Link>Services\Contracts\IEntityService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\Contracts\IExportService.cs">
+      <Link>Services\Contracts\IExportService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\Contracts\INavigationService.cs">
+      <Link>Services\Contracts\INavigationService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\Contracts\IPrintingService.cs">
+      <Link>Services\Contracts\IPrintingService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\Contracts\ISiteActionService.cs">
+      <Link>Services\Contracts\ISiteActionService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\Contracts\IUserService.cs">
+      <Link>Services\Contracts\IUserService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\ExportService.cs">
+      <Link>Services\ExportService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\MainModule.cs">
+      <Link>Services\MainModule.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\NavigationService.cs">
+      <Link>Services\NavigationService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\PrintingService.cs">
+      <Link>Services\PrintingService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\ServicesConfirugator.cs">
+      <Link>Services\ServicesConfirugator.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\SiteActionService.cs">
+      <Link>Services\SiteActionService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Services\SynchronizationService.cs">
+      <Link>Services\SynchronizationService.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\ViewModels\BaseProtecaEntityViewModel.cs">
+      <Link>ViewModels\BaseProtecaEntityViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\ViewModels\CreateUsrUtilisateurViewModel.cs">
+      <Link>ViewModels\CreateUsrUtilisateurViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\ViewModels\CustomExpanderViewModel.cs">
+      <Link>ViewModels\CustomExpanderViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\ViewModels\CustomTopContainerViewModel.cs">
+      <Link>ViewModels\CustomTopContainerViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\ViewModels\FilArianneViewModel.cs">
+      <Link>ViewModels\FilArianneViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\ViewModels\MainViewModel.cs">
+      <Link>ViewModels\MainViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Behaviors\DragDropIndicationDetail.cs">
+      <Link>Views\Behaviors\DragDropIndicationDetail.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Behaviors\GridReorderRowBehavior.cs">
+      <Link>Views\Behaviors\GridReorderRowBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Behaviors\GridRowIndicationDetail.cs">
+      <Link>Views\Behaviors\GridRowIndicationDetail.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Behaviors\TourneeGridViewBehavior.cs">
+      <Link>Views\Behaviors\TourneeGridViewBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Behaviors\TourneeListBoxBehavior.cs">
+      <Link>Views\Behaviors\TourneeListBoxBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Behaviors\TourneeListToGridBehavior.cs">
+      <Link>Views\Behaviors\TourneeListToGridBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\AnyToVisibilityConverter.cs">
+      <Link>Views\Converters\AnyToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\BoolToColorConverter.cs">
+      <Link>Views\Converters\BoolToColorConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\BoolToGridLengthConverter.cs">
+      <Link>Views\Converters\BoolToGridLengthConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\BoolToPlotModeConverter.cs">
+      <Link>Views\Converters\BoolToPlotModeConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\BoolToScrollBarVisibilityConverter.cs">
+      <Link>Views\Converters\BoolToScrollBarVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\BoolToStringConverter.cs">
+      <Link>Views\Converters\BoolToStringConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\BoolToTileViewItemPositionConverter.cs">
+      <Link>Views\Converters\BoolToTileViewItemPositionConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\BoolToValueConverter.cs">
+      <Link>Views\Converters\BoolToValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\BoolToVisibilityConverter.cs">
+      <Link>Views\Converters\BoolToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\DateTimeToStringConverter.cs">
+      <Link>Views\Converters\DateTimeToStringConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\EmptyToNullConverter.cs">
+      <Link>Views\Converters\EmptyToNullConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\EquipementFunctionToVisibibilityConverter.cs">
+      <Link>Views\Converters\EquipementFunctionToVisibibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\InverseAnyToVisibilityConverter.cs">
+      <Link>Views\Converters\InverseAnyToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\InverseBoolConverter.cs">
+      <Link>Views\Converters\InverseBoolConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\ListPorteeToFilterListConverter.cs">
+      <Link>Views\Converters\ListPorteeToFilterListConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\NiveauTypeToVisibilityConverter.cs">
+      <Link>Views\Converters\NiveauTypeToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\NullableToVisibibilityConverter.cs">
+      <Link>Views\Converters\NullableToVisibibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\NullorEmptyToVisibibilityConverter.cs">
+      <Link>Views\Converters\NullorEmptyToVisibibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\NullToBoolConverter.cs">
+      <Link>Views\Converters\NullToBoolConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\TileViewItemStateBoolToConverter.cs">
+      <Link>Views\Converters\TileViewItemStateBoolToConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\TileViewItemStateToBoolConverter.cs">
+      <Link>Views\Converters\TileViewItemStateToBoolConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\TileViewItemStateToInverseBoolConverter.cs">
+      <Link>Views\Converters\TileViewItemStateToInverseBoolConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\TileViewItemStateToThicknessConverter.cs">
+      <Link>Views\Converters\TileViewItemStateToThicknessConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\TypeToVisibilityConverter.cs">
+      <Link>Views\Converters\TypeToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Converters\VisiteFunctionToVisibibilityConverter.cs">
+      <Link>Views\Converters\VisiteFunctionToVisibibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\DataTemplateSelectors\BinaryTemplateSelector.cs">
+      <Link>Views\DataTemplateSelectors\BinaryTemplateSelector.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\DataTemplateSelectors\ParametreTemplateSelector.cs">
+      <Link>Views\DataTemplateSelectors\ParametreTemplateSelector.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\ErrorWindow.xaml.cs">
+      <Link>Views\ErrorWindow.xaml.cs</Link>
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Navigation.xaml.cs">
+      <Link>Views\Navigation.xaml.cs</Link>
+      <DependentUpon>Navigation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\StyleSelectors\CategoriePPStyleSelector.cs">
+      <Link>Views\StyleSelectors\CategoriePPStyleSelector.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\StyleSelectors\InstrumentStyleSelector.cs">
+      <Link>Views\StyleSelectors\InstrumentStyleSelector.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\StyleSelectors\MenuStyleSelector.cs">
+      <Link>Views\StyleSelectors\MenuStyleSelector.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Tools\IMultiValueConverter.cs">
+      <Link>Views\Tools\IMultiValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Tools\MultiBinding.cs">
+      <Link>Views\Tools\MultiBinding.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Tools\MultiBindingExpression.cs">
+      <Link>Views\Tools\MultiBindingExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Tools\MultiBindingValidationError.cs">
+      <Link>Views\Tools\MultiBindingValidationError.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\AddButton.xaml.cs">
+      <Link>Views\UserControls\AddButton.xaml.cs</Link>
+      <DependentUpon>AddButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\CustomAutoCompleteBox.cs">
+      <Link>Views\UserControls\CustomAutoCompleteBox.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\CustomExpander.xaml.cs">
+      <Link>Views\UserControls\CustomExpander.xaml.cs</Link>
+      <DependentUpon>CustomExpander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\CustomGrid.cs">
+      <Link>Views\UserControls\CustomGrid.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\CustomGridView.cs">
+      <Link>Views\UserControls\CustomGridView.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\CustomTopContainer.xaml.cs">
+      <Link>Views\UserControls\CustomTopContainer.xaml.cs</Link>
+      <DependentUpon>CustomTopContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\Documents.xaml.cs">
+      <Link>Views\UserControls\Documents.xaml.cs</Link>
+      <DependentUpon>Documents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\EquipementExpander.xaml.cs">
+      <Link>Views\UserControls\EquipementExpander.xaml.cs</Link>
+      <DependentUpon>EquipementExpander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\ErrorSummary.xaml.cs">
+      <Link>Views\UserControls\ErrorSummary.xaml.cs</Link>
+      <DependentUpon>ErrorSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\ExportAndPrint.xaml.cs">
+      <Link>Views\UserControls\ExportAndPrint.xaml.cs</Link>
+      <DependentUpon>ExportAndPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\FilArianne.xaml.cs">
+      <Link>Views\UserControls\FilArianne.xaml.cs</Link>
+      <DependentUpon>FilArianne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\GraphiqueMesures.xaml.cs">
+      <Link>Views\UserControls\GraphiqueMesures.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\Historique.xaml.cs">
+      <Link>Views\UserControls\Historique.xaml.cs</Link>
+      <DependentUpon>Historique.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\HistoriqueVisite.xaml.cs">
+      <Link>Views\UserControls\HistoriqueVisite.xaml.cs</Link>
+      <DependentUpon>HistoriqueVisite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\MainContainer.xaml.cs">
+      <Link>Views\UserControls\MainContainer.xaml.cs</Link>
+      <DependentUpon>MainContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\NavigationContainer.xaml.cs">
+      <Link>Views\UserControls\NavigationContainer.xaml.cs</Link>
+      <DependentUpon>NavigationContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\NumericTextBox.cs">
+      <Link>Views\UserControls\NumericTextBox.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\RichTextOffice.xaml.cs">
+      <Link>Views\UserControls\RichTextOffice.xaml.cs</Link>
+      <DependentUpon>RichTextOffice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\TourneeExpander.xaml.cs">
+      <Link>Views\UserControls\TourneeExpander.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\UserContols\VisiteMesures.xaml.cs">
+      <Link>Views\UserControls\VisiteMesures.xaml.cs</Link>
+      <DependentUpon>VisiteMesures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Windows\ChildWindow.xaml.cs">
+      <Link>Views\Windows\ChildWindow.xaml.cs</Link>
+      <DependentUpon>ChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Windows\CreateUsrUtilisateur.xaml.cs">
+      <Link>Views\Windows\CreateUsrUtilisateur.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Windows\RefSousTypeOuvrage.xaml.cs">
+      <Link>Views\Windows\RefSousTypeOuvrage.xaml.cs</Link>
+      <DependentUpon>RefSousTypeOuvrage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Silverlight\Views\Windows\Selected_Secteur.xaml.cs">
+      <Link>Views\Windows\Selected_Secteur.xaml.cs</Link>
+      <DependentUpon>Selected_Secteur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Proteca.Web\Helpers\HTMLHelper.shared.cs">
+      <Link>Helpers\HTMLHelper.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Web\Models\Validators\CheckCommentaireAnalyseAttribute.shared.cs">
+      <Link>Models\Validators\CheckCommentaireAnalyseAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Web\Models\Validators\CheckCommentaireVisiteAttribute.shared.cs">
+      <Link>Models\Validators\CheckCommentaireVisiteAttribute.shared.cs</Link>
+    </Compile>
+    <Compile Include="..\Proteca.Web\Resources\ValidationErrorResources.Designer.cs">
+      <Link>Resources\ValidationErrorResources.Designer.cs</Link>
+      <DependentUpon>ValidationErrorResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CustomLogger.cs" />
+    <Compile Include="Helpers\LoadSaveHelper.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EntityServices\CategoriePpService.cs" />
+    <Compile Include="Services\EntityServices\CompositionService.cs" />
+    <Compile Include="Services\EntityServices\PortionIntegriteService.cs" />
+    <Compile Include="Services\EntityServices\RefCommuneService.cs" />
+    <Compile Include="Services\EntityServices\RefNiveauSensibilitePpService.cs" />
+    <Compile Include="ViewModels\CreateEqEquipementTmpViewModel.cs" />
+    <Compile Include="ViewModels\CreateInsInstrumentViewModel.cs" />
+    <Compile Include="ViewModels\DetailPPViewModel.OfflinePartial.cs" />
+    <Compile Include="Views\SaisieVisiteView.xaml.cs">
+      <DependentUpon>SaisieVisiteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SaisieVisite_ExpanderView.xaml.cs">
+      <DependentUpon>SaisieVisite_ExpanderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\EntityServices\AlerteService.cs" />
+    <Compile Include="Services\EntityServices\AnAnalyseSerieMesureService.cs" />
+    <Compile Include="Services\EntityServices\DocumentService.cs" />
+    <Compile Include="Services\EntityServices\EqDrainageLiaisonsextService.cs" />
+    <Compile Include="Services\EntityServices\EqEquipementService.cs" />
+    <Compile Include="Services\EntityServices\EqEquipementTmpService.cs" />
+    <Compile Include="Services\EntityServices\EqSoutirageLiaisonsextService.cs" />
+    <Compile Include="Services\EntityServices\GeoAgenceService.cs" />
+    <Compile Include="Services\EntityServices\GeoEnsElecPortionService.cs" />
+    <Compile Include="Services\EntityServices\GeoRegionService.cs" />
+    <Compile Include="Services\EntityServices\GeoSecteurService.cs" />
+    <Compile Include="Services\EntityServices\ImageService.cs" />
+    <Compile Include="Services\EntityServices\InsInstrumentService.cs" />
+    <Compile Include="Services\EntityServices\LogOuvrageService.cs" />
+    <Compile Include="Services\EntityServices\MesClassementMesureService.cs" />
+    <Compile Include="Services\EntityServices\MesMesureService.cs" />
+    <Compile Include="Services\EntityServices\PpEquipementService.cs" />
+    <Compile Include="Services\EntityServices\PpJumeleeService.cs" />
+    <Compile Include="Services\EntityServices\PpService.cs" />
+    <Compile Include="Services\EntityServices\RefEnumValeurService.cs" />
+    <Compile Include="Services\EntityServices\RefParametreService.cs" />
+    <Compile Include="Services\EntityServices\RefSousTypeOuvrageService.cs" />
+    <Compile Include="Services\EntityServices\RefUsrPorteeService.cs" />
+    <Compile Include="Services\EntityServices\TourneeService.cs" />
+    <Compile Include="Services\EntityServices\TypeDocumentService.cs" />
+    <Compile Include="Services\EntityServices\TypeEquipementService.cs" />
+    <Compile Include="Services\EntityServices\UsrUtilisateurService.cs" />
+    <Compile Include="Services\EntityServices\VisiteService.cs" />
+    <Compile Include="Services\ProtecaDomainContext.partial.cs" />
+    <Compile Include="Services\SharepointService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\SaisieVisiteViewModel.cs" />
+    <Compile Include="Views\UserControls\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Visite_DetailPP.cs" />
+    <Compile Include="Views\Windows\CreateInsInstrument.xaml.cs">
+      <DependentUpon>CreateInsInstrument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CreateEqEquipementTmp.xaml.cs">
+      <DependentUpon>CreateEqEquipementTmp.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="..\Proteca.Silverlight\Assets\Boutons.xaml">
+      <Link>Assets\Boutons.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Assets\Chart.xaml">
+      <Link>Assets\Chart.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Assets\GridView.xaml">
+      <Link>Assets\GridView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Assets\GridViewCell.xaml">
+      <Link>Assets\GridViewCell.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Assets\RichTextBox.xaml">
+      <Link>Assets\RichTextBox.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Assets\Styles.xaml">
+      <Link>Assets\Styles.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Assets\TileView.xaml">
+      <Link>Assets\TileView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Controls\BusyIndicator.xaml">
+      <Link>Controls\BusyIndicator.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\ErrorWindow.xaml">
+      <Link>Views\ErrorWindow.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\Navigation.xaml">
+      <Link>Views\Navigation.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\AddButton.xaml">
+      <Link>Views\UserControls\AddButton.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\CustomExpander.xaml">
+      <Link>Views\UserControls\CustomExpander.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\CustomTopContainer.xaml">
+      <Link>Views\UserControls\CustomTopContainer.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\DetailPP.xaml">
+      <Link>Views\UserControls\DetailPP.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\DetailsEQ.xaml">
+      <Link>Views\UserControls\DetailsEQ.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\Documents.xaml">
+      <Link>Views\UserControls\Documents.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\EquipementExpander.xaml">
+      <Link>Views\UserControls\EquipementExpander.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\ErrorSummary.xaml">
+      <Link>Views\UserControls\ErrorSummary.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\ExportAndPrint.xaml">
+      <Link>Views\UserControls\ExportAndPrint.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\FilArianne.xaml">
+      <Link>Views\UserControls\FilArianne.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\GraphiqueMesures.xaml">
+      <Link>Views\UserControls\GraphiqueMesures.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\Historique.xaml">
+      <Link>Views\UserControls\Historique.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\HistoriqueVisite.xaml">
+      <Link>Views\UserControls\HistoriqueVisite.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\MainContainer.xaml">
+      <Link>Views\UserControls\MainContainer.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\NavigationContainer.xaml">
+      <Link>Views\UserControls\NavigationContainer.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\RichTextOffice.xaml">
+      <Link>Views\UserControls\RichTextOffice.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\TourneeExpander.xaml">
+      <Link>Views\UserControls\TourneeExpander.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\UserContols\VisiteMesures.xaml">
+      <Link>Views\UserControls\VisiteMesures.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\Windows\ChildWindow.xaml">
+      <Link>Views\Windows\ChildWindow.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\Windows\CreateUsrUtilisateur.xaml">
+      <Link>Views\Windows\CreateUsrUtilisateur.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\Windows\RefSousTypeOuvrage.xaml">
+      <Link>Views\Windows\RefSousTypeOuvrage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Proteca.Silverlight\Views\Windows\Selected_Secteur.xaml">
+      <Link>Views\Windows\Selected_Secteur.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SaisieVisiteView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SaisieVisite_ExpanderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CreateInsInstrument.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Windows\CreateEqEquipementTmp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Proteca.Silverlight\Images\search.pdn">
+      <Link>Images\search.pdn</Link>
+    </None>
+    <None Include="..\Proteca.Silverlight\Images\search_on.pdn">
+      <Link>Images\search_on.pdn</Link>
+    </None>
+    <None Include="OutBin\setup.bat" />
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\OutOfBrowserSettings.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Proteca.Silverlight\Resources\EntityProperties.resx">
+      <Link>Resources\EntityProperties.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntityProperties.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Proteca.Silverlight\Resources\Resource.resx">
+      <Link>Resources\Resource.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Proteca.Silverlight\Resources\Rapports.resx">
+      <Link>Resources\Rapports.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Rapports.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Proteca.Web\Resources\ResourceHisto.resx">
+      <Link>Resources\ResourceHisto.resx</Link>
+      <LogicalName>Proteca.Web.Resources.ResourceHisto.resources</LogicalName>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceHisto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Proteca.Web\Resources\ResourceImg.resx">
+      <Link>Resources\ResourceImg.resx</Link>
+      <LogicalName>Proteca.Web.Resources.ResourceImg.resources</LogicalName>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceImg.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Proteca.Web\Resources\ValidationErrorResources.resx">
+      <Link>Resources\ValidationErrorResources.resx</Link>
+      <LogicalName>Proteca.Web.Resources.ValidationErrorResources.resources</LogicalName>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationErrorResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OfflineStorage\OfflineStorage.csproj">
+      <Project>{63CE3F7C-A07C-43BF-95C9-6DCF9DAC992B}</Project>
+      <Name>OfflineStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toolkit\Jounce\Jounce.Silverlight5.csproj">
+      <Project>{51E06FF4-B2BC-4D26-8646-2315BC691430}</Project>
+      <Name>Jounce.Silverlight5</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Proteca.Silverlight\Images\add.png">
+      <Link>Images\add.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\add_user.png">
+      <Link>Images\add_user.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Ajouter.png">
+      <Link>Images\Ajouter.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Annuler.png">
+      <Link>Images\Annuler.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Archiver.png">
+      <Link>Images\Archiver.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\assembler.png">
+      <Link>Images\assembler.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\bilan.png">
+      <Link>Images\bilan.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\bilanPerso.png">
+      <Link>Images\bilanPerso.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Bin.png">
+      <Link>Images\Bin.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\checknames.png">
+      <Link>Images\checknames.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\decouper.png">
+      <Link>Images\decouper.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Disable.png">
+      <Link>Images\Disable.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\down.png">
+      <Link>Images\down.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\déplacer.png">
+      <Link>Images\déplacer.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\error.png">
+      <Link>Images\error.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\FileExcel.png">
+      <Link>Images\FileExcel.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\fileprint.png">
+      <Link>Images\fileprint.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\FileWord.png">
+      <Link>Images\FileWord.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\find_user.png">
+      <Link>Images\find_user.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\flag_green.png">
+      <Link>Images\flag_green.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\flag_red.png">
+      <Link>Images\flag_red.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\flag_yellow.png">
+      <Link>Images\flag_yellow.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\folder.png">
+      <Link>Images\folder.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\folder_blue.png">
+      <Link>Images\folder_blue.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\folder_green.png">
+      <Link>Images\folder_green.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\folder_grey.png">
+      <Link>Images\folder_grey.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\folder_lightblue.png">
+      <Link>Images\folder_lightblue.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\fullScreen.png">
+      <Link>Images\fullScreen.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Geo.png">
+      <Link>Images\Geo.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Historiser.png">
+      <Link>Images\Historiser.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\info.png">
+      <Link>Images\info.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Logo_Agence.png">
+      <Link>Images\Logo_Agence.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Logo_GRTgaz.png">
+      <Link>Images\Logo_GRTgaz.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Logo_Region.png">
+      <Link>Images\Logo_Region.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Logo_Secteur.png">
+      <Link>Images\Logo_Secteur.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\micado.png">
+      <Link>Images\micado.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Modifier.png">
+      <Link>Images\Modifier.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\pdf.jpg">
+      <Link>Images\pdf.jpg</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Recherche.png">
+      <Link>Images\Recherche.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Rechercher.png">
+      <Link>Images\Rechercher.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\reintegrer.png">
+      <Link>Images\reintegrer.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Restaurer.png">
+      <Link>Images\Restaurer.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\restitution.png">
+      <Link>Images\restitution.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Supprimer.png">
+      <Link>Images\Supprimer.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\to.png">
+      <Link>Images\to.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\up.png">
+      <Link>Images\up.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\Valider.png">
+      <Link>Images\Valider.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\warning.png">
+      <Link>Images\warning.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\windowError.png">
+      <Link>Images\windowError.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\windowInfo.png">
+      <Link>Images\windowInfo.png</Link>
+    </Resource>
+    <Resource Include="..\Proteca.Silverlight\Images\windowSuccess.png">
+      <Link>Images\windowSuccess.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Proteca.Silverlight\Images\add_ins.png">
+      <Link>Images\add_ins.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\ProtOnV1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ProtOnV2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutBin\ChangeLog.txt" />
+    <Content Include="OutBin\LisezMoi.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)ProtOn.xap" "$(ProjectDir)OutBin" /Y</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <Field ID="{d0663906-8c88-41b9-bfdb-3b96d328dd50}" Name="GroupDescription" DisplayName="Online Help Topic Description"
+             Type="Text" Required="TRUE" Group="Proteca" StaticName="GroupDescription" DisplaceOnUpgrade="TRUE" />
+    <Field ID="{88F1B0F7-7892-2900-B690-D4BD3119DBDA}" Name="TopicKey" DisplayName="Online Help Topic Key"
+             Type="Text" Required="TRUE" Group="Proteca" StaticName="TopicKey" DisplaceOnUpgrade="TRUE" />
+    <Field ID="{38ACDB9B-3345-4d89-A64F-7802000D2048}" Name="TopicContent" DisplayName="Online Help Topic Content"
+             Type="HTML" RichText="TRUE" RichTextMode="FullHtml" Required="TRUE" Group="Proteca" StaticName="TopicContent" DisplaceOnUpgrade="TRUE" />
+</Elements>

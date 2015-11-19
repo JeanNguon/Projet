@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="Proteca.Silverlight.Views.TreeViewGeoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    mc:Ignorable="d" xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    d:DesignHeight="300" d:DesignWidth="400" >
+    <UserControl.Resources>
+
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+
+        <telerik:ContainerBindingCollection x:Name="TreeBindingsCollection">
+            <telerik:ContainerBinding PropertyName="IsExpanded" Binding="{Binding IsExpanded, Mode=TwoWay}" />
+        </telerik:ContainerBindingCollection>
+
+        <telerik:HierarchicalDataTemplate x:Key="SecteurLevel" telerik:ContainerBinding.ContainerBindings="{StaticResource TreeBindingsCollection}">
+            <Grid Cursor="Hand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="24"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="../Images/Logo_Secteur.png" HorizontalAlignment="Left" Height="24" Width="24" VerticalAlignment="Top"/>
+                <TextBlock Grid.Column="1" Text="{Binding LibelleSecteur}" TextWrapping="Wrap" Width="Auto"   />
+                </Grid>
+        </telerik:HierarchicalDataTemplate>
+        <telerik:HierarchicalDataTemplate x:Key="AgenceLevel" ItemsSource="{Binding SecteursTries}" ItemTemplate="{StaticResource SecteurLevel}"
+                                          telerik:ContainerBinding.ContainerBindings="{StaticResource TreeBindingsCollection}">
+            <Grid Cursor="Hand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="24"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="../Images/Logo_Agence.png" HorizontalAlignment="Left" Height="24" Width="24" VerticalAlignment="Top"/>
+                    <TextBlock  Grid.Column="1" Text="{Binding LibelleAgence}" TextWrapping="Wrap" />
+                </Grid>
+        </telerik:HierarchicalDataTemplate>
+        <telerik:HierarchicalDataTemplate x:Key="RegionLevel" ItemsSource="{Binding AgencesTriees}" ItemTemplate="{StaticResource AgenceLevel}"
+                                          telerik:ContainerBinding.ContainerBindings="{StaticResource TreeBindingsCollection}" >
+            <Grid Cursor="Hand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="24"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="../Images/Logo_Region.png" HorizontalAlignment="Left" Height="24" Width="24" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Column="1" Text="{Binding LibelleRegion}" TextWrapping="Wrap" Width="Auto"  />
+                </Grid>
+        </telerik:HierarchicalDataTemplate>
+        <telerik:HierarchicalDataTemplate x:Key="EntiteeLevel" ItemsSource="{Binding Regions}" ItemTemplate="{StaticResource RegionLevel}"
+                                          telerik:ContainerBinding.ContainerBindings="{StaticResource TreeBindingsCollection}">
+            <StackPanel Orientation="Horizontal" >
+                <Image Source="../Images/Logo_GRTgaz.png" HorizontalAlignment="Left" Height="24" Width="24" />
+                <TextBlock Text="{Binding Libelle}" FontSize="13" TextWrapping="Wrap" Width="Auto" />
+            </StackPanel>
+        </telerik:HierarchicalDataTemplate>
+
+    </UserControl.Resources>
+
+    <telerik:RadTreeView x:Name="GeoTree" ItemsSource="{Binding TreeViewGeo}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                         ItemTemplate="{StaticResource EntiteeLevel}"  SelectionMode="Single" >
+
+        <telerik:RadContextMenu.ContextMenu>
+            <telerik:RadContextMenu  x:Name="contextMenu" Opened="ContextMenuOpened">
+                <telerik:RadMenuItem Header="{Binding Path=Resource.MenuContextAddRegion, Source={StaticResource ApplicationResources}}" 
+                                     Command="{Binding AddCommand}" x:Name="AddRegion" Visibility="Collapsed" />
+                <telerik:RadMenuItem Header="{Binding Path=Resource.MenuContextAddAgence, Source={StaticResource ApplicationResources}}" 
+                                     Command="{Binding AddCommand}" x:Name="AddAgence" Visibility="Collapsed" />
+                <telerik:RadMenuItem Header="{Binding Path=Resource.MenuContextAddSecteur, Source={StaticResource ApplicationResources}}" 
+                                     Command="{Binding AddCommand}" x:Name="AddSecteur" Visibility="Collapsed" />
+                <telerik:RadMenuItem Header="{Binding Path=Resource.MenuContextUpdate, Source={StaticResource ApplicationResources}}" 
+                                     Command="{Binding EditCommand}" x:Name="EditEntity" Visibility="Collapsed"  />
+                <telerik:RadMenuItem Header="{Binding Path=Resource.MenuContextRemove, Source={StaticResource ApplicationResources}}" 
+                                     Command="{Binding DeleteCommand}" x:Name="DeleteEntity" Visibility="Collapsed" />
+            </telerik:RadContextMenu>
+        </telerik:RadContextMenu.ContextMenu>
+    </telerik:RadTreeView>
+</UserControl>

@@ -9,35 +9,37 @@
             <label>Secteur :</label>
             <input />
             <label>Utilisateur(nom/prénom) :</label>
-            <input  />
+            <input />
             <label>Identifiant</label>
-            <input  />
+            <input />
             <label>Gestion des utilisateurs:</label>
-            <input type="checkbox"  />
+            <input type="checkbox" />
             <label>Inclure les utilisateurs supprimés :</label>
-            <input type="checkbox"  />
+            <input type="checkbox" />
             <button ng-click="recherche()">Rechercher</button>
         </form>
     </section>
     <section>
         <div>
             <h2>Résultat de la recherche</h2>
-          
-            <ul>
-                <li ng-repeat="user in usrUtilisateurs">{{user.Nom}}</li>
+            <ul ng-repeat="user in utilisateurs">
+                <li>
+                    <a href="#" ng-click="selectUser(user)"> {{user.Nom}}</a>
+                </li>
             </ul>
             <!--<table class="table table-bordered">
                 <tr>
-                    <th>Identifiant</th>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Mail</th>
-                    <th>Societe</th>
-                    <th>CleAgence</th>
-                    <th>CleProfil</th>
-                    <th>CleUtilisateur</th>
+                    <th class="col-md-1">Identifiant</th>
+                    <th class="col-md-1">Nom</th>
+                    <th class="col-md-1">Prenom</th>
+                    <th class="col-md-1">Mail</th>
+                    <th class="col-md-1">Societe</th>
+                    <th class="col-md-1">CleAgence</th>
+                    <th class="col-md-1">CleProfil</th>
+                    <th class="col-md-1">CleUtilisateur</th>
+                    <th class="col-md-1">Supprimé</th>
                 </tr>
-                <tr ng-repeat="user in utilisateurs">
+                <tr ng-repeat="user in utilisateurs" >
                     <td>{{user.Identifiant}}</td>
                     <td>{{user.Nom}}</td>
                     <td>{{user.Prenom}}</td>
@@ -46,6 +48,7 @@
                     <td>{{user.CleAgence}}</td>
                     <td>{{user.CleProfil}}</td>
                     <td>{{user.CleUtilisateur}}</td>
+                    <td class="glyphicon glyphicon-remove" ng-click="deleteUrsUtilisateur($index)"></td>
                 </tr>
             </table>-->
         </div>

@@ -1,0 +1,23 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+               xmlns:Services="clr-namespace:Jounce.Framework.Services;assembly=Jounce"
+             x:Class="Proteca.SilverlightUnitTest.App"
+               xmlns:app="clr-namespace:Proteca.Silverlight"
+             >
+    <!--<Application.ApplicationLifetimeObjects>
+        <Services:ApplicationService/>
+    </Application.ApplicationLifetimeObjects>
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <app:ApplicationResources x:Key="ApplicationResources" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="Assets/Styles.xaml"/>
+                <ResourceDictionary Source="Assets/GridView.xaml"/>
+                <ResourceDictionary Source="Assets/Boutons.xaml"/>
+                <ResourceDictionary Source="Assets/TileView.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>-->
+</Application>

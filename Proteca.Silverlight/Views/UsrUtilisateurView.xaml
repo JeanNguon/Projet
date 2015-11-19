@@ -1,0 +1,302 @@
+﻿<navigation:Page x:Class="Proteca.Silverlight.Views.UsrUtilisateurView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           mc:Ignorable="d"
+           xmlns:Behavior="clr-namespace:Proteca.Silverlight.Helpers"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:UC="clr-namespace:Proteca.Silverlight.Views.UserContols"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           xmlns:converter="clr-namespace:Proteca.Silverlight.Views.Converters"      
+           Title="UsrUtilisateurView  Page">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="HideConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <converter:BoolToVisibilityConverter x:Key="VisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:BoolToStringConverter x:Key="BoolToStringConverter" TrueValue="Oui" FalseValue="Non" />
+        <converter:BoolToTileViewItemPosition x:Key="BoolToItemPosition" TrueValue="Bottom" FalseValue="Right" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedRowHeight" TrueValue="17" FalseValue="*" />
+        <converter:BoolToGridLengthConverter x:Key="TileMinimizedColumnWidth" TrueValue="*" FalseValue="190" />
+        <converter:BoolToColorConverter x:Key="InstrumentToBGConverter" TrueValue="{StaticResource GridMediumGradientGray}" FalseValue="{StaticResource GridSelectedGrayBrush}" />
+        <converter:BoolToColorConverter x:Key="InstrumentToAltBGConverter" TrueValue="{StaticResource GridLightGradientGray}" FalseValue="{StaticResource GridSelectedGrayBrush}" />
+        <converter:BoolToColorConverter x:Key="InstrumentToFGConverter" TrueValue="{StaticResource GridView_RowForeground_Default}" FalseValue="{StaticResource GridView_RowForeground_Hover}" />
+        <converter:TileViewItemStateToBoolConverter x:Key="TileViewItemStateToBoolConverter" />
+        <converter:TileViewItemStateToThicknessConverter x:Key="TileViewItemStateToThicknessConverter" MinimizedValue="1 0 1 1" MaximizedValue="0" />
+        <converter:DateTimeToStringConverter x:Key="DateTimeConverter" />
+    </UserControl.Resources>
+
+    <UC:MainContainer x:Name="container" HideTopNavigation="{Binding IsNonEditableTileItemState}" Grid.Column="0" IsEditMode="{Binding IsEditMode}" HideFooter="{Binding IsNonEditableTileItemState}" 
+                      CurrentElementHeader="{Binding SelectedEntity.Nom_Prenom, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                      PreviousUri="{Binding PreviousUri}" NextUri="{Binding NextUri}" DisableScrollViewer="True">
+        <UC:MainContainer.MainContent>
+            <Grid x:Name="LayoutRoot" Background="Transparent">
+                <i:Interaction.Behaviors>
+                    <Behavior:KeyDownBehavior Command="{Binding SaveCommand}" />
+                </i:Interaction.Behaviors>
+                <!-- Contenu de la vue -->
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <telerik:RadTileView x:Name="TileView" Grid.Row="0" Grid.Column="0"
+                                     MaximizeMode="One"
+                                     TileStateChangeTrigger="SingleClick"
+                                     IsDockingEnabled="True"
+                                     PreservePositionWhenMaximized="True"
+                                     MinimizedRowHeight="19"
+                                     MinimizedColumnWidth="*" 
+                                     MinimizedItemsPosition="Bottom"
+                                     RowHeight="Auto"
+                                    IsAutoScrollingEnabled="True" >
+
+                    <!-- TileView Utilisateur -->
+                    <telerik:RadTileViewItem x:Name="MainItem" TileState="{Binding MainTileItemState, Mode=TwoWay}"
+                                             BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}"
+                                             Header="{Binding Path=Resource.UsrUtilisateur_TileViewDetail_Title, Source={StaticResource ApplicationResources}}" >
+                        <ScrollViewer Grid.Row="0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" BorderThickness="0" BorderBrush="{StaticResource SBMainGray}">
+                            <Grid Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Identifiant -->
+                                <TextBlock x:Name="tbkIdentifiant" Text="{Binding Path=Resource.Utilisateurs_Identifiant, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="0" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+
+                                <TextBox x:Name="tbxIdentifiant" Text="{Binding SelectedEntity.Identifiant, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsIdentifiantEnable}" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxForm}" />
+                                <HyperlinkButton x:Name="btnCheckUser" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                                                 ToolTipService.ToolTip="{Binding Path=Resource.Utilisateurs_BtnAD, Source={StaticResource ApplicationResources}}"
+                                                 Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" Command="{Binding RequestADCommand}" >
+                                    <Image Source="/Proteca.Silverlight;component/Images/find_user.png" Width="16" />
+                                </HyperlinkButton>
+
+                                <!-- Nom -->
+                                <TextBlock x:Name="tbkNom" Text="{Binding Path=Resource.Utilisateurs_Nom, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="1" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                                <TextBox x:Name="tbxNom" Text="{Binding SelectedEntity.Nom, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsEditMode}" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxForm}" />
+
+                                <!-- Prénom -->
+                                <TextBlock x:Name="tbkPrenom" Text="{Binding Path=Resource.Utilisateurs_Prenom, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="2" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                                <TextBox x:Name="tbxPrenom" Text="{Binding SelectedEntity.Prenom, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsEditMode}" Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxForm}" />
+
+                                <!-- Mail -->
+                                <TextBlock x:Name="tbkMail" Text="{Binding Path=Resource.Utilisateurs_Mail, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="3" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                                <TextBox x:Name="tbxMail" Text="{Binding SelectedEntity.Mail, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsEditMode}" Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxForm}" />
+
+                                <!-- Société -->
+                                <TextBlock x:Name="tbkSociete" Text="{Binding Path=Resource.Utilisateurs_Societe, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="4" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                                <TextBox x:Name="tbxSociete" Text="{Binding SelectedEntity.Societe, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsEditMode}" Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxForm}" />
+
+                                <!-- Gestion de l'utilisateur -->
+                                <TextBlock x:Name="tbkGestion" Text="{Binding Path=Resource.Utilisateurs_Gestion, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="5" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                                <telerik:RadComboBox SelectAllTextEvent="None" x:Name="cbbxgestion" Grid.Row="5" Grid.Column="1" Style="{StaticResource RadComboBoxForm}" IsEnabled="{Binding IsEditMode}" 
+                                             ItemsSource="{Binding RefUsrPortees}" 
+                                             SelectedItem="{Binding SelectedEntity.RefUsrPortee, Mode=TwoWay}" 
+                                             DisplayMemberPath="LibellePortee" />
+                                
+                                <!-- Utilisateur Prestataire -->
+                                <TextBlock x:Name="tbkEstPresta" Text="{Binding Path=Resource.Utilisateurs_EstPresta, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="6" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+                                <CheckBox x:Name="chxEstPresta" Style="{StaticResource CheckBoxForm}" HorizontalAlignment="Left" IsEnabled="{Binding IsEditMode}" 
+                                          Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding SelectedEntity.EstPresta, Mode=TwoWay}"/>
+
+                                <!-- Etat de l'utilisateur -->
+                                <TextBlock x:Name="tbkEtat" Text="{Binding Path=Resource.Utilisateurs_Etat, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="7" Grid.Column="0" Style="{StaticResource FormulaireText}" VerticalAlignment="Center" 
+                               Visibility="{Binding IsNewMode, Converter={StaticResource HideConverter}}" />
+                                <TextBlock x:Name="tbkEtatValue" Text="{Binding SelectedEntity.Supprime, Converter={StaticResource BoolToStringConverter}}" Grid.Row="7" Grid.Column="1" Style="{StaticResource FormulaireTextValue}" Visibility="{Binding IsNewMode, Converter={StaticResource HideConverter}}" />
+
+                                <Button x:Name="btnIntegrer" Style="{StaticResource BtnIntegrer}" Grid.Row="7" Grid.Column="1" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                            Visibility="{Binding IsReintegrateEnable, Converter={StaticResource VisibilityConverter}}" 
+                            Command="{Binding IntegrateUserCommand}" />
+
+                                <Button x:Name="btnSupprimer" Style="{StaticResource BtnSupprimer}" Grid.Row="7" Grid.Column="1" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                            Visibility="{Binding IsDeleteEnable, Converter={StaticResource VisibilityConverter}}" 
+                            Command="{Binding DeleteCommand}" />
+
+                                <TextBlock x:Name="tbkAffectationTitre" Text="{Binding Path=Resource.Utilisateurs_AffectionTitre, Source={StaticResource ApplicationResources}}" 
+                               Grid.Row="8" Grid.Column="0" Style="{StaticResource RegroupementText}" />
+
+                                <Rectangle Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource RectBlueUnderline}" />
+
+                                <!-- Profil-->
+                                <TextBlock x:Name="tbkProfil" Text="{Binding Path=Resource.Utilisateurs_Profil, Source={StaticResource ApplicationResources}}"
+                               Grid.Row="10" Grid.Column="0" Style="{StaticResource FormulaireText}"/>
+                                <telerik:RadComboBox SelectAllTextEvent="None" x:Name="cbbxProfil" Grid.Row="10" Grid.Column="1" Style="{StaticResource RadComboBoxForm}"  
+                                         IsEnabled="{Binding IsEditMode}" 
+                                         ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}"
+                                         ClearSelectionButtonVisibility="Visible"
+                                         ItemsSource="{Binding Profils}"  DisplayMemberPath="LibelleProfil"
+                                         SelectedItem="{Binding SelectedEntity.UsrProfil, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"  />
+
+                                <!-- Region -->
+                                <TextBlock x:Name="tbkRegion" Text="{Binding Path=Resource.Utilisateurs_Region, Source={StaticResource ApplicationResources}}"
+                               Grid.Row="11" Grid.Column="0" Style="{StaticResource FormulaireText}"/>
+                                <telerik:RadComboBox SelectAllTextEvent="None" x:Name="cbbxRegion" Grid.Row="11" Grid.Column="1" 
+                                         Style="{StaticResource RadComboBoxForm}" IsEnabled="{Binding CanEditRegion}" 
+                                         ItemsSource="{Binding Regions}" 
+                                         SelectedItem="{Binding SelectedEntity.SelectedRegion, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="LibelleRegion" />
+
+                                <!-- Agence -->
+                                <TextBlock x:Name="tbkAgence" Text="{Binding Path=Resource.Utilisateurs_Agence, Source={StaticResource ApplicationResources}}"
+                               Grid.Row="12" Grid.Column="0" Style="{StaticResource FormulaireText}"/>
+
+                                <telerik:RadComboBox SelectAllTextEvent="None" x:Name="cbbxAgence" Grid.Row="12" Grid.Column="1"
+                                         Style="{StaticResource RadComboBoxForm}" IsEnabled="{Binding CanEditAgence}"
+                                         ItemsSource="{Binding SelectedItem.AgencesTriees, ElementName=cbbxRegion}" 
+                                         SelectedItem="{Binding SelectedEntity.SelectedAgence, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="LibelleAgence" />
+
+                                <!-- Secteur -->
+                                <TextBlock x:Name="tbkSecteur" Text="{Binding Path=Resource.Utilisateurs_Secteur, Source={StaticResource ApplicationResources}}"
+                               Grid.Row="13" Grid.Column="0" Style="{StaticResource FormulaireText}" />
+
+                                <telerik:RadComboBox SelectAllTextEvent="None" x:Name="cbbxSecteur" Grid.Row="13" Grid.Column="1" Style="{StaticResource RadComboBoxForm}" 
+                                         IsEnabled="{Binding CanEditSecteur}"
+                                         ClearSelectionButtonContent="{Binding Path=Resource.ClearSelectionButtonContent, Source={StaticResource ApplicationResources}}" 
+                                         ClearSelectionButtonVisibility="Visible"
+                                         ItemsSource="{Binding SelectedItem.SecteursTries, ElementName=cbbxAgence}" 
+                                         SelectedItem="{Binding SelectedEntity.SelectedSecteur, Mode=TwoWay}" DisplayMemberPath="LibelleSecteur" />
+
+                            </Grid>
+                        </ScrollViewer>
+                    </telerik:RadTileViewItem>
+
+                    <!-- TileView Histo Admin -->
+                    <telerik:RadTileViewItem Visibility="{Binding IsAdministrateurViewMode, Converter={StaticResource VisibilityConverter}}" 
+                                             BorderThickness="{Binding Path=TileState, RelativeSource={RelativeSource Self}, Converter={StaticResource TileViewItemStateToThicknessConverter}}"
+                                             Header="{Binding Path=Resource.UsrUtilisateur_TileViewHisto_Title, Source={StaticResource ApplicationResources}}" 
+                                             TileState="Minimized" TileStateChanged="RadTileViewItem_TileStateChanged" x:Name="HistoAdminItem" >
+                        <ScrollViewer Grid.Row="0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" BorderThickness="0" BorderBrush="{StaticResource SBMainGray}">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="42" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <UC:ExportAndPrint x:Name="exportAndPrint" Grid.Row="0" ColumnsHiddenToExport="{Binding ColumnsHiddenToExport, Mode=TwoWay}" 
+                                                   Visibility="Visible" ExportPDFCommand="{Binding ExportPDFCommand}"
+                                                   PrintCommand="{Binding PrintCommand}" ExportExcelCommand="{Binding ExportExcelCommand}" 
+                                                   GridView="{Binding ElementName=GridViewHistoAdmin}" />
+
+                                <UC:CustomGridView x:Name="GridViewHistoAdmin" ItemsSource="{Binding HistoAdmins}"
+                                     SelectionMode="Single" IsReadOnly="True" Grid.Row="1"
+						             Margin="0" Padding="0" ActionOnLostFocus="None" ShowGroupPanel="False" Width="Auto"
+						             CanUserDeleteRows="{Binding CanDelete}" CanUserInsertRows="{Binding CanAdd}" 
+                                     CanUserFreezeColumns="False" RowIndicatorVisibility="Collapsed" AlternationCount="2"
+                                     VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="1,0,1,1" 
+                                     BorderBrush="#7F000000" AutoGenerateColumns="False" AutoExpandGroups="True" >
+
+                                    <UC:CustomGridView.Resources>
+                                        <Style TargetType="telerik:GridViewCell">
+                                            <Setter Property="Foreground" Value="{Binding IsEditable, Converter={StaticResource InstrumentToFGConverter}, UpdateSourceTrigger=PropertyChanged}" />
+                                        </Style>
+                                    </UC:CustomGridView.Resources>
+                                    
+                                    <UC:CustomGridView.RowStyle>
+                                        <Style BasedOn="{StaticResource GridViewRowStyleMain}" TargetType="telerik:GridViewRow">
+                                            <Setter Property="Background" Value="{Binding IsEditable, Converter={StaticResource InstrumentToBGConverter}}" />
+                                        </Style>
+                                    </UC:CustomGridView.RowStyle>
+                                    <UC:CustomGridView.AlternateRowStyle>
+                                        <Style BasedOn="{StaticResource GridViewRowStyleMain}" TargetType="telerik:GridViewRow">
+                                            <Setter Property="Background" Value="{Binding IsEditable, Converter={StaticResource InstrumentToAltBGConverter}}" />
+                                        </Style>
+                                    </UC:CustomGridView.AlternateRowStyle>
+                                    
+                                    <UC:CustomGridView.ColumnGroups>
+                                        <telerik:GridViewColumnGroup  Name="Connect" Header="Utilisateur connecté" />
+                                        <telerik:GridViewColumnGroup  Name="Modif" Header="Compte utilisateur modifié" />
+                                    </UC:CustomGridView.ColumnGroups>
+
+                                    <UC:CustomGridView.Columns>
+
+                                        <telerik:GridViewDataColumn DataMemberBinding="{Binding IdConnecte}" Width="Auto" IsReadOnly="True"
+                                                    Header="Identifiant" ColumnGroupName="Connect" />
+
+                                        <telerik:GridViewDataColumn DataMemberBinding="{Binding NomConnecte}" Width="Auto" IsReadOnly="True"
+                                                    Header="Nom" ColumnGroupName="Connect" />
+
+                                        <telerik:GridViewDataColumn DataMemberBinding="{Binding PrenomConnecte}" Width="Auto" IsReadOnly="True"
+                                                    Header="Prénom" ColumnGroupName="Connect" />
+
+                                        <telerik:GridViewDataColumn DataMemberBinding="{Binding IdUtilisateur}" Width="Auto" IsReadOnly="True"
+                                                    Header="Identifiant" ColumnGroupName="Modif" />
+
+                                        <telerik:GridViewDataColumn DataMemberBinding="{Binding NomUtilisateur}" Width="Auto" IsReadOnly="True"
+                                                    Header="Nom" ColumnGroupName="Modif" />
+
+                                        <telerik:GridViewDataColumn DataMemberBinding="{Binding PrenomUtilisateur}" Width="Auto" IsReadOnly="True"
+                                                    Header="Prénom" ColumnGroupName="Modif" />
+
+                                        <telerik:GridViewDataColumn DataMemberBinding="{Binding RefEnumValeur.Libelle}" Width="Auto" IsReadOnly="True"
+                                                    Header="Opération" />
+
+                                        <telerik:GridViewDataColumn DataMemberBinding="{Binding TypeCompte}" Width="*" IsReadOnly="True"
+                                                    Header="Type de compte" />
+
+                                        <telerik:GridViewDataColumn x:Name="Date" UniqueName="Date" DataMemberBinding="{Binding DateModification, StringFormat='dd/MM/yyyy HH:mm'}" Width="Auto" IsReadOnly="True"
+                                                    Header="Date" />
+
+                                    </UC:CustomGridView.Columns>
+                                </UC:CustomGridView>
+                                
+                            </Grid>
+                        </ScrollViewer>
+                    </telerik:RadTileViewItem>
+
+                </telerik:RadTileView>
+            </Grid>
+        </UC:MainContainer.MainContent>
+        <UC:MainContainer.FooterContent>
+            <Grid Margin="10,10" HorizontalAlignment="Stretch" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <UC:ErrorSummary />
+                <Button x:Name="btnAjouter" Style="{StaticResource BtnAjouterUsrUtilisateur}" Grid.Column="0" VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" Command="{Binding AddCommand}"/>
+                <Button x:Name="btnModifier" Style="{StaticResource BtnModifier}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding EditCommand}"
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource HideConverter}}" />
+                <Button x:Name="btnValider" Style="{StaticResource BtnValider}" Grid.Column="1" VerticalAlignment="Bottom" Command="{Binding SaveCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+                <Button x:Name="btnAnnuler" Style="{StaticResource BtnAnnuler}" Grid.Column="2" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" 
+                        HorizontalAlignment="Right" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConverter}}" />
+            </Grid>
+        </UC:MainContainer.FooterContent>
+    </UC:MainContainer>
+
+</navigation:Page>
+
