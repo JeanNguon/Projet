@@ -1422,11 +1422,11 @@ namespace Proteca.Web.Services
 
         static readonly Func<ProtecaEntities, IQueryable<MesClassementMesure>> getMesClassementMesureWithMesNiveauProtectionQuery = CompiledQuery.Compile<ProtecaEntities, IQueryable<MesClassementMesure>>(
                       ctx => ctx.MesClassementMesure
-                          //.Include("MesTypeMesure.RefEnumValeur")
+                                            //.Include("MesTypeMesure.RefEnumValeur")
                                             .Include("MesTypeMesure.MesModeleMesure.MesNiveauProtection")
                                             .Include("MesTypeMesure.MesModeleMesure.MesUnite")
-                          //.Include("MesTypeMesure.MesModeleMesure.RefEnumValeur")
-                          //.Include("MesTypeMesure.MesModeleMesure.TypeEquipement")
+                                            //.Include("MesTypeMesure.MesModeleMesure.RefEnumValeur")
+                                            //.Include("MesTypeMesure.MesModeleMesure.TypeEquipement")
                                             .Where(m => m.MesTypeMesure.MesureEnService == true));
 
         public IQueryable<MesClassementMesure> GetMesClassementMesureWithMesNiveauProtection()
@@ -1744,13 +1744,13 @@ namespace Proteca.Web.Services
             return this.ObjectContext.EqEquipement.OfType<EqLiaisonExterne>()
                  .Where(e => e.LibellePointCommun == libelle && !e.Supprime)
                  .Select(e => new LiaisonCommunes
-                     {
-                         LibelleLiaison = e.Libelle,
-                         LibellePortion = e.Pp.PortionIntegrite.Libelle,
-                         CleEquipement = e.CleEquipement,
-                         TypeEquipement = e.TypeEquipement.CodeEquipement,
-                         ClePortion = e.Pp.ClePortion
-                     })
+                 {
+                     LibelleLiaison = e.Libelle,
+                     LibellePortion = e.Pp.PortionIntegrite.Libelle,
+                     CleEquipement = e.CleEquipement,
+                     TypeEquipement = e.TypeEquipement.CodeEquipement,
+                     ClePortion = e.Pp.ClePortion
+                 })
                  .Union(
                      this.ObjectContext.EqEquipement.OfType<EqLiaisonInterne>()
                      .Where(e => e.LibellePointCommun == libelle && !e.Supprime)
@@ -5989,27 +5989,27 @@ namespace Proteca.Web.Services
         /// </summary>
         /// <param name="cle">identifiant de l'ensemble électrique</param>
         /// <returns>la liste des actions de l'ensemble électrique</returns>
-        public IQueryable<AnAction> GetActionsByEnsembleElectrique(int cleEE)
-        {
-            IQueryable<AnAction> actionsQuery = null;
+        //public IQueryable<AnAction> GetActionsByEnsembleElectrique(int cleEE)
+        //{
+        //    IQueryable<AnAction> actionsQuery = null;
 
-            IQueryable<AnAction> actionsAvecAnalyse = (from ac in this.ObjectContext.AnAction
-                                                       join a in this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>() on ac.CleAnalyse equals a.CleAnalyse
-                                                       where a.CleEnsElectrique == cleEE && ac.Supprime == false
-                                                       select ac);
+        //    IQueryable<AnAction> actionsAvecAnalyse = (from ac in this.ObjectContext.AnAction
+        //                                               join a in this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>() on ac.CleAnalyse equals a.CleAnalyse
+        //                                               where a.CleEnsElectrique == cleEE && ac.Supprime == false
+        //                                               select ac);
 
-            IQueryable<AnAction> actionsHorsAnalyse = (from ac in this.ObjectContext.AnAction
-                                                       from p in this.ObjectContext.PortionIntegrite
-                                                       from pa in p.PortionIntegriteAnAction
-                                                       where pa.AnAction.CleAnalyse == null && p.CleEnsElectrique == cleEE && pa.CleAction == ac.CleAction && p.ClePortion == pa.ClePortion && ac.Supprime == false
-                                                       select ac);
+        //    IQueryable<AnAction> actionsHorsAnalyse = (from ac in this.ObjectContext.AnAction
+        //                                               from p in this.ObjectContext.PortionIntegrite
+        //                                               from pa in p.PortionIntegriteAnAction
+        //                                               where pa.AnAction.CleAnalyse == null && p.CleEnsElectrique == cleEE && pa.CleAction == ac.CleAction && p.ClePortion == pa.ClePortion && ac.Supprime == false
+        //                                               select ac);
 
-            actionsQuery = actionsAvecAnalyse.Union(actionsHorsAnalyse);
+        //    actionsQuery = actionsAvecAnalyse.Union(actionsHorsAnalyse);
 
-            var parametres = this.ObjectContext.ParametreAction.Where(p => actionsQuery.Any(a => a.CleParametreAction == p.CleParametreAction)).ToList();
+        //    var parametres = this.ObjectContext.ParametreAction.Where(p => actionsQuery.Any(a => a.CleParametreAction == p.CleParametreAction)).ToList();
 
-            return actionsQuery.OrderBy(a => a.DateCreation);
-        }
+        //    return actionsQuery.OrderBy(a => a.DateCreation);
+        //}
 
         /// <summary>
         /// Récupère la liste des Actions d'une portion intégrité
@@ -6034,37 +6034,37 @@ namespace Proteca.Web.Services
         /// </summary>
         /// <param name="cle">identifiant d'un secteur</param>
         /// <returns>la liste des actions d'un secteur</returns>
-        public IQueryable<AnAction> GetActionsBySecteur(int cleSecteur)
-        {
-            IQueryable<AnAction> query = null;
+        //public IQueryable<AnAction> GetActionsBySecteur(int cleSecteur)
+        //{
+        //    IQueryable<AnAction> query = null;
 
-            // actions par analyse
-            query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Where
-                (
-                    a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.CleSecteur == cleSecteur))
-                ).SelectMany(a => a.AnAction);
+        //    // actions par analyse
+        //    query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Where
+        //        (
+        //            a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.CleSecteur == cleSecteur))
+        //        ).SelectMany(a => a.AnAction);
 
-            query = query.Union(this.ObjectContext.AnAnalyse.OfType<AnAnalyseSerieMesure>().Where
-                (
-                    a => a.Visite.ClePp.HasValue && a.Visite.Pp.CleSecteur == cleSecteur
-                ).SelectMany(a => a.AnAction));
-            query = query.Union(this.ObjectContext.AnAnalyse.OfType<AnAnalyseSerieMesure>().Where
-                (
-                    a => a.Visite.CleEquipement.HasValue
-                    && a.Visite.EqEquipement.Pp.CleSecteur == cleSecteur
-                ).SelectMany(a => a.AnAction));
+        //    query = query.Union(this.ObjectContext.AnAnalyse.OfType<AnAnalyseSerieMesure>().Where
+        //        (
+        //            a => a.Visite.ClePp.HasValue && a.Visite.Pp.CleSecteur == cleSecteur
+        //        ).SelectMany(a => a.AnAction));
+        //    query = query.Union(this.ObjectContext.AnAnalyse.OfType<AnAnalyseSerieMesure>().Where
+        //        (
+        //            a => a.Visite.CleEquipement.HasValue
+        //            && a.Visite.EqEquipement.Pp.CleSecteur == cleSecteur
+        //        ).SelectMany(a => a.AnAction));
 
-            // actions hors analyse
-            query = query.Union(
-                    from ac in this.ObjectContext.AnAction
-                    from pia in this.ObjectContext.PortionIntegriteAnAction
-                    from pis in this.ObjectContext.PiSecteurs
-                    where ac.CleAction == pia.CleAction && pia.ClePortion == pis.ClePortion && pis.CleSecteur == cleSecteur
-                    select ac
-                );
+        //    // actions hors analyse
+        //    query = query.Union(
+        //            from ac in this.ObjectContext.AnAction
+        //            from pia in this.ObjectContext.PortionIntegriteAnAction
+        //            from pis in this.ObjectContext.PiSecteurs
+        //            where ac.CleAction == pia.CleAction && pia.ClePortion == pis.ClePortion && pis.CleSecteur == cleSecteur
+        //            select ac
+        //        );
 
-            return query;
-        }
+        //    return query;
+        //}
 
         /// <summary>
         /// Récupère la liste des Actions d'une agence
@@ -6076,10 +6076,10 @@ namespace Proteca.Web.Services
             IQueryable<AnAction> query = null;
 
             // actions par analyse
-            query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Where
-                (
-                    a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.GeoSecteur.CleAgence == cleAgence))
-                ).SelectMany(a => a.AnAction);
+            //query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Where
+            //    (
+            //        a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.GeoSecteur.CleAgence == cleAgence))
+            //    ).SelectMany(a => a.AnAction);
 
             query = query.Union(this.ObjectContext.AnAnalyse.OfType<AnAnalyseSerieMesure>().Where
                 (
@@ -6114,10 +6114,10 @@ namespace Proteca.Web.Services
             IQueryable<AnAction> query = null;
 
             // actions par analyse
-            query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Where
-                    (
-                        a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.GeoSecteur.GeoAgence.CleRegion == cleRegion))
-                    ).SelectMany(a => a.AnAction);
+            //query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Where
+            //        (
+            //            a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.GeoSecteur.GeoAgence.CleRegion == cleRegion))
+            //        ).SelectMany(a => a.AnAction);
 
             query = query.Union(this.ObjectContext.AnAnalyse.OfType<AnAnalyseSerieMesure>().Where
                 (
@@ -6155,23 +6155,23 @@ namespace Proteca.Web.Services
             ////Initialisation de la query sans resultats
             IQueryable<AnAction> query = this.ObjectContext.AnAction;
 
-            ////Création de la query selon le niveau de recherche
-            if (cleEnsElec.HasValue)
-            {
-                query = GetActionsByEnsembleElectrique(cleEnsElec.Value);
-            }
-            else if (cleSecteur.HasValue)
-            {
-                query = GetActionsBySecteur(cleSecteur.Value);
-            }
-            else if (cleAgence.HasValue)
-            {
-                query = GetActionsByAgence(cleAgence.Value);
-            }
-            else if (cleRegion.HasValue)
-            {
-                query = GetActionsByRegion(cleRegion.Value);
-            }
+            //////Création de la query selon le niveau de recherche
+            //if (cleEnsElec.HasValue)
+            //{
+            //    query = GetActionsByEnsembleElectrique(cleEnsElec.Value);
+            //}
+            //else if (cleSecteur.HasValue)
+            //{
+            //    query = GetActionsBySecteur(cleSecteur.Value);
+            //}
+            //else if (cleAgence.HasValue)
+            //{
+            //    query = GetActionsByAgence(cleAgence.Value);
+            //}
+            //else if (cleRegion.HasValue)
+            //{
+            //    query = GetActionsByRegion(cleRegion.Value);
+            //}
 
             ////Completion de la query selon les options de la recherche
             if (cleEtatAnalyse.HasValue)
@@ -6232,11 +6232,12 @@ namespace Proteca.Web.Services
                 if (anAction.CleAnalyse != null)
                 {
                     //Action avec analyse
-                    codeRegion = (from a in this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>()
-                                  from po in a.EnsembleElectrique.PortionIntegrite
-                                  from pi in po.PiSecteurs
-                                  where a.CleAnalyse == anAction.CleAnalyse && pi.GeoSecteur != null && pi.GeoSecteur.GeoAgence != null && pi.GeoSecteur.GeoAgence.GeoRegion != null
-                                  select pi.GeoSecteur.GeoAgence.GeoRegion.LibelleAbregeRegion).FirstOrDefault();
+                    //codeRegion = (
+                        ////from a in this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>()
+                        //from po in a.EnsembleElectrique.PortionIntegrite
+                        //from pi in po.PiSecteurs
+                        //where a.CleAnalyse == anAction.CleAnalyse && pi.GeoSecteur != null && pi.GeoSecteur.GeoAgence != null && pi.GeoSecteur.GeoAgence.GeoRegion != null
+                        //select pi.GeoSecteur.GeoAgence.GeoRegion.LibelleAbregeRegion).FirstOrDefault();
                 }
                 else if (anAction.PortionIntegriteAnAction != null && anAction.PortionIntegriteAnAction.Any())
                 {
@@ -6253,90 +6254,90 @@ namespace Proteca.Web.Services
             }
         }
 
-        #endregion AnAction
+        //#endregion AnAction
 
-        #region AnAnalyseEe
+        //#region AnAnalyseEe
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="cle"></param>
-        /// <returns></returns>
-        public IQueryable<AnAnalyseEe> GetAnAnalyseEeByCle(int cle)
-        {
-            return this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>()
-                .Include("EnsembleElectrique")
-                .Include("AnAction.ParametreAction.RefEnumValeur1")
-                .Include("AnAnalyseEeVisite.Visite.Alertes")
-                .Where(v => v.CleAnalyse == cle);
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="cle"></param>
+        ///// <returns></returns>
+        //public IQueryable<AnAnalyseEe> GetAnAnalyseEeByCle(int cle)
+        //{
+        //    return this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>()
+        //        .Include("EnsembleElectrique")
+        //        .Include("AnAction.ParametreAction.RefEnumValeur1")
+        //        .Include("AnAnalyseEeVisite.Visite.Alertes")
+        //        .Where(v => v.CleAnalyse == cle);
+        //}
 
-        /// <summary>
-        /// Retourne les portions intégrités recherchés
-        /// </summary>
-        /// <param name="cleRegion"></param>
-        /// <param name="cleAgence"></param>
-        /// <param name="cleSecteur"></param>
-        /// <param name="cleEnsElec"></param>
-        /// <param name="isDelete"></param>
-        /// <returns></returns>
-        public IQueryable<AnAnalyseEe> FindAnAnalyseEeByCriterias(int? cleRegion, int? cleAgence, int? cleSecteur,
-           string LibelleEe, bool includeStation, bool includePosteGaz)
-        {
-            IQueryable<AnAnalyseEe> query;
-            if (cleSecteur.HasValue)
-            {
-                query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Include("EnsembleElectrique").Where
-                    (
-                        a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.CleSecteur == cleSecteur.Value))
-                    );
+        ///// <summary>
+        ///// Retourne les portions intégrités recherchés
+        ///// </summary>
+        ///// <param name="cleRegion"></param>
+        ///// <param name="cleAgence"></param>
+        ///// <param name="cleSecteur"></param>
+        ///// <param name="cleEnsElec"></param>
+        ///// <param name="isDelete"></param>
+        ///// <returns></returns>
+        //public IQueryable<AnAnalyseEe> FindAnAnalyseEeByCriterias(int? cleRegion, int? cleAgence, int? cleSecteur,
+        //   string LibelleEe, bool includeStation, bool includePosteGaz)
+        //{
+        //    IQueryable<AnAnalyseEe> query;
+        //    if (cleSecteur.HasValue)
+        //    {
+        //        query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Include("EnsembleElectrique").Where
+        //            (
+        //                a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.CleSecteur == cleSecteur.Value))
+        //            );
 
-            }
-            else if (cleAgence.HasValue)
-            {
-                query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Include("EnsembleElectrique").Where
-                    (
-                        a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.GeoSecteur.CleAgence == cleAgence.Value))
-                    );
-            }
-            else if (cleRegion.HasValue)
-            {
-                query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Include("EnsembleElectrique").Where
-                    (
-                        a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.GeoSecteur.GeoAgence.CleRegion == cleRegion.Value))
-                    );
-            }
-            else
-            {
-                query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Include("EnsembleElectrique");
-            }
-            if (!String.IsNullOrEmpty(LibelleEe))
-            {
-                query = query.Where(a => a.EnsembleElectrique.Libelle.Contains(LibelleEe));
-            }
-            if (includeStation || includePosteGaz)
-            {
-                //Inclue les stations ou les poste Gaz ou non
-                if (includeStation && includePosteGaz)
-                {
-                    query = query.Where(a => a.EnsembleElectrique.RefEnumValeur1 == null || a.EnsembleElectrique.RefEnumValeur1.Valeur == "1" || a.EnsembleElectrique.RefEnumValeur1.Valeur == "2");
-                }
-                else if (includeStation)
-                {
-                    query = query.Where(a => a.EnsembleElectrique.RefEnumValeur1 == null || a.EnsembleElectrique.RefEnumValeur1.Valeur == "1");
-                }
-                else if (includePosteGaz)
-                {
-                    query = query.Where(a => a.EnsembleElectrique.RefEnumValeur1 == null || a.EnsembleElectrique.RefEnumValeur1.Valeur == "2");
-                }
-            }
-            else
-            {
-                query = query.Where(a => a.EnsembleElectrique.RefEnumValeur1 == null);
-            }
+        //    }
+        //    else if (cleAgence.HasValue)
+        //    {
+        //        query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Include("EnsembleElectrique").Where
+        //            (
+        //                a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.GeoSecteur.CleAgence == cleAgence.Value))
+        //            );
+        //    }
+        //    else if (cleRegion.HasValue)
+        //    {
+        //        query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Include("EnsembleElectrique").Where
+        //            (
+        //                a => a.EnsembleElectrique.PortionIntegrite.Any(p => p.PiSecteurs.Any(s => s.GeoSecteur.GeoAgence.CleRegion == cleRegion.Value))
+        //            );
+        //    }
+        //    else
+        //    {
+        //        query = this.ObjectContext.AnAnalyse.OfType<AnAnalyseEe>().Include("EnsembleElectrique");
+        //    }
+        //    if (!String.IsNullOrEmpty(LibelleEe))
+        //    {
+        //        query = query.Where(a => a.EnsembleElectrique.Libelle.Contains(LibelleEe));
+        //    }
+        //    if (includeStation || includePosteGaz)
+        //    {
+        //        //Inclue les stations ou les poste Gaz ou non
+        //        if (includeStation && includePosteGaz)
+        //        {
+        //            query = query.Where(a => a.EnsembleElectrique.RefEnumValeur1 == null || a.EnsembleElectrique.RefEnumValeur1.Valeur == "1" || a.EnsembleElectrique.RefEnumValeur1.Valeur == "2");
+        //        }
+        //        else if (includeStation)
+        //        {
+        //            query = query.Where(a => a.EnsembleElectrique.RefEnumValeur1 == null || a.EnsembleElectrique.RefEnumValeur1.Valeur == "1");
+        //        }
+        //        else if (includePosteGaz)
+        //        {
+        //            query = query.Where(a => a.EnsembleElectrique.RefEnumValeur1 == null || a.EnsembleElectrique.RefEnumValeur1.Valeur == "2");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        query = query.Where(a => a.EnsembleElectrique.RefEnumValeur1 == null);
+        //    }
 
-            return query.OrderBy(a => a.EnsembleElectrique.Libelle).ThenBy(a => a.DateAnalyse);
-        }
+        //    return query.OrderBy(a => a.EnsembleElectrique.Libelle).ThenBy(a => a.DateAnalyse);
+        //}
 
         #endregion
 

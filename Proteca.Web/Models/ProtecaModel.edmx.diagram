@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <edmx:Designer>
+    <edmx:Diagrams>
+      <edmx:Diagram Name="ProtecaModel" ZoomLevel="121">
+        <edmx:EntityTypeShape Height="2.557190755208353" EntityType="ProtecaModel.REF_PARAMETRE" PointX="6.75" PointY="4.75" Width="1.5" />
+        <edmx:EntityTypeShape Height="2.1725878906249818" EntityType="ProtecaModel.GEO_Ensemble_Electrique" PointX="6.75" PointY="0.75" Width="1.5" />
+        <edmx:EntityTypeShape Height="2.3648893229166674" EntityType="ProtecaModel.Portion_Dates" PointX="4.75" PointY="5.75" Width="1.5" />
+        <edmx:EntityTypeShape Height="2.7494921874999818" EntityType="ProtecaModel.PP_EQUIPEMENT" PointX="2.75" PointY="5.75" Width="1.5" />
+        <edmx:EntityTypeShape Height="3.5186979166666674" EntityType="ProtecaModel.Tournee_PP_EQ" PointX="0.75" PointY="5.75" Width="1.5" />
+        <edmx:EntityTypeShape Height="3.7109993489583246" EntityType="ProtecaModel.Alerte_Detail" PointX="4.75" PointY="0.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.GEO_ENS_ELEC_PORTION" PointX="2.75" PointY="0.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.GEO_ENS_ELEC_PORTION_EQ_PP" PointX="0.75" PointY="0.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.AN_ACTION" PointX="11.25" PointY="100.75" Width="3.125" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.AN_ANALYSE" PointX="3" PointY="91.25" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.AN_ANALYSE_EE" PointX="5.25" PointY="98" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.CATEGORIE_PP" PointX="5.25" PointY="126.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.COMPOSITION" PointX="23" PointY="95.625" Width="1.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.ENSEMBLE_ELECTRIQUE" PointX="3" PointY="99.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_ANODE_GALVANIQUE" PointX="23" PointY="113.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_DISPO_ECOULEMENT_COURANTS_ALTERNATIFS" PointX="26" PointY="114.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_DRAINAGE" PointX="26" PointY="106.25" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_DRAINAGE_LIAISONSEXT" PointX="31.25" PointY="111.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_EQUIPEMENT" PointX="20.75" PointY="107.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_EQUIPEMENT_TMP" PointX="17.75" PointY="110" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_FOURREAU_METALLIQUE" PointX="23" PointY="110.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_LIAISON_EXTERNE" PointX="29" PointY="114.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_LIAISON_INTERNE" PointX="26" PointY="109.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_PILE" PointX="23" PointY="91.875" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_POSTEGAZ" PointX="23" PointY="127.875" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_RACCORD_ISOLANT" PointX="23" PointY="100.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_SOUTIRAGE" PointX="23" PointY="116.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_SOUTIRAGE_LIAISONSEXT" PointX="31.25" PointY="116.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.EQ_TIERS_CROISE_SANS_LIAISON" PointX="23" PointY="136.625" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.GEO_AGENCE" PointX="1.5" PointY="66.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.GEO_REGION" PointX="1.5" PointY="63" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.GEO_SECTEUR" PointX="1.5" PointY="70.625" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_ADMIN" PointX="3" PointY="111.625" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_ANODE_GALVANIQUE" PointX="30.5" PointY="97.625" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_DISPO_ECOULEMENT_COURANTS_ALTERNATIFS" PointX="33.5" PointY="96.875" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_DRAINAGE" PointX="30.5" PointY="94.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_FOURREAU_METALLIQUE" PointX="30.5" PointY="105.125" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_LIAISON_EXTERNE" PointX="30.5" PointY="100.875" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_LIAISON_INTERNE" PointX="33.5" PointY="92.125" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_PILE" PointX="30.5" PointY="90.125" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_POSTEGAZ" PointX="30.5" PointY="119.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_RACCORD_ISOLANT" PointX="33.5" PointY="87.625" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_SOUTIRAGE" PointX="36.5" PointY="96.125" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQ_TIERS_CROISE_SANS_LIAISON" PointX="30.5" PointY="126.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_EQUIPEMENT" PointX="28.25" PointY="95.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.HISTO_PP" PointX="28.25" PointY="104.25" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.IMAGE" PointX="26" PointY="102.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.INS_INSTRUMENT" PointX="9" PointY="84.25" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.INSTRUMENTS_UTILISES" PointX="11.25" PointY="91.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.LOG_OUVRAGE" PointX="26" PointY="96.125" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.MES_CLASSEMENT_MESURE" PointX="15.75" PointY="96" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.MES_COUT_MESURE" PointX="3" PointY="95.25" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.MES_MODELE_MESURE" PointX="8.25" PointY="105.875" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.MES_NIVEAU_PROTECTION" PointX="23" PointY="106.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.MES_TYPE_MESURE" PointX="13.5" PointY="95.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.MES_UNITE" PointX="3" PointY="119.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.PARAMETRE_ACTION" PointX="3" PointY="122.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.PI_SECTEURS" PointX="10.5" PointY="97.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.PORTION_INTEGRITE" PointX="8.25" PointY="98.125" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.PP" PointX="15.5" PointY="105.125" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.PP_JUMELEE" PointX="17.75" PointY="146.875" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.REF_COMMUNE" PointX="13.25" PointY="109.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.REF_DIAMETRE" PointX="6" PointY="102" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.REF_ENUM_VALEUR" PointX="0.75" PointY="87.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.REF_NIVEAU_SENSIBILITE_PP" PointX="3" PointY="126.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.REF_REVETEMENT" PointX="6" PointY="112.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.REF_SOUS_TYPE_OUVRAGE" PointX="31.25" PointY="82.625" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.REF_USR_AUTORISATION" PointX="1.5" PointY="51.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.REF_USR_GROUPE" PointX="1.5" PointY="48.875" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.REF_USR_PORTEE" PointX="1.5" PointY="55.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.TOURNEE" PointX="0.75" PointY="83.25" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.TYPE_EQUIPEMENT" PointX="3" PointY="130.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.USR_PROFIL" PointX="1.5" PointY="59.375" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.USR_ROLE" PointX="3.75" PointY="57.5" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.USR_UTILISATEUR" PointX="0.75" PointY="75.25" Width="1.5" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTIO_ACTION_AN_AN_ANALY" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTIO_CLASSIFIC_PARAMETR" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTIO_STATUT_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTION_USR_CREATION" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTION_USR_MODIF" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ANALY_ANA_EE_AN_ANALY" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ANALY_ANALYSE_E_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ANALY_ANALYSE_U_USR_UTIL" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ANALY_ANALYSE_E_ENSEMBLE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_CATEGORI_CAT_PP_EQ_TYPE_EQU" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_CATEGORI_SENSIBILI_REF_NIVE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_PP_HISTO_CAT_CATEGORI" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_CATEGORIE_CATEGORI" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_COMPOSIT_COMPOSITI_ENSEMBLE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_COMPOSIT_COMPOSITI_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_COMPOSIT_COMPOSITI_PORTION_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_COMPOSIT_COMPOSITI_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_COMPOSIT_COMPOSITI_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_COMPOSIT_COMPOSITI_TOURNEE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_ENSEMBLE_PERIODICI_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_ENSEMBLE_STRUCT_CP_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_OUVR_ENSEMBLE__ENSEMBLE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PORTION__EE_PI_ENSEMBLE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_ANODE_EQU_ANODE_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_ANODE_TYPE_ANOD_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_DISPO_EQU_DECA_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_DISPO_TYPE_PRIS_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_DRAIN_EQ_DRAINA_EQ_DRAIN" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_DRAIN_EQU_DRAIN_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_DRAIN_TYPE_DRAI_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_DRAIN_EQ_DRAINA_EQ_LIAIS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_EQUIP_EQU_UTIL_USR_UTIL" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_EQUIP_PP_EQU_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_EQUIP_TYPE_EQU_TYPE_EQU" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_EQUIPEMENT_ORIGINE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_FOURR_EQU_FOURR_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_LIAIS_EQU_LE_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_LIAIS_EQU_LI_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_PILE_EQU_PILE_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_POSTE_EQU_POSTE_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_RACCO_EQU_RI_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_RACCO_LIAISON_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_SOUTI_EQU_SOUTI_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_TIERS_EQU_TIER_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_IMAGE_EQ_IMAGE_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_OUVR_EQUIPEMEN_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_NIVE_EQ_NIV_PR_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_EQUIP_PP_EQU_TM_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_EQUIP_TYPE_EQ_T_TYPE_EQU" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_FOURR_FM_PP2_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_LIAIS_NOM_TIERS_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_LIAIS_TYPELIAIS_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_SOUTI_EQ_SOUTIR_EQ_LIAIS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_LIAIS_LI_PP2_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_LIAIS_TYPE_LIAI_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_LIAISON_INTER_EE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_PILE_CARACTERI_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_PILE_TYPE_DEVE_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_RACCO_CONFIG_EL_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_RACCO_ETAT_ELEC_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_RACCO_RI_PP2_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_RACCO_TYPE_LIAI_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_RACCO_TYPE_RI_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_SOUTI_EQ_SOUTIR_EQ_SOUTI" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_SOUTI_SO_DEVERS_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_EQ_SOUTI_SO_REDRES_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_GEO_AGEN_REGION_AG_GEO_REGI" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_GEO_SECT_AGENCE_SE_GEO_AGEN" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_INS_INST_INSTRUMEN_GEO_AGEN" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_USR_UTIL_UTILISATE_GEO_AGEN" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_INS_INST_INSTRUMEN_GEO_REGI" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_INS_INST_INSTRUMEN_GEO_SECT" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PI_SECTE_PI_SECTEU_GEO_SECT" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_SECTEUR_P_GEO_SECT" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_USR_UTIL_UTILISATE_GEO_SECT" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_AD_TYPE_MODI_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_ANODE_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_TYPE_ANODE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_DISPO_ECOUL_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_TYPE_TERRE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_DRAINAGE_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_TYPE_DR" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_FOURREAU_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_TYPE_LE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_LEXT_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_TYPE_LI" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_LI_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_CAR_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_PI_TYPE_DEV" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_PILE_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_POSTEGAZ_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_CON_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_ETA_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_TYP_REF_SOUS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_TYPE_LIAISON" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_RACCORD_ISO_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTO_SO_TYPE_DEV" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_SOUTIRAGE_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_TIERS_CROISE_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HISTORIQU_LOG_OUVR" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_EQ_HSITO_TYP_TYPE_EQU" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_OUVR_HISTORIQU_HISTO_EQ" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_PP_DUREE_ENR_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_PP_HISTO_COM_REF_COMM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_PP_HISTO_POL_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_PP_HISTO_SEN_REF_NIVE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_PP_HISTORIQU_LOG_OUVR" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_PP_REF_ENUM_TME" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_HISTO_PP_REF_ENUM_TMS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_OUVR_HISTORIQU_HISTO_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_IMAGE_PP_IMAGE_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_IMAGE_TYPE_IMAG_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_INSTRUME_INSTRUMEN_INS_INST" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_OUVR_PORTION_I_PORTION_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_OUVR_PP_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_OUVR_TYPE_DE_M_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_OUVR_UTILISATE_USR_UTIL" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_CLAS_CLASSEMEN_MES_TYPE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_COUT_COUT_TYPE_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_COUT_COUT_TYPE_TYPE_EQU" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_COUT_DUREE_ENR_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_COUT_TEMPS_POL_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_MODE_MODELE_UN_MES_UNIT" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_MODE_TYPE_EQUI_TYPE_EQU" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_MODE_TYPE_GRAP_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_NIVE_NIVEAU_PR_MES_MODE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_TYPE_TYPE_MESU_MES_MODE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_NIVE_PORTION_N_PORTION_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_NIVE_PP_NIV_PR_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_TYPE_NIVEAU_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_TYPE_TYPE_EVAL_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_UNIT_TYPE_DE_D_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PARAMETR_CATEGORIE_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PARAMETR_DELAI_REA_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PARAMETR_TYPE_ACTI_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PI_SECTE_PI_SECTEU_PORTION_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PORTION__COMMUNE_A_REF_COMM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PORTION__COMMUNE_D_REF_COMM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PORTION__PI_DIAMET_REF_DIAM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PORTION__PI_REVETE_REF_REVE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_PI_PP_PORTION_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_COMMUNE_P_REF_COMM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_DUREE_ENR_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_JUMELEE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_JUMELEE_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_POLARISAT_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_PP_ORIGINE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_PP_UTIL_USR_UTIL" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_SURF_TME_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_SURF_TMS_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_REF_NIVE_SENSIB1_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_REF_NIVE_TYPE_EVAL_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_REF_USR__AUTORISAT_REF_USR_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_USR_ROLE_USR_ROLE_REF_USR_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_USR_PROF_PROFIL_PO_REF_USR_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_USR_ROLE_USR_ROLE3_REF_USR_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_USR_UTIL_UTIL_PORT_REF_USR_" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_TOURNEE_TOURNEE_U_USR_UTIL" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_USR_ROLE_USR_ROLE2_USR_PROF" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_USR_UTIL_UTIL_PROF_USR_PROF" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.LOG_TOURNEE" PointX="3" PointY="87.375" Width="1.5" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_TOUR_TOURNEE_TOURNEE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_TOUR_TYPE_MODI_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_LOG_TOUR_UTILISATE_USR_UTIL" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.ALERTE" PointX="13.5" PointY="91.25" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.AN_ANALYSE_SERIE_MESURE" PointX="8.25" PointY="91.75" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.MES_MESURE" PointX="8.25" PointY="88.625" Width="1.5" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.VISITE" PointX="6" PointY="88.875" Width="1.5" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_ALERTE_ALERTEA_A_AN_ANALY" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_ALERTE_ALERTES_M_MES_MESU" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_ALERTE_ALERTU_VI_VISITE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_ALERTE_TYPE_ALER_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ANALY_ANA_SERIE_AN_ANALY" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ANALY_ANA_VISIT_VISITE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_VIS_EQU_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_VIS_EQU_T_EQ_EQUIP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_INSTRUME_INSTRUMEN_VISITE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_MESU_TMES_MESU_MES_TYPE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_MES_MESU_VISITE_ME_VISITE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_PP_UTIL_D_USR_UTIL" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_VIS_PP_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_VISITE_TY_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_USR_CREATE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_USR_IMPORT" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_USR_MESURE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_USR_VALIDATION" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.AN_ANALYSE_EE_VISITE" PointX="8.25" PointY="94.75" Width="1.5" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_ANALYSE_VISITE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_ANA_VISITE_ANA_EE" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.PP_TMP" PointX="5.25" PointY="105" Width="1.5" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_TMP_PP_TMP_CA_CATEGORI" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_TMP_PP_TMP_OR_PP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_TMP_PP_ENUM_TME" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_TMP_PP_ENUM_TMS" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_TMP_PP_TMP_DU_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_TMP_PP_TMP_PO_REF_ENUM" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_TMP_PP_TMP_SE_REF_NIVE" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PP_TMP_PP_TMP_UT_USR_UTIL" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_VIS_PP_TM_PP_TMP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_COMPOSIT_COMPOSITI_EQ_TMP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_VISITE_VISITE_TY_REF_COMP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTION_USR_RESP" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTION_USR_AGENT" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PARAMETR_PRIORITE_REF_ENUM" />
+        <edmx:EntityTypeShape EntityType="ProtecaModel.PORTION_INTEGRITE_AN_ACTION" PointX="15.125" PointY="102.375" Width="1.5" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTION_PORTION_INTEGRITE_AN_ACTION" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_PORTION_INTEGRITE_PORTION_INTEGRITE_AN_ACTION" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTION_ENTITE_TRAITEMENT" />
+        <edmx:AssociationConnector Association="ProtecaModel.FK_AN_ACTION_TYPE_EVAL" />
+      </edmx:Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

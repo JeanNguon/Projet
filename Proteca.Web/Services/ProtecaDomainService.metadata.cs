@@ -229,79 +229,7 @@ namespace Proteca.Web.Models
         }
     }
 
-    // The MetadataTypeAttribute identifies AnAnalyseEeMetadata as the class
-    // that carries additional metadata for the AnAnalyseEe class.
-    [MetadataTypeAttribute(typeof(AnAnalyseEe.AnAnalyseEeMetadata))]
-    public partial class AnAnalyseEe
-    {
-
-        // This class allows you to attach custom attributes to properties
-        // of the AnAnalyseEe class.
-        //
-        // For example, the following marks the Xyz property as a
-        // required property and specifies the format for valid values:
-        //    [Required]
-        //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
-        //    [StringLength(32)]
-        //    public string Xyz { get; set; }
-        internal sealed class AnAnalyseEeMetadata
-        {
-
-            // Metadata classes are not meant to be instantiated.
-            private AnAnalyseEeMetadata()
-            {
-            }
-
-            public EntityCollection<AnAnalyseEeVisite> AnAnalyseEeVisite { get; set; }
-            public int Id { get; set; }
-
-            public int CleEnsElectrique { get; set; }
-
-            public Nullable<DateTime> DateDebutPeriode { get; set; }
-
-            public Nullable<DateTime> DateFinPeriode { get; set; }
-
-            public EnsembleElectrique EnsembleElectrique { get; set; }
-
-            public string RefRapportAction { get; set; }
-        }
-    }
-
-    // The MetadataTypeAttribute identifies AnAnalyseEeVisiteMetadata as the class
-    // that carries additional metadata for the AnAnalyseEeVisite class.
-    [MetadataTypeAttribute(typeof(AnAnalyseEeVisite.AnAnalyseEeVisiteMetadata))]
-    public partial class AnAnalyseEeVisite
-    {
-
-        // This class allows you to attach custom attributes to properties
-        // of the AnAnalyseEeVisite class.
-        //
-        // For example, the following marks the Xyz property as a
-        // required property and specifies the format for valid values:
-        //    [Required]
-        //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
-        //    [StringLength(32)]
-        //    public string Xyz { get; set; }
-        internal sealed class AnAnalyseEeVisiteMetadata
-        {
-
-            // Metadata classes are not meant to be instantiated.
-            private AnAnalyseEeVisiteMetadata()
-            {
-            }
-
-            public AnAnalyseEe AnAnalyseEe { get; set; }
-
-            public int CleAnalyse { get; set; }
-
-            public int CleAnalyseEeVisite { get; set; }
-
-            public int CleVisite { get; set; }
-
-            public Visite Visite { get; set; }
-        }
-    }
-
+   
     // The MetadataTypeAttribute identifies AnAnalyseSerieMesureMetadata as the class
     // that carries additional metadata for the AnAnalyseSerieMesure class.
     [MetadataTypeAttribute(typeof(AnAnalyseSerieMesure.AnAnalyseSerieMesureMetadata))]
@@ -460,7 +388,7 @@ namespace Proteca.Web.Models
             {
             }
 
-            public EntityCollection<AnAnalyseEe> AnAnalyseEe { get; set; }
+
 
             public int CleEnsElectrique { get; set; }
 

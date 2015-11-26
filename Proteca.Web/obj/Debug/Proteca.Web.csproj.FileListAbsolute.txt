@@ -50,18 +50,6 @@ E:\Nouveau dossier\Proteca.Web\obj\Debug\Proteca.Web.csprojResolveAssemblyRefere
 E:\projet Proteca\Proteca.Web\bin\Proteca.Web.dll.config
 E:\projet Proteca\Proteca.Web\bin\Proteca.Web.dll
 E:\projet Proteca\Proteca.Web\bin\Proteca.Web.pdb
-E:\projet Proteca\Proteca.Web\bin\log4net.dll
-E:\projet Proteca\Proteca.Web\bin\Microsoft.Data.Edm.dll
-E:\projet Proteca\Proteca.Web\bin\Microsoft.Data.OData.dll
-E:\projet Proteca\Proteca.Web\bin\Microsoft.Data.Services.Client.dll
-E:\projet Proteca\Proteca.Web\bin\Microsoft.Data.Services.dll
-E:\projet Proteca\Proteca.Web\bin\System.ComponentModel.DataAnnotations.dll
-E:\projet Proteca\Proteca.Web\bin\System.ServiceModel.dll
-E:\projet Proteca\Proteca.Web\bin\System.ServiceModel.DomainServices.EntityFramework.dll
-E:\projet Proteca\Proteca.Web\bin\System.ServiceModel.DomainServices.Hosting.dll
-E:\projet Proteca\Proteca.Web\bin\System.ServiceModel.DomainServices.Server.dll
-E:\projet Proteca\Proteca.Web\bin\System.Spatial.dll
-E:\projet Proteca\Proteca.Web\bin\Telerik.Web.UI.dll
 E:\projet Proteca\Proteca.Web\bin\Microsoft.Data.Edm.xml
 E:\projet Proteca\Proteca.Web\bin\Microsoft.Data.OData.xml
 E:\projet Proteca\Proteca.Web\bin\Microsoft.Data.Services.xml
@@ -150,3 +138,4 @@ E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.Resources.ValidationErrorRes
 E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.csproj.GenerateResource.Cache
 E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.dll
 E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.pdb
+E:\projet Proteca\Proteca.Web\obj\Debug\Proteca.Web.csprojResolveAssemblyReference.cache
